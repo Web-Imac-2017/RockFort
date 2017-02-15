@@ -1,16 +1,11 @@
 {
-<<<<<<< HEAD
   "name": "rockfort",
-=======
-  "name": "portfolio",
->>>>>>> 8f62be4ff9ebcab734b65045647138d21f00d23b
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Web-Imac-2017/RockFort.git"
@@ -30,12 +25,10 @@
     "gulp-csscomb": "latest",
     "gulp-cssbeautify": "latest",
     "gulp-autoprefixer": "latest"
-=======
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
->>>>>>> 8f62be4ff9ebcab734b65045647138d21f00d23b
   }
 }
