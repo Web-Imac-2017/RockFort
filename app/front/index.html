@@ -1,44 +1,85 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>Vinyl Store</title>
+<head>
+	<meta charset="utf-8" />
+	<title>Vinyl Store</title>
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap-grid.min.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<header>
-			<nav>
-				<div class="nav left col-xl-4">
-					<ul>
-						<li><a href="#">Le store</a> |</li>
-						<li><a href="#">La story</a></li>
-					</ul>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		        <span class="sr-only">Nav</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+		    <div id="navbar" class="collapse navbar-collapse">
+		      <ul class="nav nav-justified navbar-nav center-block">
+		        <li><a href="#">Le store</a></li>
+		        <li><a href="#">La story</a></li>
+		        <li id="site-logo" class="hidden-xs"><a href="#"><img id="logo-navbar-middle" src="imgs/logo.png" width="200" alt="Logo Thing main logo"></a></li>
+		        <li><a href="#">Panier</a></li>
+		        <li><a href="#">Connexion</a></li>
+		        <li class="hidden-xs" style="visibility: hidden;"><a href="#">Sixth Link</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+			<!-- <nav>
+			<div class="nav left col-xl-4">
+			<ul>
+			<li><a href="#">Le store</a> |</li>
+			<li><a href="#">La story</a></li>
+		</ul>
+	</div>
+	<div class="left col-xl-4">
+	<img src="imgs/logo.png" style="width: 100px;" />
+</div>
+<div class="nav right col-xl-4">
+<ul class="right">
+<li><a href="#">Panier</a> |</li>
+<li><a href="#">Connexion</a></li>
+</ul>
+</div>
+</nav> -->
+</header>
+<div class="container-fluid">
+	<section id="subMenu">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="webSection leStore">
+
 				</div>
-				<div class="left col-xl-4">
-					<img src="imgs/logo_black.png" />
+			</div>
+			<div class="col-md-6">
+				<div class="webSection laStory">
+
 				</div>
-				<div class="nav right col-xl-4">
-					<ul class="right">
-						<li><a href="#">Panier</a> |</li>
-						<li><a href="#">Connexion</a></li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<section class="selection">
-		</section>
-		<section class="callToAction">
-		</section>
-		<section class="ost">
-		</section>
-		<footer>
-		</footer>.
-		<!--#######################-SCRIPTS#######################-->
-  		<script src="GulpFile.js"></script>
-  		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
-		<script src="app.js"></script>
-	</body>
+			</div>
+		</div>
+	</section>
+	<section id="selection">
+	</section>
+	<section id="callToAction">
+	</section>
+	<section id="ost">
+	</section>
+</div>
+
+<footer>
+</footer>
+<!--#######################-SCRIPTS#######################-->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+<script src="app.js"></script>
+</body>
 </html>
