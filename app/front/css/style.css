@@ -1,35 +1,71 @@
-header nav img {
-  display: block;
-  margin: 0 auto;
+@charset "UTF-8";
+/*PALETTE*/
+/*UTILES*/
+.left {
+  float: left;
 }
 
-header nav div.nav {
-  width: 100%;
-  border-bottom: 1px solid black;
+.right {
+  float: right;
 }
 
-header nav div.nav ul {
-  margin: 0;
+.border-bot {
+  border-bottom: 2px solid black;
+  margin-top: 117px;
+}
+
+.nopadding {
   padding: 0;
 }
 
-header nav div.nav ul li {
+.nomargin {
+  margin: 0;
+}
+
+/*NAV*/
+.navbar {
+  background-color: #fff;
+}
+
+.navbar .navbar-nav .left > li,
+.navbar .navbar-nav div > .right > li {
   display: inline;
-  color: #000;
+  font-size: 24px;
 }
 
-header nav div.nav ul li a {
+.navbar .navbar-nav .left > li a,
+.navbar .navbar-nav div > .right > li a {
+  color: #000;
+  font-size: 16px;
   text-decoration: none;
-  color: #000;
 }
 
+.navbar .navbar-nav .left > #site-logo {
+  position: relative;
+  bottom: -25px;
+}
+
+.navbar .navbar-nav .left > #site-logo img {
+  width: 100%;
+}
+
+/*SUBMENU*/
 #subMenu {
-  margin-top: 100px;
+  margin-top: 224px;
+}
+
+#subMenu a {
+  text-decoration: none;
 }
 
 #subMenu .webSection {
-  background-color: red;
-  height: 500px;
+  height: 260px;
+}
+
+#subMenu .webSection h2 {
+  color: #fff;
+  font-size: 48px;
+  text-align: center;
 }
 
 #subMenu .leStore {
@@ -42,17 +78,79 @@ header nav div.nav ul li a {
   background-size: cover;
 }
 
-.navbar-nav > li {
-  float: none;
-  vertical-align: bottom;
+/*SELECTION*/
+#selection {
+  height: 360px;
 }
 
-#site-logo {
-  position: relative;
-  vertical-align: bottom;
-  bottom: -35px;
+#selection img {
+  padding-top: 20px;
+  display: block;
+  margin: 0 auto;
+  height: 200px;
 }
 
-#site-logo a {
-  margin-top: -53px;
+#selection h3 {
+  color: #000;
+  text-align: center;
+}
+
+/*CALL TO ACTION */
+#callToAction .row {
+  height: 360px;
+  background-color: #ffbb20;
+  color: #fff;
+}
+
+#callToAction .row div img {
+  height: 340px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#callToAction .row .border {
+  text-align: center;
+  margin: 10px 0;
+  border: 1px solid #fff;
+}
+
+#callToAction .row .border .price {
+  font-size: 24px;
+}
+
+#callToAction .row .border .hook {
+  font-size: 18px;
+}
+
+/*OST*/
+#ost {
+  height: 300px;
+}
+
+#ost .row div h2 {
+  margin: 0;
+  padding-left: 30px;
+  font-size: 70px;
+}
+
+#ost .row div img {
+  height: 150px;
+  padding: 10px 30px;
+}
+
+#ost .row div .big-cover {
+  width: 300px;
+  height: auto;
+}
+
+/*footer*/
+footer {
+  background: url("../imgs/footer_bkg.jpg") top no-repeat;
+  /*img à redimensionner sur photoshop*/
+  height: 260px;
+}
+
+footer img {
+  height: 50px;
 }
