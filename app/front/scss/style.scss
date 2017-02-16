@@ -47,10 +47,12 @@ $yellow : #ffbb20;
 	margin-top: 224px;
 	a{text-decoration: none;}
 	.webSection{
-		height: 260px;
+		height: 450px;
 		h2{
+			line-height: 450px;
 			color:$white;
-			font-size: 48px;
+			font-size: 60px;
+			letter-spacing: 12px;
 			text-align: center;
 		}
 	}
@@ -66,7 +68,7 @@ $yellow : #ffbb20;
 
 /*SELECTION*/
 #selection{
-	height:360px;
+	padding: 50px 0;
 	img{
 		padding-top:20px;
 		display:block;
@@ -74,6 +76,7 @@ $yellow : #ffbb20;
 		height:200px;
 	}
 	h3{
+		letter-spacing: 5px;
 		color:$black;
 		text-align: center;
 	}
@@ -85,23 +88,33 @@ $yellow : #ffbb20;
 	.row{
 		height:360px;
 		background-color:$yellow;
-
 		color:$white;
-
-		div{
+		.slogan{
 			img{
 				height:340px;
 				position:absolute;
 				bottom:0;
 				left:0;
 			}
+			h2{
+				font-size: 5em;
+				margin: 0 0 0 50px;
+				z-index: 999;
+			}
+			p{
+				font-size: 2em;
+				margin: 0 0 0 200px;
+			}
 		}
 
 		.border{
 			text-align: center;
-			margin:10px 0;
+			margin: 50px 50px 0 0;
 			border:1px solid $white;
-			.price{font-size:24px;}
+			.price{
+				font-size:2.5em;
+				font-weight: bold;
+			}
 			.hook{font-size: 18px}
 		}
 	}
@@ -110,26 +123,28 @@ $yellow : #ffbb20;
 /*OST*/
 #ost{
 	height:300px;
+	padding: 50px 0;
 	.row div{
 		h2{
 			margin:0;
 			padding-left: 30px;
 			font-size: 70px;}
-		img{
-			height:150px;
-			padding:10px 30px;
-		}
-		.big-cover{
-			width:300px;
-			height:auto;
+			img{
+				height:150px;
+				padding:10px 30px;
+			}
+			.big-cover{
+				width:300px;
+				height:auto;
+			}
 		}
 	}
-}
 
-/*footer*/
-footer{
-	background: url('../imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
-	height:260px;
+	/*footer*/
+	footer{
+		background: url('../imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
+		height:260px;
+		color: white;
 
-	img{height:50px;}
-}
+		img{height:50px;}
+	}

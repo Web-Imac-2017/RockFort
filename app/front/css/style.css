@@ -59,12 +59,14 @@
 }
 
 #subMenu .webSection {
-  height: 260px;
+  height: 450px;
 }
 
 #subMenu .webSection h2 {
+  line-height: 450px;
   color: #fff;
-  font-size: 48px;
+  font-size: 60px;
+  letter-spacing: 12px;
   text-align: center;
 }
 
@@ -80,7 +82,7 @@
 
 /*SELECTION*/
 #selection {
-  height: 360px;
+  padding: 50px 0;
 }
 
 #selection img {
@@ -91,6 +93,7 @@
 }
 
 #selection h3 {
+  letter-spacing: 5px;
   color: #000;
   text-align: center;
 }
@@ -102,21 +105,33 @@
   color: #fff;
 }
 
-#callToAction .row div img {
+#callToAction .row .slogan img {
   height: 340px;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
+#callToAction .row .slogan h2 {
+  font-size: 5em;
+  margin: 0 0 0 50px;
+  z-index: 999;
+}
+
+#callToAction .row .slogan p {
+  font-size: 2em;
+  margin: 0 0 0 200px;
+}
+
 #callToAction .row .border {
   text-align: center;
-  margin: 10px 0;
+  margin: 50px 50px 0 0;
   border: 1px solid #fff;
 }
 
 #callToAction .row .border .price {
-  font-size: 24px;
+  font-size: 2.5em;
+  font-weight: bold;
 }
 
 #callToAction .row .border .hook {
@@ -126,6 +141,7 @@
 /*OST*/
 #ost {
   height: 300px;
+  padding: 50px 0;
 }
 
 #ost .row div h2 {
@@ -149,6 +165,7 @@ footer {
   background: url("../imgs/footer_bkg.jpg") top no-repeat;
   /*img à redimensionner sur photoshop*/
   height: 260px;
+  color: white;
 }
 
 footer img {
