@@ -51,7 +51,7 @@
 
 /*SUBMENU*/
 #subMenu {
-  margin-top: 224px;
+  margin-top: 223px;
 }
 
 #subMenu a {
@@ -71,12 +71,12 @@
 }
 
 #subMenu .leStore {
-  background: url("../imgs/leStore.jpg") top no-repeat;
+  background: url("../assets/imgs/leStore.jpg") top no-repeat;
   background-size: cover;
 }
 
 #subMenu .laStory {
-  background: url("../imgs/laStory.jpg") top no-repeat;
+  background: url("../assets/imgs/laStory.jpg") top no-repeat;
   background-size: cover;
 }
 
@@ -108,7 +108,7 @@
 #callToAction .row .slogan img {
   height: 340px;
   position: absolute;
-  bottom: 0;
+  bottom: -120px;
   left: 0;
 }
 
@@ -162,7 +162,7 @@
 
 /*footer*/
 footer {
-  background: url("../imgs/footer_bkg.jpg") top no-repeat;
+  background: url("../assets/imgs/footer_bkg.jpg") top no-repeat;
   /*img à redimensionner sur photoshop*/
   height: 260px;
   color: white;
