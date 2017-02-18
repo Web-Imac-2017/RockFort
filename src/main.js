@@ -1,7 +1,34 @@
 import Vue from 'vue'
-import App from './App.vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+	mode: 'history',
+	routes: [{
+		path:'/',
+		component: require('./components/Home.vue')
+
+	}, {
+		path:'/store',
+		component: require('./components/Store.vue')
+	}, {
+		path:'/product',
+		component: require('./components/Product.vue')
+	}, {
+		path:'/search',
+		component: require('./components/Search.vue')
+	}, {
+		path:'/random',
+		component: require('./components/Random.vue')
+	}, {
+		path:'*',
+		redirect: '/'
+	}]
+})
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  router,
+  render: h => h(require('./App.vue'))
 })
