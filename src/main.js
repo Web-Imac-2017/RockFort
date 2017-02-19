@@ -8,7 +8,6 @@ const router = new VueRouter({
 	routes: [{
 		path:'/',
 		component: require('./components/Home.vue')
-
 	}, {
 		path:'/store',
 		component: require('./components/Store.vue')

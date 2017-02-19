@@ -160,6 +160,48 @@
   height: auto;
 }
 
+/* Le store */
+.storeList h1 {
+  text-align: center;
+  font-size: 75px;
+  letter-spacing: 10px;
+  font-weight: 600;
+  padding-top: 250px;
+}
+
+.storeList h2 {
+  text-align: center;
+  color: white;
+  line-height: 150px;
+  font-size: 60px;
+  margin: 0;
+  letter-spacing: 10px;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.storeList .row {
+  margin-bottom: 50px;
+}
+
+.storeList .row .tile {
+  height: 250px;
+  padding: 50px 0;
+  cursor: pointer;
+}
+
+.storeList .row .disques {
+  background: url("../assets/imgs/leStore.jpg") top no-repeat;
+}
+
+.storeList .row .platines {
+  background: url("../assets/imgs/laStory.jpg") center no-repeat;
+}
+
+.storeList .row .coffrets {
+  background: url("../assets/imgs/coffrets.jpg") center no-repeat;
+}
+
 /*footer*/
 footer {
   background: url("../assets/imgs/footer_bkg.jpg") top no-repeat;

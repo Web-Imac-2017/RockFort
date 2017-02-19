@@ -128,23 +128,63 @@ $yellow : #ffbb20;
     h2{
       margin:0;
       padding-left: 30px;
-      font-size: 70px;}
-      img{
-        height:150px;
-        padding:10px 30px;
-      }
-      .big-cover{
-        width:300px;
-        height:auto;
-      }
+      font-size: 70px;
+    }
+    img{
+      height:150px;
+      padding:10px 30px;
+    }
+    .big-cover{
+      width:300px;
+      height:auto;
     }
   }
+}
 
-  /*footer*/
-  footer{
-    background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
-    height:260px;
-    color: white;
-
-    img{height:50px;}
+/* Le store */
+.storeList{
+  h1{
+    text-align: center;
+    font-size: 75px;
+    letter-spacing: 10px;
+    font-weight: 600;
+    padding-top: 250px;
   }
+  h2{
+    text-align: center;
+    color: white;
+    line-height: 150px;
+    font-size: 60px;
+    margin: 0;
+    letter-spacing: 10px;
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  .row{
+    margin-bottom: 50px;
+    .tile{
+      height: 250px;
+      padding: 50px 0;
+      cursor: pointer;
+    }
+    .disques{
+      background: url('../assets/imgs/leStore.jpg') top no-repeat;
+    }
+    .platines{
+      background: url('../assets/imgs/laStory.jpg') center no-repeat;
+    }
+    .coffrets{
+      background: url('../assets/imgs/coffrets.jpg') center no-repeat;
+    }
+  }
+}
+
+
+/*footer*/
+footer{
+  background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
+  height:260px;
+  color: white;
+
+  img{height:50px;}
+}
