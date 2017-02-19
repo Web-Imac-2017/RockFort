@@ -13,6 +13,15 @@ const router = new VueRouter({
 		path:'/store',
 		component: require('./components/Store.vue')
 	}, {
+		path:'/story',
+		component: require('./components/Story.vue')
+	}, {
+		path:'/basket',
+		component: require('./components/Basket.vue')
+	}, {
+		path:'/login',
+		component: require('./components/Login.vue')
+	}, {
 		path:'/product',
 		component: require('./components/Product.vue')
 	}, {
