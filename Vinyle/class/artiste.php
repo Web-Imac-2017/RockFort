@@ -1,5 +1,8 @@
 <?php
     include_once '../connexion/connexion.php';
+    include '../class/*';
+    include '../connexion/*';
+
     class Artiste{
         private $id;
         private $nom;

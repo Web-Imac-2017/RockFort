@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
@@ -29,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `adresse` (
   `id` int(11) UNSIGNED NOT NULL,
   `id_commande` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère commande',
+<<<<<<< HEAD
   `adresse` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -55,6 +57,14 @@ INSERT INTO `adresse` (`id`, `id_commande`, `adresse`) VALUES
 (16, 236, 'chez moi'),
 (17, 237, 'ghjh');
 
+=======
+  `adresse` text NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `region` varchar(50) NOT NULL,
+  `pays` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -68,6 +78,7 @@ CREATE TABLE `article` (
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `article`
 --
@@ -79,6 +90,8 @@ INSERT INTO `article` (`id`, `nom`, `contenu`, `image`) VALUES
 (8, 'Death Row vs Bad Boy', 'East Coast vs West Coast', 'imaaage'),
 (9, 'Death Row vs Bad Boy', 'Tupac et Biggie', 'East Coast vs West Coast');
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -91,6 +104,7 @@ CREATE TABLE `article_tag` (
   `id_tag` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `article_tag`
 --
@@ -112,6 +126,8 @@ INSERT INTO `article_tag` (`id`, `id_article`, `id_tag`) VALUES
 (23, 9, 15),
 (24, 9, 16);
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -125,6 +141,7 @@ CREATE TABLE `artiste` (
   `image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `artiste`
 --
@@ -133,6 +150,8 @@ INSERT INTO `artiste` (`id`, `nom`, `description`, `image`) VALUES
 (3, 'Michael Jackson', 'Artiste de varieté le plus courroner de tous les temps', 'image'),
 (4, 'Notorious BIG', 'la star du label Bad Boy', 'image');
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -141,6 +160,7 @@ INSERT INTO `artiste` (`id`, `nom`, `description`, `image`) VALUES
 
 CREATE TABLE `commande` (
   `id` int(11) UNSIGNED NOT NULL,
+<<<<<<< HEAD
   `id_client` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère utilisateur',
   `date` datetime NOT NULL,
   `ttc` float NOT NULL,
@@ -169,6 +189,15 @@ INSERT INTO `commande` (`id`, `id_client`, `date`, `ttc`, `valide`) VALUES
 (236, 112, '2017-03-12 19:50:21', 299.97, 1),
 (237, 112, '2017-03-12 19:50:21', 299.97, 1);
 
+=======
+  `numero` int(11) NOT NULL,
+  `id_utilisateur` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère utilisateur',
+  `date` date NOT NULL,
+  `id_panier` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère panier reliée à la commande',
+  `ttc` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -181,6 +210,7 @@ CREATE TABLE `commande_produit` (
   `id_produit` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère produit'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `commande_produit`
 --
@@ -214,6 +244,8 @@ INSERT INTO `commande_produit` (`id`, `id_commande`, `id_produit`) VALUES
 (376, 237, 276),
 (377, 237, 532);
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -226,6 +258,7 @@ CREATE TABLE `commande_utilisateur` (
   `id_utilisateur` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère utilisateur'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `commande_utilisateur`
 --
@@ -295,6 +328,8 @@ INSERT INTO `commande_utilisateur` (`id`, `id_commande`, `id_utilisateur`) VALUE
 (234, 236, 112),
 (235, 237, 112);
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -308,6 +343,7 @@ CREATE TABLE `commentaire` (
   `id_produit` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère produit'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `commentaire`
 --
@@ -317,6 +353,8 @@ INSERT INTO `commentaire` (`id`, `contenu`, `id_utilisateur`, `id_produit`) VALU
 (52, 'MJ king of pop', 89, 83),
 (53, 'MJ n\'est pas mort', 89, 56);
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -330,6 +368,7 @@ CREATE TABLE `note` (
   `id_utilisateur` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère utilisateur'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `note`
 --
@@ -340,6 +379,22 @@ INSERT INTO `note` (`id`, `note`, `id_produit`, `id_utilisateur`) VALUES
 (14, 10, 56, 89),
 (15, 8, 79, 89),
 (16, 9, 83, 89);
+=======
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `panier`
+--
+
+CREATE TABLE `panier` (
+  `id` int(11) UNSIGNED NOT NULL COMMENT 'clé primaire du panier (ne désigne qu''un unique produit)',
+  `numero` int(11) UNSIGNED NOT NULL COMMENT 'numéro du panier (discrimine les différents paniers - différents idPanier auront le même numPanier)',
+  `id_utilisateur` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère utilisateur',
+  `id_produit` int(11) UNSIGNED NOT NULL COMMENT 'clé étrangère produit',
+  `heureDebut` datetime NOT NULL COMMENT 'date création panier ',
+  `heureFin` datetime NOT NULL COMMENT 'date destruction panier'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 -- --------------------------------------------------------
 
@@ -854,6 +909,11 @@ INSERT INTO `produit` (`id`, `type`, `nom`, `description`, `image`, `musique`, `
 (545, 'Album', 'This time around', 'Un des deux morceaux où le KingOfPop collabore avec la star du label Bad Boy ', 'image', 'musique', 'pop', 99.99, 0),
 (546, 'Vinyle', 'This time around', 'Un des deux morceaux où le KingOfPop collabore avec la star du label Bad Boy ', 'image', 'musique', 'pop', 99.99, 0);
 
+=======
+  `prix` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -866,6 +926,7 @@ CREATE TABLE `produit_artiste` (
   `id_artiste` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `produit_artiste`
 --
@@ -1858,6 +1919,8 @@ INSERT INTO `produit_artiste` (`id`, `id_produit`, `id_artiste`) VALUES
 (1077, 546, 3),
 (1078, 546, 4);
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -1870,6 +1933,7 @@ CREATE TABLE `produit_tag` (
   `id_tag` int(11) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `produit_tag`
 --
@@ -3857,6 +3921,8 @@ INSERT INTO `produit_tag` (`id`, `id_produit`, `id_tag`) VALUES
 (2123, 546, 11),
 (2124, 546, 12);
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -3868,6 +3934,7 @@ CREATE TABLE `tag` (
   `nom` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 --
 -- Contenu de la table `tag`
 --
@@ -3885,6 +3952,8 @@ INSERT INTO `tag` (`id`, `nom`) VALUES
 (18, 'JFK'),
 (19, 'MarilynMonroe');
 
+=======
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- --------------------------------------------------------
 
 --
@@ -3893,6 +3962,7 @@ INSERT INTO `tag` (`id`, `nom`) VALUES
 
 CREATE TABLE `utilisateur` (
   `id` int(10) UNSIGNED NOT NULL,
+<<<<<<< HEAD
   `type` varchar(10) NOT NULL DEFAULT 'client' COMMENT 'le type de l''utilisateur, admin ou user',
   `motDePasse` varchar(12) NOT NULL COMMENT 'mdp pour connexion',
   `nom` varchar(30) NOT NULL,
@@ -3934,6 +4004,20 @@ INSERT INTO `utilisateur` (`id`, `type`, `motDePasse`, `nom`, `prenom`, `mail`, 
 (112, 'client', 'mdp', 'ngjom', 'prensom', 'lijhljefiekjgkhkhjhjkghjrgam', 'la mort');
 
 --
+=======
+  `type` varchar(4) NOT NULL DEFAULT 'user' COMMENT 'le type de l''utilisateur, admin ou user',
+  `identifiant` varchar(10) NOT NULL COMMENT 'identifiant pour se connecter',
+  `motDePasse` varchar(12) NOT NULL COMMENT 'mdp pour connexion',
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `adresse` varchar(255) NOT NULL,
+  `region` varchar(20) NOT NULL,
+  `ville` varchar(20) NOT NULL,
+  `pays` varchar(10) NOT NULL DEFAULT 'France'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 -- Index pour les tables exportées
 --
 
@@ -3969,7 +4053,12 @@ ALTER TABLE `artiste`
 --
 ALTER TABLE `commande`
   ADD PRIMARY KEY (`id`),
+<<<<<<< HEAD
   ADD KEY `user-commande` (`id_client`);
+=======
+  ADD UNIQUE KEY `panierCommande` (`id_panier`),
+  ADD KEY `user-commande` (`id_utilisateur`);
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 --
 -- Index pour la table `commande_produit`
@@ -4004,11 +4093,27 @@ ALTER TABLE `note`
   ADD KEY `id_utilisateur` (`id_utilisateur`);
 
 --
+<<<<<<< HEAD
 -- Index pour la table `produit`
 --
 ALTER TABLE `produit`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
+=======
+-- Index pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user-panier` (`id_utilisateur`),
+  ADD KEY `produit-panier` (`id_produit`),
+  ADD KEY `numPanier` (`numero`);
+
+--
+-- Index pour la table `produit`
+--
+ALTER TABLE `produit`
+  ADD PRIMARY KEY (`id`);
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 --
 -- Index pour la table `produit_artiste`
@@ -4016,9 +4121,13 @@ ALTER TABLE `produit`
 ALTER TABLE `produit_artiste`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_produit` (`id_produit`),
+<<<<<<< HEAD
   ADD KEY `id_artiste` (`id_artiste`),
   ADD KEY `id_produit_2` (`id_produit`,`id_artiste`),
   ADD KEY `id_produit_3` (`id_produit`,`id_artiste`);
+=======
+  ADD KEY `id_artiste` (`id_artiste`);
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 --
 -- Index pour la table `produit_tag`
@@ -4026,8 +4135,12 @@ ALTER TABLE `produit_artiste`
 ALTER TABLE `produit_tag`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_produit` (`id_produit`),
+<<<<<<< HEAD
   ADD KEY `id_tag` (`id_tag`),
   ADD KEY `id_tag_2` (`id_tag`);
+=======
+  ADD KEY `id_tag` (`id_tag`);
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 --
 -- Index pour la table `tag`
@@ -4049,72 +4162,133 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `article_tag`
 --
 ALTER TABLE `article_tag`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `artiste`
 --
 ALTER TABLE `artiste`
+<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `commande_produit`
 --
 ALTER TABLE `commande_produit`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=378;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `commande_utilisateur`
 --
 ALTER TABLE `commande_utilisateur`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `panier`
+--
+ALTER TABLE `panier`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'clé primaire du panier (ne désigne qu''un unique produit)';
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
+<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=547;
+=======
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `produit_artiste`
 --
 ALTER TABLE `produit_artiste`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1079;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `produit_tag`
 --
 ALTER TABLE `produit_tag`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2125;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `tag`
 --
 ALTER TABLE `tag`
+<<<<<<< HEAD
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+=======
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
+<<<<<<< HEAD
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+=======
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 --
 -- Contraintes pour les tables exportées
 --
@@ -4126,21 +4300,80 @@ ALTER TABLE `adresse`
   ADD CONSTRAINT `adresse-commande` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`);
 
 --
+<<<<<<< HEAD
 -- Contraintes pour la table `commande`
 --
 ALTER TABLE `commande`
   ADD CONSTRAINT `utilisateur-commande` FOREIGN KEY (`id_client`) REFERENCES `utilisateur` (`id`);
+=======
+-- Contraintes pour la table `article_tag`
+--
+ALTER TABLE `article_tag`
+  ADD CONSTRAINT `article_tag-article` FOREIGN KEY (`id_article`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `article_tag-tag` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id`);
+
+--
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `panier-commande` FOREIGN KEY (`id_panier`) REFERENCES `panier` (`numero`),
+  ADD CONSTRAINT `utilisateur-commande` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+
+--
+-- Contraintes pour la table `commande_produit`
+--
+ALTER TABLE `commande_produit`
+  ADD CONSTRAINT `commande_produit-commande` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`),
+  ADD CONSTRAINT `commande_produit-produit` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`);
+
+--
+-- Contraintes pour la table `commande_utilisateur`
+--
+ALTER TABLE `commande_utilisateur`
+  ADD CONSTRAINT `commande_utilisateur-commande` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`),
+  ADD CONSTRAINT `commande_utilisateur-utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+
+--
+-- Contraintes pour la table `commentaire`
+--
+ALTER TABLE `commentaire`
+  ADD CONSTRAINT `commentaire-produit` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`),
+  ADD CONSTRAINT `commentaire-utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+
+--
+-- Contraintes pour la table `note`
+--
+ALTER TABLE `note`
+  ADD CONSTRAINT `note-produit` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`),
+  ADD CONSTRAINT `note-utilisateur` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+
+--
+-- Contraintes pour la table `panier`
+--
+ALTER TABLE `panier`
+  ADD CONSTRAINT `produit-panier` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`),
+  ADD CONSTRAINT `utilisateur-panier` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`);
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 --
 -- Contraintes pour la table `produit_artiste`
 --
 ALTER TABLE `produit_artiste`
+<<<<<<< HEAD
   ADD CONSTRAINT `produit_artiste-artiste` FOREIGN KEY (`id_artiste`) REFERENCES `artiste` (`id`);
+=======
+  ADD CONSTRAINT `prduit_artiste-artiste` FOREIGN KEY (`id_artiste`) REFERENCES `artiste` (`id`),
+  ADD CONSTRAINT `prduit_artiste-produit` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`);
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
 --
 -- Contraintes pour la table `produit_tag`
 --
 ALTER TABLE `produit_tag`
+<<<<<<< HEAD
+=======
+  ADD CONSTRAINT `produit_tag-produit` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`),
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
   ADD CONSTRAINT `produit_tag-tag` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

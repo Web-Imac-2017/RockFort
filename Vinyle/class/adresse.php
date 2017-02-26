@@ -1,6 +1,11 @@
 <?php
+<<<<<<< HEAD
     include_once '../connexion/connexion.php';
    /*********************************ADRESSE*********************************/
+=======
+    include '../class/*';
+    include '../connexion/*';
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
     class Adresse{
         private $numero;
@@ -11,6 +16,7 @@
         private $pays;
         
         public function __construct($numero,$rue,$code_postale,$ville,$region,$pays){
+<<<<<<< HEAD
             $this->$numero = $numero;
             $this->$rue = $rue;
             $this->$code_postale = $code_postale;
@@ -82,3 +88,15 @@
     $client->ajoutBdd();*/
     echo $adresse->getNumero();
 ?>
+=======
+            this.$numero = $numero;
+            this.$rue = $rue;
+            this.$code_postale = $code_postale;
+            this.$ville = $ville;
+            this.$region = $region;
+            this.$pays = $pays;
+        } 
+        
+    }
+
+>>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
