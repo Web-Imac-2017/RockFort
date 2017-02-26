@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
     $dbname = "mysql:host=localhost;dbname=vinylestore;";
