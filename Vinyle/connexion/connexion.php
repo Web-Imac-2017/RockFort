@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <?php
 
     $dbname = "mysql:host=localhost;dbname=vinylestore;";
@@ -15,3 +14,4 @@
     if($bdd === null){ echo 'NO'; } else { echo 'YES'; }
 
 ?>
+
