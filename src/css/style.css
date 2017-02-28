@@ -97,7 +97,7 @@
 /*CALL TO ACTION */
 #callToAction .row {
   height: 360px;
-  background-color: #ffbb20;
+  background-color: #ffd901;
   color: #fff;
 }
 
@@ -166,36 +166,73 @@
 }
 
 .storeList h2 {
-  text-align: center;
-  color: white;
-  line-height: 150px;
+  color: black;
   font-size: 60px;
   margin: 0;
   letter-spacing: 10px;
   font-weight: 400;
-  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.storeList .row {
-  margin-bottom: 50px;
+.storeList h3 {
+  margin-bottom: 35px;
 }
 
-.storeList .row .tile {
-  height: 250px;
-  padding: 50px 0;
-  cursor: pointer;
+.storeList h4 {
+  font-weight: 400;
+  font-size: 1.4em;
+  letter-spacing: 3px;
 }
 
-.storeList .row .disques {
-  background: url("../assets/imgs/leStore.jpg") top no-repeat;
+.storeList .vinyles, .storeList .coffrets {
+  background-color: #f0f0f0;
 }
 
-.storeList .row .platines {
-  background: url("../assets/imgs/laStory.jpg") center no-repeat;
+.storeList .vinyles, .storeList .coffrets, .storeList .platines {
+  padding: 35px 0;
 }
 
-.storeList .row .coffrets {
-  background: url("../assets/imgs/coffrets.jpg") center no-repeat;
+.storeList .platines {
+  background: url("../assets/imgs/rainbowBg.png") top no-repeat;
+}
+
+.storeList .vinyleItem {
+  margin-bottom: 40px;
+}
+
+.storeList .vinyleItem img {
+  width: 100%;
+}
+
+.storeList .productList .col-md-3:nth-child(odd) .coffretItem {
+  background-color: #f4901c;
+}
+
+.storeList .productList .col-md-3:nth-child(even) .coffretItem {
+  background-color: #ffd901;
+}
+
+.storeList a {
+  color: white;
+}
+
+.storeList a .coffretItem {
+  width: 100%;
+  height: 165px;
+  line-height: 165px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.storeList .productContent {
+  margin: 0px 15px;
+  border-left: 1px solid gainsboro;
+  padding-left: 50px;
+  text-align: center;
+}
+
+.storeList .productContent .vinyleItem {
+  margin-top: 30px;
+  margin-bottom: 0;
 }
 
 /*footer*/
