@@ -1,5 +1,32 @@
 <template>
 	<div>
+		<div class="container">
+			<section id="subMenu">
+				<a href="#">
+					<div class="col-md-4">
+						<h2>Vinyles</h2>
+						<img src="src/assets/imgs/vinyles.jpg" />
+					</div>
+				</a>
+				<a href="#">
+					<div class="col-md-4">
+						<h2>Platines</h2>
+						<img src="src/assets/imgs/platines.jpg" />
+					</div>
+				</a>
+				<a href="#">
+					<div class="col-md-4">
+						<h2>Coffrets</h2>
+						<img src="src/assets/imgs/coffrets.jpg" />
+					</div>
+				</a>
+			</section>
+		</div>
+	</div>
+</template>
+
+<!--<template>
+	<div>
 	  	<div class="container-fluid">
 			<section id="subMenu">
 				<div class="row">
@@ -105,7 +132,7 @@
 			</section>
 		</div>
 	</div>
-</template>
+</template>-->
 
 <script>
 	export default {
