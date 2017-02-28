@@ -25,8 +25,8 @@
 			<section id="callToAction">
 				<div class="slogan col-md-6 nopadding">
 					<div>
-						<h2>L'abonnement Vinyl Store</h2>
-						<p>Les psychologues le détestent !</p>
+						<h2>L'abonnement <br />Vinyl Store</h2>
+						<p>Les psychologues<br /> le détestent !</p>
 					</div>
 					<img src="src/assets/imgs/popart.png" />
 				</div>
@@ -66,6 +66,7 @@
 			</section>
 		</div>
 			<section id="originalSoundTrack">
+				<a href="#">
 				<div class="container">
 						<div class="col-md-4">
 							<img src="src/assets/imgs/vinyles.jpg" />
@@ -79,6 +80,7 @@
 							<p>Retrouvez les plus beaux moments du cinéma sur vos platines !</p>
 						</div>
 				</div>
+				</a>
 			</section>
 	</div>
 </template>

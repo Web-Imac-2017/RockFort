@@ -83,19 +83,29 @@ $sectionheight : 500px;
   
   .slogan{height:100%;}
 
-  h2{font-size:36px;}
+  h2{
+    text-align: center;
+    font-size:72px;
+  }
   
-  p{font-size:24px;}
+  .slogan p {
+    font-size:48px;
+    text-align: right;
+  }
   
   img {
     position:absolute;
     left:0px;
     bottom:0px;
+    z-index: 0;
   }
 
   .border{
+    height:400px;
     border: solid 2px #fff;
-    margin:25px 25px;
+    margin:50px 25px;
+    padding-top: 70px;
+    font-size:24px;
     text-align: center;
   }
 }
@@ -105,7 +115,7 @@ $sectionheight : 500px;
   height:$sectionheight;
   padding:50px 0;
   text-align: center;
-  a {color:$black;}
+  a{color:$black;}
 }
 
 /*OST*/
@@ -113,6 +123,8 @@ $sectionheight : 500px;
   height:$sectionheight;
   background-color:$grey;
   padding: 75px 0;
+
+  a{color: $black;}
 
   .ost-right > h2{
     font-size: 36px;
