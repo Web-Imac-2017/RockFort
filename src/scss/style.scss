@@ -1,17 +1,17 @@
 /*PALETTE*/
 $black : #000;
 $white : #fff;
+$grey : #ccc;
 $yellow : #ffbb20;
 
 
 /*UTILES*/
+$sectionheight : 500px;
 .left{float:left;}
 
 .right{float:right;}
 
-.border-bot{
-  border-bottom:2px solid black;
-}
+.border-bot{border-bottom:2px solid black;}
 
 .nopadding{padding:0;}
 
@@ -48,8 +48,8 @@ $yellow : #ffbb20;
 /*SUBMENU*/
 #subMenu{
   margin-top: 195px;
-  height:400px;
-  padding:25px 0;
+  height:$sectionheight;
+  padding:75px 0;
 
   div{
     position: relative;
@@ -76,7 +76,7 @@ $yellow : #ffbb20;
 
 /*CALL TO ACTION */
 #callToAction{
-  height:500px;
+  height:$sectionheight;
   background-color: $yellow;
 
   color:$white;
@@ -98,29 +98,35 @@ $yellow : #ffbb20;
     margin:25px 25px;
     text-align: center;
   }
+}
 
+/*SELECTION*/
+#selection{
+  height:$sectionheight;
+  padding:50px 0;
+  text-align: center;
+  a {color:$black;}
 }
 
 /*OST*/
-#ost{
-  height:300px;
-  padding: 50px 0;
-  .row div{
-    h2{
-      margin:0;
-      padding-left: 30px;
-      font-size: 70px;
-    }
-    img{
-      height:150px;
-      padding:10px 30px;
-    }
-    .big-cover{
-      width:300px;
-      height:auto;
-    }
+#originalSoundTrack{
+  height:$sectionheight;
+  background-color:$grey;
+  padding: 75px 0;
+
+  .ost-right > h2{
+    font-size: 36px;
+    margin-bottom: 20px;  
   }
+  .ost-right > p{
+    font-size: 28px;  
+  }
+
+  .ost-right > img,
+  .ost-right > h2,
+  .ost-right > p {padding:0 14px;}
 }
+
 
 /* Le store */
 .storeList{

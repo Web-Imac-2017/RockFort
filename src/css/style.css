@@ -49,8 +49,8 @@
 /*SUBMENU*/
 #subMenu {
   margin-top: 195px;
-  height: 400px;
-  padding: 25px 0;
+  height: 500px;
+  padding: 75px 0;
 }
 
 #subMenu div {
@@ -106,26 +106,37 @@
   text-align: center;
 }
 
-/*OST*/
-#ost {
-  height: 300px;
+/*SELECTION*/
+#selection {
+  height: 500px;
   padding: 50px 0;
+  text-align: center;
 }
 
-#ost .row div h2 {
-  margin: 0;
-  padding-left: 30px;
-  font-size: 70px;
+#selection a {
+  color: #000;
 }
 
-#ost .row div img {
-  height: 150px;
-  padding: 10px 30px;
+/*OST*/
+#originalSoundTrack {
+  height: 500px;
+  background-color: #ccc;
+  padding: 75px 0;
 }
 
-#ost .row div .big-cover {
-  width: 300px;
-  height: auto;
+#originalSoundTrack .ost-right > h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#originalSoundTrack .ost-right > p {
+  font-size: 28px;
+}
+
+#originalSoundTrack .ost-right > img,
+#originalSoundTrack .ost-right > h2,
+#originalSoundTrack .ost-right > p {
+  padding: 0 14px;
 }
 
 /* Le store */

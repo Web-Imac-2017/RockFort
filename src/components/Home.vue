@@ -22,27 +22,64 @@
 				</a>
 			</section>
 		</div>
-		<section id="callToAction">
-			<div class="slogan col-md-6 nopadding">
-				<div>
-					<h2>L'abonnement Vinyl Store</h2>
-					<p>Les psychologues le détestent !</p>
+			<section id="callToAction">
+				<div class="slogan col-md-6 nopadding">
+					<div>
+						<h2>L'abonnement Vinyl Store</h2>
+						<p>Les psychologues le détestent !</p>
+					</div>
+					<img src="src/assets/imgs/popart.png" />
 				</div>
-				<img src="src/assets/imgs/popart.png" />
-			</div>
-			<div class="col-md-6">
-				<div class="border" >
-					<p class="price">
-						Le secret de la bonne humeur :<br />
-						3 vinyles / mois <br />
-						40€ <br />
-					</p>
-					<p class="hook">
-						Les nouveautés comme les grands classiques dans votre boîte aux lettres.
-					</p>
+				<div class="col-md-6">
+					<div class="border" >
+						<p class="price">
+							Le secret de la bonne humeur :<br />
+							3 vinyles / mois <br />
+							40€ <br />
+						</p>
+						<p class="hook">
+							Les nouveautés comme les grands classiques dans votre boîte aux lettres.
+						</p>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		<div class="container">
+			<section id="selection">
+				<a href="#">
+					<div class="col-md-4">
+						<img src="src/assets/imgs/vinyles.jpg" />
+						<h2>Sélection Oldies</h2>
+					</div>
+				</a>
+				<a href="#">
+					<div class="col-md-4">
+						<img src="src/assets/imgs/platines.jpg" />
+						<h2>Le coffret du mois</h2>
+					</div>
+				</a>
+				<a href="#">
+					<div class="col-md-4">
+						<img src="src/assets/imgs/coffrets.jpg" />
+						<h2>Sélection Nouveautés</h2>
+					</div>
+				</a>
+			</section>
+		</div>
+			<section id="originalSoundTrack">
+				<div class="container">
+						<div class="col-md-4">
+							<img src="src/assets/imgs/vinyles.jpg" />
+						</div>
+						<div class="ost-right col-md-8">
+							<h2 class="nomargin">Les Bandes Originales</h2>
+							<img src="src/assets/imgs/ost.jpg" />
+							<img src="src/assets/imgs/ost.jpg" />
+							<img src="src/assets/imgs/ost.jpg" />
+							<img src="src/assets/imgs/ost.jpg" />
+							<p>Retrouvez les plus beaux moments du cinéma sur vos platines !</p>
+						</div>
+				</div>
+			</section>
 	</div>
 </template>
 
