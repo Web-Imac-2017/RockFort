@@ -12,6 +12,21 @@ const router = new VueRouter({
 		path:'/store',
 		component: require('./components/Store.vue')
 	}, {
+		path:'/store/vinyles',
+		component: require('./components/Vinyles.vue')
+	}, {
+		path:'/store/platines',
+		component: require('./components/Platines.vue')
+	}, {
+		path:'/store/coffrets',
+		component: require('./components/Coffrets.vue')
+	}, {
+		path:'/abonnement',
+		component: require('./components/Abonnement.vue')
+	}, {
+		path:'/offrir',
+		component: require('./components/Offrir.vue')
+	}, {
 		path:'/story',
 		component: require('./components/Story.vue')
 	}, {

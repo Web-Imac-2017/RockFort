@@ -2,24 +2,31 @@
   <header class="border-bot">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <a href="/"><img class="logo" src="src/assets/imgs/logo.png" /></a>
+        <a href="/"><img class="logo" src="/src/assets/imgs/logo.png" /></a>
         <img src="" /> <!--Bandeau Orange à faire -->
         <ul class="nav-user right">
           <li><a href="#">Panier</a></li>
           <li><a href="#">Connexion</a></li>
+          <li>
+            <form class="right" action="/search">
+              <input type="text" placeholder="rechercher un vinyle" />
+            </form>
+          </li>
         </ul>   
         <ul class="nav-content">
-          <li><a href="#">Accueil</a> |</li>
-          <li><a href="#">Vinyles</a> |</li>
-          <li><a href="#">Platines</a> |</li>
-          <li><a href="#">Coffrets</a> |</li>
-          <li><a href="#">Abonnement</a> |</li>
-          <li><a href="#">Offrir</a> |</li>
-          <li><a href="#">La Story</a></li>
+          <li><a href="/">Accueil</a> |</li>
+          <li><router-link to="/store">Le Store</router-link> |</li>
+          <li><router-link to="/store/vinyles">Vinyles</router-link> |</li>
+          <li><router-link to="/store/platines">Platines</router-link> |</li>
+          <li><router-link to="/store/coffrets">Coffrets</router-link> |</li>
+          <li><router-link to="/abonnement">Abonnement</router-link> |</li>
+          <li><router-link to="/offrir">Offrir</router-link> |</li>
+          <li><router-link to="/story">La Story</router-link></li>
         </ul>
       </div>
-    </nav class="border-bot">
-  </header class="border-bot">
+
+    </nav>
+  </header>
 </template>
 
 <!-- <template>
