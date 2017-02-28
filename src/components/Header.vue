@@ -7,6 +7,11 @@
         <ul class="nav-user right">
           <li><a href="#">Panier</a></li>
           <li><a href="#">Connexion</a></li>
+          <li>
+            <form class="right" action="/search">
+              <input type="text" placeholder="rechercher un vinyle" />
+            </form>
+          </li>
         </ul>   
         <ul class="nav-content">
           <li><a href="/">Accueil</a> |</li>
@@ -18,6 +23,7 @@
           <li><router-link to="/story">La Story</router-link></li>
         </ul>
       </div>
+
     </nav>
   </header>
 </template>
