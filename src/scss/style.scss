@@ -76,39 +76,29 @@ $yellow : #ffbb20;
 
 /*CALL TO ACTION */
 #callToAction{
-  .row{
-    height:400px;
-    background-color:#000;
-    color:$white;
-    .slogan{
-      img{
-        height:340px;
-        position:absolute;
-        bottom: -120px;
-        left:0;
-      }
-      h2{
-        font-size: 5em;
-        margin: 0 0 0 50px;
-        z-index: 999;
-      }
-      p{
-        font-size: 2em;
-        margin: 0 0 0 200px;
-      }
-    }
+  height:500px;
+  background-color: $yellow;
 
-    .border{
-      text-align: center;
-      margin: 50px 50px 0 0;
-      border:1px solid $white;
-      .price{
-        font-size:2.5em;
-        font-weight: bold;
-      }
-      .hook{font-size: 18px}
-    }
+  color:$white;
+  
+  .slogan{height:100%;}
+
+  h2{font-size:36px;}
+  
+  p{font-size:24px;}
+  
+  img {
+    position:absolute;
+    left:0px;
+    bottom:0px;
   }
+
+  .border{
+    border: solid 2px #fff;
+    margin:25px 25px;
+    text-align: center;
+  }
+
 }
 
 /*OST*/

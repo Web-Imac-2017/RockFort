@@ -22,6 +22,27 @@
 				</a>
 			</section>
 		</div>
+		<section id="callToAction">
+			<div class="slogan col-md-6 nopadding">
+				<div>
+					<h2>L'abonnement Vinyl Store</h2>
+					<p>Les psychologues le détestent !</p>
+				</div>
+				<img src="src/assets/imgs/popart.png" />
+			</div>
+			<div class="col-md-6">
+				<div class="border" >
+					<p class="price">
+						Le secret de la bonne humeur :<br />
+						3 vinyles / mois <br />
+						40€ <br />
+					</p>
+					<p class="hook">
+						Les nouveautés comme les grands classiques dans votre boîte aux lettres.
+					</p>
+				</div>
+			</div>
+		</section>
 	</div>
 </template>
 

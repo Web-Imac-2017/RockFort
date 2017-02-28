@@ -76,43 +76,34 @@
 }
 
 /*CALL TO ACTION */
-#callToAction .row {
-  height: 400px;
-  background-color: #000;
+#callToAction {
+  height: 500px;
+  background-color: #ffbb20;
   color: #fff;
 }
 
-#callToAction .row .slogan img {
-  height: 340px;
+#callToAction .slogan {
+  height: 100%;
+}
+
+#callToAction h2 {
+  font-size: 36px;
+}
+
+#callToAction p {
+  font-size: 24px;
+}
+
+#callToAction img {
   position: absolute;
-  bottom: -120px;
-  left: 0;
+  left: 0px;
+  bottom: 0px;
 }
 
-#callToAction .row .slogan h2 {
-  font-size: 5em;
-  margin: 0 0 0 50px;
-  z-index: 999;
-}
-
-#callToAction .row .slogan p {
-  font-size: 2em;
-  margin: 0 0 0 200px;
-}
-
-#callToAction .row .border {
+#callToAction .border {
+  border: solid 2px #fff;
+  margin: 25px 25px;
   text-align: center;
-  margin: 50px 50px 0 0;
-  border: 1px solid #fff;
-}
-
-#callToAction .row .border .price {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-
-#callToAction .row .border .hook {
-  font-size: 18px;
 }
 
 /*OST*/
