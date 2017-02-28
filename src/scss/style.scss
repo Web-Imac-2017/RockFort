@@ -2,7 +2,10 @@
 $black : #000;
 $white : #fff;
 $yellow : #ffbb20;
-
+$beige: #f0f0f0;
+$grey: rgb(220, 220, 220);
+$orange: #f4901c;
+$yellow: #ffd901;
 
 /*UTILES*/
 .left{float:left;}
@@ -32,7 +35,7 @@ $yellow : #ffbb20;
       display:inline;
     }
     a {
-      color : $black;      
+      color : $black;
       padding: 0 20px;
     }
   }
@@ -154,30 +157,61 @@ $yellow : #ffbb20;
     padding-top: 250px;
   }
   h2{
-    text-align: center;
-    color: white;
-    line-height: 150px;
+    color: black;
     font-size: 60px;
     margin: 0;
     letter-spacing: 10px;
     font-weight: 400;
-    background-color: rgba(255, 255, 255, 0.4);
   }
-  .row{
-    margin-bottom: 50px;
-    .tile{
-      height: 250px;
-      padding: 50px 0;
-      cursor: pointer;
+  h3{
+    margin-bottom: 35px;
+  }
+  h4{
+    font-weight: 400;
+    font-size: 1.4em;
+    letter-spacing: 3px;
+  }
+  .vinyles, .coffrets{
+    background-color: $beige;
+  }
+  .vinyles, .coffrets, .platines{
+    padding: 35px 0;
+  }
+  .platines{
+    background: url('../assets/imgs/rainbowBg.png') top no-repeat;
+  }
+  .vinyleItem{
+    margin-bottom: 40px;
+    img{
+      width: 100%;
     }
-    .disques{
-      background: url('../assets/imgs/leStore.jpg') top no-repeat;
+  }
+  .productList{
+    .col-md-3:nth-child(odd) .coffretItem{
+      background-color: $orange;
     }
-    .platines{
-      background: url('../assets/imgs/laStory.jpg') center no-repeat;
+    .col-md-3:nth-child(even) .coffretItem{
+      background-color: $yellow;
     }
-    .coffrets{
-      background: url('../assets/imgs/coffrets.jpg') center no-repeat;
+  }
+  a{
+    color: white;
+    .coffretItem{
+      width: 100%;
+      height: 165px;
+      line-height: 165px;
+      text-align: center;
+      border: 1px solid black;
+    }
+  }
+  .productContent{
+    margin: 0px 15px;
+    border-left: 1px solid $grey;
+    padding-left: 50px;
+    text-align: center;
+    .vinyleItem{
+      margin-top: 30px;
+      margin-bottom: 0;
     }
   }
 }
