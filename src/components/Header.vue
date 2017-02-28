@@ -15,6 +15,7 @@
         </ul>   
         <ul class="nav-content">
           <li><a href="/">Accueil</a> |</li>
+          <li><router-link to="/store">Le Store</router-link> |</li>
           <li><router-link to="/store/vinyles">Vinyles</router-link> |</li>
           <li><router-link to="/store/platines">Platines</router-link> |</li>
           <li><router-link to="/store/coffrets">Coffrets</router-link> |</li>

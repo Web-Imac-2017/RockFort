@@ -10,9 +10,9 @@
 			</div>
 			<div class="social col-md-4">
 				<ul>
-					<li><a href="#"><img src="src/assets/imgs/twitter-logo-button.png" /></a></li>
-					<li><a href="#"><img src="src/assets/imgs/twitter-logo-button.png" /></a></li>
-					<li><a href="#"><img src="src/assets/imgs/twitter-logo-button.png" /></a></li>
+					<li><a href="#"><img src="/src/assets/imgs/twitter-logo-button.png" /></a></li>
+					<li><a href="#"><img src="/src/assets/imgs/twitter-logo-button.png" /></a></li>
+					<li><a href="#"><img src="/src/assets/imgs/twitter-logo-button.png" /></a></li>
 				</ul>
 			</div>
 			<div class="newsletter col-md-4">
