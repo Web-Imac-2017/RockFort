@@ -11,7 +11,6 @@ $yellow : #ffbb20;
 
 .border-bot{
   border-bottom:2px solid black;
-  margin-top:117px;
 }
 
 .nopadding{padding:0;}
@@ -20,25 +19,27 @@ $yellow : #ffbb20;
 
 
 /*NAV*/
+
+
 .navbar{
   background-color:$white;
-  .navbar-nav {
-    .left > li,
-    div > .right > li {
-      display:inline;
-      font-size: 24px;
-      a{
-        color:$black;
-        font-size: 16px;
-        text-decoration: none;
-      }
-    }
 
-    .left > #site-logo {
-      position: relative;
-      bottom: -25px;
-      img{width:100%;}
+  .logo{padding:14px;}
+
+  ul {
+    li {
+      font-size: 18px;
+      display:inline;
     }
+    a {
+      color : $black;      
+      padding: 0 20px;
+    }
+  }
+
+  .nav-content{
+    margin:0 auto;
+    text-align:center;
   }
 }
 

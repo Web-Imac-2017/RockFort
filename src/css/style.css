@@ -11,7 +11,6 @@
 
 .border-bot {
   border-bottom: 2px solid black;
-  margin-top: 117px;
 }
 
 .nopadding {
@@ -27,26 +26,23 @@
   background-color: #fff;
 }
 
-.navbar .navbar-nav .left > li,
-.navbar .navbar-nav div > .right > li {
+.navbar .logo {
+  padding: 14px;
+}
+
+.navbar ul li {
+  font-size: 18px;
   display: inline;
-  font-size: 24px;
 }
 
-.navbar .navbar-nav .left > li a,
-.navbar .navbar-nav div > .right > li a {
+.navbar ul a {
   color: #000;
-  font-size: 16px;
-  text-decoration: none;
+  padding: 0 20px;
 }
 
-.navbar .navbar-nav .left > #site-logo {
-  position: relative;
-  bottom: -25px;
-}
-
-.navbar .navbar-nav .left > #site-logo img {
-  width: 100%;
+.navbar .nav-content {
+  margin: 0 auto;
+  text-align: center;
 }
 
 /*SUBMENU*/

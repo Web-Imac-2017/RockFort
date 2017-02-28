@@ -1,4 +1,28 @@
 <template>
+  <header class="border-bot">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <a href="/"><img class="logo" src="src/assets/imgs/logo.png" /></a>
+        <img src="" /> <!--Bandeau Orange à faire -->
+        <ul class="nav-user right">
+          <li><a href="#">Panier</a></li>
+          <li><a href="#">Connexion</a></li>
+        </ul>   
+        <ul class="nav-content">
+          <li><a href="#">Accueil</a> |</li>
+          <li><a href="#">Vinyles</a> |</li>
+          <li><a href="#">Platines</a> |</li>
+          <li><a href="#">Coffrets</a> |</li>
+          <li><a href="#">Abonnement</a> |</li>
+          <li><a href="#">Offrir</a> |</li>
+          <li><a href="#">La Story</a></li>
+        </ul>
+      </div>
+    </nav class="border-bot">
+  </header class="border-bot">
+</template>
+
+<!-- <template>
   <header>
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -31,4 +55,4 @@
       </div>
     </nav>
   </header>
-</template>
+</template> -->
