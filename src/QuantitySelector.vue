@@ -19,7 +19,7 @@
 export default {
   data() {
     return{
-      quantity: 0
+      quantity: 1
     }
   },
   methods: {
@@ -27,7 +27,7 @@ export default {
       this.quantity++
     },
     decrement() {
-      if (this.quantity > 0)
+      if (this.quantity > 1)
       this.quantity--
     }
   }
