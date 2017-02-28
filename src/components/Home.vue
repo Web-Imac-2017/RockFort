@@ -2,19 +2,19 @@
 	<div>
 		<div class="container">
 			<section id="subMenu">
-				<a href="#">
+				<a href="/store/vinyles">
 					<div class="col-md-4">
 						<h2>Vinyles</h2>
 						<img src="src/assets/imgs/vinyles.jpg" />
 					</div>
 				</a>
-				<a href="#">
+				<a href="/store/platines">
 					<div class="col-md-4">
 						<h2>Platines</h2>
 						<img src="src/assets/imgs/platines.jpg" />
 					</div>
 				</a>
-				<a href="#">
+				<a href="/store/coffrets">
 					<div class="col-md-4">
 						<h2>Coffrets</h2>
 						<img src="src/assets/imgs/coffrets.jpg" />
@@ -176,7 +176,7 @@
 						<div class="col-md-2 last">
 							<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
 						</div>
-						<!-- <div class="nopadding col-md-10">
+						 <div class="nopadding col-md-10">
 							<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
 							<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
 							<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
@@ -186,7 +186,7 @@
 						</div>
 						<div class="nopadding col-md-2">
 							<a href="#"><img class="big-cover"src="src/assets/imgs/velvetandnico.jpg" /></a>
-						</div> -->
+						</div> 
 					</div>
 				</div>
 			</section>

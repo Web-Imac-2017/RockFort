@@ -2,7 +2,7 @@
 	<div>
 		<div class="container-fluid storeList">
 			<div class="row">
-				<h1>Le store</h1>
+				<h1>Les Coffrets</h1>
 			</div>
 			<div class="row">
 				<div class="vinyles">
@@ -183,6 +183,7 @@
 			</div>
 		</div>
 	</div>
+
 </template>
 
 <script>
