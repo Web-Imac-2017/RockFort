@@ -18,8 +18,8 @@
           <li><a href="#">La Story</a></li>
         </ul>
       </div>
-    </nav class="border-bot">
-  </header class="border-bot">
+    </nav>
+  </header>
 </template>
 
 <!-- <template>
