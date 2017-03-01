@@ -42,6 +42,9 @@ const router = new VueRouter({
 		path:'/search',
 		component: require('./components/Search.vue')
 	}, {
+		path:'/store/list',
+		component: require('./components/ListProduct.vue')
+	}, {
 		path:'/random',
 		component: require('./components/Random.vue')
 	}, {

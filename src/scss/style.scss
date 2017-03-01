@@ -36,6 +36,12 @@ $sectionheight : 500px;
   margin-bottom: 30px;
 }
 
+.mbLarge{
+  margin-bottom: 75px;
+}
+
+p, h3{font-size: 24px;}
+
 /*NAV*/
 
 
@@ -162,12 +168,17 @@ $sectionheight : 500px;
 
 /* Le store */
 .storeList{
+  #leStore{
+    background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
   h1{
     text-align: center;
     font-size: 75px;
     letter-spacing: 10px;
     font-weight: 600;
     padding-top: 250px;
+    color: $white;
   }
   h2{
     color: black;
@@ -312,6 +323,41 @@ $sectionheight : 500px;
   }
 }
 
+
+/* List page */
+#listProduct{
+  #lesDisques{
+    background: url('../assets/imgs/list.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  .sortBar{
+    background-color: $beige;
+    height: 100px;
+    select, input, button{
+      width: 100%;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  }
+  .vinyleItem{
+    margin-bottom: 0;
+  }
+  p{margin: 0;}
+  p.vinylTitle, p.price{
+    font-family: "covesBold";
+  }
+  p.bandName{
+    font-size: 14px;
+  }
+  .addToCart{
+    background-color: $blue;
+    text-align: center;
+    color: white;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+  }
+}
 
 
 /*footer*/
