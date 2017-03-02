@@ -5,16 +5,17 @@
         <a href="/"><img class="logo" src="/src/assets/imgs/logo.png" /></a>
         <img src="" /> <!--Bandeau Orange à faire -->
         <ul class="nav-user right">
-          <li><a href="#">Panier</a></li>
-          <li><a href="#">Connexion</a></li>
+          <li><router-link to="/panier">Panier</router-link></li>
+          <li><router-link to="/connexion">Déjà inscrit ?</router-link></li>
+          <li><router-link to="/inscription">Créer mon compte</router-link></li>
           <li>
-            <form class="right" action="/search">
+            <form class="right" action="/recherche">
               <input type="text" placeholder="rechercher un vinyle" />
             </form>
           </li>
         </ul>   
         <ul class="nav-content">
-          <li><a href="/">Accueil</a> |</li>
+          <li><router-link to="/">Accueil</router-link> |</li>
           <li><router-link to="/store">Le Store</router-link> |</li>
           <li><router-link to="/store/vinyles">Vinyles</router-link> |</li>
           <li><router-link to="/store/platines">Platines</router-link> |</li>
