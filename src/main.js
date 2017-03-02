@@ -29,7 +29,10 @@ const router = new VueRouter({
 		path:'/offrir',
 		component: require('./components/Offrir.vue')
 	}, {
-		path:'/story',
+		path:'/story/list',
+		component: require('./components/StoryList.vue')
+	}, {
+		path:'/story/list/article',
 		component: require('./components/Story.vue')
 	}, {
 		path:'/product',

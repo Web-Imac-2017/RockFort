@@ -408,6 +408,61 @@ p, h3 {
   cursor: pointer;
 }
 
+/*Story List*/
+#storyList #storyListHeader {
+  background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#storyList a {
+  color: #000;
+}
+
+#storyList a div {
+  margin: 12px 0;
+}
+
+#storyList a div .imageArticle {
+  height: 250px;
+  overflow: hidden;
+}
+
+#storyList a div h2 {
+  margin: 10px 0;
+  font-size: 50px;
+}
+
+#storyList a div p {
+  margin: 10px 0;
+}
+
+#storyList a :hover {
+  color: #3f3f3f;
+}
+
+/*Story*/
+#laStory #laStoryHeader {
+  background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#laStory .selection h2 {
+  font-size: 24px;
+  padding-left: 15px;
+}
+
+#laStory .selection a {
+  color: #000;
+}
+
+#laStory .selection a :hover {
+  color: #3f3f3f;
+}
+
+#laStory .selection img {
+  width: 260px;
+}
+
 /*footer*/
 footer {
   background: url("../assets/imgs/footer_bkg.jpg") top no-repeat;

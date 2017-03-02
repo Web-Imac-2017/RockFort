@@ -22,7 +22,7 @@
           <li><router-link to="/store/list">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
           <li><router-link to="/offrir">Offrir</router-link> |</li>
-          <li><router-link to="/story">La Story</router-link></li>
+          <li><router-link to="/story/list">La Story</router-link></li>
         </ul>
       </div>
 
