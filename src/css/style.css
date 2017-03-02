@@ -372,17 +372,6 @@ p, h3 {
   background-size: cover;
 }
 
-#listProduct .sortBar {
-  background-color: #f0f0f0;
-  height: 100px;
-}
-
-#listProduct .sortBar select, #listProduct .sortBar input, #listProduct .sortBar button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 30px;
-}
-
 #listProduct .vinyleItem {
   margin-bottom: 0;
 }
@@ -408,10 +397,33 @@ p, h3 {
   cursor: pointer;
 }
 
+.sortBar {
+  background-color: #f0f0f0;
+  height: 100px;
+}
+
+.sortBar select, .sortBar input, .sortBar button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+}
+
 /*Recherche*/
 #Recherche #rechercheHeader {
   background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
   background-size: cover;
+}
+
+#Recherche a {
+  color: #000;
+}
+
+#Recherche a :hover {
+  color: #3f3f3f;
+}
+
+#Recherche a .result img {
+  width: 340px;
 }
 
 /*Story List*/
