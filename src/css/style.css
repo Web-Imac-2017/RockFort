@@ -408,6 +408,12 @@ p, h3 {
   cursor: pointer;
 }
 
+/*Recherche*/
+#Recherche #rechercheHeader {
+  background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
 /*Story List*/
 #storyList #storyListHeader {
   background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;

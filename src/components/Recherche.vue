@@ -1,5 +1,15 @@
 <template>
-	<div style="padding-top:250px">Search</div>
+	<div id="Recherche" >
+    	<div class="container-fluid storeList">
+     		<div id="rechercheHeader" class="row">
+        		<h1>Recherche</h1>
+      		</div>
+      	</div>
+      	<div class="container">
+      		<h2>Votre recherche : Lorem Ipsum</h2>
+      		<hr />
+      	</div>
+    </div>
 </template>
 
 <script>
