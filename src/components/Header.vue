@@ -13,13 +13,13 @@
               <input type="text" placeholder="rechercher un vinyle" />
             </form>
           </li>
-        </ul>   
+        </ul>
         <ul class="nav-content">
           <li><router-link to="/">Accueil</router-link> |</li>
           <li><router-link to="/store">Le Store</router-link> |</li>
-          <li><router-link to="/store/vinyles">Vinyles</router-link> |</li>
-          <li><router-link to="/store/platines">Platines</router-link> |</li>
-          <li><router-link to="/store/coffrets">Coffrets</router-link> |</li>
+          <li><router-link to="/store/list">Vinyles</router-link> |</li>
+          <li><router-link to="/store/list">Platines</router-link> |</li>
+          <li><router-link to="/store/list">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
           <li><router-link to="/offrir">Offrir</router-link> |</li>
           <li><router-link to="/story">La Story</router-link></li>

@@ -6,8 +6,21 @@ $beige: #f0f0f0;
 $grey: rgb(220, 220, 220);
 $orange: #f4901c;
 $yellow: #ffd901;
+$blue: #269be7;
+$blueLight: #99d0f3;
+
+@font-face {
+  font-family: "covesLight";
+  src: url('../fonts/CovesLight.otf');
+}
+@font-face {
+  font-family: "covesBold";
+  src: url('../fonts/CovesBold.otf');
+}
 
 /*UTILES*/
+body{font-family: "covesLight";}
+
 $sectionheight : 500px;
 .left{float:left;}
 
@@ -19,6 +32,15 @@ $sectionheight : 500px;
 
 .nomargin{margin:0;}
 
+.mb{
+  margin-bottom: 30px;
+}
+
+.mbLarge{
+  margin-bottom: 75px;
+}
+
+p, h3{font-size: 24px;}
 
 /*NAV*/
 
@@ -27,7 +49,7 @@ $sectionheight : 500px;
   background-color:$white;
 
   .logo{padding:14px;}
-  
+
   form{padding:0 20px;}
 
   ul {
@@ -62,7 +84,7 @@ $sectionheight : 500px;
 
     a{text-decoration: none;}
 
-    h2 {      
+    h2 {
       position: absolute;
       top: 45%;
       width: 100%;
@@ -84,19 +106,19 @@ $sectionheight : 500px;
   background-color: $yellow;
 
   color:$white;
-  
+
   .slogan{height:100%;}
 
   h2{
     text-align: center;
     font-size:72px;
   }
-  
+
   .slogan p {
     font-size:48px;
     text-align: right;
   }
-  
+
   img {
     position:absolute;
     left:0px;
@@ -132,10 +154,10 @@ $sectionheight : 500px;
 
   .ost-right > h2{
     font-size: 36px;
-    margin-bottom: 20px;  
+    margin-bottom: 20px;
   }
   .ost-right > p{
-    font-size: 28px;  
+    font-size: 28px;
   }
 
   .ost-right > img,
@@ -146,12 +168,17 @@ $sectionheight : 500px;
 
 /* Le store */
 .storeList{
+  #leStore{
+    background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
   h1{
     text-align: center;
     font-size: 75px;
     letter-spacing: 10px;
     font-weight: 600;
     padding-top: 250px;
+    color: $white;
   }
   h2{
     color: black;
@@ -177,12 +204,7 @@ $sectionheight : 500px;
   .platines{
     background: url('../assets/imgs/rainbowBg.png') top no-repeat;
   }
-  .vinyleItem{
-    margin-bottom: 40px;
-    img{
-      width: 100%;
-    }
-  }
+
   .productList{
     .col-md-3:nth-child(odd) .coffretItem{
       background-color: $orange;
@@ -210,6 +232,130 @@ $sectionheight : 500px;
       margin-top: 30px;
       margin-bottom: 0;
     }
+  }
+}
+.vinyleItem{
+  margin-bottom: 40px;
+  img{
+    width: 100%;
+  }
+}
+
+/* Page produit */
+#productPage{
+  padding-top: 250px;
+  img.vinyleImg{
+    width: 100%;
+  }
+  h1.vinyleTitle{
+    font-family: "covesBold";
+    margin: 0;
+    font-size: 3em;
+    letter-spacing: 3px;
+  }
+  h4.bandName{
+    font-size: 1.3em;
+    margin-top: 0;
+  }
+  p.more{
+    font-size: 1.3em;
+    font-family: "covesBold";
+  }
+  .price{
+    font-family: "covesBold";
+    font-size: 2em;
+  }
+  .quantitySelector, .addToCart{
+    background-color: $blue;
+    text-align: center;
+    color: white;
+    height: 50px;
+  }
+  .quantity{
+    line-height: 50px;
+    font-size: 1.3em;
+  }
+  .incrButton, .decrButton{
+    line-height: 25px;
+    cursor: pointer;
+  }
+  .addToCart{
+    line-height: 50px;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  .desc{
+    background-color: $blueLight;
+    padding: 15px;
+    margin: 30px 0;
+  }
+  .ratingArea{
+    background-color: $beige;
+    padding: 30px 0;
+    .note, .moreNote{
+      border: 1px solid $yellow;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      color: $black;
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+    .note:hover, .moreNote:hover{
+      background-color: $yellow;
+    }
+    .moreNote{margin: 0;}
+    .comment{
+      background-color: $white;
+      .commentInfo{
+        text-align: center;
+        padding: 10px;
+        .author{
+          font-family: "covesBold";
+          font-size: 1.3em;
+        }
+      }
+      .commentContent{
+        border-left: 1px solid $grey;
+        padding: 20px;
+      }
+    }
+  }
+}
+
+
+/* List page */
+#listProduct{
+  #lesDisques{
+    background: url('../assets/imgs/list.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  .sortBar{
+    background-color: $beige;
+    height: 100px;
+    select, input, button{
+      width: 100%;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  }
+  .vinyleItem{
+    margin-bottom: 0;
+  }
+  p{margin: 0;}
+  p.vinylTitle, p.price{
+    font-family: "covesBold";
+  }
+  p.bandName{
+    font-size: 14px;
+  }
+  .addToCart{
+    background-color: $blue;
+    text-align: center;
+    color: white;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
   }
 }
 

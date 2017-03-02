@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="container-fluid storeList">
-			<div class="row">
+			<div id="leStore" class="row">
 				<h1>Le store</h1>
 			</div>
 			<div class="row">

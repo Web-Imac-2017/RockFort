@@ -1,6 +1,20 @@
 @charset "UTF-8";
 /*PALETTE*/
+@font-face {
+  font-family: "covesLight";
+  src: url("../fonts/CovesLight.otf");
+}
+
+@font-face {
+  font-family: "covesBold";
+  src: url("../fonts/CovesBold.otf");
+}
+
 /*UTILES*/
+body {
+  font-family: "covesLight";
+}
+
 .left {
   float: left;
 }
@@ -19,6 +33,18 @@
 
 .nomargin {
   margin: 0;
+}
+
+.mb {
+  margin-bottom: 30px;
+}
+
+.mbLarge {
+  margin-bottom: 75px;
+}
+
+p, h3 {
+  font-size: 24px;
 }
 
 /*NAV*/
@@ -154,12 +180,18 @@
 }
 
 /* Le store */
+.storeList #leStore {
+  background: url("../assets/imgs/leStore2.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
 .storeList h1 {
   text-align: center;
   font-size: 75px;
   letter-spacing: 10px;
   font-weight: 600;
   padding-top: 250px;
+  color: #fff;
 }
 
 .storeList h2 {
@@ -192,14 +224,6 @@
   background: url("../assets/imgs/rainbowBg.png") top no-repeat;
 }
 
-.storeList .vinyleItem {
-  margin-bottom: 40px;
-}
-
-.storeList .vinyleItem img {
-  width: 100%;
-}
-
 .storeList .productList .col-md-3:nth-child(odd) .coffretItem {
   background-color: #f4901c;
 }
@@ -230,6 +254,158 @@
 .storeList .productContent .vinyleItem {
   margin-top: 30px;
   margin-bottom: 0;
+}
+
+.vinyleItem {
+  margin-bottom: 40px;
+}
+
+.vinyleItem img {
+  width: 100%;
+}
+
+/* Page produit */
+#productPage {
+  padding-top: 250px;
+}
+
+#productPage img.vinyleImg {
+  width: 100%;
+}
+
+#productPage h1.vinyleTitle {
+  font-family: "covesBold";
+  margin: 0;
+  font-size: 3em;
+  letter-spacing: 3px;
+}
+
+#productPage h4.bandName {
+  font-size: 1.3em;
+  margin-top: 0;
+}
+
+#productPage p.more {
+  font-size: 1.3em;
+  font-family: "covesBold";
+}
+
+#productPage .price {
+  font-family: "covesBold";
+  font-size: 2em;
+}
+
+#productPage .quantitySelector, #productPage .addToCart {
+  background-color: #269be7;
+  text-align: center;
+  color: white;
+  height: 50px;
+}
+
+#productPage .quantity {
+  line-height: 50px;
+  font-size: 1.3em;
+}
+
+#productPage .incrButton, #productPage .decrButton {
+  line-height: 25px;
+  cursor: pointer;
+}
+
+#productPage .addToCart {
+  line-height: 50px;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+#productPage .desc {
+  background-color: #99d0f3;
+  padding: 15px;
+  margin: 30px 0;
+}
+
+#productPage .ratingArea {
+  background-color: #f0f0f0;
+  padding: 30px 0;
+}
+
+#productPage .ratingArea .note, #productPage .ratingArea .moreNote {
+  border: 1px solid #ffd901;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #000;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+#productPage .ratingArea .note:hover, #productPage .ratingArea .moreNote:hover {
+  background-color: #ffd901;
+}
+
+#productPage .ratingArea .moreNote {
+  margin: 0;
+}
+
+#productPage .ratingArea .comment {
+  background-color: #fff;
+}
+
+#productPage .ratingArea .comment .commentInfo {
+  text-align: center;
+  padding: 10px;
+}
+
+#productPage .ratingArea .comment .commentInfo .author {
+  font-family: "covesBold";
+  font-size: 1.3em;
+}
+
+#productPage .ratingArea .comment .commentContent {
+  border-left: 1px solid gainsboro;
+  padding: 20px;
+}
+
+/* List page */
+#listProduct #lesDisques {
+  background: url("../assets/imgs/list.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#listProduct .sortBar {
+  background-color: #f0f0f0;
+  height: 100px;
+}
+
+#listProduct .sortBar select, #listProduct .sortBar input, #listProduct .sortBar button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+#listProduct .vinyleItem {
+  margin-bottom: 0;
+}
+
+#listProduct p {
+  margin: 0;
+}
+
+#listProduct p.vinylTitle, #listProduct p.price {
+  font-family: "covesBold";
+}
+
+#listProduct p.bandName {
+  font-size: 14px;
+}
+
+#listProduct .addToCart {
+  background-color: #269be7;
+  text-align: center;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+  cursor: pointer;
 }
 
 /*footer*/

@@ -31,9 +31,12 @@ const router = new VueRouter({
 	}, {
 		path:'/story',
 		component: require('./components/Story.vue')
-	},{
+	}, {
 		path:'/product',
 		component: require('./components/Product.vue')
+	}, {
+		path:'/store/list',
+		component: require('./components/ListProduct.vue')
 	}, {
 		path:'/random',
 		component: require('./components/Random.vue')
