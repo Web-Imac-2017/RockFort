@@ -4,6 +4,7 @@ $white : #fff;
 $yellow : #ffbb20;
 $beige: #f0f0f0;
 $grey: rgb(220, 220, 220);
+$grey_black: #3f3f3f;
 $orange: #f4901c;
 $yellow: #ffd901;
 $blue: #269be7;
@@ -330,15 +331,6 @@ p, h3{font-size: 24px;}
     background: url('../assets/imgs/list.jpg') bottom no-repeat fixed;
     background-size: cover;
   }
-  .sortBar{
-    background-color: $beige;
-    height: 100px;
-    select, input, button{
-      width: 100%;
-      padding: 10px;
-      margin-top: 30px;
-    }
-  }
   .vinyleItem{
     margin-bottom: 0;
   }
@@ -356,6 +348,79 @@ p, h3{font-size: 24px;}
     height: 35px;
     line-height: 35px;
     cursor: pointer;
+  }
+}
+
+.sortBar{
+    background-color: $beige;
+    height: 100px;
+    select, input, button{
+      width: 100%;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  }
+
+
+/*Recherche*/
+#Recherche{
+  #rechercheHeader{
+    background: url('../assets/imgs/recherche_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  
+  a{
+    color:$black;
+    :hover{color:$grey_black;}
+    .result img{width:340px;}
+  }  
+}
+
+/*Story List*/
+#storyList{
+  #storyListHeader{
+    background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  a{
+    color:$black;
+    div{
+      margin: 12px 0;
+      .imageArticle{
+        height:250px;
+        overflow: hidden;
+      }
+      h2{
+        margin:10px 0;
+        font-size: 50px;
+      }
+      p{margin:10px 0;}
+    }
+    :hover{color:$grey_black;}
+  }
+}
+
+/*Story*/
+#laStory{
+  #laStoryHeader{
+    background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+
+  .selection{
+    h2{
+      font-size: 24px;
+      padding-left:15px;
+    }
+
+    a{
+    color:$black;
+    :hover{color:$grey_black;}
+    }
+
+    img{
+      width:260px;
+    }
   }
 }
 
