@@ -1,5 +1,4 @@
-<?php
-    include ('../class/*');
+<? php
     include ('../connexion/connexion.php');
     
             abstract class Utilisateur {
@@ -54,5 +53,5 @@
                 }
             }
             
-        ?>
+?>
 
