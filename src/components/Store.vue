@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<transition name="fade" appear>
 		<div class="container-fluid storeList">
 			<div id="leStore" class="row">
 				<h1>Le store</h1>
@@ -182,7 +182,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</transition>
 </template>
 
 <script>

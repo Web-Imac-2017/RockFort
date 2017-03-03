@@ -368,12 +368,12 @@ p, h3{font-size: 24px;}
     background: url('../assets/imgs/recherche_header.jpg') bottom no-repeat fixed;
     background-size: cover;
   }
-  
+
   a{
     color:$black;
     :hover{color:$grey_black;}
     .result img{width:340px;}
-  }  
+  }
 }
 
 /*Story List*/
@@ -469,4 +469,13 @@ footer{
   top:50%;
   left:50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+/* ANIMATIONS */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.6s, transform 0.6s;
+}
+.fade-enter, .fade-leave-active{
+  opacity: 0.6;
+  transform: translateY(20px);
 }
