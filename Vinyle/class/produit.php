@@ -1,7 +1,5 @@
 <?php
-    include '../class/*';
-    include '../connexion/*';
-
+    include '../connexion/connexion.php';
     abstract class Produit extends Objet{
         protected $nom;
         protected $image;
@@ -23,4 +21,4 @@
             this.$commentaire = $commentaire;
         }           
     }
-
+?>

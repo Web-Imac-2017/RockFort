@@ -12,8 +12,9 @@
 <?php
 
     include '../connexion/connexion.php';
-    include '../class/*';
+    include '../class/client.php';
     
+
     $client = new Client("mat", "mat", "kimoko", "mathieu", "mat", "mat");
 
     if(isset($_POST['identifiant'])){
@@ -21,4 +22,4 @@
 	$mdp = htmlspecialchars($_POST['mdp']);
 	$id = connexion($identifiant, $mdp);
     }
-	
+?>
