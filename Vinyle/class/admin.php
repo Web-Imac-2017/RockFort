@@ -1,8 +1,8 @@
 <?php
-    include '../class/*';
-    include '../connexion/*';
+    include '../class/user.php';
+    include '../connexion/connexion.php';
 
-    class Admin extends User{
+    class Admin extends Utilisateur{
         
         public function __construct($identifiant,$mdp,$nom,$prenom,$mail){
             this.super($identifiant,$mdp,$nom,$prenom,$mail);
@@ -48,4 +48,5 @@
         
         
     }
+?>
 

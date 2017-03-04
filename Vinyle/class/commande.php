@@ -1,6 +1,5 @@
 <?php
-    include '../class/*';
-    include '../connexion/*';
+    include '../connexion/connexion.php';
     
     class Commande {
         private $id;
@@ -46,5 +45,4 @@
             //si l'id est dans $produit list alors rematre dans la base de donnée
         }
     } 
-    
-
+?>

@@ -13,4 +13,3 @@
     if($bdd === null){ echo 'NO'; } else { echo 'YES'; }
 
 ?>
-

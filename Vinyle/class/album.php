@@ -1,6 +1,6 @@
 <?php
-    include '../class/*';
-    include '../connexion/*';
+    include '../connexion/connexion.php';
+    include '../connexion/artiste.php';
 
     class Album extends Produit{
         function __construct() {
@@ -8,4 +8,4 @@
             this.$type = "Album";
         }
     }
-
+?>

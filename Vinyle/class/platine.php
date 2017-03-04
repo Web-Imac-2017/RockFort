@@ -1,6 +1,5 @@
 <?php
-    include '../class/*';
-    include '../connexion/*';
+    include '../connexion/connexion.php';
     
     class Platine extends Produit{
         function __construct() {
@@ -8,4 +7,4 @@
             this.$type = "Platine";
         }
     }
-
+?>

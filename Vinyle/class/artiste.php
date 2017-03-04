@@ -1,7 +1,5 @@
 <?php
-    include '../class/*';
-    include '../connexion/*';
-
+    include '../connexion/connexion.php';
     class Artiste{
         private $id;
         private $nom;
@@ -16,4 +14,9 @@
             
         }
     }
+
+    /*Contact GitHub API Training Shop Blog About 
+
+    © 2017 GitHub, Inc. Terms Privacy Security Status Help*/
+?> 
 
