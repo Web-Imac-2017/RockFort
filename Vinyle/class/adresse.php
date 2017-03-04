@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     include_once '../connexion/connexion.php';
    /*********************************ADRESSE*********************************/
 =======
@@ -7,6 +8,9 @@
     include '../connexion/*';
 >>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
 
+=======
+    include '../connexion/connexion.php';
+>>>>>>> Connexion operationnel - se trouve dans le fichier Utilisateur
     class Adresse{
         private $numero;
         private $rue;
@@ -17,12 +21,16 @@
         
         public function __construct($numero,$rue,$code_postale,$ville,$region,$pays){
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Connexion operationnel - se trouve dans le fichier Utilisateur
             $this->$numero = $numero;
             $this->$rue = $rue;
             $this->$code_postale = $code_postale;
             $this->$ville = $ville;
             $this->$region = $region;
             $this->$pays = $pays;
+<<<<<<< HEAD
         } 
         
 
@@ -95,8 +103,37 @@
             this.$ville = $ville;
             this.$region = $region;
             this.$pays = $pays;
+=======
+>>>>>>> Connexion operationnel - se trouve dans le fichier Utilisateur
         } 
         
-    }
 
+<<<<<<< HEAD
 >>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
+=======
+        public function getNumero(){
+            return $this->numero;
+        }
+
+        public function getRue(){
+            return $this->rue;
+        }
+
+        public function getCode_Postale(){
+            return $this->code_postale;
+        }
+
+        public function getVille(){
+            return $this->ville;
+        }
+
+        public function getRegion(){
+            return $this->region;
+        }
+
+        public function getPays(){
+            return $this->pays;
+        }
+    }
+?>
+>>>>>>> Connexion operationnel - se trouve dans le fichier Utilisateur

@@ -1,6 +1,7 @@
 <?php
     include_once 'produit.php';
 
+
     class Album extends Produit{
         function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre) {
             Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre);
@@ -29,3 +30,4 @@
 */
 
 ?>
+

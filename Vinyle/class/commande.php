@@ -3,8 +3,7 @@
     include_once 'album.php';
     include_once 'platine.php';
     include_once 'vinyle.php';
-    
-   
+
     
     class Commande {
         private $id;
@@ -23,10 +22,7 @@
          * Avec le constructeur en privé il nous est impossible d'instancier une variable directement
          * C'est pourquoi on créer une methode static (ici getInstance) pour vérifier si une instance de la classe existe déjà et la créer si besoin.
          * ****Rappel: static permet d'appeler un attribut ou même une fonction sans créer d'instance de la classe, on peut donc avoir accès à instance et à getInstance() sans instancier notre classe
-<<<<<<< HEAD
-=======
-         * **** (DAB!) 
->>>>>>> Création classes - Probleme connexion BDD - Méthode à vérifier
+
          */
         
         private static $instance;
@@ -226,9 +222,6 @@
             }
         }
     
-
-
-
     } 
 
     /*

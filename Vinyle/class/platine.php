@@ -1,4 +1,5 @@
 <?php
+
     include_once ('produit.php');
 
 
@@ -15,6 +16,7 @@
         
    
     }
+
     
     /*
     $nom = "This time around";
@@ -31,3 +33,4 @@
 	//$vinyle->ajoutBddPlatine();
     */
 ?>
+

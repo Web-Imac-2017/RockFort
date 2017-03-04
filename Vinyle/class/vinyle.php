@@ -28,5 +28,5 @@
 
     $vinyle = new Vinyle($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
     $vinyle->ajoutBddVinyle();
-    
+
 ?>
