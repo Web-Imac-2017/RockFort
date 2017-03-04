@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "type": "vinyle",
+    "nom": "The Glow PT.2",
+    "auteur": "The microphones",
+    "genre": "Rock",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "10",
+    "stock": "10"
+  },
+  {
+    "id": 2,
+    "type": "vinyle",
+    "nom": "A Fragile Geography",
+    "auteur": "Irisarri",
+    "genre": "Ambient",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "20",
+    "stock": "10"
+  },
+  {
+    "id": 3,
+    "type": "vinyle",
+    "nom": "Verdaillon",
+    "auteur": "Saaad",
+    "genre": "Classique",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "15",
+    "stock": "10"
+  },
+  {
+    "id": 4,
+    "type": "vinyle",
+    "nom": "Madvillainy",
+    "auteur": "Madvillain",
+    "genre": "Rap",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "25",
+    "stock": "10"
+  },
+  {
+    "id": 5,
+    "type": "vinyle",
+    "nom": "The Glow PT.2",
+    "auteur": "The microphones",
+    "genre": "Rock",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "20",
+    "stock": "10"
+  },
+  {
+    "id": 6,
+    "type": "vinyle",
+    "nom": "Taxidermy",
+    "auteur": "Queen Adreena",
+    "genre": "Rock",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "35",
+    "stock": "10"
+  },
+  {
+    "id": 7,
+    "type": "vinyle",
+    "nom": "From Tha Ground Unda",
+    "auteur": "Mad Flava",
+    "genre": "Rap",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "60",
+    "stock": "10"
+  },
+  {
+    "id": 8,
+    "type": "vinyle",
+    "nom": "Mauvais oeil",
+    "auteur": "Lunatic",
+    "genre": "Rap",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "20",
+    "stock": "10"
+  },
+  {
+    "id": 9,
+    "type": "vinyle",
+    "nom": "Tomorrow's Harvest",
+    "auteur": "Boards of Canada",
+    "genre": "Electro",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "100",
+    "stock": "10"
+  },
+  {
+    "id": 10,
+    "type": "vinyle",
+    "nom": "Polnareff's",
+    "auteur": "Michel Polnareff",
+    "genre": "Pop",
+    "description": "lorem ipsum",
+    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "musique": "test.mp3",
+    "prix": "50",
+    "stock": "10"
+  }
+]
