@@ -22,13 +22,16 @@
 				</router-link>
 			</section>
 		</div>
-			<section id="callToAction">
-				<div class="slogan col-md-6 nopadding">
+		<section id="callToAction">
+			<div class="row nomargin">
+				<div class="slogan col-md-3">
+					<img src="src/assets/imgs/popart.png" />
+				</div>
+				<div class="slogan col-md-3">
 					<div>
 						<h2>L'abonnement <br />Vinyl Store</h2>
 						<p>Les psychologues<br /> le détestent !</p>
 					</div>
-					<img src="src/assets/imgs/popart.png" />
 				</div>
 				<div class="col-md-6">
 					<div class="border" >
@@ -42,7 +45,8 @@
 						</p>
 					</div>
 				</div>
-			</section>
+			</div>
+		</section>
 		<div class="container">
 			<section id="selection">
 				<router-link v-on:click.native="emitGenreFromHome('Oldies')" to="/store/vinyles">
@@ -68,6 +72,7 @@
 			<section id="originalSoundTrack">
 				<router-link v-on:click.native="emitGenreFromHome('Bande Originale')" to="/store/vinyles">
 				<div class="container">
+					<div class="row">
 						<div class="col-md-4">
 							<img src="src/assets/imgs/vinyles.jpg" />
 						</div>
@@ -76,6 +81,7 @@
 							<img :src="product.image" v-for="product in imagesBandeOriginale">
 							<p>Retrouvez les plus beaux moments du cinéma sur vos platines !</p>
 						</div>
+					</div>
 				</div>
 				</router-link>
 			</section>

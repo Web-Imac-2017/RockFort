@@ -82,7 +82,7 @@ h1{
 /*SUBMENU*/
 #subMenu{
   margin-top: 195px;
-  height:$sectionheight;
+  min-height:$sectionheight;
   padding:75px 0;
 
   div{
@@ -110,7 +110,6 @@ h1{
 
 /*CALL TO ACTION */
 #callToAction{
-  height:$sectionheight;
   background-color: $yellow;
 
   color:$white;
@@ -118,35 +117,33 @@ h1{
   .slogan{height:100%;}
 
   h2{
-    text-align: center;
-    font-size:72px;
+    text-align: left;
+    font-size: 65px;
+    margin-bottom: 0;
   }
 
   .slogan p {
-    font-size:48px;
-    text-align: right;
-  }
-
-  img {
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    z-index: 0;
+    font-size:35px;
+    text-align: center;
+    margin: 0;
   }
 
   .border{
-    height:400px;
     border: solid 2px #fff;
-    margin:50px 25px;
-    padding-top: 70px;
+    margin: 50px 70px 0 70px;
     font-size:24px;
     text-align: center;
+  }
+
+  .price{
+    font-weight: 800;
+    font-size: 30px;
   }
 }
 
 /*SELECTION*/
 #selection{
-  height:$sectionheight;
+  min-height:$sectionheight;
   padding:50px 0;
   text-align: center;
   a{color:$black;}
@@ -154,7 +151,7 @@ h1{
 
 /*OST*/
 #originalSoundTrack{
-  height:$sectionheight;
+  min-height:$sectionheight;
   background-color:$grey;
   padding: 75px 0;
 
