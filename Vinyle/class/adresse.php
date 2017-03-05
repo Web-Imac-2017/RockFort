@@ -1,5 +1,7 @@
 <?php
     include '../connexion/connexion.php';
+   /*********************************ADRESSE*********************************/
+
     class Adresse{
         private $numero;
         private $rue;

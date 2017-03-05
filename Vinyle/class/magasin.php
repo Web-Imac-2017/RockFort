@@ -1,5 +1,6 @@
 <?php
     include '../connexion/connexion.php';
+    include '*.php';
     class Magasin{
         private $user;
         private $stock;

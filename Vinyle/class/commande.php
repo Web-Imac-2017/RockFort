@@ -1,5 +1,9 @@
 <?php
     include '../connexion/connexion.php';
+    include 'produit.php';
+    include 'album.php';
+    include 'platine.php';
+    include 'vinyle.php';
     
     class Commande {
         private $id;
