@@ -43,9 +43,16 @@ $sectionheight : 500px;
 
 p, h3{font-size: 24px;}
 
+h1{
+  text-align: center;
+  font-size: 75px;
+  letter-spacing: 10px;
+  font-weight: 600;
+  padding-top: 250px;
+  color: $white;
+}
+
 /*NAV*/
-
-
 .navbar{
   background-color:$white;
 
@@ -172,14 +179,6 @@ p, h3{font-size: 24px;}
   #leStore{
     background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
     background-size: cover;
-  }
-  h1{
-    text-align: center;
-    font-size: 75px;
-    letter-spacing: 10px;
-    font-weight: 600;
-    padding-top: 250px;
-    color: $white;
   }
   h2{
     color: black;
@@ -338,6 +337,9 @@ p, h3{font-size: 24px;}
   p.vinylTitle, p.price{
     font-family: "covesBold";
   }
+  p.price{
+    text-align: right;
+  }
   p.bandName{
     font-size: 14px;
   }
@@ -446,7 +448,68 @@ p, h3{font-size: 24px;}
   img.itemImg {
     width: 100%;
   }
-  .cartTotal{
+  .cartEmpty{
+    text-align: center;
+  }
+  ul.dropdown-cart{
+    min-width:250px;
+  }
+  ul.dropdown-cart li .item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+  }
+  ul.dropdown-cart li .item:hover{
+    background-color:#f3f3f3;
+  }
+  ul.dropdown-cart li .item:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+
+  ul.dropdown-cart li .item-left{
+    float:left;
+  }
+  ul.dropdown-cart li .item-left img{
+    width: 50px;
+  }
+  ul.dropdown-cart li .item-left img,
+  ul.dropdown-cart li .item-left span.item-info{
+    float:left;
+  }
+  ul.dropdown-cart li .item-left span.item-info{
+    margin-left:10px;
+  }
+  ul.dropdown-cart li .item-left span.item-info span{
+    display:block;
+  }
+  ul.dropdown-cart li .item-right{
+    float:right;
+  }
+  ul.dropdown-cart li .item-right button{
+    margin-top:14px;
+  }
+}
+
+/* Basket */
+#basket{
+  h3{
+    padding-top: 250px;
+    color: black;
+    text-align: center;
+  }
+  .optionAdress{
+    background: $beige;
+    width: 100%;
+    padding: 25px;
+    margin-bottom: 10px;
+    span{
+      margin-left: 15px;
+    }
   }
 }
 
@@ -470,80 +533,38 @@ footer{
 
   .newsletter p{
     margin-top: 14px;
-    font-size: 24px;}
-
-    img{
-      margin:0 15px;
-      height:50px;
-    }
+    font-size: 24px;
   }
 
-  /* LOADER */
-  #preloaderContainer{
-    position : fixed;
-    z-index: 9999;
-    background-color : $white;
-    top : 0px;
-    left : 0px;
-    height : 100%;
-    width : 100%;
+  img{
+    margin:0 15px;
+    height:50px;
   }
-
-  #preloaderContainer img{
-    position : absolute;
-    top:50%;
-    left:50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-
-  /* ANIMATIONS */
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity 0.6s, transform 0.6s;
-  }
-  .fade-enter, .fade-leave-active{
-    opacity: 0.6;
-    transform: translateY(20px);
-  }
-
-  ul.dropdown-cart{
-    min-width:250px;
-}
-ul.dropdown-cart li .item{
-    display:block;
-    padding:3px 10px;
-    margin: 3px 0;
-}
-ul.dropdown-cart li .item:hover{
-    background-color:#f3f3f3;
-}
-ul.dropdown-cart li .item:after{
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
 }
 
-ul.dropdown-cart li .item-left{
-    float:left;
+/* LOADER */
+#preloaderContainer{
+  position : fixed;
+  z-index: 9999;
+  background-color : $white;
+  top : 0px;
+  left : 0px;
+  height : 100%;
+  width : 100%;
 }
-ul.dropdown-cart li .item-left img{
-  width: 50px;
+
+#preloaderContainer img{
+  position : absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
 }
-ul.dropdown-cart li .item-left img,
-ul.dropdown-cart li .item-left span.item-info{
-    float:left;
+
+/* ANIMATIONS */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.6s, transform 0.6s;
 }
-ul.dropdown-cart li .item-left span.item-info{
-    margin-left:10px;
-}
-ul.dropdown-cart li .item-left span.item-info span{
-    display:block;
-}
-ul.dropdown-cart li .item-right{
-    float:right;
-}
-ul.dropdown-cart li .item-right button{
-    margin-top:14px;
+.fade-enter, .fade-leave-active{
+  opacity: 0.6;
+  transform: translateY(20px);
 }

@@ -2,7 +2,7 @@
   <div class="product">
     <div class="col-md-3">
       <div class="vinyleItem">
-        <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
+        <a href="#"><img :src="'/src/assets/imgs/' + product.img" /></a>
       </div>
       <p class="vinylTitle">{{ product.vinylTitle }}</p>
       <p class="bandName">{{ product.bandName }}</p>
@@ -20,8 +20,8 @@
             <button class="dec" @click="dec">-</button>
           </div>
         </div>
-        <div class="col-md-4 col-md-offset-2">
-          <p class="price">{{ product.price }}€</p>
+        <div class="col-md-5 col-md-offset-1">
+          <p class="price"><span v-if="qtyInCart != 0">{{qtyInCart }}x</span>{{ product.price }}€</p>
         </div>
       </div>
     </div>

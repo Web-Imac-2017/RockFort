@@ -47,6 +47,15 @@ p, h3 {
   font-size: 24px;
 }
 
+h1 {
+  text-align: center;
+  font-size: 75px;
+  letter-spacing: 10px;
+  font-weight: 600;
+  padding-top: 250px;
+  color: #fff;
+}
+
 /*NAV*/
 .navbar {
   background-color: #fff;
@@ -183,15 +192,6 @@ p, h3 {
 .storeList #leStore {
   background: url("../assets/imgs/leStore2.jpg") bottom no-repeat fixed;
   background-size: cover;
-}
-
-.storeList h1 {
-  text-align: center;
-  font-size: 75px;
-  letter-spacing: 10px;
-  font-weight: 600;
-  padding-top: 250px;
-  color: #fff;
 }
 
 .storeList h2 {
@@ -384,6 +384,10 @@ p, h3 {
   font-family: "covesBold";
 }
 
+#listProduct p.price {
+  text-align: right;
+}
+
 #listProduct p.bandName {
   font-size: 14px;
 }
@@ -503,6 +507,80 @@ p, h3 {
   width: 100%;
 }
 
+.cart .cartEmpty {
+  text-align: center;
+}
+
+.cart ul.dropdown-cart {
+  min-width: 250px;
+}
+
+.cart ul.dropdown-cart li .item {
+  display: block;
+  padding: 3px 10px;
+  margin: 3px 0;
+}
+
+.cart ul.dropdown-cart li .item:hover {
+  background-color: #f3f3f3;
+}
+
+.cart ul.dropdown-cart li .item:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.cart ul.dropdown-cart li .item-left {
+  float: left;
+}
+
+.cart ul.dropdown-cart li .item-left img {
+  width: 50px;
+}
+
+.cart ul.dropdown-cart li .item-left img,
+.cart ul.dropdown-cart li .item-left span.item-info {
+  float: left;
+}
+
+.cart ul.dropdown-cart li .item-left span.item-info {
+  margin-left: 10px;
+}
+
+.cart ul.dropdown-cart li .item-left span.item-info span {
+  display: block;
+}
+
+.cart ul.dropdown-cart li .item-right {
+  float: right;
+}
+
+.cart ul.dropdown-cart li .item-right button {
+  margin-top: 14px;
+}
+
+/* Basket */
+#basket h3 {
+  padding-top: 250px;
+  color: black;
+  text-align: center;
+}
+
+#basket .optionAdress {
+  background: #f0f0f0;
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 10px;
+}
+
+#basket .optionAdress span {
+  margin-left: 15px;
+}
+
 /*footer*/
 footer {
   background: url("../assets/imgs/footer_bkg.jpg") top no-repeat;
@@ -564,56 +642,4 @@ footer img {
 .fade-enter, .fade-leave-active {
   opacity: 0.6;
   transform: translateY(20px);
-}
-
-ul.dropdown-cart {
-  min-width: 250px;
-}
-
-ul.dropdown-cart li .item {
-  display: block;
-  padding: 3px 10px;
-  margin: 3px 0;
-}
-
-ul.dropdown-cart li .item:hover {
-  background-color: #f3f3f3;
-}
-
-ul.dropdown-cart li .item:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-
-ul.dropdown-cart li .item-left {
-  float: left;
-}
-
-ul.dropdown-cart li .item-left img {
-  width: 50px;
-}
-
-ul.dropdown-cart li .item-left img,
-ul.dropdown-cart li .item-left span.item-info {
-  float: left;
-}
-
-ul.dropdown-cart li .item-left span.item-info {
-  margin-left: 10px;
-}
-
-ul.dropdown-cart li .item-left span.item-info span {
-  display: block;
-}
-
-ul.dropdown-cart li .item-right {
-  float: right;
-}
-
-ul.dropdown-cart li .item-right button {
-  margin-top: 14px;
 }

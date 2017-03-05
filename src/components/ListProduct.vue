@@ -29,14 +29,14 @@ export default{
   },
   created() {
     var dummy = [
-      {id: 1, vinylTitle: 'Vinyle 1', bandName:"The beatles - 1969", price: 40},
-      {id: 2, vinylTitle: 'Vinyle 2', bandName:"The beatles - 1969", price: 10},
-      {id: 3, vinylTitle: 'Vinyle 3', bandName:"The beatles - 1969", price: 25},
-      {id: 4, vinylTitle: 'Vinyle 4', bandName:"The beatles - 1969", price: 30},
-      {id: 5, vinylTitle: 'Vinyle 5', bandName:"The beatles - 1969", price: 40},
-      {id: 6, vinylTitle: 'Vinyle 6', bandName:"The beatles - 1969", price: 10},
-      {id: 7, vinylTitle: 'Vinyle 7', bandName:"The beatles - 1969", price: 25},
-      {id: 8, vinylTitle: 'Vinyle 8', bandName:"The beatles - 1969", price: 30}
+      {id: 1, vinylTitle: 'Vinyle 1', bandName:"The beatles - 1969", price: 40, img:"AbbeyRoad.jpg"},
+      {id: 2, vinylTitle: 'Vinyle 2', bandName:"The beatles - 1969", price: 10, img:"bowie.jpg"},
+      {id: 3, vinylTitle: 'Vinyle 3', bandName:"The beatles - 1969", price: 25, img:"doors.jpg"},
+      {id: 4, vinylTitle: 'Vinyle 4', bandName:"The beatles - 1969", price: 30, img:"SgtPepper.jpg"},
+      {id: 5, vinylTitle: 'Vinyle 5', bandName:"The beatles - 1969", price: 40, img:"velvetandnico.jpg"},
+      {id: 6, vinylTitle: 'Vinyle 6', bandName:"The beatles - 1969", price: 10, img:"StonesBlueandLonesome.jpg"},
+      {id: 7, vinylTitle: 'Vinyle 7', bandName:"The beatles - 1969", price: 25, img:"AbbeyRoad.jpg"},
+      {id: 8, vinylTitle: 'Vinyle 8', bandName:"The beatles - 1969", price: 30, img:"AbbeyRoad.jpg"}
     ];
     this.products = dummy
   },

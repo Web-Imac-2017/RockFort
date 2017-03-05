@@ -16,6 +16,7 @@ export default {
         id: product.id,
         vinylTitle: product.vinylTitle,
         price: product.price,
+        img: product.img,
         qty: 1
       })
     }
@@ -25,7 +26,6 @@ export default {
     if (typeof occurence == 'object') {
       var index = _.indexOf(this.data.cart, occurence)
       this.data.cart[index].qty++
-      this.data.nbItems++
     }
   },
   dec(product){

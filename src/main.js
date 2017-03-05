@@ -56,6 +56,9 @@ const router = new VueRouter({
 		path:'/recherche',
 		component: require('./components/Recherche.vue')
 	}, {
+		path:'/panier',
+		component: require('./components/Panier.vue')
+	}, {
 		path:'*',
 		redirect: '/'
 	}]
