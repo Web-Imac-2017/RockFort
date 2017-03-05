@@ -4,12 +4,15 @@
  include_once ('adresse.php');
  include_once ('commande.php');
 
+
 /**********************CLIENT********************************/
 
 
 
     class Client extends Utilisateur{
         
+        private $adresse;
+        private $livraison;
         private $commande;
         private $panier;
         
@@ -17,6 +20,7 @@
         public function __construct($mdp,$nom,$prenom,$mail,$adresse){
             Utilisateur::__construct($mdp,$nom,$prenom,$mail);
             $this->adresse = $adresse;
+  
         }
 
 
@@ -61,8 +65,10 @@
 
         }
 
-        
-        public function connexion_client($mdp, $mail){
+     
+               
+         public function connexion_client($mdp, $mail){
+>>>>>>> Le fichier séparé
             $this->connexion( "client", $mdp, $mail);
         }
 
@@ -70,10 +76,10 @@
             $this->deconnexion( "client", $mdp, $mail);
         }
 
-         /*  Ajout d'un client dans la base de donnée*/
+        
          public function ajoutBdd(){
             global $bdd;
-            /*  Selection de l'id d'un client en fonction son mail et de son type 'client' dans la table utilisateur */ 
+
             $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE mail = ? AND type = 'client' ");
 
             $requete->execute( array( $this->getMail() ) );
@@ -137,4 +143,9 @@
     echo $_SESSION['id'];
     */
     
+    
+    $client = new Client("identifiant","mdp","nom","prenom","mail","adresse");
+    $client->ajoutBdd();
+
     ?>
+

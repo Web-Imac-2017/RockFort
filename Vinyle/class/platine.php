@@ -3,6 +3,7 @@
     include_once ('produit.php');
 
 
+    
     class Platine extends Produit{
         function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre) {
             Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre);

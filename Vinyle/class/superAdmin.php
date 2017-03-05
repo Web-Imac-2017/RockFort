@@ -2,6 +2,7 @@
     include_once ('admin.php');
 
 
+
     /******************SUPERADMIN***********************************************/
 
 class superAdmin{
@@ -11,6 +12,11 @@ class superAdmin{
         function __construct($identifiant,$mdp,$nom,$prenom,$mail){
             $this->admin = new Admin($identifiant,$mdp,$nom,$prenom,$mail);
             $this->getAdmin()->ajoutBdd();
+
+        
+        function __construct($identifiant,$mdp,$nom,$prenom,$mail){
+            $this->admin = new Admin($identifiant,$mdp,$nom,$prenom,$mail);
+>>>>>>> Le fichier séparé
         }
 
         function getAdmin(){
@@ -24,4 +30,10 @@ class superAdmin{
 
     }
       
+
+    }
+
+
+    
+    
 ?>

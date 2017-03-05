@@ -3,6 +3,7 @@
     include_once ('produit.php');
 
 
+
    /**************ADMIN*************************/
 
     class Admin extends Utilisateur {
@@ -12,27 +13,6 @@
             Utilisateur::__construct($mdp,$nom,$prenom,$mail);
 
 
-    class Admin extends Utilisateur{
-        
-        public function __construct($identifiant,$mdp,$nom,$prenom,$mail){
-            this.super($identifiant,$mdp,$nom,$prenom,$mail);
-            global $connexion;
-            $requete = $connexion->prepare("UPDATE utilisateur SET type = 'adm' WHERE id = ?");
-            $requete->execute( array(this.$id) );
-        }
-        
-        public function connexionAdmin($identifiant,$mdp){
-            connexion($identifiant,$mdp,"adm");
-        }
-        
-        public function ajout($objet){
-            if ($objet instanceof Client == TRUE) {
-                //requete 
-            }
-            if ($objet instanceof Produit == TRUE){
-                //requete
-            }
-        }
 
         public function getArticle(){
             return $this->article;
@@ -50,6 +30,7 @@
             $resultat = $requete->fetchAll();
 
             /* Verifie si l'administrateur est deja dans la base de donnée*/
+
             if($resultat != NULL)
                 echo "Un administrateur avec les même données existe déjà !";
 
@@ -193,6 +174,19 @@
             $requete->execute( array( $nom_article ) );
         }
 
+
+        public function connexion_admin($mdp, $mail){
+            $this->connexion( "admin", $mdp, $mail);
+        }
+
+        public function deconnexion_admin( $mdp, $mail){
+            $this->deconnexion( "admin", $mdp, $mail);
+        }
+
     }
+
+    $client = new Admin("mdp","nom","prenom","mail");
+    $client->ajoutBdd();
+
 ?>
 

@@ -4,8 +4,7 @@
     include_once ('artiste.php');
 
 
-
-
+    
     abstract class Produit extends Objet{
         protected $nom;
         protected $image;

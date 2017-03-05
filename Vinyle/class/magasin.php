@@ -7,6 +7,7 @@
     include_once 'platine.php';
     include_once 'album.php';
 
+
     class Magasin{
     	private $superAdmin;
         private $utilisateur;
