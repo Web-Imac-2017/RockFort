@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { Bus } from './bus.js';
+import { Bus } from './bus.js' 
 import SearchBarComponent from './SearchBar.vue'
 import Product from './ProductsLoop.vue'
 

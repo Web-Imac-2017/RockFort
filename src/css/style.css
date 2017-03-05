@@ -188,6 +188,10 @@ h1 {
   padding: 0 14px;
 }
 
+#originalSoundTrack .ost-right > img {
+  width: 180px;
+}
+
 /* Le store */
 .storeList #leStore {
   background: url("../assets/imgs/leStore2.jpg") bottom no-repeat fixed;

@@ -17,6 +17,9 @@
 	                	<option>Genre : Tout</option>
 	                  	<option>Rock</option>
 	                 	<option>Rap</option>
+	                 	<option>Oldies</option>
+	                 	<option>Nouveautés</option>
+	                 	<option>Bande Originale</option>
 	                  	<option>Electro</option>
 	                  	<option>Classique</option>
 	                </select>
@@ -47,6 +50,9 @@
 		created() {
             Bus.$on('recherche-string', rechercheString => {
                 this.rechercheString = rechercheString;
+            }),
+            Bus.$on('recherche-genre', filtreGenre => {
+                this.filtreGenre = filtreGenre;
             })
         },
 		methods: {
