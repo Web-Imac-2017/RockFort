@@ -16,7 +16,7 @@
                 <img :src="resultat.image" />
                 <h2>{{resultat.nom}} - {{resultat.auteur}}</h2>
                 <p>{{resultat.prix}}€</p>
-                <p>{{resultat.date}}</p>
+                <p>{{resultat.date.substring(0,4)}}</p>
                 </router-link>
             </div>
             <div v-if="nombreResultats == 0" class="noresult col-md-offset-3 col-md-6">
@@ -30,7 +30,7 @@
 <script>
     import SearchBarComponent from './SearchBar.vue'
     import { Bus } from './bus.js'
-    export default{
+    export default {
         components: {
             SearchBarComponent
         },
@@ -75,10 +75,10 @@
                     resultatsArray.sort(function(a,b){
                         var myA = a.date;
                         var myB = b.date;
-                        if(myA < myB) {
+                        if(myA > myB) {
                             return 1;
                         }
-                        if(myA > myB) {
+                        if(myA < myB) {
                             return -1;
                         }
                         return 0;
@@ -132,10 +132,10 @@
                     resultatsArray.sort(function (a, b){
                         var myA = a.nom;
                         var myB = b.nom;
-                        if(myA < myB) {
+                        if(myA > myB) {
                             return 1;
                         }
-                        if(myA > myB) {
+                        if(myA < myB) {
                             return -1;
                         }
                         return 0;
@@ -144,10 +144,10 @@
                     resultatsArray.sort(function (a, b){
                         var myA = a.nom;
                         var myB = b.nom;
-                        if(myA > myB) {
+                        if(myA < myB) {
                             return 1;
                         }
-                        if(myA < myB) {
+                        if(myA > myB) {
                             return -1;
                         }
                         return 0;

@@ -15,13 +15,13 @@ const router = new VueRouter({
 		component: require('./components/Store.vue')
 	}, {
 		path:'/store/vinyles',
-		component: require('./components/Vinyles.vue')
+		component: require('./components/ListProduct.vue')
 	}, {
 		path:'/store/platines',
-		component: require('./components/Platines.vue')
+		component: require('./components/ListProduct.vue')
 	}, {
 		path:'/store/coffrets',
-		component: require('./components/Coffrets.vue')
+		component: require('./components/ListProduct.vue')
 	}, {
 		path:'/abonnement',
 		component: require('./components/Abonnement.vue')
@@ -37,9 +37,6 @@ const router = new VueRouter({
 	}, {
 		path:'/ProductPage',
 		component: require('./components/ProductPage.vue')
-	}, {
-		path:'/store/list',
-		component: require('./components/ListProduct.vue')
 	}, {
 		path:'/random',
 		component: require('./components/Random.vue')

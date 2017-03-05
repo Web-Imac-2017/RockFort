@@ -4,12 +4,12 @@
 	            <div class="row">
 	              <div class="col-md-3">
 	                <select v-model="triPar" @click="emitRechercheSearchBar()">
-	                	<option>Prix &uarr;</option>
-	                  	<option>Prix &darr;</option>
-	                	<option>Date de sortie &uarr;</option>
 	                	<option>Date de sortie &darr;</option>
-	                  	<option>Ordre alphabétique &uarr;</option>
+	                	<option>Date de sortie &uarr;</option>
+	                	<option>Prix &darr;</option>
+	                  	<option>Prix &uarr;</option>
 	                  	<option>Ordre alphabétique &darr;</option>
+	                  	<option>Ordre alphabétique &uarr;</option>
 	                </select>
 	              </div>
 	              <div class="col-md-3">

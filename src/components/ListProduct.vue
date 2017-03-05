@@ -10,8 +10,14 @@
         </div>
       </div>
       <div class="container listContainer">
+        <h2>{{nombreResultats}} {{typeProduit}}s {{recherchePrefixe}} {{rechercheString}}</h2>
+        <hr />
         <div class="row">
-          <product v-for="product in products" :product="product"></product>
+          <product v-for="product in rechercheGeneral" :product="product"></product>
+        </div>
+        <div v-if="nombreResultats == 0" class="noresult col-md-offset-3 col-md-6">
+          <h2>Désolé ! nous avons trouvé aucun résultat pour votre recherche !</h2>
+          <img src="https://media.giphy.com/media/ZJwrPJzxYjNks/giphy.gif" />
         </div>
       </div>
     </div>
@@ -19,6 +25,7 @@
 </template>
 
 <script>
+import { Bus } from './bus.js';
 import SearchBarComponent from './SearchBar.vue'
 import Product from './ProductsLoop.vue'
 
@@ -27,23 +34,147 @@ export default{
     SearchBarComponent,
     Product
   },
-  created() {
-    var dummy = [
-      {id: 1, vinylTitle: 'Vinyle 1', bandName:"The beatles - 1969", price: 40},
-      {id: 2, vinylTitle: 'Vinyle 2', bandName:"The beatles - 1969", price: 10},
-      {id: 3, vinylTitle: 'Vinyle 3', bandName:"The beatles - 1969", price: 25},
-      {id: 4, vinylTitle: 'Vinyle 4', bandName:"The beatles - 1969", price: 30},
-      {id: 5, vinylTitle: 'Vinyle 5', bandName:"The beatles - 1969", price: 40},
-      {id: 6, vinylTitle: 'Vinyle 6', bandName:"The beatles - 1969", price: 10},
-      {id: 7, vinylTitle: 'Vinyle 7', bandName:"The beatles - 1969", price: 25},
-      {id: 8, vinylTitle: 'Vinyle 8', bandName:"The beatles - 1969", price: 30}
-    ];
-    this.products = dummy
-  },
-  data() {
+  data () {
     return {
-      products: []
+      typeProduit:"",
+      rechercheString: "",
+      filtreGenre:"",
+      triPar:"",
+      recherchePrefixe:"",
+      products: [],
+      nombreResultats: 0
     }
-  }
+  },
+  created() {
+    Bus.$on('tri-par', triPar => {
+      this.triPar = triPar;
+    }),
+    Bus.$on('recherche-genre', filtreGenre => {
+      this.filtreGenre = filtreGenre;
+    }),
+    Bus.$on('recherche-string', rechercheString => {
+      this.rechercheString = rechercheString;
+    }),
+    Bus.$on('type-produit', typeProduit => {
+      console.log("type bus :" + typeProduit)
+      this.typeProduit = typeProduit;
+    })
+  },
+  mounted () {
+    this.$http.get('/src/jsonTest.json').then((response) => {
+      console.log("success", response)
+      this.products = response.data
+    }, (response) => {
+      console.log("erreur", response)
+    })
+  },
+  computed: {
+            //SEARCH
+            rechercheGeneral: function () {
+                var resultatsArray = this.products
+                var typeProduit = this.typeProduit
+                var rechercheString = this.rechercheString
+                var filtreGenre = this.filtreGenre
+                var triPar = this.triPar
+
+                console.log("type fonction recherche:" + this.typeProduit)
+
+                if(!rechercheString && !filtreGenre && !triPar && !typeProduit){
+                    this.nombreResultats = resultatsArray.length;
+                    resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA > myB) {
+                            return 1;
+                        }
+                        if(myA < myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    return resultatsArray; 
+                }
+
+                rechercheString = rechercheString.trim().toLowerCase();
+                typeProduit = typeProduit.trim().toLowerCase();
+                filtreGenre = filtreGenre.trim().toLowerCase();
+                resultatsArray = resultatsArray.filter(function(item){
+                    if(typeProduit == "" || item.type.toLowerCase().indexOf(typeProduit) !== -1) {
+                      if(filtreGenre == "genre : tout" || item.genre.toLowerCase().indexOf(filtreGenre) !== -1){
+                        if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
+                          return item;
+                        }
+                      }
+                    }
+                })
+                
+                //SORT
+                if(triPar == "Prix ↑") {
+                    resultatsArray.sort(function(a,b){
+                        return a.prix - b.prix;
+                    });
+                }else if(triPar == "Prix ↓"){
+                    resultatsArray.sort(function(a,b){
+                        return b.prix - a.prix;
+                    });
+                }else if(triPar == "Date de sortie ↑"){
+                    resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA > myB) {
+                            return 1;
+                        }
+                        if(myA < myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }else if(triPar == "Date de sortie ↓"){
+                    resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA < myB) {
+                            return 1;
+                        }
+                        if(myA > myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }else if(triPar == "Ordre alphabétique ↑"){
+                    resultatsArray.sort(function (a, b){
+                        var myA = a.nom;
+                        var myB = b.nom;
+                        if(myA > myB) {
+                            return 1;
+                        }
+                        if(myA < myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }else if(triPar == "Ordre alphabétique ↓"){
+                    resultatsArray.sort(function (a, b){
+                        var myA = a.nom;
+                        var myB = b.nom;
+                        if(myA < myB) {
+                            return 1;
+                        }
+                        if(myA > myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }
+                
+                if(rechercheString) {
+                  this.recherchePrefixe = "pour votre recherche ";
+                }else {
+                  this.recherchePrefixe = "";
+                }
+                this.nombreResultats = resultatsArray.length;
+                return resultatsArray;
+            }
+        }
 }
 </script>

@@ -20,9 +20,9 @@
         <ul class="nav-content">
           <li><router-link to="/">Accueil</router-link> |</li>
           <li><router-link to="/store">Le Store</router-link> |</li>
-          <li><router-link to="/store/list">Vinyles</router-link> |</li>
-          <li><router-link to="/store/list">Platines</router-link> |</li>
-          <li><router-link to="/store/list">Coffrets</router-link> |</li>
+          <li v-on:click="emitTypeProduitFromHeader('Vinyle')"><router-link to="/store/vinyles">Vinyles</router-link> |</li>
+          <li v-on:click="emitTypeProduitFromHeader('Platine')"><router-link to="/store/platines">Platines</router-link> |</li>
+          <li v-on:click="emitTypeProduitFromHeader('Coffret')"><router-link to="/store/coffrets">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
           <li><router-link to="/offrir">Offrir</router-link> |</li>
           <li><router-link to="/story/list">La Story</router-link></li>
@@ -54,6 +54,10 @@ export default{
 
     emitRechercheHeader(){
       Bus.$emit('recherche-string', this.rechercheString)
+    },
+    
+    emitTypeProduitFromHeader(item){
+      Bus.$emit('type-produit', item)
     }
   }
 }

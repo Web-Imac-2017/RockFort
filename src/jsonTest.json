@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "type": "vinyle",
+    "type": "platine",
     "nom": "A Fragile Geography",
     "auteur": "Irisarri",
     "genre": "Ambient",
@@ -27,7 +27,7 @@
   },
   {
     "id": 3,
-    "type": "vinyle",
+    "type": "coffret",
     "nom": "Verdaillon",
     "auteur": "Saaad",
     "genre": "Classique",
