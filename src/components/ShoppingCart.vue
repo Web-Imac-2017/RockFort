@@ -1,15 +1,15 @@
 <template>
   <ul class="nav navbar-nav navbar-right cart">
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">
+      <span class="dropdown-toggle" role="button" aria-expanded="false">
         <img src="/src/assets/imgs/cartIcon.png" style="width: 35px" alt="" class="itemImg">
         <span class="glyphicon glyphicon-shopping-cart"></span>
         {{ nbItems }} Produits<span class="caret"></span>
-      </a>
+      </span>
       <ul class="dropdown-menu dropdown-cart" role="menu">
         <p class="cartEmpty" v-if="total == 0">Votre panier est vide :/</p>
         <div class="cartContent" v-else>
-          <Item v-for="item in items" :item="item"></Item>  
+          <Item v-for="item in items" :item="item"></Item>
           <li class="divider"></li>
           <li><a class="text-center" href="">Total : {{ total }}€</a></li>
           <router-link link to="/panier">
