@@ -2,7 +2,7 @@
   <li>
     <span class="item">
       <span class="item-left">
-        <img :src="'/src/assets/imgs/' + item.img" alt="" class="itemImg">
+        <img :src="item.img" alt="" class="itemImg">
         <span class="item-info">
           <span>{{ item.vinylTitle }}</span>
           <span>{{ item.qty }} x {{ item.price }}€</span>

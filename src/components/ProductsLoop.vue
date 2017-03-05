@@ -1,29 +1,29 @@
 <template>
   <div class="product">
     <div class="col-md-3">
-                <div class="vinyleItem">
-                  <router-link link to="/vinyle/resultat.nom"><img :src="product.image" /></router-link>
-                </div>
-                <p class="vinylTitle">{{product.nom}}</p>
-                <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>
-                <div class="row">
-                  <div class="col-md-6" v-if="qtyInCart == 0">
-                    <button class="addToCart" @click="addToCart">
-                      Ajouter au panier
-                    </button>
-                  </div>
-                  <div class="controls" v-else>
-                    <div class="col-md-3">
-                      <button class="inc" @click="inc">+</button>
-                    </div>
-                    <div class="col-md-3">
-                      <button class="dec" @click="dec">-</button>
-                    </div>
-                  </div>
-                  <div class="col-md-5 col-md-offset-1">
-                    <p class="price"><span v-if="qtyInCart != 0">{{qtyInCart }}x</span>{{ product.prix }}€</p>
-                  </div>
-                </div>
+      <div class="vinyleItem">
+        <router-link link to="/vinyle/resultat.nom"><img :src="product.image" /></router-link>
+      </div>
+      <p class="vinylTitle">{{product.nom}}</p>
+      <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>
+      <div class="row">
+        <div class="col-md-6" v-if="qtyInCart == 0">
+          <button class="addToCart" @click="addToCart">
+            Ajouter au panier
+          </button>
+        </div>
+        <div class="controls" v-else>
+          <div class="col-md-3">
+            <button class="inc" @click="inc">+</button>
+          </div>
+          <div class="col-md-3">
+            <button class="dec" @click="dec">-</button>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <p class="price"><span v-if="qtyInCart != 0">{{qtyInCart }}x</span>{{ product.prix }}€</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
