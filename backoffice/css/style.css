@@ -79,3 +79,28 @@ textarea {
     margin-top: 20px;
     width: 60%;
 }
+
+img {
+	width: 75%;
+	margin: 0;
+	padding: 0;
+}
+
+.img-container {
+	padding: 0;
+}
+
+.select-item {
+	border: 0.5px solid black;
+	padding: 5px;
+}
+
+.img-form {
+	padding: 0;
+}
+
+.img-form img {
+	width: 50%;
+	margin: 0;
+	padding: 0;
+}
