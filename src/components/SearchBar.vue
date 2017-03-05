@@ -4,23 +4,26 @@
 	            <div class="row">
 	              <div class="col-md-3">
 	                <select v-model="triPar" @click="emitRechercheSearchBar()">
-	                  <option>Trier par</option>
-	                  <option>Date de sortie</option>
-	                  <option>Prix</option>
-	                  <option>Ordre alphabétique</option>
+	                	<option>Prix &uarr;</option>
+	                  	<option>Prix &darr;</option>
+	                	<option>Date de sortie &uarr;</option>
+	                	<option>Date de sortie &darr;</option>
+	                  	<option>Ordre alphabétique &uarr;</option>
+	                  	<option>Ordre alphabétique &darr;</option>
 	                </select>
 	              </div>
 	              <div class="col-md-3">
 	                <select v-model="filtreGenre" @click="emitRechercheSearchBar()">
-	                  <option>Genre</option>
-	                  <option>Rock</option>
-	                  <option>Prix</option>
-	                  <option>Ordre alphabétique</option>
+	                	<option>Tout</option>
+	                  	<option>Rock</option>
+	                 	<option>Rap</option>
+	                  	<option>Electro</option>
+	                  	<option>Classique</option>
 	                </select>
 	              </div>
 	              <div class="col-md-3">
 	                <form class="right" action="/search">
-	                  <input type="text" v-model="rechercheString" placeholder="rechercher un vinyle" @keyup="emitRechercheSearchBar()" />
+	                  <input type="text" v-model="rechercheString" placeholder="rechercher un vinyle" @keydown.enter.prevent @keyup="emitRechercheSearchBar()" />
 	                </form>
 	              </div>
 	              <div class="col-md-3">
@@ -33,15 +36,19 @@
 
 <script>
 	import { Bus } from './bus.js';
-
 	export default{
 		data () {
 			return{
-				triPar: "Ordre alphabétique",
-				filtreGenre: "Genre",
+				triPar: "Date de sortie ↓",
+				filtreGenre: "Tout",
 				rechercheString: "",
 			}
 		},
+		created() {
+            Bus.$on('recherche-string', rechercheString => {
+                this.rechercheString = rechercheString;
+            })
+        },
 		methods: {
 			emitRechercheSearchBar(){
 				Bus.$emit('tri-par', this.triPar);

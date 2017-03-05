@@ -1,32 +1,36 @@
 <template>
-	<div id="Recherche" >
-		<div class="container-fluid storeList">
-     		<div id="rechercheHeader" class="row">
-        		<h1>Recherche</h1>
-      		</div>
-      	</div>
-      	
+    <div id="Recherche" >
+        <div class="container-fluid storeList">
+            <div id="rechercheHeader" class="row">
+                <h1>Recherche</h1>
+            </div>
+        </div>
+        
             <SearchBarComponent></SearchBarComponent>
         
-      	<div class="container">
-      		<h2>{{nombreResultats}} résultats pour votre recherche : {{rechercheString}}</h2>
-      		<hr />
+        <div class="container">
+            <h2>{{nombreResultats}} résultats pour votre recherche {{rechercheString}}</h2>
+            <hr />
             <div class="col-md-4" v-for="resultat in rechercheGeneral">
                 <router-link link to="/vinyle/resultat.nom">
                 <img :src="resultat.image" />
                 <h2>{{resultat.nom}} - {{resultat.auteur}}</h2>
                 <p>{{resultat.prix}}€</p>
+                <p>{{resultat.date}}</p>
                 </router-link>
             </div>
-      	</div>        
+            <div v-if="nombreResultats == 0" class="noresult col-md-offset-3 col-md-6">
+                <h2>Désolé ! nous avons trouvé aucun résultat pour votre recherche !</h2>
+                <img src="https://media.giphy.com/media/ZJwrPJzxYjNks/giphy.gif" />
+            </div>
+        </div>        
     </div>
 </template>
 
 <script>
-	import SearchBarComponent from './SearchBar.vue'
+    import SearchBarComponent from './SearchBar.vue'
     import { Bus } from './bus.js'
-
-	export default{
+    export default{
         components: {
             SearchBarComponent
         },
@@ -60,51 +64,93 @@
             })
         },
         computed: {
+            //SEARCH
             rechercheGeneral: function () {
                 var resultatsArray = this.resultats
                 var rechercheString = this.rechercheString
                 var filtreGenre = this.filtreGenre
                 var triPar = this.triPar
-
-
-                console.log(rechercheString)
-                console.log(filtreGenre)
-
-                if(!rechercheString && filtreGenre == "Genre" && triPar == "Ordre alphabétique"){
-                    console.log("chouxbblanc")
-                    this.nombreResultats = resultatsArray.length;                    
-                    return resultatsArray;
+                if(!rechercheString && !filtreGenre && !triPar){
+                    this.nombreResultats = resultatsArray.length;
+                    resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA < myB) {
+                            return 1;
+                        }
+                        if(myA > myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                    return resultatsArray; 
                 }
-
                 rechercheString = rechercheString.trim().toLowerCase();
                 filtreGenre = filtreGenre.trim().toLowerCase();
-
                 resultatsArray = resultatsArray.filter(function(item){
-                    if(filtreGenre == "genre" || item.genre.toLowerCase().indexOf(filtreGenre) !== -1){
+                    if(filtreGenre == "tout" || item.genre.toLowerCase().indexOf(filtreGenre) !== -1){
                         if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
                             return item;
                         }
                     }
                 })
-
-                if(triPar == "Ordre alphabétique") {
-                    resultatsArray.sort(function(a,b){
-                        var nom_a = a.nom.toUpperCase();
-                        var nom_b = b.nom.toUpperCase();
-                        if(nom_a < nom_b) {
-                            return -1;
-                        }
-                        if(nom_a > nom_b) {
-                            return 1;
-                        }else {
-                            return 0;
-                        }
-                    });
-                }
-
-                if(triPar == "Prix") {
+                
+                //SORT
+                if(triPar == "Prix ↑") {
                     resultatsArray.sort(function(a,b){
                         return a.prix - b.prix;
+                    });
+                }else if(triPar == "Prix ↓"){
+                    resultatsArray.sort(function(a,b){
+                        return b.prix - a.prix;
+                    });
+                }else if(triPar == "Date de sortie ↑"){
+                    resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA > myB) {
+                            return 1;
+                        }
+                        if(myA < myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }else if(triPar == "Date de sortie ↓"){
+                    resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA < myB) {
+                            return 1;
+                        }
+                        if(myA > myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }else if(triPar == "Ordre alphabétique ↑"){
+                    resultatsArray.sort(function (a, b){
+                        var myA = a.nom;
+                        var myB = b.nom;
+                        if(myA < myB) {
+                            return 1;
+                        }
+                        if(myA > myB) {
+                            return -1;
+                        }
+                        return 0;
+                    });
+                }else if(triPar == "Ordre alphabétique ↓"){
+                    resultatsArray.sort(function (a, b){
+                        var myA = a.nom;
+                        var myB = b.nom;
+                        if(myA > myB) {
+                            return 1;
+                        }
+                        if(myA < myB) {
+                            return -1;
+                        }
+                        return 0;
                     });
                 }
                 
@@ -112,5 +158,5 @@
                 return resultatsArray;
             }
         }
-	}
+    }
 </script>

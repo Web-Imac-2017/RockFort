@@ -429,6 +429,16 @@ p, h3 {
   width: 340px;
 }
 
+.noresult {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.noresult img {
+  display: block;
+  margin: 0 auto;
+}
+
 /*Story List*/
 #storyList #storyListHeader {
   background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;

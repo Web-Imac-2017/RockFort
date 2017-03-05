@@ -44,6 +44,11 @@ export default{
       rechercheString: ""
     }
   },
+  created() {
+    Bus.$on('recherche-string', rechercheString => {
+      this.rechercheString = rechercheString;
+    })
+  },
   methods: {
     goToRecherche(){this.$router.push('/recherche')},
 
