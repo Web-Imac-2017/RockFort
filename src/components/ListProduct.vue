@@ -34,6 +34,7 @@ export default{
     SearchBarComponent,
     Product
   },
+
   data () {
     return {
       typeProduit:"",

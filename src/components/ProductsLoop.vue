@@ -20,8 +20,8 @@
                       <button class="dec" @click="dec">-</button>
                     </div>
                   </div>
-                  <div class="col-md-4 col-md-offset-2">
-                    <p class="price">{{ product.prix }}€</p>
+                  <div class="col-md-5 col-md-offset-1">
+                    <p class="price"><span v-if="qtyInCart != 0">{{qtyInCart }}x</span>{{ product.prix }}€</p>
                   </div>
                 </div>
     </div>
