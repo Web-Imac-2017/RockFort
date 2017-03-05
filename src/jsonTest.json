@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "The Glow PT.2",
     "auteur": "The microphones",
     "genre": "Rock",
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "type": "platine",
+    "type": "platines",
     "nom": "A Fragile Geography",
     "auteur": "Irisarri",
     "genre": "Ambient",
@@ -27,7 +27,7 @@
   },
   {
     "id": 3,
-    "type": "coffret",
+    "type": "coffrets",
     "nom": "Verdaillon",
     "auteur": "Saaad",
     "genre": "Classique",
@@ -40,7 +40,7 @@
   },
   {
     "id": 4,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "Madvillainy",
     "auteur": "Madvillain",
     "genre": "Rap",
@@ -53,7 +53,7 @@
   },
   {
     "id": 5,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "The Glow PT.2",
     "auteur": "The microphones",
     "genre": "Rock",
@@ -66,7 +66,7 @@
   },
   {
     "id": 6,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "Taxidermy",
     "auteur": "Queen Adreena",
     "genre": "Rock",
@@ -79,7 +79,7 @@
   },
   {
     "id": 7,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "From Tha Ground Unda",
     "auteur": "Mad Flava",
     "genre": "Rap",
@@ -92,7 +92,7 @@
   },
   {
     "id": 8,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "Mauvais oeil",
     "auteur": "Lunatic",
     "genre": "Rap",
@@ -105,7 +105,7 @@
   },
   {
     "id": 9,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "Tomorrow's Harvest",
     "auteur": "Boards of Canada",
     "genre": "Electro",
@@ -118,7 +118,7 @@
   },
   {
     "id": 10,
-    "type": "vinyle",
+    "type": "vinyles",
     "nom": "Polnareff's",
     "auteur": "Michel Polnareff",
     "genre": "Pop",

@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="container listContainer">
-        <h2>{{nombreResultats}} {{typeProduit}}s {{recherchePrefixe}} {{rechercheString}}</h2>
+        <h2>{{nombreResultats}} {{typeProduit}} {{recherchePrefixe}} {{rechercheString}}</h2>
         <hr />
         <div class="row">
           <product v-for="product in rechercheGeneral" :product="product"></product>
@@ -37,7 +37,7 @@ export default{
 
   data () {
     return {
-      typeProduit:"",
+      typeProduit: window.location.pathname.split("/").pop(),
       rechercheString: "",
       filtreGenre:"",
       triPar:"",
@@ -57,7 +57,7 @@ export default{
       this.rechercheString = rechercheString;
     }),
     Bus.$on('type-produit', typeProduit => {
-      console.log("type bus :" + typeProduit)
+      console.log("LAL" + typeProduit)
       this.typeProduit = typeProduit;
     })
   },
@@ -73,14 +73,15 @@ export default{
             //SEARCH
             rechercheGeneral: function () {
                 var resultatsArray = this.products
-                var typeProduit = this.typeProduit
                 var rechercheString = this.rechercheString
                 var filtreGenre = this.filtreGenre
                 var triPar = this.triPar
 
+
+                console.log("this.typeProduit" + this.typeProduit)
                 console.log("type fonction recherche:" + this.typeProduit)
 
-                if(!rechercheString && !filtreGenre && !triPar && !typeProduit){
+                if(!rechercheString && !filtreGenre && !triPar && !this.typeProduit){
                     this.nombreResultats = resultatsArray.length;
                     resultatsArray.sort(function(a,b){
                         var myA = a.date;
@@ -97,7 +98,7 @@ export default{
                 }
 
                 rechercheString = rechercheString.trim().toLowerCase();
-                typeProduit = typeProduit.trim().toLowerCase();
+                var typeProduit = this.typeProduit.trim().toLowerCase();
                 filtreGenre = filtreGenre.trim().toLowerCase();
                 resultatsArray = resultatsArray.filter(function(item){
                     if(typeProduit == "" || item.type.toLowerCase().indexOf(typeProduit) !== -1) {
