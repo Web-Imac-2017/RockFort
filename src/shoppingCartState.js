@@ -14,9 +14,9 @@ export default {
     if (typeof occurence != 'object') {
       this.data.cart.push({
         id: product.id,
-        vinylTitle: product.vinylTitle,
-        price: product.price,
-        img: product.img,
+        vinylTitle: product.nom,
+        price: product.prix,
+        img: product.image,
         qty: 1
       })
     }
