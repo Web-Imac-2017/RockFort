@@ -1,6 +1,7 @@
 <?php
     include '../connexion/connexion.php';
-    include '../connexion/artiste.php';
+    include 'artiste.php';
+    include 'produit.php';
 
     class Album extends Produit{
         function __construct() {
