@@ -8,11 +8,12 @@
         }
 
         public function ajoutBddKit(){
-            Produit::ajoutBdd("Album");
+            Produit::ajoutBdd("Kit");
         }
     }
     
     /*
+
     $nom = "This time around";
 	$image = "image";
 	$musique = "musique";
@@ -26,5 +27,6 @@
 	$vinyle = new Kit($nom,$image,$musique,$prix,$tag,$artiste,$description, "pop");
 	$vinyle->ajoutBddKit();
     */
+
 
 ?>
