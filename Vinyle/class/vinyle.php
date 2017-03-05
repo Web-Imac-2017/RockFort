@@ -7,6 +7,13 @@
 
         function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre) {
             Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre);
+
+    
+    class Vinyle extends Produit{
+        
+
+        function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description) {
+            Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description);
             $this->type = "Vinyle";
         }
 
@@ -14,8 +21,8 @@
             Produit::ajoutBdd("Vinyle");
         }
     }
-    
-    
+
+
     $nom = "This time around";
     $image = "image";
     $musique = "musique";

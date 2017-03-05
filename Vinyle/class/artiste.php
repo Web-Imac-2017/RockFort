@@ -1,7 +1,6 @@
 <?php
     include_once '../connexion/connexion.php';
-    include '../class/*';
-    include '../connexion/*';
+
 
     class Artiste{
         private $id;
@@ -33,6 +32,10 @@
 
     public function setDescription($description){
         $this->id = $id;
+    }
+
+    public function getImage(){
+        return $this->image;
     }
 
     public function getImage(){

@@ -16,6 +16,7 @@
 
     
     /*
+
     $nom = "This time around";
 	$image = "image";
 	$musique = "musique";
@@ -26,9 +27,9 @@
 	$artiste = array('a' => $mj, 'b' => $biggie);
 	$description = "Un des deux morceaux où le KingOfPop collabore avec la star du label Bad Boy ";
 
+<<<<<<< HEAD
 	$vinyle = new Album($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
 	$vinyle->ajoutBddAlbum();
 */
 
 ?>
-

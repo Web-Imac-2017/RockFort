@@ -2,8 +2,6 @@
     include_once ('client.php');
     include_once ('produit.php');
 
-
-
    /**************ADMIN*************************/
 
     class Admin extends Utilisateur {
@@ -14,11 +12,11 @@
 
 
 
+        /*  Ajout d'un amdinistrateur dans la base de donnée*/
         public function getArticle(){
             return $this->article;
         }
 
-        /*  Ajout d'un amdinistrateur dans la base de donnée*/
 
         public function ajoutBdd(){
             global $bdd;
@@ -183,10 +181,44 @@
             $this->deconnexion( "admin", $mdp, $mail);
         }
 
+        public function modif_descrition_produit($description, $produit_nom){
+            global $bdd;
+            $requete = $bdd->prepare("UPDATE produit SET description = ?  WHERE nom = ?");
+            $requete->execute( array( $description, $produit_nom ) );
+
+        }
+
+        public function modif_image_produit($image, $produit_nom){
+            global $bdd;
+            $requete = $bdd->prepare("UPDATE produit SET image = ?  WHERE nom = ?");
+            $requete->execute( array( $image, $produit_nom ) );
+
+        }
+
+        public function modif_prix_produit($prix, $produit_nom){
+            global $bdd;
+            $requete = $bdd->prepare("UPDATE produit SET prix = ?  WHERE nom = ?");
+            $requete->execute( array( $prix, $produit_nom ) );
+
+        }
+
+        public function suppression_produit_id($id_produit){
+            global $bdd;
+            $requete = $bdd->prepare(" DELETE FROM produit WHERE id = ?");
+            $requete->execute( array( $id_produit ) );
+
+            $requete = $bdd->prepare(" DELETE FROM produit_artiste WHERE id_produit = ?");
+            $requete->execute( array( $id_produit ) );
+
+            $requete = $bdd->prepare(" DELETE FROM produit_tag WHERE id_produit = ?");
+            $requete->execute( array( $id_produit ) );
+        }
+
     }
 
-    $client = new Admin("mdp","nom","prenom","mail");
+    /*$client = new Admin("mdp","nom","prenom","mail");
     $client->ajoutBdd();
-
+    //$client->deconnexion_admin($client->getMdp(), $client->getMail() );
+    $client->suppression_produit_id(19);*/
 ?>
 
