@@ -3,7 +3,7 @@
     include 'client.php';
 
    /*********************************ADRESSE*********************************/
-//faire : ajout adresse dans la bdd pour client
+
     class Adresse{
         private $numero;
         private $rue;

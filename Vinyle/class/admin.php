@@ -4,7 +4,7 @@
 
 
    /**************ADMIN*************************/
-//pb : faille connexion admin, on peut ajouter le même une infinité de fois, pb requête sql
+
     class Admin extends Utilisateur {
 
         public function __construct($identifiant,$mdp,$nom,$prenom,$mail){
