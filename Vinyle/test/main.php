@@ -18,8 +18,8 @@
     $client = new Client("mat", "mat", "kimoko", "mathieu", "mat", "mat");
 
     if(isset($_POST['identifiant'])){
-	$identifiant = htmlspecialchars($_POST['identifiant']);
-	$mdp = htmlspecialchars($_POST['mdp']);
-	$id = connexion($identifiant, $mdp);
+	    $identifiant = htmlspecialchars($_POST['identifiant']);
+	    $mdp = htmlspecialchars($_POST['mdp']);
+	    $id = connexion($identifiant, $mdp);
     }
 ?>

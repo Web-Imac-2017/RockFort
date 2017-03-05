@@ -4,13 +4,12 @@
 
 
    /**************ADMIN*************************/
-
+//pb : faille connexion admin, on peut ajouter le même une infinité de fois, pb requête sql
     class Admin extends Utilisateur {
 
         public function __construct($identifiant,$mdp,$nom,$prenom,$mail){
             Utilisateur::__construct($identifiant,$mdp,$nom,$prenom,$mail);
         }
-
 
         public function ajoutBdd(){
             global $bdd;
@@ -20,21 +19,18 @@
             $requete->execute( array( $this->getIdentifiant(), $this->getMdp(), $this->getNom(), $this->getPrenom(), $this->getMail() ) );
             $resultat = $requete->fetch();
 
-            if($resultat != NULL)
-                echo "Un administrateur avec les même données existe déjà !";
-
-            else{
-
+            if($resultat != NULL) {
+                echo "Un administrateur avec les mêmes données existe déjà !";
+            } else {
                 $requete = $bdd->prepare("INSERT INTO utilisateur VALUES ('','admin',?,?,?,?,?,'','','','')");
-            $requete->execute( array($this->getIdentifiant(),$this->getMdp(),$this->getNom(),$this->getPrenom(),$this->getMail() ) );
+                $requete->execute( array($this->getIdentifiant(),$this->getMdp(),$this->getNom(),$this->getPrenom(),$this->getMail() ) );
 
-            $requete = $bdd->prepare("SELECT MAX(id) FROM utilisateur");
-                    $requete->execute( array() );
-                    $this->setId($requete->fetchColumn());
+                $requete = $bdd->prepare("SELECT MAX(id) FROM utilisateur");
+                $requete->execute( array() );
+                $this->setId($requete->fetchColumn());
 
             }
          }
-
 
         public function connexion_admin($mdp, $mail){
             $this->connexion( "admin", $mdp, $mail);
@@ -46,7 +42,7 @@
 
     }
 
-    $client = new Admin("identifient","mdp","nom","prenom","mail");
+    $client = new Admin("identifiant","mdp","nom","prenom","mail");
     $client->ajoutBdd();
 
 ?>

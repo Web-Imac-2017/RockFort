@@ -56,14 +56,14 @@
 
             if($resultat != NULL)
                 echo "Un utilisateur avec la meme adresse mail existe déjà existe deja !";
-            
-            else{
-                $requete = $bdd->prepare("INSERT INTO utilisateur VALUES ('','client',?,?,?,?,?,'','','','')");
-            $requete->execute( array($this->getIdentifiant(),$this->getMdp(),$this->getNom(),$this->getPrenom(),$this->getMail() ) );
 
-            $requete = $bdd->prepare("SELECT MAX(id) FROM utilisateur");
-                    $requete->execute( array() );
-                    $this->setId($requete->fetchColumn());
+            else{
+                $requete = $bdd->prepare("INSERT INTO utilisateur (type,identifiant,motDePasse,nom,prenom,mail,adresse,region,ville,pays) VALUES ('client',?,?,?,?,?,'','','','')");
+                $requete->execute( array($this->getIdentifiant(),$this->getMdp(),$this->getNom(),$this->getPrenom(),$this->getMail() ) );
+
+                $requete = $bdd->prepare("SELECT MAX(id) FROM utilisateur");
+                $requete->execute( array() );
+                $this->setId($requete->fetchColumn());
 
             }
 

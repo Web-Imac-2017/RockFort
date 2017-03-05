@@ -42,11 +42,11 @@
         }
         
         public function ajout($id_produit){
-            this.$montant = $montant  ;// + prix du produit (utilisé requete sql)
+            this.$montant = $montant  ;// + prix du produit (utiliser requete sql)
         }
         
         public function retirer($id_produit) {
-            //si l'id est dans $produit list alors rematre dans la base de donnée
+            //si l'id est dans $produit list alors remettre dans la base de donnée
         }
     } 
 ?>
