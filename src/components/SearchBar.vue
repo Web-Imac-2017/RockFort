@@ -14,7 +14,7 @@
 	              </div>
 	              <div class="col-md-3">
 	                <select v-model="filtreGenre" @click="emitRechercheSearchBar()">
-	                	<option>Tout</option>
+	                	<option>Genre : Tout</option>
 	                  	<option>Rock</option>
 	                 	<option>Rap</option>
 	                  	<option>Electro</option>
@@ -40,7 +40,7 @@
 		data () {
 			return{
 				triPar: "Date de sortie ↓",
-				filtreGenre: "Tout",
+				filtreGenre: "Genre : Tout",
 				rechercheString: "",
 			}
 		},

@@ -88,7 +88,7 @@
                 rechercheString = rechercheString.trim().toLowerCase();
                 filtreGenre = filtreGenre.trim().toLowerCase();
                 resultatsArray = resultatsArray.filter(function(item){
-                    if(filtreGenre == "tout" || item.genre.toLowerCase().indexOf(filtreGenre) !== -1){
+                    if(filtreGenre == "genre : tout" || item.genre.toLowerCase().indexOf(filtreGenre) !== -1){
                         if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
                             return item;
                         }
