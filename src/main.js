@@ -35,8 +35,8 @@ const router = new VueRouter({
 		path:'/story/list/article',
 		component: require('./components/Story.vue')
 	}, {
-		path:'/product',
-		component: require('./components/Product.vue')
+		path:'/ProductPage',
+		component: require('./components/ProductPage.vue')
 	}, {
 		path:'/store/list',
 		component: require('./components/ListProduct.vue')

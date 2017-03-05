@@ -10,215 +10,8 @@
         </div>
       </div>
       <div class="container listContainer">
-        <div class="row mbLarge">
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mbLarge">
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mbLarge">
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="vinyleItem">
-              <a href="#"><img src="/src/assets/imgs/AbbeyRoad.jpg" /></a>
-            </div>
-            <p class="vinylTitle">Abbey Road</p>
-            <p class="bandName">The beatles - 1969</p>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="addToCart">
-                  Ajouter au panier
-                </div>
-              </div>
-              <div class="col-md-4 col-md-offset-2">
-                <p class="price">20€</p>
-              </div>
-            </div>
-          </div>
+        <div class="row">
+          <product v-for="product in products" :product="product"></product>
         </div>
       </div>
     </div>
@@ -227,9 +20,30 @@
 
 <script>
 import SearchBarComponent from './SearchBar.vue'
+import Product from './ProductsLoop.vue'
+
 export default{
   components: {
-    SearchBarComponent
+    SearchBarComponent,
+    Product
+  },
+  created() {
+    var dummy = [
+      {id: 1, vinylTitle: 'Vinyle 1', bandName:"The beatles - 1969", price: 40},
+      {id: 2, vinylTitle: 'Vinyle 2', bandName:"The beatles - 1969", price: 10},
+      {id: 3, vinylTitle: 'Vinyle 3', bandName:"The beatles - 1969", price: 25},
+      {id: 4, vinylTitle: 'Vinyle 4', bandName:"The beatles - 1969", price: 30},
+      {id: 5, vinylTitle: 'Vinyle 5', bandName:"The beatles - 1969", price: 40},
+      {id: 6, vinylTitle: 'Vinyle 6', bandName:"The beatles - 1969", price: 10},
+      {id: 7, vinylTitle: 'Vinyle 7', bandName:"The beatles - 1969", price: 25},
+      {id: 8, vinylTitle: 'Vinyle 8', bandName:"The beatles - 1969", price: 30}
+    ];
+    this.products = dummy
+  },
+  data() {
+    return {
+      products: []
+    }
   }
 }
 </script>
