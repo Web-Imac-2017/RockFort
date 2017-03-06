@@ -131,11 +131,43 @@
 
         }
 
+        public function suppression_article_id($id_article){
+            global $bdd;
+            $requete = $bdd->prepare(" DELETE FROM article WHERE id = ?");
+            $requete->execute( array( $id_article ) );
+
+            $requete = $bdd->prepare(" DELETE FROM article_tag WHERE id_article = ?");
+            $requete->execute( array( $id_article ) );
+
+        }
+
+        public function suppression_article_nom($nom_article){
+            global $bdd;
+
+            $requete = $bdd->prepare(" SELECT Distinct (id) FROM article WHERE  nom = ?"); 
+            $requete->execute( array( $nom_article ) );
+            $id = $requete->fetchAll();
+
+            foreach ($id as $key => $value) {
+                foreach ($value as $val) {
+                    $requete = $bdd->prepare(" DELETE FROM article_tag WHERE id_article = ?");
+                    $requete->execute( array( $val ) );
+
+                }
+            }
+            $requete = $bdd->prepare(" DELETE FROM article WHERE nom = ?");
+            $requete->execute( array( $nom_article ) );
+
+            
+
+        }
+
+
     }
 
     $client = new Admin("identifient","mdp","nom","prenom","mail");
     //$client->deconnexion_admin($client->getMdp(), $client->getMail() );
-    $client->suppression_produit_type_nom("Album", "This time around");
+        $client->suppression_article_nom("Tupac & Biggie");
 
 ?>
 
