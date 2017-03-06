@@ -52,7 +52,7 @@ h1 {
   font-size: 75px;
   letter-spacing: 10px;
   font-weight: 600;
-  padding-top: 250px;
+  padding-top: 145px;
   color: #fff;
 }
 
@@ -68,6 +68,7 @@ h1 {
 
 .navbar form {
   padding: 0 20px;
+  display: inline;
 }
 
 .navbar ul li {
@@ -80,14 +81,31 @@ h1 {
   padding: 0 20px;
 }
 
+.navbar .nav-user.right a, .navbar .nav-user.right span, .navbar .nav-user.right input {
+  font-size: 14px;
+}
+
+.navbar .nav-user.right input {
+  width: 175px;
+  padding: 5px 5px 5px 10px;
+  text-transform: uppercase;
+}
+
 .navbar .nav-content {
   margin: 0 auto;
   text-align: center;
 }
 
+.navbar img.searchIcon {
+  position: absolute;
+  width: 19px;
+  top: 21px;
+  left: 1042px;
+}
+
 /*SUBMENU*/
 #subMenu {
-  margin-top: 195px;
+  margin-top: 145px;
   min-height: 500px;
   padding: 75px 0;
 }
@@ -120,8 +138,8 @@ h1 {
   color: #fff;
 }
 
-#callToAction .slogan {
-  height: 100%;
+#callToAction .slogan.col-md-3 {
+  padding-left: 0;
 }
 
 #callToAction h2 {
@@ -267,7 +285,7 @@ h1 {
 
 /* Page produit */
 #productPage {
-  padding-top: 250px;
+  padding-top: 190px;
 }
 
 #productPage img.vinyleImg {
@@ -279,6 +297,9 @@ h1 {
   margin: 0;
   font-size: 3em;
   letter-spacing: 3px;
+  color: #000;
+  padding-top: 0;
+  text-align: left;
 }
 
 #productPage h4.bandName {
@@ -566,7 +587,7 @@ h1 {
 
 /* Basket */
 #basket h3 {
-  padding-top: 250px;
+  padding-top: 145px;
   color: black;
   text-align: center;
 }

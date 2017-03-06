@@ -2,17 +2,22 @@
   <header class="border-bot">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <a href="/"><img class="logo" src="/src/assets/imgs/logo.png" /></a>
         <img src="" /> <!--Bandeau Orange à faire -->
         <div class="row">
+          <ul class="nav-user left">
+            <li>
+              <a href="/"><img class="logo" src="/src/assets/imgs/logo.png" style="width:50%;"/></a>
+            </li>
+          </ul>
           <ul class="nav-user right">
             <ShoppingCart></ShoppingCart>
             <li><router-link to="/panier">Panier</router-link></li>
             <li><router-link to="/connexion">Déjà inscrit ?</router-link></li>
             <li><router-link to="/inscription">Créer mon compte</router-link></li>
             <li>
-              <form class="right" v-on:keydown.enter.prevent="goToRecherche()">
-                <input type="text" v-model="rechercheString" placeholder="rechercher un vinyle" v-on:keyup="emitRechercheHeader()" />
+              <form v-on:keydown.enter.prevent="goToRecherche()">
+                <input type="text" v-model="rechercheString" placeholder="The doors, ACDC, ..." v-on:keyup="emitRechercheHeader()" />
+                <a href="/"><img class="searchIcon" src="/src/assets/imgs/search.png"/></a>
               </form>
             </li>
           </ul>
