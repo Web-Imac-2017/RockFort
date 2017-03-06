@@ -107,6 +107,7 @@
 		},
 		methods: {
 			emitGenreFromHome(value){
+				console.log("Bus.$emit('recherche-genre', value) => " + value)
 				Bus.$emit('recherche-genre', value);
 			}
 		},
@@ -114,7 +115,7 @@
 			imagesBandeOriginale: function () {
 				var resultatsArray = this.products;
 				var filtre = "bande originale"
-				var counter = 0;				console.log("LOL2")
+				var counter = 0				
 
 				resultatsArray = resultatsArray.filter(function(item){
                     if(counter>5 || item.genre.toLowerCase().indexOf(filtre) !== -1){

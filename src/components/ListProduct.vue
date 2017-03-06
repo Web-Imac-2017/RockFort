@@ -51,14 +51,15 @@ export default{
       this.triPar = triPar;
     }),
     Bus.$on('recherche-genre', filtreGenre => {
+      console.log("list Bus.$on('recherche-genre', filtreGenre => " + filtreGenre)
       this.filtreGenre = filtreGenre;
     }),
     Bus.$on('recherche-string', rechercheString => {
       this.rechercheString = rechercheString;
     }),
     Bus.$on('type-produit', typeProduit => {
-      console.log("LAL" + typeProduit)
       this.typeProduit = typeProduit;
+      console.log("this.typeProduit" + this.typeProduit)
     })
   },
   mounted () {
@@ -75,21 +76,31 @@ export default{
                 var resultatsArray = this.products
                 var rechercheString = this.rechercheString
                 var filtreGenre = this.filtreGenre
+                var typeProduit = this.typeProduit
                 var triPar = this.triPar
 
+                var filtre = window.location.pathname.split("/");
+                console.log("0" + filtre[0])
+                console.log("1" + filtre[1])
+                console.log("2" + filtre[2])
+                console.log("3" + filtre[3])
+                console.log("4" + filtre[4])
+                console.log("5" + filtre[5])
 
-                console.log("this.typeProduit" + this.typeProduit)
-                console.log("type fonction recherche:" + this.typeProduit)
-
-                if(!rechercheString && !filtreGenre && !triPar && !this.typeProduit){
+                if(!rechercheString && !filtre[3] && !filtre[4]){
+                    resultatsArray = resultatsArray.filter(function(item){
+                      if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
+                        return item;
+                      }
+                    })
                     this.nombreResultats = resultatsArray.length;
                     resultatsArray.sort(function(a,b){
                         var myA = a.date;
                         var myB = b.date;
-                        if(myA > myB) {
+                        if(myA < myB) {
                             return 1;
                         }
-                        if(myA < myB) {
+                        if(myA > myB) {
                             return -1;
                         }
                         return 0;
@@ -98,11 +109,9 @@ export default{
                 }
 
                 rechercheString = rechercheString.trim().toLowerCase();
-                var typeProduit = this.typeProduit.trim().toLowerCase();
-                filtreGenre = filtreGenre.trim().toLowerCase();
                 resultatsArray = resultatsArray.filter(function(item){
-                    if(typeProduit == "" || item.type.toLowerCase().indexOf(typeProduit) !== -1) {
-                      if(filtreGenre == "genre : tout" || item.genre.toLowerCase().indexOf(filtreGenre) !== -1){
+                    if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
+                      if(filtre[3] =='tout' || item.genre.toLowerCase().indexOf(filtre[3]) !== -1){
                         if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
                           return item;
                         }
@@ -111,15 +120,15 @@ export default{
                 })
                 
                 //SORT
-                if(triPar == "Prix ↑") {
+                if(filtre[4] == "prix-asc") {
                     resultatsArray.sort(function(a,b){
                         return a.prix - b.prix;
                     });
-                }else if(triPar == "Prix ↓"){
+                }else if(filtre[4]  == "prix-desc"){
                     resultatsArray.sort(function(a,b){
                         return b.prix - a.prix;
                     });
-                }else if(triPar == "Date de sortie ↑"){
+                }else if(filtre[4] == "date-asc"){
                     resultatsArray.sort(function(a,b){
                         var myA = a.date;
                         var myB = b.date;
@@ -131,7 +140,7 @@ export default{
                         }
                         return 0;
                     });
-                }else if(triPar == "Date de sortie ↓"){
+                }else if(filtre[4] == "date-desc"){
                     resultatsArray.sort(function(a,b){
                         var myA = a.date;
                         var myB = b.date;
@@ -143,7 +152,7 @@ export default{
                         }
                         return 0;
                     });
-                }else if(triPar == "Ordre alphabétique ↑"){
+                }else if(filtre[4] == "alphabet-asc"){
                     resultatsArray.sort(function (a, b){
                         var myA = a.nom;
                         var myB = b.nom;
@@ -155,7 +164,7 @@ export default{
                         }
                         return 0;
                     });
-                }else if(triPar == "Ordre alphabétique ↓"){
+                }else if(filtre[4] == "alphabet-desc"){
                     resultatsArray.sort(function (a, b){
                         var myA = a.nom;
                         var myB = b.nom;

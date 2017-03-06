@@ -45,19 +45,30 @@ export default{
     }
   },
   created() {
+    Bus.$on('tri-par', triPar => {
+      this.triPar = triPar;
+    }),
+    Bus.$on('recherche-genre', filtreGenre => {
+      console.log("list Bus.$on('recherche-genre', filtreGenre => " + filtreGenre)
+      this.filtreGenre = filtreGenre;
+    }),
     Bus.$on('recherche-string', rechercheString => {
       this.rechercheString = rechercheString;
+    }),
+    Bus.$on('type-produit', typeProduit => {
+      this.typeProduit = typeProduit;
+      console.log("this.typeProduit" + this.typeProduit)
     })
   },
   methods: {
-    goToRecherche(){this.$router.push('/recherche')},
+    goToRecherche(){this.$router.push({ name: 'store', params: { type: 'recherche', genre: 'tout', sort: 'date-desc'  }})},
 
     emitRechercheHeader(){
       Bus.$emit('recherche-string', this.rechercheString)
+      Bus.$emit('type-produit', '')
     },
 
     emitTypeFromHeader(){
-      console.log("LOL" + window.location.pathname.split("/").pop())
       Bus.$emit('type-produit', window.location.pathname.split("/").pop())
     },
   }

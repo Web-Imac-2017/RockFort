@@ -14,7 +14,15 @@ const router = new VueRouter({
 		path:'/store',
 		component: require('./components/Store.vue')
 	}, {
+		path:'/recherche',
+		component: require('./components/ListProduct.vue')
+	},
+	{
 		path:'/store/vinyles',
+		component: require('./components/ListProduct.vue')
+	}, {
+		name: 'store',
+		path:'/store/:type/:genre/:sort',
 		component: require('./components/ListProduct.vue')
 	}, {
 		path:'/store/platines',
@@ -38,9 +46,6 @@ const router = new VueRouter({
 		path:'/ProductPage',
 		component: require('./components/ProductPage.vue')
 	}, {
-		path:'/random',
-		component: require('./components/Random.vue')
-	}, {
 		path:'/panier',
 		component: require('./components/Panier.vue')
 	}, {
@@ -49,12 +54,6 @@ const router = new VueRouter({
 	}, {
 		path:'/connexion',
 		component: require('./components/Connexion.vue')
-	}, {
-		path:'/recherche',
-		component: require('./components/Recherche.vue')
-	}, {
-		path:'/panier',
-		component: require('./components/Panier.vue')
 	}, {
 		path:'*',
 		redirect: '/'
