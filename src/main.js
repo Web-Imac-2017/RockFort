@@ -46,9 +46,6 @@ const router = new VueRouter({
 		path:'/ProductPage',
 		component: require('./components/ProductPage.vue')
 	}, {
-		path:'/panier',
-		component: require('./components/Panier.vue')
-	}, {
 		path:'/inscription',
 		component: require('./components/Inscription.vue')
 	}, {
