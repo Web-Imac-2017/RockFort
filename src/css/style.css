@@ -52,7 +52,7 @@ h1 {
   font-size: 75px;
   letter-spacing: 10px;
   font-weight: 600;
-  padding-top: 145px;
+  padding-top: 131px;
   color: #fff;
 }
 
@@ -60,10 +60,6 @@ h1 {
 .navbar {
   background-color: #fff;
   border-bottom: 2px solid black;
-}
-
-.navbar .logo {
-  padding: 14px;
 }
 
 .navbar form {
@@ -104,7 +100,7 @@ h1 {
 
 /*SUBMENU*/
 #subMenu {
-  margin-top: 145px;
+  margin-top: 131px;
   min-height: 500px;
 }
 
@@ -587,7 +583,7 @@ h1 {
 
 /* Basket */
 #cartPage h3 {
-  padding-top: 145px;
+  padding-top: 131px;
   color: black;
   text-align: center;
 }
@@ -704,10 +700,10 @@ footer img {
 
 /* ANIMATIONS */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.6s, transform 0.6s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .fade-enter, .fade-leave-active {
-  opacity: 0.6;
+  opacity: 0.2;
   transform: translateY(20px);
 }

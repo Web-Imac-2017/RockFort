@@ -52,11 +52,14 @@ const router = new VueRouter({
 	}, {
 		path:'*',
 		redirect: '/'
-	}]
+	}],
+	scrollBehavior (to, from, savedPosition) {
+		return { x: 0, y: 0 }
+	}
 })
 
 new Vue({
-  el: '#app',
-  router,
-  render: h => h(require('./App.vue'))
+	el: '#app',
+	router,
+	render: h => h(require('./App.vue'))
 })
