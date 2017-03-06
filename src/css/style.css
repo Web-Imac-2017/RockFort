@@ -106,13 +106,14 @@ h1 {
 #subMenu {
   margin-top: 145px;
   min-height: 500px;
-  padding: 75px 0;
 }
 
 #subMenu div {
-  position: relative;
-  display: inline-block;
-  width: auto;
+  padding: 0;
+}
+
+#subMenu div img {
+  width: 100%;
 }
 
 #subMenu div a {

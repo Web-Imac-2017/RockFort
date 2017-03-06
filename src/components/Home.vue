@@ -1,27 +1,51 @@
 <template>
 	<div>
-		<div class="container">
+		<div class="container-fluid">
 			<section id="subMenu">
-				<router-link to="/store/vinyles">
+				<div class="row">
 					<div class="col-md-4">
-						<h2>Vinyles</h2>
-						<img src="src/assets/imgs/vinyles.jpg" />
+						<router-link to="/store/vinyles">
+							<h2>Vinyles</h2>
+							<img src="src/assets/imgs/vinyles.jpg" />
+						</router-link>
 					</div>
-				</router-link>
-				<router-link to="/store/platines">
 					<div class="col-md-4">
-						<h2>Platines</h2>
-						<img src="src/assets/imgs/platines.jpg" />
+						<router-link to="/store/platines">
+							<h2>Platines</h2>
+							<img src="src/assets/imgs/platines.jpg" />
+						</router-link>
 					</div>
-				</router-link>
-				<router-link to="/store/coffrets">
 					<div class="col-md-4">
-						<h2>Coffrets</h2>
-						<img src="src/assets/imgs/coffrets.jpg" />
+						<router-link to="/store/coffrets">
+							<h2>Coffrets</h2>
+							<img src="src/assets/imgs/coffrets.jpg" />
+						</router-link>
 					</div>
-				</router-link>
+				</div>
 			</section>
 		</div>
+		<section id="selection">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<router-link v-on:click.native="emitGenreFromHome('Oldies')" to="/store/vinyles">
+							<img src="src/assets/imgs/vinyles.jpg" />
+							<h2>Sélection Oldies</h2>
+						</router-link>
+					</div>
+					<div class="col-md-4">
+						<img src="src/assets/imgs/platines.jpg" />
+						<h2>Le coffret du mois</h2>
+					</div>
+					<div class="col-md-4">
+						<router-link v-on:click.native="emitGenreFromHome('Nouveautés')" to="/store/vinyles">
+							<img src="src/assets/imgs/coffrets.jpg" />
+							<h2>Sélection Nouveautés</h2>
+						</router-link>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section id="callToAction">
 			<div class="row nomargin">
 				<div class="slogan col-md-3">
@@ -47,30 +71,8 @@
 				</div>
 			</div>
 		</section>
-		<div class="container">
-			<section id="selection">
-				<router-link v-on:click.native="emitGenreFromHome('Oldies')" to="/store/vinyles">
-					<div class="col-md-4">
-						<img src="src/assets/imgs/vinyles.jpg" />
-						<h2>Sélection Oldies</h2>
-					</div>
-				</router-link>
-				<a href="#">
-					<div class="col-md-4">
-						<img src="src/assets/imgs/platines.jpg" />
-						<h2>Le coffret du mois</h2>
-					</div>
-				</a>
-				<router-link v-on:click.native="emitGenreFromHome('Nouveautés')" to="/store/vinyles">
-					<div class="col-md-4">
-						<img src="src/assets/imgs/coffrets.jpg" />
-						<h2>Sélection Nouveautés</h2>
-					</div>
-				</router-link>
-			</section>
-		</div>
-			<section id="originalSoundTrack">
-				<router-link v-on:click.native="emitGenreFromHome('Bande Originale')" to="/store/vinyles">
+		<section id="originalSoundTrack">
+			<router-link v-on:click.native="emitGenreFromHome('Bande Originale')" to="/store/vinyles">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4">
@@ -83,49 +85,49 @@
 						</div>
 					</div>
 				</div>
-				</router-link>
-			</section>
+			</router-link>
+		</section>
 	</div>
 </template>
 
 <script>
-	import { Bus } from './bus.js'
+import { Bus } from './bus.js'
 
-	export default {
-		data () {
-		    return {
-		    	products: []
-		    }
-		},
-		mounted () {
-		    this.$http.get('/src/jsonTest.json').then((response) => {
-		      console.log("success", response)
-		      this.products = response.data
-		    }, (response) => {
-		      console.log("erreur", response)
-		    })
-		},
-		methods: {
-			emitGenreFromHome(value){
-				Bus.$emit('recherche-genre', value);
-			}
-		},
-		computed: {
-			imagesBandeOriginale: function () {
-				var resultatsArray = this.products;
-				var filtre = "bande originale"
-				var counter = 0;				console.log("LOL2")
+export default {
+	data () {
+		return {
+			products: []
+		}
+	},
+	mounted () {
+		this.$http.get('/src/jsonTest.json').then((response) => {
+			console.log("success", response)
+			this.products = response.data
+		}, (response) => {
+			console.log("erreur", response)
+		})
+	},
+	methods: {
+		emitGenreFromHome(value){
+			Bus.$emit('recherche-genre', value);
+		}
+	},
+	computed: {
+		imagesBandeOriginale: function () {
+			var resultatsArray = this.products;
+			var filtre = "bande originale"
+			var counter = 0;				console.log("LOL2")
 
-				resultatsArray = resultatsArray.filter(function(item){
-                    if(counter>5 || item.genre.toLowerCase().indexOf(filtre) !== -1){
-                    	counter++;
-                        return item;
-                	}
-                })
+			resultatsArray = resultatsArray.filter(function(item){
+				if(counter>5 || item.genre.toLowerCase().indexOf(filtre) !== -1){
+					counter++;
+					return item;
+				}
+			})
 
-				resultatsArray.shift();
-                return resultatsArray;
-			}
+			resultatsArray.shift();
+			return resultatsArray;
 		}
 	}
+}
 </script>

@@ -94,12 +94,12 @@ h1{
 #subMenu{
   margin-top: 145px;
   min-height:$sectionheight;
-  padding:75px 0;
 
   div{
-    position: relative;
-    display: inline-block;
-    width: auto;
+    padding: 0;
+    img{
+      width: 100%;
+    }
 
     a{text-decoration: none;}
 
