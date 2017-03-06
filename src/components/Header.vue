@@ -11,7 +11,6 @@
           </ul>
           <ul class="nav-user right">
             <ShoppingCart></ShoppingCart>
-            <li><router-link to="/panier">Panier</router-link></li>
             <li><router-link to="/connexion">Déjà inscrit ?</router-link></li>
             <li><router-link to="/inscription">Créer mon compte</router-link></li>
             <li>
@@ -29,7 +28,6 @@
           <li @click="emitTypeFromHeader()"><router-link to="/store/platines">Platines</router-link> |</li>
           <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
-          <li><router-link to="/offrir">Offrir</router-link> |</li>
           <li><router-link to="/story/list">La Story</router-link></li>
         </ul>
       </div>

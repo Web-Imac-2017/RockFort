@@ -26,8 +26,8 @@ const router = new VueRouter({
 		path:'/abonnement',
 		component: require('./components/Abonnement.vue')
 	}, {
-		path:'/offrir',
-		component: require('./components/Offrir.vue')
+		path:'/cartPage',
+		component: require('./components/CartPage.vue')
 	}, {
 		path:'/story/list',
 		component: require('./components/StoryList.vue')
@@ -41,9 +41,6 @@ const router = new VueRouter({
 		path:'/random',
 		component: require('./components/Random.vue')
 	}, {
-		path:'/panier',
-		component: require('./components/Panier.vue')
-	}, {
 		path:'/inscription',
 		component: require('./components/Inscription.vue')
 	}, {
@@ -52,9 +49,6 @@ const router = new VueRouter({
 	}, {
 		path:'/recherche',
 		component: require('./components/Recherche.vue')
-	}, {
-		path:'/panier',
-		component: require('./components/Panier.vue')
 	}, {
 		path:'*',
 		redirect: '/'

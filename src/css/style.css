@@ -97,10 +97,9 @@ h1 {
 }
 
 .navbar img.searchIcon {
-  position: absolute;
+  position: relative;
   width: 19px;
-  top: 21px;
-  left: 1042px;
+  left: -50px;
 }
 
 /*SUBMENU*/
@@ -586,21 +585,67 @@ h1 {
 }
 
 /* Basket */
-#basket h3 {
+#cartPage h3 {
   padding-top: 145px;
   color: black;
   text-align: center;
 }
 
-#basket .optionAdress {
-  background: #f0f0f0;
+#cartPage h3.finalise {
+  margin: 50px 0;
+}
+
+#cartPage .assurance {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+#cartPage .assurance .tick {
+  width: 20px;
+}
+
+#cartPage .deliveryAddress, #cartPage .deliveryPayment, #cartPage .deliveryMode, #cartPage .purchase {
+  border-top: 1px solid gainsboro;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+#cartPage .deliveryAddress button.validate, #cartPage .deliveryPayment button.validate, #cartPage .deliveryMode button.validate, #cartPage .purchase button.validate {
+  background-color: #269be7;
+  border: none;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+#cartPage .optionDelivery {
+  background-color: #f0f0f0;
   width: 100%;
   padding: 25px;
   margin-bottom: 10px;
 }
 
-#basket .optionAdress span {
+#cartPage .optionDelivery span {
   margin-left: 15px;
+}
+
+#cartPage .basket {
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+#cartPage .item {
+  margin-bottom: 15px;
+}
+
+#cartPage .item .content {
+  border: 1px solid gainsboro;
+  padding: 10px;
+}
+
+#cartPage .item .content .title {
+  margin: 0;
 }
 
 /*footer*/
