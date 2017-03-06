@@ -48,18 +48,18 @@ h1{
   font-size: 75px;
   letter-spacing: 10px;
   font-weight: 600;
-  padding-top: 250px;
+  padding-top: 131px;
   color: $white;
 }
 
 /*NAV*/
 .navbar{
   background-color:$white;
-
-  .logo{padding:14px;}
-
-  form{padding:0 20px;}
-
+  border-bottom:2px solid black;
+  form{
+    padding:0 20px;
+    display: inline;
+  }
   ul {
     li {
       font-size: 18px;
@@ -70,25 +70,35 @@ h1{
       padding: 0 20px;
     }
   }
-
+  .nav-user.right a, .nav-user.right span, .nav-user.right input{
+    font-size: 14px;
+  }
+  .nav-user.right input{
+    width: 175px;
+    padding: 5px 5px 5px 10px;
+    text-transform: uppercase;
+  }
   .nav-content{
     margin:0 auto;
     text-align:center;
   }
-
-  border-bottom:2px solid black;
+  img.searchIcon{
+    position: relative;
+    width: 19px;
+    left: -50px;
+  }
 }
 
 /*SUBMENU*/
 #subMenu{
-  margin-top: 195px;
+  margin-top: 131px;
   min-height:$sectionheight;
-  padding:75px 0;
 
   div{
-    position: relative;
-    display: inline-block;
-    width: auto;
+    padding: 0;
+    img{
+      width: 100%;
+    }
 
     a{text-decoration: none;}
 
@@ -113,9 +123,9 @@ h1{
   background-color: $yellow;
 
   color:$white;
-
-  .slogan{height:100%;}
-
+  .slogan.col-md-3 {
+    padding-left: 0;
+  }
   h2{
     text-align: left;
     font-size: 65px;
@@ -242,7 +252,7 @@ h1{
 
 /* Page produit */
 #productPage{
-  padding-top: 250px;
+  padding-top: 190px;
   img.vinyleImg{
     width: 100%;
   }
@@ -251,6 +261,9 @@ h1{
     margin: 0;
     font-size: 3em;
     letter-spacing: 3px;
+    color: $black;
+    padding-top: 0;
+    text-align: left;
   }
   h4.bandName{
     font-size: 1.3em;
@@ -495,19 +508,56 @@ h1{
 }
 
 /* Basket */
-#basket{
+#cartPage{
   h3{
-    padding-top: 250px;
+    padding-top: 131px;
     color: black;
     text-align: center;
   }
-  .optionAdress{
-    background: $beige;
+  h3.finalise{
+    margin: 50px 0;
+  }
+  .assurance{
+    font-size: 14px;
+    margin-bottom: 24px;
+    .tick{
+      width: 20px;
+    }
+  }
+  .deliveryAddress, .deliveryPayment, .deliveryMode, .purchase{
+    border-top: 1px solid $grey;
+    padding-top: 24px;
+    margin-top: 24px;
+    button.validate{
+      background-color: $blue;
+      border: none;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+  }
+  .optionDelivery{
+    background-color: $beige;
     width: 100%;
     padding: 25px;
     margin-bottom: 10px;
     span{
       margin-left: 15px;
+    }
+  }
+  .basket{
+    background-color: $beige;
+    padding: 10px;
+  }
+  .item{
+    margin-bottom: 15px;
+    .content{
+      border: 1px solid $grey;
+      padding: 10px;
+      .title{
+        margin: 0;
+      }
     }
   }
 }
@@ -561,9 +611,9 @@ footer{
 
 /* ANIMATIONS */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.6s, transform 0.6s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 .fade-enter, .fade-leave-active{
-  opacity: 0.6;
+  opacity: 0.2;
   transform: translateY(20px);
 }

@@ -34,8 +34,8 @@ const router = new VueRouter({
 		path:'/abonnement',
 		component: require('./components/Abonnement.vue')
 	}, {
-		path:'/offrir',
-		component: require('./components/Offrir.vue')
+		path:'/cartPage',
+		component: require('./components/CartPage.vue')
 	}, {
 		path:'/story/list',
 		component: require('./components/StoryList.vue')
@@ -57,11 +57,14 @@ const router = new VueRouter({
 	}, {
 		path:'*',
 		redirect: '/'
-	}]
+	}],
+	scrollBehavior (to, from, savedPosition) {
+		return { x: 0, y: 0 }
+	}
 })
 
 new Vue({
-  el: '#app',
-  router,
-  render: h => h(require('./App.vue'))
+	el: '#app',
+	router,
+	render: h => h(require('./App.vue'))
 })

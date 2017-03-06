@@ -1,6 +1,6 @@
 /* PRELOADER */
 $(window).bind("load", function() {
-  $('#preloaderContainer').delay("1000").fadeOut("200");
+  $('#preloaderContainer').delay("300").fadeOut("200");
 });
 
 $('span.dropdown-toggle').on('click', function (event) {

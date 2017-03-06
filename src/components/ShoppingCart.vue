@@ -2,7 +2,7 @@
   <ul class="nav navbar-nav navbar-right cart">
     <li class="dropdown">
       <span class="dropdown-toggle" role="button" aria-expanded="false">
-        <img src="/src/assets/imgs/cartIcon.png" style="width: 35px" alt="" class="itemImg">
+        <img src="/src/assets/imgs/cartIcon.png" style="width: 30px" alt="" class="itemImg">
         <span class="glyphicon glyphicon-shopping-cart"></span>
         {{ nbItems }} Produits<span class="caret"></span>
       </span>
@@ -12,9 +12,7 @@
           <Item v-for="item in items" :item="item"></Item>
           <li class="divider"></li>
           <li><a class="text-center" href="">Total : {{ total }}€</a></li>
-          <router-link link to="/panier">
-            <li class="text-center">View Cart</li>
-          </router-link>
+          <li><router-link to="/cartPage">Voir le panier</router-link></li>
         </div>
       </ul>
     </li>
