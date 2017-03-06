@@ -1,5 +1,5 @@
 <template>
-	<div style="padding-top:250px">Basket</div>
+	<div style="padding-top:250px">Inscription</div>
 </template>
 
 <script>
