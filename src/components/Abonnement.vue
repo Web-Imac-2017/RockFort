@@ -1,5 +1,5 @@
 <template>
-	<div style="padding-top:250px">Product</div>
+	<div style="padding-top:250px">Abonnement</div>
 </template>
 
 <script>

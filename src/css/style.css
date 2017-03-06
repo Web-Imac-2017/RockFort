@@ -1,6 +1,20 @@
 @charset "UTF-8";
 /*PALETTE*/
+@font-face {
+  font-family: "covesLight";
+  src: url("../fonts/CovesLight.otf");
+}
+
+@font-face {
+  font-family: "covesBold";
+  src: url("../fonts/CovesBold.otf");
+}
+
 /*UTILES*/
+body {
+  font-family: "covesLight";
+}
+
 .left {
   float: left;
 }
@@ -11,7 +25,6 @@
 
 .border-bot {
   border-bottom: 2px solid black;
-  margin-top: 117px;
 }
 
 .nopadding {
@@ -22,184 +35,572 @@
   margin: 0;
 }
 
-/*NAV*/
-.navbar {
-  background-color: #fff;
+.mb {
+  margin-bottom: 30px;
 }
 
-.navbar .navbar-nav .left > li,
-.navbar .navbar-nav div > .right > li {
-  display: inline;
+.mbLarge {
+  margin-bottom: 75px;
+}
+
+p, h3 {
   font-size: 24px;
 }
 
-.navbar .navbar-nav .left > li a,
-.navbar .navbar-nav div > .right > li a {
-  color: #000;
-  font-size: 16px;
-  text-decoration: none;
-}
-
-.navbar .navbar-nav .left > #site-logo {
-  position: relative;
-  bottom: -25px;
-}
-
-.navbar .navbar-nav .left > #site-logo img {
-  width: 100%;
-}
-
-/*SUBMENU*/
-#subMenu {
-  margin-top: 223px;
-}
-
-#subMenu a {
-  text-decoration: none;
-}
-
-#subMenu .webSection {
-  height: 450px;
-}
-
-#subMenu .webSection h2 {
-  line-height: 450px;
-  color: #fff;
-  font-size: 60px;
-  letter-spacing: 12px;
-  text-align: center;
-}
-
-#subMenu .leStore {
-  background: url("../assets/imgs/leStore.jpg") top no-repeat;
-  background-size: cover;
-}
-
-#subMenu .laStory {
-  background: url("../assets/imgs/laStory.jpg") top no-repeat;
-  background-size: cover;
-}
-
-/*SELECTION*/
-#selection {
-  padding: 50px 0;
-}
-
-#selection img {
-  padding-top: 20px;
-  display: block;
-  margin: 0 auto;
-  height: 200px;
-}
-
-#selection h3 {
-  letter-spacing: 5px;
-  color: #000;
-  text-align: center;
-}
-
-/*CALL TO ACTION */
-#callToAction .row {
-  height: 360px;
-  background-color: #ffbb20;
-  color: #fff;
-}
-
-#callToAction .row .slogan img {
-  height: 340px;
-  position: absolute;
-  bottom: -120px;
-  left: 0;
-}
-
-#callToAction .row .slogan h2 {
-  font-size: 5em;
-  margin: 0 0 0 50px;
-  z-index: 999;
-}
-
-#callToAction .row .slogan p {
-  font-size: 2em;
-  margin: 0 0 0 200px;
-}
-
-#callToAction .row .border {
-  text-align: center;
-  margin: 50px 50px 0 0;
-  border: 1px solid #fff;
-}
-
-#callToAction .row .border .price {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-
-#callToAction .row .border .hook {
-  font-size: 18px;
-}
-
-/*OST*/
-#ost {
-  height: 300px;
-  padding: 50px 0;
-}
-
-#ost .row div h2 {
-  margin: 0;
-  padding-left: 30px;
-  font-size: 70px;
-}
-
-#ost .row div img {
-  height: 150px;
-  padding: 10px 30px;
-}
-
-#ost .row div .big-cover {
-  width: 300px;
-  height: auto;
-}
-
-/* Le store */
-.storeList h1 {
+h1 {
   text-align: center;
   font-size: 75px;
   letter-spacing: 10px;
   font-weight: 600;
-  padding-top: 250px;
+  padding-top: 145px;
+  color: #fff;
+}
+
+/*NAV*/
+.navbar {
+  background-color: #fff;
+  border-bottom: 2px solid black;
+}
+
+.navbar .logo {
+  padding: 14px;
+}
+
+.navbar form {
+  padding: 0 20px;
+  display: inline;
+}
+
+.navbar ul li {
+  font-size: 18px;
+  display: inline;
+}
+
+.navbar ul a {
+  color: #000;
+  padding: 0 20px;
+}
+
+.navbar .nav-user.right a, .navbar .nav-user.right span, .navbar .nav-user.right input {
+  font-size: 14px;
+}
+
+.navbar .nav-user.right input {
+  width: 175px;
+  padding: 5px 5px 5px 10px;
+  text-transform: uppercase;
+}
+
+.navbar .nav-content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.navbar img.searchIcon {
+  position: absolute;
+  width: 19px;
+  top: 21px;
+  left: 1042px;
+}
+
+/*SUBMENU*/
+#subMenu {
+  margin-top: 145px;
+  min-height: 500px;
+  padding: 75px 0;
+}
+
+#subMenu div {
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+
+#subMenu div a {
+  text-decoration: none;
+}
+
+#subMenu div h2 {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  font-size: 48px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+/*CALL TO ACTION */
+#callToAction {
+  background-color: #ffd901;
+  color: #fff;
+}
+
+#callToAction .slogan.col-md-3 {
+  padding-left: 0;
+}
+
+#callToAction h2 {
+  text-align: left;
+  font-size: 65px;
+  margin-bottom: 0;
+}
+
+#callToAction .slogan p {
+  font-size: 35px;
+  text-align: center;
+  margin: 0;
+}
+
+#callToAction .border {
+  border: solid 2px #fff;
+  margin: 50px 70px 0 70px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#callToAction .price {
+  font-weight: 800;
+  font-size: 30px;
+}
+
+/*SELECTION*/
+#selection {
+  min-height: 500px;
+  padding: 50px 0;
+  text-align: center;
+}
+
+#selection a {
+  color: #000;
+}
+
+/*OST*/
+#originalSoundTrack {
+  min-height: 500px;
+  background-color: gainsboro;
+  padding: 75px 0;
+}
+
+#originalSoundTrack a {
+  color: #000;
+}
+
+#originalSoundTrack .ost-right > h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+#originalSoundTrack .ost-right > p {
+  font-size: 28px;
+}
+
+#originalSoundTrack .ost-right > img,
+#originalSoundTrack .ost-right > h2,
+#originalSoundTrack .ost-right > p {
+  padding: 0 14px;
+}
+
+#originalSoundTrack .ost-right > img {
+  width: 180px;
+}
+
+/* Le store */
+.storeList #leStore {
+  background: url("../assets/imgs/leStore2.jpg") bottom no-repeat fixed;
+  background-size: cover;
 }
 
 .storeList h2 {
-  text-align: center;
-  color: white;
-  line-height: 150px;
+  color: black;
   font-size: 60px;
   margin: 0;
   letter-spacing: 10px;
   font-weight: 400;
-  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.storeList .row {
-  margin-bottom: 50px;
+.storeList h3 {
+  margin-bottom: 35px;
 }
 
-.storeList .row .tile {
-  height: 250px;
-  padding: 50px 0;
+.storeList h4 {
+  font-weight: 400;
+  font-size: 1.4em;
+  letter-spacing: 3px;
+}
+
+.storeList .vinyles, .storeList .coffrets {
+  background-color: #f0f0f0;
+}
+
+.storeList .vinyles, .storeList .coffrets, .storeList .platines {
+  padding: 35px 0;
+}
+
+.storeList .platines {
+  background: url("../assets/imgs/rainbowBg.png") top no-repeat;
+}
+
+.storeList .productList .col-md-3:nth-child(odd) .coffretItem {
+  background-color: #f4901c;
+}
+
+.storeList .productList .col-md-3:nth-child(even) .coffretItem {
+  background-color: #ffd901;
+}
+
+.storeList a {
+  color: white;
+}
+
+.storeList a .coffretItem {
+  width: 100%;
+  height: 165px;
+  line-height: 165px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.storeList .productContent {
+  margin: 0px 15px;
+  border-left: 1px solid gainsboro;
+  padding-left: 50px;
+  text-align: center;
+}
+
+.storeList .productContent .vinyleItem {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.vinyleItem {
+  margin-bottom: 40px;
+}
+
+.vinyleItem img {
+  width: 100%;
+}
+
+/* Page produit */
+#productPage {
+  padding-top: 190px;
+}
+
+#productPage img.vinyleImg {
+  width: 100%;
+}
+
+#productPage h1.vinyleTitle {
+  font-family: "covesBold";
+  margin: 0;
+  font-size: 3em;
+  letter-spacing: 3px;
+  color: #000;
+  padding-top: 0;
+  text-align: left;
+}
+
+#productPage h4.bandName {
+  font-size: 1.3em;
+  margin-top: 0;
+}
+
+#productPage p.more {
+  font-size: 1.3em;
+  font-family: "covesBold";
+}
+
+#productPage .price {
+  font-family: "covesBold";
+  font-size: 2em;
+}
+
+#productPage .quantitySelector, #productPage .addToCart {
+  background-color: #269be7;
+  text-align: center;
+  color: white;
+  height: 50px;
+}
+
+#productPage .quantity {
+  line-height: 50px;
+  font-size: 1.3em;
+}
+
+#productPage .incrButton, #productPage .decrButton {
+  line-height: 25px;
   cursor: pointer;
 }
 
-.storeList .row .disques {
-  background: url("../assets/imgs/leStore.jpg") top no-repeat;
+#productPage .addToCart {
+  line-height: 50px;
+  letter-spacing: 3px;
+  cursor: pointer;
 }
 
-.storeList .row .platines {
-  background: url("../assets/imgs/laStory.jpg") center no-repeat;
+#productPage .desc {
+  background-color: #99d0f3;
+  padding: 15px;
+  margin: 30px 0;
 }
 
-.storeList .row .coffrets {
-  background: url("../assets/imgs/coffrets.jpg") center no-repeat;
+#productPage .ratingArea {
+  background-color: #f0f0f0;
+  padding: 30px 0;
+}
+
+#productPage .ratingArea .note, #productPage .ratingArea .moreNote {
+  border: 1px solid #ffd901;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: #000;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+#productPage .ratingArea .note:hover, #productPage .ratingArea .moreNote:hover {
+  background-color: #ffd901;
+}
+
+#productPage .ratingArea .moreNote {
+  margin: 0;
+}
+
+#productPage .ratingArea .comment {
+  background-color: #fff;
+}
+
+#productPage .ratingArea .comment .commentInfo {
+  text-align: center;
+  padding: 10px;
+}
+
+#productPage .ratingArea .comment .commentInfo .author {
+  font-family: "covesBold";
+  font-size: 1.3em;
+}
+
+#productPage .ratingArea .comment .commentContent {
+  border-left: 1px solid gainsboro;
+  padding: 20px;
+}
+
+/* List page */
+#listProduct #lesDisques {
+  background: url("../assets/imgs/list.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#listProduct .vinyleItem {
+  margin-bottom: 0;
+}
+
+#listProduct p {
+  margin: 0;
+}
+
+#listProduct p.vinylTitle, #listProduct p.price {
+  font-family: "covesBold";
+}
+
+#listProduct p.price {
+  text-align: right;
+}
+
+#listProduct p.bandName {
+  font-size: 14px;
+}
+
+#listProduct button.inc, #listProduct button.dec, #listProduct button.addToCart {
+  width: 100%;
+  border: none;
+  background-color: #269be7;
+  text-align: center;
+  color: white;
+  height: 35px;
+  line-height: 35px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.sortBar {
+  background-color: #f0f0f0;
+  height: 100px;
+}
+
+.sortBar select, .sortBar input, .sortBar button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+/*Recherche*/
+#Recherche #rechercheHeader {
+  background: url("../assets/imgs/recherche_header.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#Recherche a {
+  color: #000;
+}
+
+#Recherche a :hover {
+  color: #3f3f3f;
+}
+
+#Recherche a img {
+  width: 340px;
+}
+
+.noresult {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.noresult img {
+  display: block;
+  margin: 0 auto;
+}
+
+/*Story List*/
+#storyList #storyListHeader {
+  background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#storyList a {
+  color: #000;
+}
+
+#storyList a div {
+  margin: 12px 0;
+}
+
+#storyList a div .imageArticle {
+  height: 250px;
+  overflow: hidden;
+}
+
+#storyList a div h2 {
+  margin: 10px 0;
+  font-size: 50px;
+}
+
+#storyList a div p {
+  margin: 10px 0;
+}
+
+#storyList a :hover {
+  color: #3f3f3f;
+}
+
+/*Story*/
+#laStory #laStoryHeader {
+  background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+#laStory .selection h2 {
+  font-size: 24px;
+  padding-left: 15px;
+}
+
+#laStory .selection a {
+  color: #000;
+}
+
+#laStory .selection a :hover {
+  color: #3f3f3f;
+}
+
+#laStory .selection img {
+  width: 260px;
+}
+
+/* ShoppingCart */
+.cart .item p, .cart .item span {
+  font-size: 13px;
+}
+
+.cart img.itemImg {
+  width: 100%;
+}
+
+.cart .cartEmpty {
+  text-align: center;
+}
+
+.cart ul.dropdown-cart {
+  min-width: 250px;
+}
+
+.cart ul.dropdown-cart li .item {
+  display: block;
+  padding: 3px 10px;
+  margin: 3px 0;
+}
+
+.cart ul.dropdown-cart li .item:hover {
+  background-color: #f3f3f3;
+}
+
+.cart ul.dropdown-cart li .item:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.cart ul.dropdown-cart li .item-left {
+  float: left;
+}
+
+.cart ul.dropdown-cart li .item-left img {
+  width: 50px;
+}
+
+.cart ul.dropdown-cart li .item-left img,
+.cart ul.dropdown-cart li .item-left span.item-info {
+  float: left;
+}
+
+.cart ul.dropdown-cart li .item-left span.item-info {
+  margin-left: 10px;
+}
+
+.cart ul.dropdown-cart li .item-left span.item-info span {
+  display: block;
+}
+
+.cart ul.dropdown-cart li .item-right {
+  float: right;
+}
+
+.cart ul.dropdown-cart li .item-right button {
+  margin-top: 14px;
+}
+
+/* Basket */
+#basket h3 {
+  padding-top: 145px;
+  color: black;
+  text-align: center;
+}
+
+#basket .optionAdress {
+  background: #f0f0f0;
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 10px;
+}
+
+#basket .optionAdress span {
+  margin-left: 15px;
 }
 
 /*footer*/
@@ -207,9 +608,60 @@ footer {
   background: url("../assets/imgs/footer_bkg.jpg") top no-repeat;
   /*img à redimensionner sur photoshop*/
   height: 260px;
-  color: white;
+  color: #fff;
+}
+
+footer .about a {
+  font-size: 24px;
+  color: #fff;
+}
+
+footer ul > li {
+  list-style-type: none;
+}
+
+footer .social ul {
+  padding-left: 0;
+}
+
+footer .social li {
+  display: inline;
+}
+
+footer .newsletter p {
+  margin-top: 14px;
+  font-size: 24px;
 }
 
 footer img {
+  margin: 0 15px;
   height: 50px;
+}
+
+/* LOADER */
+#preloaderContainer {
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#preloaderContainer img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* ANIMATIONS */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0.6;
+  transform: translateY(20px);
 }

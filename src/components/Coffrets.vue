@@ -1,8 +1,8 @@
 <template>
-	<transition name="fade" appear>
+	<div>
 		<div class="container-fluid storeList">
-			<div id="leStore" class="row">
-				<h1>Le store</h1>
+			<div class="row">
+				<h1>Les Coffrets</h1>
 			</div>
 			<div class="row">
 				<div class="vinyles">
@@ -24,22 +24,22 @@
 									<div class="productList">
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/velvetandnico.jpg" /></a>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/velvetandnico.jpg" /></a>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/velvetandnico.jpg" /></a>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/velvetandnico.jpg" /></a>
 											</div>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/velvetandnico.jpg" /></a>
 											</div>
 										</div>
 									</div>
@@ -85,22 +85,22 @@
 									<div class="productList">
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/platineshop.jpg" /></a>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/platineshop.jpg" /></a>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/platineshop.jpg" /></a>
 											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/platineshop.jpg" /></a>
 											</div>
 										</div>
 									</div>
@@ -166,7 +166,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img src="/src/assets/imgs/velvetandnico.jpg" /></a>
 											</div>
 										</div>
 									</div>
@@ -182,7 +182,8 @@
 				</div>
 			</div>
 		</div>
-	</transition>
+	</div>
+
 </template>
 
 <script>

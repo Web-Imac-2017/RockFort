@@ -2,189 +2,583 @@
 $black : #000;
 $white : #fff;
 $yellow : #ffbb20;
+$beige: #f0f0f0;
+$grey: rgb(220, 220, 220);
+$grey_black: #3f3f3f;
+$orange: #f4901c;
+$yellow: #ffd901;
+$blue: #269be7;
+$blueLight: #99d0f3;
 
+@font-face {
+  font-family: "covesLight";
+  src: url('../fonts/CovesLight.otf');
+}
+@font-face {
+  font-family: "covesBold";
+  src: url('../fonts/CovesBold.otf');
+}
 
 /*UTILES*/
+body{font-family: "covesLight";}
+
+$sectionheight : 500px;
 .left{float:left;}
 
 .right{float:right;}
 
-.border-bot{
-  border-bottom:2px solid black;
-  margin-top:117px;
-}
+.border-bot{border-bottom:2px solid black;}
 
 .nopadding{padding:0;}
 
 .nomargin{margin:0;}
 
+.mb{
+  margin-bottom: 30px;
+}
+
+.mbLarge{
+  margin-bottom: 75px;
+}
+
+p, h3{font-size: 24px;}
+
+h1{
+  text-align: center;
+  font-size: 75px;
+  letter-spacing: 10px;
+  font-weight: 600;
+  padding-top: 145px;
+  color: $white;
+}
 
 /*NAV*/
 .navbar{
   background-color:$white;
-  .navbar-nav {
-    .left > li,
-    div > .right > li {
+  border-bottom:2px solid black;
+  .logo{padding:14px;}
+  form{
+    padding:0 20px;
+    display: inline;
+  }
+  ul {
+    li {
+      font-size: 18px;
       display:inline;
-      font-size: 24px;
-      a{
-        color:$black;
-        font-size: 16px;
-        text-decoration: none;
-      }
     }
-
-    .left > #site-logo {
-      position: relative;
-      bottom: -25px;
-      img{width:100%;}
+    a {
+      color : $black;
+      padding: 0 20px;
     }
+  }
+  .nav-user.right a, .nav-user.right span, .nav-user.right input{
+    font-size: 14px;
+  }
+  .nav-user.right input{
+    width: 175px;
+    padding: 5px 5px 5px 10px;
+    text-transform: uppercase;
+  }
+  .nav-content{
+    margin:0 auto;
+    text-align:center;
+  }
+  img.searchIcon{
+    position: absolute;
+    width: 19px;
+    top: 21px;
+    left: 1042px;
   }
 }
 
 /*SUBMENU*/
 #subMenu{
-  margin-top: 223px;
-  a{text-decoration: none;}
-  .webSection{
-    height: 450px;
-    h2{
-      line-height: 450px;
-      color:$white;
-      font-size: 60px;
-      letter-spacing: 12px;
+  margin-top: 145px;
+  min-height:$sectionheight;
+  padding:75px 0;
+
+  div{
+    position: relative;
+    display: inline-block;
+    width: auto;
+
+    a{text-decoration: none;}
+
+    h2 {
+      position: absolute;
+      top: 45%;
+      width: 100%;
+      left: 0;
+
       text-align: center;
+      font-size: 48px;
+      color:#fff;
+
+      margin: 0;
+      padding: 0;
     }
   }
-  .leStore{
-    background: url('../assets/imgs/leStore.jpg') top no-repeat;
-    background-size: cover;
+}
+
+/*CALL TO ACTION */
+#callToAction{
+  background-color: $yellow;
+
+  color:$white;
+  .slogan.col-md-3 {
+    padding-left: 0;
   }
-  .laStory{
-    background: url('../assets/imgs/laStory.jpg') top no-repeat;
-    background-size: cover;
+  h2{
+    text-align: left;
+    font-size: 65px;
+    margin-bottom: 0;
+  }
+
+  .slogan p {
+    font-size:35px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .border{
+    border: solid 2px #fff;
+    margin: 50px 70px 0 70px;
+    font-size:24px;
+    text-align: center;
+  }
+
+  .price{
+    font-weight: 800;
+    font-size: 30px;
   }
 }
 
 /*SELECTION*/
 #selection{
-  padding: 50px 0;
-  img{
-    padding-top:20px;
-    display:block;
-    margin: 0 auto;
-    height:200px;
-  }
-  h3{
-    letter-spacing: 5px;
-    color:$black;
-    text-align: center;
-  }
-
-}
-
-/*CALL TO ACTION */
-#callToAction{
-  .row{
-    height:360px;
-    background-color:$yellow;
-    color:$white;
-    .slogan{
-      img{
-        height:340px;
-        position:absolute;
-        bottom: -120px;
-        left:0;
-      }
-      h2{
-        font-size: 5em;
-        margin: 0 0 0 50px;
-        z-index: 999;
-      }
-      p{
-        font-size: 2em;
-        margin: 0 0 0 200px;
-      }
-    }
-
-    .border{
-      text-align: center;
-      margin: 50px 50px 0 0;
-      border:1px solid $white;
-      .price{
-        font-size:2.5em;
-        font-weight: bold;
-      }
-      .hook{font-size: 18px}
-    }
-  }
+  min-height:$sectionheight;
+  padding:50px 0;
+  text-align: center;
+  a{color:$black;}
 }
 
 /*OST*/
-#ost{
-  height:300px;
-  padding: 50px 0;
-  .row div{
-    h2{
-      margin:0;
-      padding-left: 30px;
-      font-size: 70px;
-    }
-    img{
-      height:150px;
-      padding:10px 30px;
-    }
-    .big-cover{
-      width:300px;
-      height:auto;
-    }
+#originalSoundTrack{
+  min-height:$sectionheight;
+  background-color:$grey;
+  padding: 75px 0;
+
+  a{color: $black;}
+
+  .ost-right > h2{
+    font-size: 36px;
+    margin-bottom: 20px;
   }
+  .ost-right > p{
+    font-size: 28px;
+  }
+
+  .ost-right > img,
+  .ost-right > h2,
+  .ost-right > p {padding:0 14px;}
+
+  .ost-right > img{width:180px;}
 }
+
 
 /* Le store */
 .storeList{
-  h1{
-    text-align: center;
-    font-size: 75px;
-    letter-spacing: 10px;
-    font-weight: 600;
-    padding-top: 250px;
+  #leStore{
+    background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
+    background-size: cover;
   }
   h2{
-    text-align: center;
-    color: white;
-    line-height: 150px;
+    color: black;
     font-size: 60px;
     margin: 0;
     letter-spacing: 10px;
     font-weight: 400;
-    background-color: rgba(255, 255, 255, 0.4);
   }
-  .row{
-    margin-bottom: 50px;
-    .tile{
-      height: 250px;
-      padding: 50px 0;
+  h3{
+    margin-bottom: 35px;
+  }
+  h4{
+    font-weight: 400;
+    font-size: 1.4em;
+    letter-spacing: 3px;
+  }
+  .vinyles, .coffrets{
+    background-color: $beige;
+  }
+  .vinyles, .coffrets, .platines{
+    padding: 35px 0;
+  }
+  .platines{
+    background: url('../assets/imgs/rainbowBg.png') top no-repeat;
+  }
+
+  .productList{
+    .col-md-3:nth-child(odd) .coffretItem{
+      background-color: $orange;
+    }
+    .col-md-3:nth-child(even) .coffretItem{
+      background-color: $yellow;
+    }
+  }
+  a{
+    color: white;
+    .coffretItem{
+      width: 100%;
+      height: 165px;
+      line-height: 165px;
+      text-align: center;
+      border: 1px solid black;
+    }
+  }
+  .productContent{
+    margin: 0px 15px;
+    border-left: 1px solid $grey;
+    padding-left: 50px;
+    text-align: center;
+    .vinyleItem{
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+  }
+}
+.vinyleItem{
+  margin-bottom: 40px;
+  img{
+    width: 100%;
+  }
+}
+
+/* Page produit */
+#productPage{
+  padding-top: 190px;
+  img.vinyleImg{
+    width: 100%;
+  }
+  h1.vinyleTitle{
+    font-family: "covesBold";
+    margin: 0;
+    font-size: 3em;
+    letter-spacing: 3px;
+    color: $black;
+    padding-top: 0;
+    text-align: left;
+  }
+  h4.bandName{
+    font-size: 1.3em;
+    margin-top: 0;
+  }
+  p.more{
+    font-size: 1.3em;
+    font-family: "covesBold";
+  }
+  .price{
+    font-family: "covesBold";
+    font-size: 2em;
+  }
+  .quantitySelector, .addToCart{
+    background-color: $blue;
+    text-align: center;
+    color: white;
+    height: 50px;
+  }
+  .quantity{
+    line-height: 50px;
+    font-size: 1.3em;
+  }
+  .incrButton, .decrButton{
+    line-height: 25px;
+    cursor: pointer;
+  }
+  .addToCart{
+    line-height: 50px;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  .desc{
+    background-color: $blueLight;
+    padding: 15px;
+    margin: 30px 0;
+  }
+  .ratingArea{
+    background-color: $beige;
+    padding: 30px 0;
+    .note, .moreNote{
+      border: 1px solid $yellow;
+      padding: 10px;
+      text-align: center;
       cursor: pointer;
+      color: $black;
+      margin-bottom: 30px;
+      margin-top: 0;
     }
-    .disques{
-      background: url('../assets/imgs/leStore.jpg') top no-repeat;
+    .note:hover, .moreNote:hover{
+      background-color: $yellow;
     }
-    .platines{
-      background: url('../assets/imgs/laStory.jpg') center no-repeat;
-    }
-    .coffrets{
-      background: url('../assets/imgs/coffrets.jpg') center no-repeat;
+    .moreNote{margin: 0;}
+    .comment{
+      background-color: $white;
+      .commentInfo{
+        text-align: center;
+        padding: 10px;
+        .author{
+          font-family: "covesBold";
+          font-size: 1.3em;
+        }
+      }
+      .commentContent{
+        border-left: 1px solid $grey;
+        padding: 20px;
+      }
     }
   }
 }
 
+
+/* List page */
+#listProduct{
+  #lesDisques{
+    background: url('../assets/imgs/list.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  .vinyleItem{
+    margin-bottom: 0;
+  }
+  p{margin: 0;}
+  p.vinylTitle, p.price{
+    font-family: "covesBold";
+  }
+  p.price{
+    text-align: right;
+  }
+  p.bandName{
+    font-size: 14px;
+  }
+  button.inc, button.dec, button.addToCart{
+    width: 100%;
+    border: none;
+    background-color: $blue;
+    text-align: center;
+    color: white;
+    height: 35px;
+    line-height: 35px;
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+}
+
+.sortBar{
+  background-color: $beige;
+  height: 100px;
+  select, input, button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+  }
+}
+
+
+/*Recherche*/
+#Recherche{
+  #rechercheHeader{
+    background: url('../assets/imgs/recherche_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+
+  a{
+    color:$black;
+    :hover{color:$grey_black;}
+    img{width:340px;}
+  }
+}
+
+.noresult{
+  text-align:center;
+  img{
+    display:block;
+    margin:0 auto;
+  }
+  margin-bottom:50px;
+}
+
+/*Story List*/
+#storyList{
+  #storyListHeader{
+    background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  a{
+    color:$black;
+    div{
+      margin: 12px 0;
+      .imageArticle{
+        height:250px;
+        overflow: hidden;
+      }
+      h2{
+        margin:10px 0;
+        font-size: 50px;
+      }
+      p{margin:10px 0;}
+    }
+    :hover{color:$grey_black;}
+  }
+}
+
+/*Story*/
+#laStory{
+  #laStoryHeader{
+    background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+
+  .selection{
+    h2{
+      font-size: 24px;
+      padding-left:15px;
+    }
+
+    a{
+      color:$black;
+      :hover{color:$grey_black;}
+    }
+
+    img{
+      width:260px;
+    }
+  }
+}
+
+/* ShoppingCart */
+.cart{
+  .item{
+    p, span{
+      font-size: 13px;
+    }
+  }
+  img.itemImg {
+    width: 100%;
+  }
+  .cartEmpty{
+    text-align: center;
+  }
+  ul.dropdown-cart{
+    min-width:250px;
+  }
+  ul.dropdown-cart li .item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+  }
+  ul.dropdown-cart li .item:hover{
+    background-color:#f3f3f3;
+  }
+  ul.dropdown-cart li .item:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+
+  ul.dropdown-cart li .item-left{
+    float:left;
+  }
+  ul.dropdown-cart li .item-left img{
+    width: 50px;
+  }
+  ul.dropdown-cart li .item-left img,
+  ul.dropdown-cart li .item-left span.item-info{
+    float:left;
+  }
+  ul.dropdown-cart li .item-left span.item-info{
+    margin-left:10px;
+  }
+  ul.dropdown-cart li .item-left span.item-info span{
+    display:block;
+  }
+  ul.dropdown-cart li .item-right{
+    float:right;
+  }
+  ul.dropdown-cart li .item-right button{
+    margin-top:14px;
+  }
+}
+
+/* Basket */
+#basket{
+  h3{
+    padding-top: 145px;
+    color: black;
+    text-align: center;
+  }
+  .optionAdress{
+    background: $beige;
+    width: 100%;
+    padding: 25px;
+    margin-bottom: 10px;
+    span{
+      margin-left: 15px;
+    }
+  }
+}
 
 /*footer*/
 footer{
   background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
   height:260px;
-  color: white;
+  color: $white;
 
-  img{height:50px;}
+  .about a{
+    font-size: 24px;
+    color: $white;
+  }
+
+  ul > li {list-style-type: none}
+
+  .social{
+    ul{padding-left:0;}
+    li {display:inline;}
+  }
+
+  .newsletter p{
+    margin-top: 14px;
+    font-size: 24px;
+  }
+
+  img{
+    margin:0 15px;
+    height:50px;
+  }
+}
+
+/* LOADER */
+#preloaderContainer{
+  position : fixed;
+  z-index: 9999;
+  background-color : $white;
+  top : 0px;
+  left : 0px;
+  height : 100%;
+  width : 100%;
+}
+
+#preloaderContainer img{
+  position : absolute;
+  top:50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* ANIMATIONS */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.6s, transform 0.6s;
+}
+.fade-enter, .fade-leave-active{
+  opacity: 0.6;
+  transform: translateY(20px);
 }
