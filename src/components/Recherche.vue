@@ -49,7 +49,8 @@
                 console.log("tri" + triPar)
             }),
             Bus.$on('recherche-genre', filtreGenre => {
-                this.filtreGenre = filtreGenre;
+                this.filtreGenre = '*';
+                console.log("this.filtreGenre" + this.filtreGenre)
             }),
             Bus.$on('recherche-string', rechercheString => {
                 this.rechercheString = rechercheString;
@@ -70,6 +71,7 @@
                 var rechercheString = this.rechercheString
                 var filtreGenre = this.filtreGenre
                 var triPar = this.triPar
+
                 if(!rechercheString && !filtreGenre && !triPar){
                     this.nombreResultats = resultatsArray.length;
                     resultatsArray.sort(function(a,b){

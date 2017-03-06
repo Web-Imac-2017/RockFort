@@ -30,7 +30,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4">
-						<router-link v-on:click.native="emitGenreFromHome('Oldies')" to="/store/vinyles">
+						<router-link v-on:click.native="emitGenreFromHome('Oldies')" to="/store/vinyles/oldies/date-desc">
 							<img src="src/assets/imgs/oasis.jpg" />
 							<h2>Sélection Oldies</h2>
 						</router-link>
@@ -40,7 +40,8 @@
 						<h2>Le coffret du mois</h2>
 					</div>
 					<div class="col-md-4">
-						<router-link v-on:click.native="emitGenreFromHome('Nouveautés')" to="/store/vinyles">
+
+						<router-link v-on:click.native="emitGenreFromHome('Nouveautés')" to="/store/vinyles/nouveautes/date-desc">
 							<img src="src/assets/imgs/lalaland.jpg" />
 							<h2>Sélection Nouveautés</h2>
 						</router-link>
@@ -74,7 +75,7 @@
 			</div>
 		</section>
 		<section id="originalSoundTrack">
-			<router-link v-on:click.native="emitGenreFromHome('Bande Originale')" to="/store/vinyles">
+			<router-link v-on:click.native="emitGenreFromHome('Bande Originale')" to="/store/vinyles/bande-originale/date-desc">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4">
@@ -118,7 +119,7 @@ export default {
 		imagesBandeOriginale: function () {
 			var resultatsArray = this.products;
 			var filtre = "bande originale"
-			var counter = 0;				console.log("LOL2")
+			var counter = 0;
 
 			resultatsArray = resultatsArray.filter(function(item){
 				if(counter>5 || item.genre.toLowerCase().indexOf(filtre) !== -1){
