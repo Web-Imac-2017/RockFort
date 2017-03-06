@@ -19,7 +19,7 @@
 						<div class="col-md-4">
 							<router-link to="/store/coffrets">
 								<h2>Coffrets</h2>
-								<img src="src/assets/imgs/coffrets.jpg" />
+								<img src="src/assets/imgs/muse.jpg" />
 							</router-link>
 						</div>
 					</div>
@@ -31,17 +31,17 @@
 				<div class="row">
 					<div class="col-md-4">
 						<router-link v-on:click.native="emitGenreFromHome('Oldies')" to="/store/vinyles">
-							<img src="src/assets/imgs/vinyles.jpg" />
+							<img src="src/assets/imgs/oasis.jpg" />
 							<h2>Sélection Oldies</h2>
 						</router-link>
 					</div>
 					<div class="col-md-4">
-						<img src="src/assets/imgs/platines.jpg" />
+						<img src="src/assets/imgs/coffretBeatles.jpg" />
 						<h2>Le coffret du mois</h2>
 					</div>
 					<div class="col-md-4">
 						<router-link v-on:click.native="emitGenreFromHome('Nouveautés')" to="/store/vinyles">
-							<img src="src/assets/imgs/coffrets.jpg" />
+							<img src="src/assets/imgs/lalaland.jpg" />
 							<h2>Sélection Nouveautés</h2>
 						</router-link>
 					</div>
