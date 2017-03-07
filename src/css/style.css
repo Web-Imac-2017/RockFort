@@ -199,6 +199,10 @@ h1 {
   padding: 0 14px;
 }
 
+#originalSoundTrack .ost-left > img {
+  width: 380px;
+}
+
 #originalSoundTrack .ost-right > img {
   width: 180px;
 }

@@ -136,10 +136,10 @@
     "auteur": "Michel Polnareff",
     "genre": "Pop bande-originale",
     "description": "lorem ipsum",
-    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "image": "/src/assets/imgs/brel.jpg",
     "musique": "test.mp3",
     "prix": "50",
-    "date": "2019-04-02",
+    "date": "2023-04-02",
     "stock": "10"
   },
   {
@@ -149,10 +149,10 @@
     "auteur": "Michel Polnareff",
     "genre": "Pop bande-originale",
     "description": "lorem ipsum",
-    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "image": "/src/assets/imgs/nirvana.jpg",
     "musique": "test.mp3",
     "prix": "50",
-    "date": "2019-04-02",
+    "date": "2022-04-02",
     "stock": "10"
   },
   {
@@ -162,10 +162,10 @@
     "auteur": "Michel Polnareff",
     "genre": "Pop bande-originale",
     "description": "lorem ipsum",
-    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "image": "/src/assets/imgs/bowie.jpg",
     "musique": "test.mp3",
     "prix": "50",
-    "date": "2019-04-02",
+    "date": "2021-04-02",
     "stock": "10"
   },
   {
@@ -175,10 +175,10 @@
     "auteur": "Michel Polnareff",
     "genre": "Pop bande-originale",
     "description": "lorem ipsum",
-    "image": "/src/assets/imgs/AbbeyRoad.jpg",
+    "image": "/src/assets/imgs/doors.jpg",
     "musique": "test.mp3",
     "prix": "50",
-    "date": "2019-04-02",
+    "date": "2020-04-02",
     "stock": "10"
   },
   {
@@ -191,7 +191,7 @@
     "image": "/src/assets/imgs/AbbeyRoad.jpg",
     "musique": "test.mp3",
     "prix": "50",
-    "date": "2019-04-02",
+    "date": "2030-04-02",
     "stock": "10"
   }
 ]

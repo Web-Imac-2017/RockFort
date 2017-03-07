@@ -68,7 +68,7 @@ export default{
 
     emitRechercheHeader(){
       Bus.$emit('recherche-string', this.rechercheString)
-      Bus.$emit('type-produit', window.location.pathname.split("/").slice(2,3).pop())
+      Bus.$emit('type-produit', '')
     },
 
     emitTypeFromHeader(){
