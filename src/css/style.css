@@ -98,6 +98,44 @@ h1 {
   left: -50px;
 }
 
+.navbar .connexion {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 300px;
+}
+
+.navbar .connexion .connexion-box {
+  height: 300px;
+  background-color: #fff;
+}
+
+.navbar .connexion .connexion-box form {
+  padding: 0;
+}
+
+.navbar .connexion .connexion-box h2 {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.navbar .connexion .connexion-box input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.navbar .connexion .connexion-box .close {
+  float: right;
+}
+
+.navbar .connexionHidden {
+  display: none;
+}
+
 /*SUBMENU*/
 #subMenu {
   margin-top: 131px;
