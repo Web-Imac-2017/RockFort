@@ -1,3 +1,30 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @henrirespaudbouny
+
+10
+0
+
+    0
+
+Web-Imac-2017/RockFort
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Pulse
+Graphs
+RockFort/src/components/SearchBar.vue
+e9f966b 6 hours ago
+@henrirespaudbouny henrirespaudbouny Recherche : Quasi finalisée à tester pour bugs
+70 lines (68 sloc) 2.81 KB
 <template>
 			<div class="sortBar mb">
 	          <div class="container">
@@ -25,8 +52,8 @@
 	                </select>
 	              </div>
 	              <div class="col-md-3">
-	                <form class="right" action="/search">
-	                  <input type="text" v-model="rechercheString" placeholder="rechercher un vinyle" @keydown.enter.prevent @keyup="emitRechercheSearchBar()" />
+	                <form class="right">
+	                  <input type="text" v-model="rechercheString" placeholder="rechercher un vinyle" @keyup="emitRechercheSearchBar()" />
 	                </form>
 	              </div>
 	              <div class="col-md-3">
@@ -39,7 +66,6 @@
 
 <script>
 	import { Bus } from './bus.js'
-
 	export default{
 		data () {
 			return{
@@ -68,3 +94,8 @@
 		}
 	}
 </script>
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2017 GitHub, Inc. Terms Privacy Security Status Help 
+
