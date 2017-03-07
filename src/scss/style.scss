@@ -22,7 +22,7 @@ $blueLight: #99d0f3;
 /*UTILES*/
 body{font-family: "covesLight";}
 
-$sectionheight : 500px;
+$sectionheight : 475px;
 .left{float:left;}
 
 .right{float:right;}
@@ -154,7 +154,6 @@ h1{
 /*SELECTION*/
 #selection{
   min-height:$sectionheight;
-  padding:50px 0;
   text-align: center;
   a{color:$black;}
 }
