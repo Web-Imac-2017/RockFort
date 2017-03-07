@@ -24,9 +24,9 @@
         <ul class="nav-content">
           <li><router-link to="/">Accueil</router-link> |</li>
           <li><router-link to="/store">Le Store</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles">Vinyles</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/platines">Platines</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets">Coffrets</router-link> |</li>
+          <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles/tout/date-desc">Vinyles</router-link> |</li>
+          <li @click="emitTypeFromHeader()"><router-link to="/store/platines/tout/date-desc">Platines</router-link> |</li>
+          <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
           <li><router-link to="/story/list">La Story</router-link></li>
         </ul>
@@ -68,11 +68,12 @@ export default{
 
     emitRechercheHeader(){
       Bus.$emit('recherche-string', this.rechercheString)
-      Bus.$emit('type-produit', '')
+      Bus.$emit('type-produit', window.location.pathname.split("/").slice(2,3).pop())
     },
 
     emitTypeFromHeader(){
-      Bus.$emit('type-produit', window.location.pathname.split("/").pop())
+      var type = window.location.pathname.split("/").slice(2,3).pop();
+      Bus.$emit('type-produit', type)
     },
   }
 }

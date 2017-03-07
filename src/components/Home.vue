@@ -5,19 +5,19 @@
 				<section id="subMenu">
 					<div class="row">
 						<div class="col-md-4">
-							<router-link to="/store/vinyles">
+							<router-link to="/store/vinyles/tout/date-desc">
 								<h2>Vinyles</h2>
 								<img src="src/assets/imgs/vinyles.jpg" />
 							</router-link>
 						</div>
 						<div class="col-md-4">
-							<router-link to="/store/platines">
+							<router-link to="/store/platines/tout/date-desc">
 								<h2>Platines</h2>
 								<img src="src/assets/imgs/platines.jpg" />
 							</router-link>
 						</div>
 						<div class="col-md-4">
-							<router-link to="/store/coffrets">
+							<router-link to="/store/coffrets/tout/date-desc">
 								<h2>Coffrets</h2>
 								<img src="src/assets/imgs/muse.jpg" />
 							</router-link>

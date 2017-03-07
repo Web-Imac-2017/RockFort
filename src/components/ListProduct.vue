@@ -3,7 +3,8 @@
     <div id="listProduct" >
       <div class="container-fluid storeList">
         <div id="lesDisques" class="row">
-          <h1>Disques</h1>
+          <h1 v-if="typeProduit == 'produits'">recherches</h1>
+          <h1 v-else>{{typeProduit}}</h1>
         </div>
         <div class="row">
           <SearchBarComponent></SearchBarComponent>
@@ -37,7 +38,7 @@ export default{
 
   data () {
     return {
-      typeProduit: window.location.pathname.split("/").pop(),
+      typeProduit: window.location.pathname.split("/").slice(2,3).pop(),
       rechercheString: "",
       filtreGenre:"",
       triPar:"",
@@ -87,12 +88,15 @@ export default{
                 console.log("4" + filtre[4])
                 console.log("5" + filtre[5])
 
+                console.log("target " + window.location.pathname.split("/").slice(2,3))
+
                 if(!rechercheString && !filtre[3] && !filtre[4]){
                     resultatsArray = resultatsArray.filter(function(item){
                       if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
                         return item;
                       }
                     })
+                    //this.typeProduit = "produits";
                     this.nombreResultats = resultatsArray.length;
                     resultatsArray.sort(function(a,b){
                         var myA = a.date;
@@ -178,7 +182,8 @@ export default{
                     });
                 }
                 
-                if(rechercheString) {
+                if(window.location.pathname.split("/").slice(2,3).pop() == 'recherche') {
+                  this.typeProduit = "produits";
                   this.recherchePrefixe = "pour votre recherche ";
                 }else {
                   this.recherchePrefixe = "";

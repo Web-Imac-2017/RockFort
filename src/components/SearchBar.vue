@@ -43,8 +43,8 @@
 	export default{
 		data () {
 			return{
-				triPar: "date-desc",
-				filtreGenre: "tout",
+				triPar: window.location.pathname.split("/").slice(4,5).pop(),
+				filtreGenre: window.location.pathname.split("/").slice(3,4).pop(),
 				rechercheString: ""
 			}
 		},
