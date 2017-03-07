@@ -1,30 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @henrirespaudbouny
-
-10
-0
-
-    0
-
-Web-Imac-2017/RockFort
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Pulse
-Graphs
-RockFort/src/components/SearchBar.vue
-e9f966b 6 hours ago
-@henrirespaudbouny henrirespaudbouny Recherche : Quasi finalisée à tester pour bugs
-70 lines (68 sloc) 2.81 KB
 <template>
 			<div class="sortBar mb">
 	          <div class="container">

@@ -97,6 +97,35 @@ h1{
     width: 19px;
     left: -50px;
   }
+
+  .connexion{
+    background-color: rgba(0,0,0,0.25);
+    width: 100%;
+    min-height: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top: 300px;
+
+    .connexion-box{
+      height:300px;
+      background-color: $white;
+      form{padding:0;}
+      h2{
+        padding-top:50px;
+        text-align: center;
+      }
+      input{
+        margin:10px 0;
+        padding: 10px;
+        width:100%;
+      }
+      .close{float:right;}
+    }
+  }
+  .connexionHidden{
+    display:none;
+  }
 }
 
 /*SUBMENU*/

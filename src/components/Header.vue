@@ -11,7 +11,9 @@
           </ul>
           <ul class="nav-user right">
             <ShoppingCart></ShoppingCart>
-            <li><router-link to="/connexion">Déjà inscrit ?</router-link></li>
+            <li v-on:click="connexionToggle">
+              <router-link to="">Se connecter</router-link>
+            </li>
             <li><router-link to="/inscription">Créer mon compte</router-link></li>
             <li>
               <form v-on:keydown.enter.prevent="goToRecherche()">
@@ -20,6 +22,19 @@
               </form>
             </li>
           </ul>
+          <div class="connexion" v-bind:class="{ connexionHidden: isActive }">
+            <div class="container">
+              <div class="col-md-offset-4 col-md-4 connexion-box">
+                <button class="close" v-on:click.prevent="connexionToggle">CLOSE</button>
+                <h2>Se connecter</h2>
+                <form>
+                    <input type="text" v-model="nomUser" placeholder="adresse e-mail" />
+                    <input type="password" v-model="passwordUser" placeholder="mot de passe" />
+                    <button @click.prevent="onSubmit()">CONNEXION</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
         <ul class="nav-content">
           <li><router-link to="/">Accueil</router-link> |</li>
@@ -36,6 +51,7 @@
 </template>
 <script >
 import { Bus } from './bus.js';
+import jsSHA from './sha256.js';
 import ShoppingCart from './ShoppingCart.vue'
 
 export default{
@@ -44,8 +60,20 @@ export default{
   },
   data () {
     return{
-      rechercheString: ""
+      rechercheString: "",
+      isActive: true,
+      users: [],
+      nomUser:"",
+      passwordUser:""
     }
+  },
+  mounted () {
+    this.$http.get('/src/jsonTest.json').then((response) => {
+      console.log("success", response)
+      this.users = response.data
+    }, (response) => {
+      console.log("erreur", response)
+    })
   },
   created() {
     Bus.$on('tri-par', triPar => {
@@ -75,6 +103,30 @@ export default{
       var type = window.location.pathname.split("/").slice(2,3).pop();
       Bus.$emit('type-produit', type)
     },
+
+    connexionToggle() {
+      console.log(!this.isActive)
+      this.isActive = !this.isActive;
+      return this.isActive;
+    },
+
+    onSubmit(){
+      var userArray = this.users;
+
+      var username = this.nomUser;
+      var password = new jsSHA('SHA-256', 'TEXT');
+      password.update(this.passwordUser);
+
+      console.log('pwd' + password.getHash('HEX'))
+
+      userArray = userArray.filter(function(item){
+        if(item.name.toLowerCase().indexOf(username) !== -1 && item.password.toLowerCase().indexOf(password) !== -1){
+          return item;
+        }
+      })
+
+
+    }
   }
 }
 </script>
