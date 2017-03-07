@@ -117,8 +117,7 @@ export default {
 		
 		imagesBandeOriginale(limit) {
 			var resultatsArray = this.products;
-			var filtre = "bande-originale"
-			var counter = 0;
+			var filtre = "bande-originale";
 
 			resultatsArray = resultatsArray.filter(function(item){
 				if(item.genre.toLowerCase().indexOf(filtre) !== -1){

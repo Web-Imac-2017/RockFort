@@ -17,29 +17,14 @@
 								<div class="row">
 									<div class="col-md-12">
 										<p>Fouillez, découvrez, cherchez, trouvez ! Les dernières nouveautés comme les grands classiques sont au Vinyl Store !</p>
-										<h3>Meilleures ventes : </h3>
+										<h3>Nos coups de coeur : </h3>
 									</div>
 								</div>
 								<div class="row">
 									<div class="productList">
-										<div class="col-md-3">
+										<div class="col-md-3" v-for="product in coupDeCoeur('vinyles','coupdecoeur', 5)">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img :src="product.image" /></a>
 											</div>
 										</div>
 									</div>
@@ -50,7 +35,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img v-for="product in coupDeCoeur('vinyles','coupdecoeur', 1)" :src="product.image" /></a>
 											</div>
 										</div>
 									</div>
@@ -83,24 +68,9 @@
 								</div>
 								<div class="row">
 									<div class="productList">
-										<div class="col-md-3">
+										<div class="col-md-3" v-for="product in coupDeCoeur('platines', 'coupdecoeur' , 5)">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
-											</div>
-										</div>
-										<div class="col-md-3">
-											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/platineshop.jpg" /></a>
+												<a href="#"><img :src="product.image" /></a>
 											</div>
 										</div>
 									</div>
@@ -130,33 +100,10 @@
 								</div>
 								<div class="row">
 									<div class="productList">
-										<div class="col-md-3 ">
-											<a href="#">
-												<div class="coffretItem">
-													Janvier
-												</div>
-											</a>
-										</div>
-										<div class="col-md-3 ">
-											<a href="#">
-												<div class="coffretItem">
-													Décembre
-												</div>
-											</a>
-										</div>
-										<div class="col-md-3 ">
-											<a href="#">
-												<div class="coffretItem">
-													Novembre
-												</div>
-											</a>
-										</div>
-										<div class="col-md-3 ">
-											<a href="#">
-												<div class="coffretItem">
-													Septembre
-												</div>
-											</a>
+										<div class="col-md-3" v-for="product in coupDeCoeur('coffrets','month', 5)">
+											<div class="vinyleItem">
+												<a href="#"><img :src="product.image" /></a>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -166,7 +113,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="vinyleItem">
-												<a href="#"><img src="src/assets/imgs/velvetandnico.jpg" /></a>
+												<a href="#"><img v-for="product in coupDeCoeur('coffrets','month', 1)" :src="product.image" /></a>
 											</div>
 										</div>
 									</div>
@@ -186,7 +133,50 @@
 </template>
 
 <script>
-export default{
+export default {
+	data () {
+		return {
+			products: []
+		}
+	},
+	mounted () {
+		this.$http.get('/src/jsonTest.json').then((response) => {
+			console.log("success", response)
+			this.products = response.data
+		}, (response) => {
+			console.log("erreur", response)
+		})
+	},
+	methods: {	
+		coupDeCoeur(type, genre, limit) {
+			var resultatsArray = this.products
+			var filtre = [type, genre]
 
+			resultatsArray = resultatsArray.filter(function(item){
+				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1 && item.genre.toLowerCase().indexOf(filtre[1]) !== -1){
+					return item;
+				}
+			})
+
+			resultatsArray.sort(function(a,b){
+                        var myA = a.date;
+                        var myB = b.date;
+                        if(myA < myB) {
+                            return 1;
+                        }
+                        if(myA > myB) {
+                            return -1;
+                        }
+                        return 0;
+            })
+
+            if(limit == 1) {
+            	return resultatsArray.slice(0,1)
+            }
+        	else{
+				return resultatsArray.slice(1,limit)
+			}
+		}
+	}
 }
 </script>
