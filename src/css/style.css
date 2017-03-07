@@ -60,6 +60,7 @@ h1 {
 .navbar {
   background-color: #fff;
   border-bottom: 2px solid black;
+  height: 135px;
 }
 
 .navbar form {
@@ -646,6 +647,118 @@ h1 {
 
 #cartPage .item .content .title {
   margin: 0;
+}
+
+/* Abonnement */
+#abonnement .banner {
+  margin-top: 130px;
+  min-height: 570px;
+  background-size: cover;
+}
+
+#abonnement .banner p {
+  margin: 0;
+}
+
+#abonnement .banner .slogan {
+  margin-top: 60px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 40px 40px;
+}
+
+#abonnement .banner .slogan h2 {
+  font-size: 35px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#abonnement .banner .callToAction {
+  text-align: center;
+  background: #f0f0f0;
+  padding: 20px;
+  margin-top: 45px;
+}
+
+#abonnement .banner .callToAction p {
+  margin: 0;
+  line-height: 45px;
+  font-size: 18px;
+}
+
+#abonnement .banner .callToAction button {
+  border: none;
+  background-color: #269be7;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  padding: 15px 25px;
+  margin-left: 50px;
+}
+
+#abonnement .banner .callToAction button.offer {
+  font-size: 15px;
+  background-color: transparent;
+  color: #269be7;
+  border: 1px solid #269be7;
+}
+
+#abonnement .description {
+  padding-top: 25px;
+  text-align: center;
+}
+
+#abonnement .description h2 {
+  border: 1px solid #269be7;
+  padding: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #269be7;
+}
+
+#abonnement .boxes {
+  background-color: #f0f0f0;
+  padding: 50px 0;
+}
+
+#abonnement .boxes .tabButton {
+  background-color: white;
+  padding: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#abonnement .boxes .boxContent {
+  background-color: white;
+  padding: 25px;
+}
+
+#abonnement .boxes .boxContent .boxChoice {
+  text-align: center;
+  border: 2px solid whitesmoke;
+  padding: 15px;
+  cursor: pointer;
+  min-height: 200px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#abonnement .boxes .boxContent .boxChoice:hover {
+  border-color: #269be7;
+}
+
+#abonnement .boxes .boxContent .boxChoice.active {
+  border-color: #269be7;
+}
+
+#abonnement .boxes .boxContent .info {
+  background-color: rgba(245, 245, 245, 0.7);
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 /*footer*/
