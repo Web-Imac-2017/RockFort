@@ -2,7 +2,6 @@
   <header class="border-bot">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <img src="" /> <!--Bandeau Orange à faire -->
         <div class="row">
           <ul class="nav-user left">
             <li>

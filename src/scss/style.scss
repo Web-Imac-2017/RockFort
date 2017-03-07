@@ -19,19 +19,10 @@ $blueLight: #99d0f3;
   src: url('../fonts/CovesBold.otf');
 }
 
-// MIXIN
-@mixin transition($duration) {
-    -webkit-transition: $duration;
-    -moz-transition: $duration;
-    -ms-transition: $duration;
-    -o-transition: $duration;
-    transition: $duration;
-}
-
 /*UTILES*/
 body{font-family: "covesLight";}
 
-$sectionheight : 475px;
+$sectionheight : 500px;
 .left{float:left;}
 
 .right{float:right;}
@@ -65,7 +56,6 @@ h1{
 .navbar{
   background-color:$white;
   border-bottom:2px solid black;
-  height: 135px;
   form{
     padding:0 20px;
     display: inline;
@@ -193,6 +183,7 @@ h1{
 /*SELECTION*/
 #selection{
   min-height:$sectionheight;
+  padding:50px 0;
   text-align: center;
   a{color:$black;}
 }
@@ -596,100 +587,6 @@ h1{
       padding: 10px;
       .title{
         margin: 0;
-      }
-    }
-  }
-}
-
-/* Abonnement */
-#abonnement{
-  .banner{
-    margin-top: 130px;
-    min-height: 570px;
-    background-size: cover;
-    p{
-      margin: 0;
-    }
-    .slogan{
-      margin-top: 60px;
-      color: white;
-      background-color: rgba(0,0,0,0.2);
-      padding: 40px 40px;
-      h2{
-        font-size: 35px;
-        text-transform: uppercase;
-        margin: 0;
-      }
-    }
-    .callToAction{
-      text-align: center;
-      background: $beige;
-      padding: 20px;
-      margin-top: 45px;
-      p{
-        margin:0;
-        line-height: 45px;
-        font-size: 18px;
-      }
-      button{
-        border: none;
-        background-color: $blue;
-        text-align: center;
-        color: white;
-        cursor: pointer;
-        padding: 15px 25px;
-        margin-left: 50px;
-      }
-      button.offer{
-        font-size: 15px;
-        background-color: transparent;
-        color: $blue;
-        border: 1px solid $blue;
-      }
-    }
-  }
-  .description{
-    padding-top: 25px;
-    text-align: center;
-    h2{
-      border: 1px solid $blue;
-      padding: 10px;
-      font-size: 20px;
-      text-transform: uppercase;
-      color: $blue;
-    }
-  }
-  .boxes{
-    background-color: $beige;
-    padding: 50px 0;
-    .tabButton{
-      background-color: white;
-      padding: 25px;
-      text-align: center;
-      cursor: pointer;
-    }
-    .boxContent{
-      background-color: white;
-      padding: 25px;
-      .boxChoice{
-        text-align: center;
-        border: 2px solid rgb(245, 245, 245);
-        padding: 15px;
-        cursor: pointer;
-        min-height: 200px;
-        @include transition(.3s);
-        &:hover{
-          border-color: $blue;
-        }
-        &.active{
-          border-color: $blue;
-        }
-      }
-      .info{
-        background-color: rgba(245, 245, 245, 0.7);
-        padding: 10px;
-        text-align: center;
-        margin-bottom: 25px;
       }
     }
   }
