@@ -205,12 +205,8 @@
 <script>
 import _ from 'lodash'
 import CartState from '../shoppingCartState'
-import Choice from './CardChoice.vue'
 
 export default {
-  components: {
-    Choice
-  },
   data() {
     return {
       items: [],
