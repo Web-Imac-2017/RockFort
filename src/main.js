@@ -16,8 +16,7 @@ const router = new VueRouter({
 	}, {
 		path:'/recherche',
 		component: require('./components/ListProduct.vue')
-	},
-	{
+	}, {
 		path:'/store/vinyles',
 		component: require('./components/ListProduct.vue')
 	}, {

@@ -18,20 +18,97 @@
                 </span>
               </div>
             </div>
+
             <div class="row">
               <div class="col-md-12">
-                <p class="deliveryAddress">Adresse de livraison</p>
+                <p class="facturationAddress">Adresse de livraison</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
                 <div class="card">
-                  <form action="">
+                  <form action="" v-for="user in users">
                     <div class="optionDelivery">
-                      <input type="radio" name="delivery" value="defaultDelivery"><span>Prénom Nom et adresse de livraison</span><br>
+                      <span>{{ user.firstName }} {{ user.lastName }} {{ user.zipcode }} {{ user.street }} {{ user.city }}</span><span class="right edit" @click="editDeliveryAdd">Modifier</span>
                     </div>
+                    <div class="editDeliveryAdd" v-if="editDelivery">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.firstName">
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.lastName">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.zipcode">
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.city">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <input type="text" v-model="user.street">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="validate" @click="validateEdit(user)">Valider</div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="validateAndSave" @click="validateEdit(user)">Valider et sauvegarder mes infos pour la prochaine commande</div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p class="facturationAddress">Adresse de facturation</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <form action="" v-for="user in users">
                     <div class="optionDelivery">
-                      <input type="radio" name="delivery" value="other"><span>Ajouter une adresse</span>
+                      <span>{{ user.firstName }} {{ user.lastName }} {{ user.zipcode }} {{ user.street }} {{ user.city }}</span><span class="right edit" @click="editFacturationAdd">Modifier</span>
+                    </div>
+                    <div class="editFacturationAdd" v-if="editFacturation">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.firstName">
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.lastName">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.zipcode">
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" v-model="user.city">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <input type="text" v-model="user.street">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="validate" @click="validateEdit(user)">Valider</div>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="validateAndSave" @click="validateEdit(user)">Valider et sauvegarder mes infos pour la prochaine commande</div>
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </div>
@@ -47,13 +124,13 @@
               <div class="card">
                 <form action="">
                   <div class="col-md-6">
-                    <div class="optionDelivery">
-                      <input type="radio" name="delivery" value="defaultDelivery"><span>24h chez vous</span><span class="right">9.90€</span>
+                    <div class="optionDelivery clickable" @click="expressOn()" v-bind:class="{ active: express }">
+                      <span>24h chez vous</span><span class="right">9.90€</span>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="optionDelivery">
-                      <input type="radio" name="delivery" value="defaultDelivery"><span>48h chez vous (livraison standard)</span><span class="right">9.90€</span>
+                    <div class="optionDelivery clickable" @click="standardOn()" v-bind:class="{ active: standard }">
+                      <span>48h chez vous (livraison standard)</span><span class="right">9.90€</span>
                     </div>
                   </div>
                 </form>
@@ -69,13 +146,15 @@
               <div class="card">
                 <form action="">
                   <div class="col-md-6">
-                    <div class="optionDelivery">
-                      <input type="radio" name="delivery" value="defaultDelivery"><span>Carte bancaire</span><span class="right"><img src="/src/assets/imgs/creditCards.png" class="tick" alt=""></span>
+                    <div class="optionDelivery clickable" @click="creditCardOn()" v-bind:class="{ active: creditCard }">
+                      <span>Carte bancaire</span>
+                      <img src="/src/assets/imgs/creditCards.png" class="right tick" alt="">
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="optionDelivery">
-                      <input type="radio" name="delivery" value="defaultDelivery"><span>Paypal</span><span class="right"><img src="/src/assets/imgs/paypal.png" class="tick" alt=""></span>
+                    <div class="optionDelivery clickable" @click="paypalOn()" v-bind:class="{ active: paypal }">
+                      <span>Paypal</span>
+                      <img src="/src/assets/imgs/paypal.png" class="right tick" alt="">
                     </div>
                   </div>
                 </form>
@@ -126,30 +205,78 @@
 <script>
 import _ from 'lodash'
 import CartState from '../shoppingCartState'
+import Choice from './CardChoice.vue'
 
 export default {
-  props: ['item'],
+  components: {
+    Choice
+  },
   data() {
     return {
-      items: []
+      items: [],
+      users: [],
+      editDelivery: false,
+      editFacturation: false,
+      express: false,
+      standard: false,
+      creditCard: false,
+      paypal: false
     }
   },
   mounted () {
-    this.$http.get('/src/getCartItems.json').then((response) => {
-      console.log("success", response)
+    this.$items = this.$resource('/src/getCartItems.json')
+    this.$items.query().then((response) => {
       this.items = response.data
+    }, (response) => {
+      console.log("erreur", response)
+    }),
+
+    // this.$user = this.$resource('/src/API/user{/id}')
+    this.$user = this.$resource('/src/userTest.json')
+    this.$user.query().then((response) => {
+      this.users = response.data
     }, (response) => {
       console.log("erreur", response)
     })
   },
   methods: {
-    addToCart() {
+    editDeliveryAdd () {
+      this.editDelivery = true
+    },
+    editFacturationAdd () {
+      this.editFacturation = true
+    },
+    validateEdit (user) {
+      this.$user.update({name: user.name}).then((response) => {
+        this.users = response.data
+        this.editDelivery = false
+      }, (response) => {
+        console.log('erreur')
+      })
+    },
+    expressOn () {
+      this.standard = false,
+      this.express = true
+    },
+    standardOn () {
+      this.express = false,
+      this.standard = true
+    },
+    creditCardOn () {
+      this.paypal = false,
+      this.creditCard = true
+    },
+    paypalOn () {
+      this.creditCard = false,
+      this.paypal = true
+    },
+    addToCart () {
       CartState.add(this.item)
     },
-    inc() {
+    inc () {
       CartState.inc(this.item)
     },
-    dec() {
+    dec () {
       CartState.dec(this.item)
     }
   }
