@@ -16,8 +16,6 @@
             return $this->article;
         }
 
-        public
-
 
         public function ajoutBdd(){
             global $bdd;
@@ -84,11 +82,92 @@
             $requete->execute( array( $id_produit ) );
         }
 
+       public function suppression_produit_nom($nom_produit){
+            global $bdd;
+
+            $requete = $bdd->prepare(" SELECT Distinct (id) FROM produit WHERE  nom = ?"); 
+            $requete->execute( array( $nom_produit ) );
+            $id = $requete->fetchAll();
+
+            foreach ($id as $key => $value) {
+                foreach ($value as $val) {
+                    $requete = $bdd->prepare(" DELETE FROM produit_artiste WHERE id_produit = ?");
+                    $requete->execute( array( $val ) );
+
+
+                    $requete = $bdd->prepare(" DELETE FROM produit_tag WHERE id_produit = ?");
+                    $requete->execute( array( $val ) );
+                }
+                
+            }
+
+            $requete = $bdd->prepare(" DELETE FROM produit WHERE nom = ?");
+            $requete->execute( array( $nom_produit ) );
+
+        }
+
+
+        public function suppression_produit_type_nom($type_produit, $nom_produit){
+            global $bdd;
+
+            $requete = $bdd->prepare(" SELECT Distinct (id) FROM produit WHERE  type = ? AND nom = ?"); 
+            $requete->execute( array( $type_produit, $nom_produit ) );
+            $id = $requete->fetchAll();
+
+            foreach ($id as $key => $value) {
+                foreach ($value as $val) {
+                    $requete = $bdd->prepare(" DELETE FROM produit_artiste WHERE id_produit = ?");
+                    $requete->execute( array( $val ) );
+
+
+                    $requete = $bdd->prepare(" DELETE FROM produit_tag WHERE id_produit = ?");
+                    $requete->execute( array( $val ) );
+                }
+                
+            }
+
+            $requete = $bdd->prepare(" DELETE FROM produit WHERE type = ? AND nom = ?");
+            $requete->execute( array( $type_produit, $nom_produit ) );
+
+        }
+
+        public function suppression_article_id($id_article){
+            global $bdd;
+            $requete = $bdd->prepare(" DELETE FROM article WHERE id = ?");
+            $requete->execute( array( $id_article ) );
+
+            $requete = $bdd->prepare(" DELETE FROM article_tag WHERE id_article = ?");
+            $requete->execute( array( $id_article ) );
+
+        }
+
+        public function suppression_article_nom($nom_article){
+            global $bdd;
+
+            $requete = $bdd->prepare(" SELECT Distinct (id) FROM article WHERE  nom = ?"); 
+            $requete->execute( array( $nom_article ) );
+            $id = $requete->fetchAll();
+
+            foreach ($id as $key => $value) {
+                foreach ($value as $val) {
+                    $requete = $bdd->prepare(" DELETE FROM article_tag WHERE id_article = ?");
+                    $requete->execute( array( $val ) );
+
+                }
+            }
+            $requete = $bdd->prepare(" DELETE FROM article WHERE nom = ?");
+            $requete->execute( array( $nom_article ) );
+
+            
+
+        }
+
+
     }
 
     $client = new Admin("identifient","mdp","nom","prenom","mail");
     //$client->deconnexion_admin($client->getMdp(), $client->getMail() );
-    $client->suppression_produit_id(19);
+        $client->suppression_article_nom("Tupac & Biggie");
 
 ?>
 
