@@ -1,0 +1,114 @@
+.menu {
+	background: grey;
+	height: 100vh;
+	padding: 0;
+  position: fixed;
+}
+
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+
+  .sidebar-nav .navbar li:hover {
+  	background: grey;
+  }
+}
+
+.navtitle {
+	margin-left: 10px;
+}
+
+.body {
+	padding: 10px;
+}
+
+.stockbutton button {
+    margin: 0 auto;
+    display: block;
+    width: 75%;
+}
+
+#welcome {
+	text-align: center;
+}
+
+.midtitle {
+	text-align: center;
+	margin: 50px;
+}
+
+.container{
+	margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+input {
+	padding: 0.2em;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+textarea {
+	resize: none;
+}
+
+#select {
+	width: auto;
+}
+
+#writeContent {
+    height: 200px;
+    max-height: 300px;  
+}
+
+.logo {
+	margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    width: 60%;
+}
+
+img {
+	width: 75%;
+	margin: 0;
+	padding: 0;
+}
+
+.img-container {
+	padding: 0;
+}
+
+.select-item {
+	padding: 5px;
+}
+
+.select-item button {
+	margin: 0 auto;
+    display: block;
+    width: 95%;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.img-form {
+	padding: 0;
+}
+
+.img-form img {
+	width: 50%;
+	margin: 0;
+	padding: 0;
+}
