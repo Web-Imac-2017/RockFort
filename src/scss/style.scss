@@ -20,11 +20,11 @@ $blueLight: #99d0f3;
 }
 // MIXIN
 @mixin transition($duration) {
-    -webkit-transition: $duration;
-    -moz-transition: $duration;
-    -ms-transition: $duration;
-    -o-transition: $duration;
-    transition: $duration;
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -ms-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
 }
 
 /*UTILES*/
@@ -661,7 +661,7 @@ h1{
       width: 20px;
     }
   }
-  .deliveryAddress, .deliveryPayment, .deliveryMode, .purchase{
+  .deliveryAddress, .deliveryPayment, .deliveryMode, .purchase, .facturationAddress{
     border-top: 1px solid $grey;
     padding-top: 24px;
     margin-top: 24px;
@@ -682,6 +682,55 @@ h1{
     span{
       margin-left: 15px;
     }
+    .edit{
+      cursor: pointer;
+      &:hover{
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+    &.clickable{
+      border: 2px solid transparent;
+      &:hover{
+        cursor: pointer;
+        border: 2px solid $blue;
+      }
+      &.active{
+        border: 2px solid $blue;
+      }
+    }
+  }
+  input{
+    padding: 10px;
+    width: 100%;
+    margin-top: 25px;
+  }
+  .validate{
+    background-color: $blue;
+    color: white;
+    @include transition(.1s);
+    &:hover{
+      color: white;
+      background-color: darken($blue, 10%);
+    }
+  }
+  .validateAndSave{
+    background-color: white;
+    color: $blue;
+    @include transition(.1s);
+    &:hover{
+      color: white;
+      background-color: $blue;
+    }
+  }
+  .validate, .validateAndSave{
+    margin-top: 25px;
+    width: 100%;
+    border: none;
+    border: 1px solid $blue;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px 25px;
   }
   .basket{
     background-color: $beige;

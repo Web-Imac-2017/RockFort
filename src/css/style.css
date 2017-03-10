@@ -773,13 +773,13 @@ h1 {
   width: 20px;
 }
 
-#cartPage .deliveryAddress, #cartPage .deliveryPayment, #cartPage .deliveryMode, #cartPage .purchase {
+#cartPage .deliveryAddress, #cartPage .deliveryPayment, #cartPage .deliveryMode, #cartPage .purchase, #cartPage .facturationAddress {
   border-top: 1px solid gainsboro;
   padding-top: 24px;
   margin-top: 24px;
 }
 
-#cartPage .deliveryAddress button.validate, #cartPage .deliveryPayment button.validate, #cartPage .deliveryMode button.validate, #cartPage .purchase button.validate {
+#cartPage .deliveryAddress button.validate, #cartPage .deliveryPayment button.validate, #cartPage .deliveryMode button.validate, #cartPage .purchase button.validate, #cartPage .facturationAddress button.validate {
   background-color: #269be7;
   border: none;
   text-align: center;
@@ -797,6 +797,74 @@ h1 {
 
 #cartPage .optionDelivery span {
   margin-left: 15px;
+}
+
+#cartPage .optionDelivery .edit {
+  cursor: pointer;
+}
+
+#cartPage .optionDelivery .edit:hover {
+  color: #269be7;
+  cursor: pointer;
+}
+
+#cartPage .optionDelivery.clickable {
+  border: 2px solid transparent;
+}
+
+#cartPage .optionDelivery.clickable:hover {
+  cursor: pointer;
+  border: 2px solid #269be7;
+}
+
+#cartPage .optionDelivery.clickable.active {
+  border: 2px solid #269be7;
+}
+
+#cartPage input {
+  padding: 10px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+#cartPage .validate {
+  background-color: #269be7;
+  color: white;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+}
+
+#cartPage .validate:hover {
+  color: white;
+  background-color: #1680c4;
+}
+
+#cartPage .validateAndSave {
+  background-color: white;
+  color: #269be7;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+}
+
+#cartPage .validateAndSave:hover {
+  color: white;
+  background-color: #269be7;
+}
+
+#cartPage .validate, #cartPage .validateAndSave {
+  margin-top: 25px;
+  width: 100%;
+  border: none;
+  border: 1px solid #269be7;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px 25px;
 }
 
 #cartPage .basket {
