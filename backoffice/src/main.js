@@ -8,6 +8,9 @@ Vue.use(VueRouter)
 const router = new VueRouter({
 	mode: 'history',
 	routes: [{
+		path:'/',
+		component: require('./components/Connexion.vue')
+	}, {
 		path:'/accueil',
 		component: require('./components/Home.vue')
 	}, {

@@ -6,6 +6,11 @@
 }
 
 @media (min-width: 768px) {
+  .navbar {
+    border-radius: 0;
+    border: none;
+  }
+
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
     max-height: none;
@@ -111,4 +116,24 @@ img {
 	width: 50%;
 	margin: 0;
 	padding: 0;
+}
+
+#connectform {
+  margin-top: 100px;
+}
+
+#connect {
+  padding-top: 100px;
+  background-color: grey;
+  height: 100vh;
+}
+
+#connectcontainer {
+  background-color: white;
+  padding: 50px 30px;
+  border-radius: 30px;
+}
+
+.btnconnect {
+  width: 100%;
 }
