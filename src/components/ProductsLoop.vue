@@ -2,7 +2,7 @@
   <div class="product">
     <div class="col-md-3">
       <div class="vinyleItem">
-        <router-link link to="/vinyle/resultat.nom"><img :src="product.image" /></router-link>
+        <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
       </div>
       <p class="vinylTitle">{{product.nom}}</p>
       <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>

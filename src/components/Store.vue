@@ -24,7 +24,7 @@
 									<div class="productList">
 										<div class="col-md-3" v-for="product in coupDeCoeur('vinyles','coupdecoeur', 5)">
 											<div class="vinyleItem">
-												<a href="#"><img :src="product.image" /></a>
+												<router-link :to="{ name: 'product', params: { type:'vinyles' , id: product.id }}"><img :src="product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -34,8 +34,8 @@
 								<div class="productContent">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="vinyleItem">
-												<a href="#"><img v-for="product in coupDeCoeur('vinyles','coupdecoeur', 1)" :src="product.image" /></a>
+											<div v-for="product in coupDeCoeur('vinyles','coupdecoeur', 1)" class="vinyleItem">
+												<router-link :to="{ name: 'product', params: { type:'vinyles' , id: product.id }}"><img  :src="product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -70,7 +70,7 @@
 									<div class="productList">
 										<div class="col-md-3" v-for="product in coupDeCoeur('platines', 'coupdecoeur' , 5)">
 											<div class="vinyleItem">
-												<a href="#"><img :src="product.image" /></a>
+												<router-link :to="{ name: 'product', params: { type:'platines' , id: product.id }}"><img :src="product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -102,7 +102,7 @@
 									<div class="productList">
 										<div class="col-md-3" v-for="product in coupDeCoeur('coffrets','month', 5)">
 											<div class="vinyleItem">
-												<a href="#"><img :src="product.image" /></a>
+												<router-link :to="{ name: 'product', params: { type:'coffrets' , id: product.id }}"><img :src="product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -112,8 +112,10 @@
 								<div class="productContent">
 									<div class="row">
 										<div class="col-md-12">
-											<div class="vinyleItem">
-												<a href="#"><img v-for="product in coupDeCoeur('coffrets','month', 1)" :src="product.image" /></a>
+											<div v-for="product in coupDeCoeur('coffrets','month', 1)" class="vinyleItem">
+												<router-link :to="{ name: 'product', params: { type:'coffrets' , id: product.id }}">
+													<img :src="product.image" />
+												</router-link>
 											</div>
 										</div>
 									</div>

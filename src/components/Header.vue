@@ -42,7 +42,7 @@
           <li @click="emitTypeFromHeader()"><router-link to="/store/platines/tout/date-desc">Platines</router-link> |</li>
           <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
-          <li><router-link to="/story/list">La Story</router-link></li>
+          <li><router-link to="/story/tout/date-desc">La Story</router-link></li>
         </ul>
       </div>
     </nav>

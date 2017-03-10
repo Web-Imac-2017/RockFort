@@ -535,9 +535,28 @@ h1 {
 }
 
 /*Story*/
-#laStory #laStoryHeader {
-  background: url("../assets/imgs/lastory_header.jpg") bottom no-repeat fixed;
-  background-size: cover;
+#laStory {
+  margin-top: 140px;
+}
+
+#laStory h2 {
+  color: #000;
+}
+
+#laStory h3 {
+  font-size: 20px;
+}
+
+#laStory .coupDeCoeur {
+  margin: 20px 0;
+}
+
+#laStory .coupDeCoeur img {
+  width: 100%;
+}
+
+#laStory .coupDeCoeur span {
+  color: #000;
 }
 
 #laStory .selection h2 {

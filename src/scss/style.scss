@@ -465,9 +465,15 @@ h1{
 
 /*Story*/
 #laStory{
-  #laStoryHeader{
-    background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
-    background-size: cover;
+  margin-top:140px;
+  h2{
+      color:$black;
+  }
+  h3{font-size: 20px;}
+  .coupDeCoeur{    
+    margin:20px 0;
+    img{width:100%;}
+    span{color:$black;}
   }
 
   .selection{
