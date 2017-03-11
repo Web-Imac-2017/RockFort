@@ -25,7 +25,7 @@
         <div id="stock-vinyles" class="addform" style="display:none;" >
 
           <div v-if="vinyle.type == 'vinyles'" v-for="vinyle in products" class="col-md-4">
-            <button type="button" class="btn btn-default" v-bind:style="{ 'background-color' : 'colorChanger(' + vinyle + ')' }" >
+            <button type="button" class="btn btn-default" v-bind:class="colorChanger(vinyle.stock)">
               <div class="col-md-5 img-container"><img :src="vinyle.image"></div>
               <div class="col-md-7">
                 <h4>{{ vinyle.nom }}</h4>
@@ -39,7 +39,7 @@
         <div id="stock-platines" class="addform" style="display:none;" >
 
           <div v-if="platine.type == 'platines'" v-for="platine in products" class="col-md-4">
-            <button type="button" class="btn btn-default" v-bind:style="{ 'background-color' : 'colorChanger(' + platine + ')' }" >
+            <button type="button" class="btn btn-default" v-bind:class="colorChanger(platine.stock)">
               <div class="col-md-5 img-container"><img :src="platine.image"></div>
               <div class="col-md-7">
                 <h4>{{ platine.nom }}</h4>
@@ -52,7 +52,7 @@
         <div id="stock-coffrets" class="addform" style="display:none;" >
 
           <div v-if="coffret.type == 'coffrets'" v-for="coffret in products" class="col-md-4">
-            <button type="button" class="btn btn-default" v-bind:style="{ 'background-color' : 'colorChanger(' + coffret + ')' }" >
+            <button type="button" class="btn btn-default" v-bind:class="colorChanger(coffret.stock)">
               <div class="col-md-5 img-container"><img :src="coffret.image"></div>
               <div class="col-md-7">
                 <h4>{{ coffret.nom }}</h4>
@@ -87,25 +87,28 @@
     mounted () {
       this.$http.get('/src/test.json').then((response) => 
       {
-        console.log("success", response.data)
         this.products = response.data
       }, (response) => {
         console.log("erreur", response)
       })
     },
 
-    computed:{
-      colorChanger: function(product){
-        console.log("J'aimerais changer de couleur");
-        var color = 'green';
-        if(product.stock <= 10){
-            color = 'red';
+    methods:{
+      colorChanger: function(stock){
+        if(stock <= 10){
+            return 'stockRed';
         }
-        else if(product.stock <= 25){
-            color = 'orange';
+        if(stock <= 25){
+            return 'stockOrange';
         }
-        return color;
+        return 'stockGreen';
       }
     }
   }
 </script>
+
+<style>
+  .stockGreen {background-color: #77dd77;}
+  .stockOrange {background-color: #ffb347;}
+  .stockRed {background-color: #C23B22;}
+</style>
