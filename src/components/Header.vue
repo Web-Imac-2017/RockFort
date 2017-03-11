@@ -10,7 +10,10 @@
           </ul>
           <ul class="nav-user right">
             <ShoppingCart></ShoppingCart>
-            <li v-on:click="connexionToggle">
+            <li v-on:click="connexionToggle" v-if="loggedIn">
+              <router-link to="">Se déconnecter</router-link>
+            </li>
+            <li v-on:click="connexionToggle" v-else>
               <router-link to="">Se connecter</router-link>
             </li>
             <li><router-link to="/inscription">Créer mon compte</router-link></li>
@@ -26,10 +29,10 @@
               <div class="col-md-offset-4 col-md-4 connexion-box">
                 <button class="close" v-on:click.prevent="connexionToggle">CLOSE</button>
                 <h2>Se connecter</h2>
-                <form>
-                    <input type="text" v-model="nomUser" placeholder="adresse e-mail" />
-                    <input type="password" v-model="passwordUser" placeholder="mot de passe" />
-                    <button @click.prevent="onSubmit()">CONNEXION</button>
+                <form  v-on:submit.prevent="onSubmit()">
+                    <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
+                    <input type="password" v-model="formUser.password" placeholder="mot de passe" />
+                    <button value="submit" :disabled="loggingIn" >CONNEXION</button>
                 </form>
               </div>
             </div>
@@ -61,9 +64,13 @@ export default{
     return{
       rechercheString: "",
       isActive: true,
-      users: [],
-      nomUser:"",
-      passwordUser:""
+
+      formUser: {
+          email: null,
+          password: null
+      },
+      alerts: [],
+      loggingIn: false
     }
   },
   mounted () {
@@ -90,6 +97,11 @@ export default{
       console.log("this.typeProduit" + this.typeProduit)
     })
   },
+  computed:{
+    loggedIn () {
+      return this.$root.authenticated
+    }
+  },
   methods: {
     goToRecherche(){this.$router.push({ name: 'store', params: { type: 'recherche', genre: 'tout', sort: 'date-desc'  }})},
 
@@ -109,22 +121,31 @@ export default{
       return this.isActive;
     },
 
-    onSubmit(){
-      var userArray = this.users;
-
-      var username = this.nomUser;
-      var password = new jsSHA('SHA-256', 'TEXT');
-      password.update(this.passwordUser);
-
-      console.log('pwd' + password.getHash('HEX'))
-
-      userArray = userArray.filter(function(item){
-        if(item.name.toLowerCase().indexOf(username) !== -1 && item.password.toLowerCase().indexOf(password) !== -1){
-          return item;
+    onSubmit () {
+      this.loggingIn = true
+      this.$http.post('http://demo8495022.mockable.io/', this.formUser).then((response) => {
+        localStorage.setItem('jwt-token', response.json()['token'])
+        this.getUserData()
+      }, (response) => {
+        this.alerts = []
+        if (response.status === 401) {
+          this.alerts.push({
+            type: 'danger',
+            message: 'Sorry, you provided invalid credentials'
+          })
         }
+        this.loggingIn = false
       })
-
-
+    },
+    getUserData () {
+      this.$http.get('/src/jsonTestUser.json').then((response) => {
+        console.log("lol2");
+        Bus.$emit('userLoggedIn', response.json()['data'])
+        console.log("lol3");
+        this.isActive = !this.isActive;
+      }, (response) => {
+        console.log(response)
+      })
     }
   }
 }
