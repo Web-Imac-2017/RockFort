@@ -1,7 +1,12 @@
 <?php
-    include '../connexion/connexion.php';
+    include_once '../connexion/connexion.php';
 
     include_once 'superAdmin.php';
+    include_once 'vinyle.php';
+    include_once 'kit.php';
+    include_once 'platine.php';
+    include_once 'album.php';
+
 
     class Magasin{
     	private $superAdmin;
@@ -27,8 +32,6 @@
             return self::$instance;
         }
 
-
-
         public function getSuperAdmin(){
         	return $this->superAdmin;
         }
@@ -46,12 +49,11 @@
         }
 
         public function ajoutClient($client){
-        	$utilisateur[] = $client;
+
         	$client->ajoutBdd();
         }
 
         public function ajoutProduit($admin,$produit){
-        	$stock[] = $produit;
         	
         	if($produit->getType() == "Vinyle")
         		$produit->ajoutBddVinyle();
@@ -64,128 +66,80 @@
 
         	if($produit->getType() == "Platine")
         		$produit->ajoutBddPlatine();
+
+
         }
 
-
-         public function modif_descrition_produit($description, $produit_nom){
+        public function allProduit(){
             global $bdd;
-            $requete = $bdd->prepare("UPDATE produit SET description = ?  WHERE nom = ?");
-            $requete->execute( array( $description, $produit_nom ) );
+            $requete = $bdd->prepare("SELECT produit.* , artiste.nom FROM ( (produit INNER JOIN produit_artiste ON produit.id = produit_artiste.id_produit) INNER JOIN artiste ON produit_artiste.id_artiste = artiste.id)");
+            $requete->execute( array( ) );
+            $resultat = $requete->fetchAll();
 
         }
 
+        public function platineProduit(){
 
-        public function modif_image_produit($image, $produit_nom){
+            $platine = array();
             global $bdd;
-            $requete = $bdd->prepare("UPDATE produit SET image = ?  WHERE nom = ?");
-            $requete->execute( array( $image, $produit_nom ) );
-
+            $requete = $bdd->prepare("SELECT DISTINCT (id) FROM produit WHERE type = 'Platine'");
+            $requete->execute( array( ) );
+            $resultat = $requete->fetchAll();
+            
         }
 
-        public function modif_prix_produit($prix, $produit_nom){
+        public function vinyleProduit(){
             global $bdd;
-            $requete = $bdd->prepare("UPDATE produit SET prix = ?  WHERE nom = ?");
-            $requete->execute( array( $prix, $produit_nom ) );
-
+            $requete = $bdd->prepare("SELECT DISTINCT (id) FROM produit WHERE type = 'Vinyle'");
+            $requete->execute( array( ) );
+            $resultat = $requete->fetchAll();
         }
 
-        public function suppression_produit_id($id_produit){
+        public function kitProduit(){
             global $bdd;
-            $requete = $bdd->prepare(" DELETE FROM produit WHERE id = ?");
-            $requete->execute( array( $id_produit ) );
+            $requete = $bdd->prepare("SELECT DISTINCT (id) FROM produit WHERE type = 'Kit'");
+            $requete->execute( array( ) );
+            $resultat = $requete->fetchAll();
 
-            $requete = $bdd->prepare(" DELETE FROM produit_artiste WHERE id_produit = ?");
-            $requete->execute( array( $id_produit ) );
-
-            $requete = $bdd->prepare(" DELETE FROM produit_tag WHERE id_produit = ?");
-            $requete->execute( array( $id_produit ) );
         }
 
-       public function suppression_produit_nom($nom_produit){
+        public function albumProduit(){
             global $bdd;
-
-            $requete = $bdd->prepare(" SELECT Distinct (id) FROM produit WHERE  nom = ?"); 
-            $requete->execute( array( $nom_produit ) );
-            $id = $requete->fetchAll();
-
-            foreach ($id as $key => $value) {
-                foreach ($value as $val) {
-                    $requete = $bdd->prepare(" DELETE FROM produit_artiste WHERE id_produit = ?");
-                    $requete->execute( array( $val ) );
-
-
-                    $requete = $bdd->prepare(" DELETE FROM produit_tag WHERE id_produit = ?");
-                    $requete->execute( array( $val ) );
-                }
-                
-            }
-
-            $requete = $bdd->prepare(" DELETE FROM produit WHERE nom = ?");
-            $requete->execute( array( $nom_produit ) );
+            $requete = $bdd->prepare("SELECT DISTINCT (id) FROM produit WHERE type = 'Album'");
+            $requete->execute( array( ) );
+            $resultat = $requete->fetchAll();
 
         }
 
-
-        public function suppression_produit_type_nom($type_produit, $nom_produit){
+        public function searchProduit($id){
             global $bdd;
-
-            $requete = $bdd->prepare(" SELECT Distinct (id) FROM produit WHERE  type = ? AND nom = ?"); 
-            $requete->execute( array( $type_produit, $nom_produit ) );
-            $id = $requete->fetchAll();
-
-            foreach ($id as $key => $value) {
-                foreach ($value as $val) {
-                    $requete = $bdd->prepare(" DELETE FROM produit_artiste WHERE id_produit = ?");
-                    $requete->execute( array( $val ) );
-
-
-                    $requete = $bdd->prepare(" DELETE FROM produit_tag WHERE id_produit = ?");
-                    $requete->execute( array( $val ) );
-                }
-                
-            }
-
-            $requete = $bdd->prepare(" DELETE FROM produit WHERE type = ? AND nom = ?");
-            $requete->execute( array( $type_produit, $nom_produit ) );
-
+            $requete = $bdd->prepare("SELECT * FROM produit WHERE id = ?");
+            $requete->execute( array( $id) );
+            $resultat = $requete->fetch();
         }
 
-        public function suppression_article_id($id_article){
+        public function allArticle(){
             global $bdd;
-            $requete = $bdd->prepare(" DELETE FROM article WHERE id = ?");
-            $requete->execute( array( $id_article ) );
-
-            $requete = $bdd->prepare(" DELETE FROM article_tag WHERE id_article = ?");
-            $requete->execute( array( $id_article ) );
-
+            $requete = $bdd->prepare("SELECT * FROM article");
+            $requete->execute( array( ) );
+            $resultat = $requete->fetchAll();
+            print_r($resultat);
         }
 
-        public function suppression_article_nom($nom_article){
+        public function searchArticle($id){
             global $bdd;
-
-            $requete = $bdd->prepare(" SELECT Distinct (id) FROM article WHERE  nom = ?"); 
-            $requete->execute( array( $nom_article ) );
-            $id = $requete->fetchAll();
-
-            foreach ($id as $key => $value) {
-                foreach ($value as $val) {
-                    $requete = $bdd->prepare(" DELETE FROM article_tag WHERE id_article = ?");
-                    $requete->execute( array( $val ) );
-
-                }
-            }
-            $requete = $bdd->prepare(" DELETE FROM article WHERE nom = ?");
-            $requete->execute( array( $nom_article ) );
+            $requete = $bdd->prepare("SELECT * FROM article WHERE id = ?");
+            $requete->execute( array( $id) );
+            $resultat = $requete->fetch();
         }
-
-
-        public function achat($client, $produit)
 
     }
 
     $superAdmin = new superAdmin("Miles","Miles","Morales","Miles","mail");
+    
+    $admin = new Admin("Walter","Peter","Parker","Peter","mail");
+
     $magasin = Magasin::getInstance($superAdmin);
-    $admin = new Admin("Peter","Peter","Parker","Peter","mail");
 
 
     $nom = "Tabloid Junkie";
@@ -200,7 +154,13 @@
 
     $vinyle = new Vinyle($nom,$image,$musique,$prix,$tag,$artiste,$description);
 
-    $magasin->ajoutProduit($admin,$vinyle);
+    $magasin->searchArticle(2);
+    //$magasin->allProduit();
+
+
+   
+
+
 
 
 ?>
