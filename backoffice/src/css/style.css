@@ -137,3 +137,13 @@ img {
 .btnconnect {
   width: 100%;
 }
+
+.stockall {
+  margin-top: 50px;
+}
+
+.stockall button {
+  width: 75%;
+  display: block;
+  margin: 20px auto 0;
+}
