@@ -3,17 +3,17 @@
 		<div id="productPage" >
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+					<div v-for="product in selectProduct(1, false)" class="col-md-8 col-md-offset-2">
 						<div class="row">
 							<div class="col-md-6">
-								<img class="vinyleImg" src="src/assets/imgs/AbbeyRoad.jpg" />
+								<img class="vinyleImg" :src="product.image" />
 							</div>
 							<div class="col-md-6">
-								<h1 class="vinyleTitle">Abbey Road</h1>
-								<h4 class="bandName">The Beatles - 1969</h4>
+								<h1 class="vinyleTitle">{{product.nom}}</h1>
+								<h4 class="bandName">{{product.auteur}} - {{product.date.substring(0,4)}}</h4>
 								<div class="row">
 									<div class="col-md-4">
-										<div class="price">20€</div>
+										<div class="price">{{product.prix}}€</div>
 									</div>
 									<div class="col-md-8">
 										<div class="notation">
@@ -48,7 +48,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="desc">
-									Paul McCartney, au nom de tout le groupe, contacte le producteur George Martin pour lui proposer d'enregistrer un album « comme avant ». Le 20 août 1969, les quatre Beatles sont réunis pour la toute dernière fois dans les studios EMI qui seront plus tard renommés Abbey Road.
+									{{product.description}}
 								</div>
 							</div>
 						</div>
@@ -58,24 +58,9 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
-								<div class="vinyleItem">
-									<a href="#"><img src="src/assets/imgs/bowie.jpg" /></a>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="vinyleItem">
-									<a href="#"><img src="src/assets/imgs/SgtPepper.jpg" /></a>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="vinyleItem">
-									<a href="#"><img src="src/assets/imgs/StonesBlueandLonesome.jpg" /></a>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="vinyleItem">
-									<a href="#"><img src="src/assets/imgs/doors.jpg" /></a>
+							<div v-for="product in selectProduct(4, false)" class="col-md-3">
+								<div @click="selectProduct(1,true)" class="vinyleItem">
+									<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
 								</div>
 							</div>
 						</div>
@@ -157,5 +142,54 @@ import QuantitySelector from '../QuantitySelector.vue'
 
 export default{
 	components : { QuantitySelector },
+	data () {
+		return{
+			products: []
+		}
+	},
+	mounted () {
+	    this.$http.get('/src/jsonTest.json').then((response) => {
+	      console.log("success", response)
+	      this.products = response.data
+	    }, (response) => {
+	      console.log("erreur", response)
+	    })
+  	},
+  	methods:{
+  		selectProduct(limit, update){
+  			var resultatsArray = this.products;
+  			var count = 0;
+
+  			if(update == true){
+          		this.$forceUpdate();
+        	}
+
+  			if(limit == 1){
+  				resultatsArray = resultatsArray.filter(function(item){
+  					if(item.id == window.location.pathname.split('/').pop())
+  						return item
+  				})
+  				return resultatsArray;
+  			}
+
+  			function shuffle(a) {
+          		for (let i = a.length; i; i--) {
+            		let j = Math.floor(Math.random() * i);
+            		[a[i - 1], a[j]] = [a[j], a[i - 1]];
+          		}
+        	}
+        	shuffle(resultatsArray);
+
+        	resultatsArray = resultatsArray.filter(function(item){
+	          	if(item.id != window.location.pathname.split('/').pop() && count < limit) {
+	            	count++
+	            	return item
+	          	}
+        	})
+        	return resultatsArray
+  		}
+
+  	}
+
 }
 </script>
