@@ -4,6 +4,7 @@
     include_once ('artiste.php');
 
 
+
     abstract class Produit extends Objet{
         protected $nom;
         protected $image;
@@ -20,7 +21,6 @@
 
 
         protected function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre){
-
             $this->nom = $nom;
             $this->image = $image;
             $this->musique = $musique;
@@ -83,7 +83,6 @@
 	        $requete->execute( array( $this->getType(), $this->getNom(), $this->getDescription(), $this->getImage(), $this->getMusique(), $this->getGenre(),$this->getPrix() ) );
 
 
-
 	        $requete = $bdd->prepare("SELECT MAX(id) FROM produit");
 	        $requete->execute( array() );
 	        $this->setId($requete->fetchColumn());
@@ -113,7 +112,6 @@
 
 	            else{
 
-
 	            	$requete = $bdd->prepare("SELECT id FROM tag WHERE nom = ? ");
             		$requete->execute( array( $tag ) );
             		$resultat = $requete->fetchColumn();
@@ -130,5 +128,4 @@
     }
 
 ?>
-          
 

@@ -39,11 +39,10 @@
             $requete->execute( array($nom, $this->getId()) );
 
             $this->nom = $nom;
-
-
         }
 
         /* met à jour le texte de l'article */
+
         public function setText($text){
         	global $bdd;
 
@@ -54,6 +53,7 @@
         }
 
         /* met à jour les images de l'article*/
+
         public function setImage($image){
             global $bdd;
 
@@ -65,6 +65,7 @@
         }
 
         /* Ajout d'un article dans la bdd*/
+
         public function ajoutBdd(){
         	global $bdd;
 
@@ -72,7 +73,9 @@
 
             $requete->execute( array( $this->getNom(), $this->getText(), $this->getImage() ) );
             $resultat = $requete->fetch();
+
             /* verifie si l'article est deja present dans la bdd*/ 
+
             if($resultat != NULL)
                 echo "Article déjà présent";
 
@@ -82,6 +85,7 @@
                 $requete->execute( array( $this->getNom(), $this->getText(), $this->getImage() ) );
                 
                 /*selectionne le dernier id de la table */ 
+
                 $requete = $bdd->prepare("SELECT MAX(id) FROM article");
                 $requete->execute( array() );
                 $this->setId($requete->fetchColumn());
@@ -126,4 +130,5 @@
     //echo $article->getId();
     $article->setImage("East Coast vs West Coast");
     */
+
     

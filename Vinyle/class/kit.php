@@ -11,8 +11,8 @@
             Produit::ajoutBdd("Kit");
         }
     }
-    
-    /*
+
+/*
 
     $nom = "This time around";
 	$image = "image";

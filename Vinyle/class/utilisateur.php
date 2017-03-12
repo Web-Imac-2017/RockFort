@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ('../connexion/connexion.php');
+    include_once ('../connexion/connexion.php');
 
 
     abstract class Utilisateur {
@@ -23,9 +23,6 @@
                     return $this->id;
                 }
 
-                 public function getIdentifiant(){
-                    return $this->identifiant;
-                }
 
                 public function getMdp(){
                     return $this->mdp;

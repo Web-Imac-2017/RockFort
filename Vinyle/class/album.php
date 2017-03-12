@@ -1,7 +1,10 @@
 <?php
     include_once 'produit.php';
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Fichiers aux fonctionalité opérationnel + bdd mise à jour
 
     class Album extends Produit{
         function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre) {
@@ -15,7 +18,10 @@
     }
 
     
+<<<<<<< HEAD
     /*
+=======
+>>>>>>> Fichiers aux fonctionalité opérationnel + bdd mise à jour
 
     $nom = "This time around";
 	$image = "image";
@@ -28,6 +34,9 @@
 	$description = "Un des deux morceaux où le KingOfPop collabore avec la star du label Bad Boy ";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Fichiers aux fonctionalité opérationnel + bdd mise à jour
 	$vinyle = new Album($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
 	$vinyle->ajoutBddAlbum();
 */

@@ -3,11 +3,9 @@
     include_once 'album.php';
     include_once 'platine.php';
     include_once 'vinyle.php';
-
     
     class Commande {
         private $id;
-        private $produit_list;
         private $date;
         private $montant;
         
@@ -30,6 +28,7 @@
         private function __construct(){
         	$this->produit_list = array();
 
+        }
         
         public static function getInstance(){
             if (self::$instance == null){
@@ -114,8 +113,8 @@
             else{
                 echo "Produit déjà acheté";
             }
- 
- 	        }
+
+	   }
       
         
         public function retirer_produit($id_produit){
@@ -126,6 +125,7 @@
 	        $requete->execute( array( $id_produit) );
 
             /* Sélectionne, puis soustrait le prix du produit au prix de la commande */
+
 	        $requete = $bdd->prepare("SELECT prix FROM produit WHERE id = ?");
 	        $requete->execute( array( $id_produit) );
 	        $prix = $requete->fetchColumn();
@@ -138,11 +138,9 @@
 	        $requete->execute( array($ttc,  $prix, $this->getInstance()->getId() ) );
         }
         
-        /* Valide la transaction de la commande */
+
         public function valide_commande($adresse){
         	global $bdd;
-
-            /* Change le statut de la commande en "validé" (=1) */
         	$requete = $bdd->prepare("UPDATE commande SET valide = '1' WHERE id = ?");
 	        $requete->execute( array( $this->getInstance()->getId()) );
 
@@ -192,8 +190,6 @@
         }
 
 
-
-        /* Permet a l'utilisateur de commenter le produit qu'il a acheté */
         public function commentaire($id_utilisateur,$id_produit, $commentaire){
             global $bdd;
             $requete = $bdd->prepare("SELECT id_produit FROM ( commande_produit INNER JOIN  commande ON id_commande = commande.id) WHERE id_produit = ? AND valide = '1' ");
@@ -222,22 +218,21 @@
             }
         }
     
-    } 
 
     /*
-    $commande = Commande::getInstance();
+
     $commande->ajoutBdd(89);
     $commande->ajoutProduit(137);
     /*$commande->ajoutProduit(83);
     $commande->ajoutProduit(87);*/
-    /*
-    $commande->valide_commande("fggh");
+    
+    /*$commande->valide_commande("fggh");
    /* $commande->commentaire(89,79,"MJ toujours au top!");
     $commande->commentaire(89,83,"MJ king of pop");
     $commande->commentaire(89,56,"MJ n'est pas mort");
     $commande->note(89,79,8);
     $commande->note(89,83,9);
     $commande->note(89,56,10);*/
-
 ?>
+
 

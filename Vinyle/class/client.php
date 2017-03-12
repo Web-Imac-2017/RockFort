@@ -11,8 +11,6 @@
 
     class Client extends Utilisateur{
         
-        private $adresse;
-        private $livraison;
         private $commande;
         private $panier;
         
@@ -20,10 +18,8 @@
         public function __construct($mdp,$nom,$prenom,$mail,$adresse){
             Utilisateur::__construct($mdp,$nom,$prenom,$mail);
             $this->adresse = $adresse;
-  
+
         }
-
-
 
         public function getAdresse(){
                     return $this->adresse;
@@ -54,6 +50,7 @@
         }
 
         /* Selection des adresses d'un utilisateur en fonction de la table adresse et commande_utilisateur*/
+
         public function mesAdresseLivraison(){
             global $bdd;
 
@@ -65,10 +62,9 @@
 
         }
 
-     
+
                
-         public function connexion_client($mdp, $mail){
->>>>>>> Le fichier séparé
+        public function connexion_client($mdp, $mail){
             $this->connexion( "client", $mdp, $mail);
         }
 
@@ -116,6 +112,7 @@
             $this->getPanier()->retirer_produit($id_produit);
         }
         /* Selection des commandes en fonction de leurs id dans la table commande_utilisateur et commande*/
+
         public function lesCommandes(){
             global $bdd;
             $requete = $bdd->prepare("SELECT id_commande FROM ( commande_utilisateur INNER JOIN commande ON commande.id =  id_commande) WHERE id_utilisateur = ? ");
@@ -135,17 +132,26 @@
 
 
     }
+
+
+
     /*
-
-    $client = new Client("mdp","ngjom","prensom","lijhljegkhhjjjkhjhjkghjrgam","la vie");
-    $client->ajoutBdd();
-    $client->connexion_client("mdp","lijhljegkhhjjjkhjhjkghjrgam");
-    echo $_SESSION['id'];
-    */
     
-    
-    $client = new Client("identifiant","mdp","nom","prenom","mail","adresse");
+    $client = new Client("mdp","nom","prenom","maiiiiiil","adresse");
     $client->ajoutBdd();
 
+
+    $client->setAdresse("la mort");
+    $client->Panier();
+    $client->ajoutProduitPanier(274);
+    $client->ajoutProduitPanier(530);
+    $client->ajoutProduitPanier(275);
+    $client->acheter("chez moi");
+    $client->Panier();
+    $client->ajoutProduitPanier(531);
+    $client->ajoutProduitPanier(276);
+    $client->ajoutProduitPanier(532);
+    $client->acheter("ghjh");
+    $client->mesAdresseLivraison();
+    
     ?>
-
