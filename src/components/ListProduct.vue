@@ -82,8 +82,6 @@ export default{
                 var filtreGenre = this.filtreGenre
                 var typeProduit = this.typeProduit
                 var triPar = this.triPar
-                var count = 0
-
 
                 var filtre = window.location.pathname.split("/");
                 console.log("0" + filtre[0])
