@@ -1,7 +1,7 @@
 <?php
-    include ('../connexion/connexion.php');
-    include ('objet.php');
-    include ('artiste.php');
+    include_once ('../connexion/connexion.php');
+    include_once ('objet.php');
+    include_once ('artiste.php');
 
 
 
@@ -16,10 +16,11 @@
         protected $commentaire;
         protected $note;
         protected $type;
+        protected $genre;
         
 
 
-        protected function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description){
+        protected function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre){
             $this->nom = $nom;
             $this->image = $image;
             $this->musique = $musique;
@@ -27,6 +28,7 @@
             $this->tag = $tag;
             $this->artiste = $artiste;
             $this->description = $description;
+            $this->genre = $genre;
         }
 
         public function getNom(){
@@ -69,11 +71,16 @@
         	return $this->type;
         }
 
+        public function getGenre(){
+            return $this->genre;
+        }
+
+
 
         protected function ajoutBdd($type){
         	global $bdd;
-	        $requete = $bdd->prepare("INSERT INTO produit VALUES ('',?,?,?,?,?,?)");
-	        $requete->execute( array( $this->getType(), $this->getNom(), $this->getDescription(), $this->getImage(), $this->getMusique(), $this->getPrix() ) );
+	        $requete = $bdd->prepare("INSERT INTO produit VALUES ('',?,?,?,?,?,?,?,'')");
+	        $requete->execute( array( $this->getType(), $this->getNom(), $this->getDescription(), $this->getImage(), $this->getMusique(), $this->getGenre(),$this->getPrix() ) );
 
 
 	        $requete = $bdd->prepare("SELECT MAX(id) FROM produit");
@@ -105,7 +112,6 @@
 
 	            else{
 
-
 	            	$requete = $bdd->prepare("SELECT id FROM tag WHERE nom = ? ");
             		$requete->execute( array( $tag ) );
             		$resultat = $requete->fetchColumn();
@@ -119,8 +125,6 @@
 
 	    }
 
-
-
-
     }
+
 ?>

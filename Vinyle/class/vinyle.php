@@ -1,19 +1,21 @@
 <?php
 
-    include ('produit.php');
-    
+    include_once ('produit.php');
+
     class Vinyle extends Produit{
         
 
-        function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description) {
-            Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description);
+        function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre) {
+            Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre);
             $this->type = "Vinyle";
         }
 
         public function ajoutBddVinyle(){
-        	Produit::ajoutBdd("Vinyle");
+            Produit::ajoutBdd("Vinyle");
         }
     }
+    
+   
 
 
     $nom = "This time around";
@@ -26,6 +28,6 @@
     $artiste = array('a' => $mj, 'b' => $biggie);
     $description = "Un des deux morceaux où le KingOfPop collabore avec la star du label Bad Boy ";
 
-    $vinyle = new Vinyle($nom,$image,$musique,$prix,$tag,$artiste,$description);
+    $vinyle = new Vinyle($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
     $vinyle->ajoutBddVinyle();
 ?>
