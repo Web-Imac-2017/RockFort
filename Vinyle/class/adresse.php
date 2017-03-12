@@ -1,5 +1,5 @@
 <?php
-    include '../connexion/connexion.php';
+    include_once '../connexion/connexion.php';
    /*********************************ADRESSE*********************************/
 
     class Adresse{
@@ -43,5 +43,42 @@
         public function getPays(){
             return $this->pays;
         }
+
+
+
+
+        public function setNumero($numero){
+            $this->numero = $numero;
+        }
+
+        public function setRue($rue){
+            $this->rue = $rue;
+        }
+
+        public function setCode_Postale($code){
+            $this->code_postale = $code;
+        }
+
+        public function setVille($ville){
+            $this->ville = $ville;
+        }
+
+        public function setRegion($region){
+            $this->region = $region;
+        }
+
+        public function setPays($pays){
+            $this->pays = $pays;
+        }
+
+        public function adresseString(){
+            return $this->getNumero() . $this->getRue() . $this->getCode_Postale() . $this->getVille() . $this->getRegion() . $this->getPays();
+        }
     }
+
+
+    $adresse = new Adresse("8","rue d'atrac","77000","sansso","paris","France");
+    /*$client = new Client("mdp","ngjom","prensom","lijhhgam",$adresse);
+    $client->ajoutBdd();*/
+    echo $adresse->getNumero();
 ?>

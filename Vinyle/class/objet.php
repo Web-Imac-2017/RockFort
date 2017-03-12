@@ -1,5 +1,5 @@
 <?php
-    include '../connexion/connexion.php';
+    include_once '../connexion/connexion.php';
 
     abstract class Objet{
         protected $id;

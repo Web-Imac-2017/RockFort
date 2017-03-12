@@ -133,11 +133,59 @@
             $resultat = $requete->fetch();
         }
 
+        public function note($type,$nom,$description,$image,$musique,$prix){
+            global $bdd;
+
+            $requete = $bdd->prepare("SELECT AVG(note) FROM (note INNER JOIN produit ON id_produit = produit.id) WHERE type = ? AND nom = ? AND description = ? AND image = ? AND musique = ? AND prix = ?");
+            $requete->execute( array( $type,$nom,$description,$image,$musique,$prix ) );
+            $resultat = $requete->fetchColumn();
+            
+            return $resultat;
+
+        }
+
+        public function commentaire($type,$nom,$description,$image,$musique,$prix){
+            global $bdd;
+
+            $requete = $bdd->prepare("SELECT contenu FROM (commentaire INNER JOIN produit ON id_produit = produit.id) WHERE type = ? AND nom = ? AND description = ? AND image = ? AND musique = ? AND prix = ?");
+            $requete->execute( array( $type,$nom,$description,$image,$musique,$prix ) );
+            $resultat = $requete->fetchAll();
+            print_r($resultat);
+            
+            return $resultat;
+
+        }
+
+
+        public function stock($type,$nom,$description,$image,$musique,$prix){
+            global $bdd;
+
+            $requete = $bdd->prepare("SELECT COUNT(id) FROM produit WHERE type = ? AND nom = ? AND description = ? AND image = ? AND musique = ? AND prix = ?");
+            $requete->execute( array( $type,$nom,$description,$image,$musique,$prix ) );
+            $resultat = $requete->fetchColumn();
+            
+            if($resultat <= 5){
+                echo "Attention il vous reste moins de 5 article de ce type";
+            }            
+            return $resultat;
+        }
+
+        public function selectGenre($genre){
+            global $bdd;
+
+            $requete = $bdd->prepare("SELECT id FROM produit WHERE genre = ?");
+            $requete->execute( array( $genre ) );
+            $resultat = $requete->fetchColumn();
+            print_r($resultat);
+                  
+            return $resultat;
+        }        
+
     }
 
-    $superAdmin = new superAdmin("Miles","Miles","Morales","Miles","mail");
+    $superAdmin = new superAdmin("Miles","Miles","Morales","Milkjjes","maiiiljh");
     
-    $admin = new Admin("Walter","Peter","Parker","Peter","mail");
+    $admin = new Admin("Walter","Peter","Payrker","Peter","maiggl");
 
     $magasin = Magasin::getInstance($superAdmin);
 
@@ -150,17 +198,12 @@
     $mj = new Artiste("Michael Jackson", "Artiste de varieté le plus courroner de tous les temps", "image");
     $biggie = new Artiste("Notorious BIG", "la star du label Bad Boy", "image");
     $artiste = array('a' => $mj);
-    $description = "Chanson 100% réalisé par MJ dans l'album HISTORY";
+    $description = "Chanson 100% réalisé par MJ dans l'album HISTORY ";
 
-    $vinyle = new Vinyle($nom,$image,$musique,$prix,$tag,$artiste,$description);
+    $vinyle = new Kit($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
 
-    $magasin->searchArticle(2);
+    $magasin->selectGenre("pop");
     //$magasin->allProduit();
-
-
-   
-
-
 
 
 ?>

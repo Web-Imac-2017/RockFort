@@ -1,16 +1,17 @@
 <?php
-    include 'produit.php';
+    include_once 'produit.php';
 
     class Kit extends Produit{
-        function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description) {
-            Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description);
+        function __construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre) {
+            Produit::__construct($nom,$image,$musique,$prix,$tag,$artiste,$description,$genre);
             $this->type = "Kit";
         }
 
         public function ajoutBddKit(){
-        	Produit::ajoutBdd("Album");
-    	}
-	}
+            Produit::ajoutBdd("Album");
+        }
+    }
+    
 
     $nom = "This time around";
 	$image = "image";
@@ -22,7 +23,7 @@
 	$artiste = array('a' => $mj, 'b' => $biggie);
 	$description = "Un des deux morceaux où le KingOfPop collabore avec la star du label Bad Boy ";
 
-	$vinyle = new Kit($nom,$image,$musique,$prix,$tag,$artiste,$description);
+	$vinyle = new Kit($nom,$image,$musique,$prix,$tag,$artiste,$description, "pop");
 	$vinyle->ajoutBddKit();
 
 

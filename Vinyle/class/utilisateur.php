@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include ('../connexion/connexion.php');
+    include_once ('../connexion/connexion.php');
 
 
     abstract class Utilisateur {
@@ -12,8 +12,7 @@
                 protected $mail;
                 
 
-            public function __construct($identifiant,$mdp,$nom,$prenom,$mail){
-                $this->identifiant = $identifiant;
+            public function __construct($mdp,$nom,$prenom,$mail){
                 $this->mdp = $mdp;
                 $this->nom = $nom;
                 $this->prenom = $prenom;
@@ -24,9 +23,6 @@
                     return $this->id;
                 }
 
-                 public function getIdentifiant(){
-                    return $this->identifiant;
-                }
 
                 public function getMdp(){
                     return $this->mdp;
