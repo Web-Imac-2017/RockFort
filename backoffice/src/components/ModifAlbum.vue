@@ -4,13 +4,13 @@
     <div class="body col-md-6 col-md-offset-4">
       <h2 class="midtitle">Modifier l'album</h2>
 
-        <div class="container form">
+        <div v-for="vinyle in selectProduct(1, false)" class="container form">
           <form>
             
             <div id="album" class="addform">
               <div class="form-group">
                 <label>Nom de l'album</label>
-                <input type="text" class="form-control" value="Psycho Tropical Berlin">
+                <input type="text" class="form-control" v-bind:value="vinyle.name">
               </div>
 
               <div class="form-group">
@@ -61,6 +61,43 @@
   export default {
     components: {
       NavComponent
+    },
+
+    data () {
+    return{
+      products: []
+    }
+  },
+
+    methods: {
+      selectProduct(limit, update){
+        var resultatsArray = this.products;
+        var count = 0;
+
+        if(update == true){
+          console.log('lol')
+              this.$forceUpdate();
+          }
+
+        if(limit == 1){
+          resultatsArray = resultatsArray.filter(function(item){
+            if(item.id == window.location.pathname.split('/').pop())
+              return item
+          })
+          console.log("success", resultatsArray);
+          return resultatsArray;
+        }
+
+          resultatsArray = resultatsArray.filter(function(item){
+            console.log('looool')
+              if(item.id != window.location.pathname.split('/').pop() && item.genre.indexOf('coupdecoeur') !== -1 && count < limit) {
+                console.log('loodqqdool')
+                count++
+                return item
+              }
+          })
+          return resultatsArray
+      }
     }
   }
 </script>

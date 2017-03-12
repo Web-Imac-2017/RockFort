@@ -21,49 +21,57 @@
             <div id="success-album" class="addform" style="display:none;" >
 
               <div v-if="vinyle.type == 'vinyles'" v-for="vinyle in products" class="col-md-6 select-item">
-                <button type="button" class="btn btn-default" onclick="window.location.href='modifierAlbum'">
+                <router-link link to="/modifierAlbum/vinyle.id">
+                <button type="button" class="btn btn-default">
                   <div class="col-md-5 img-container"><img :src="vinyle.image"></div>
                   <div class="col-md-7">
                     <h4>{{ vinyle.nom }}</h4>
                     <h5>{{ vinyle.auteur }}</h5>
                   </div>
                 </button>
+                </router-link>
               </div>
             </div>
 
             <div id="success-platine" class="addform" style="display:none;" >
              
               <div v-if="platine.type == 'platines'" v-for="platine in products" class="col-md-6 select-item">
-                <button type="button" class="btn btn-default" onclick="window.location.href='modifierPlatine'">
+                <router-link link to="/modifierPlatine/platine.id">
+                <button type="button" class="btn btn-default">
                   <div class="col-md-5 img-container"><img :src="platine.image"></div>
                   <div class="col-md-7">
                     <h4>{{ platine.nom }}</h4>
                   </div>
                 </button>
+                </router-link>
               </div>
             </div>
 
             <div id="success-coffret" class="addform" style="display:none;">
               
               <div v-if="coffret.type == 'coffrets'" v-for="coffret in products" class="col-md-6 select-item">
-                <button type="button" class="btn btn-default" onclick="window.location.href='modifierCoffret'">
+                <router-link link to="/modifierCoffret/coffret.id">
+                <button type="button" class="btn btn-default">
                   <div class="col-md-5 img-container"><img :src="coffret.image"></div>
                   <div class="col-md-7">
                     <h4>{{ coffret.nom }}</h4>
                   </div>
                 </button>
+                </router-link>
               </div>
             </div>
 
             <div id="success-article" class="addform" style="display:none;">
 
                <div v-if="article.type == 'articles'" v-for="article in products" class="col-md-6 select-item">
-                <button type="button" class="btn btn-default" onclick="window.location.href='modifierArticle'">
+                <router-link link to="/modifierArticle/article.id">
+                <button type="button" class="btn btn-default">
                   <div class="col-md-5 img-container"><img :src="article.image"></div>
                   <div class="col-md-7">
                     <h4>{{ article.nom }}</h4>
                   </div>
                 </button>
+                </router-link>
               </div>
 
             </div>              

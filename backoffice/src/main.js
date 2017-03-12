@@ -20,16 +20,20 @@ const router = new VueRouter({
 		path:'/modifier',
 		component: require('./components/Modif.vue')
 	}, {
-		path:'/modifierAlbum',
+		name: 'modifierAlbum',
+		path:'/modifierAlbum/:id',
 		component: require('./components/ModifAlbum.vue')
 	}, {
-		path:'/modifierArticle',
+		name: 'modifierArticle',
+		path:'/modifierArticle/:id',
 		component: require('./components/ModifArticle.vue')
 	}, {
-		path:'/modifierCoffret',
+		name: 'modifierCoffret',
+		path:'/modifierCoffret/:id',
 		component: require('./components/ModifCoffret.vue')
 	}, {
-		path:'/modifierPlatine',
+		name: 'modifierPlatine',
+		path:'/modifierPlatine/:id',
 		component: require('./components/ModifPlatine.vue')
 	}, {
 		path:'/supprimer',
