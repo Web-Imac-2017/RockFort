@@ -14,7 +14,7 @@
         <h2>{{nombreResultats}} {{typeProduit}} {{recherchePrefixe}} {{rechercheString}}</h2>
         <hr />
         <div class="row">
-          <product v-for="product in rechercheGeneral" :product="product"></product>
+          <product v-for="product in rechercheGeneral(limitProduit)" :product="product"></product>
         </div>
         <div v-if="nombreResultats == 0" class="noresult col-md-offset-3 col-md-6">
           <h2>Désolé ! nous avons trouvé aucun résultat pour votre recherche !</h2>
@@ -44,10 +44,21 @@ export default{
       triPar:"",
       recherchePrefixe:"",
       products: [],
+      limitProduit: 12,
       nombreResultats: 0
     }
   },
-  created() {
+  mounted () {
+    this.$http.get('/src/jsonTest.json').then((response) => {
+      console.log("success", response)
+      this.products = response.data
+    }, (response) => {
+      console.log("erreur", response)
+    })
+  },
+  created () {
+    document.addEventListener('scroll', this.handleScroll);
+
     Bus.$on('tri-par', triPar => {
       this.triPar = triPar;
     }),
@@ -63,17 +74,9 @@ export default{
       console.log("this.typeProduit" + this.typeProduit)
     })
   },
-  mounted () {
-    this.$http.get('/src/jsonTest.json').then((response) => {
-      console.log("success", response)
-      this.products = response.data
-    }, (response) => {
-      console.log("erreur", response)
-    })
-  },
-  computed: {
+  methods: {
             //SEARCH
-            rechercheGeneral: function () {
+            rechercheGeneral: function (limit) {
                 var resultatsArray = this.products
                 var rechercheString = this.rechercheString
                 var filtreGenre = this.filtreGenre
@@ -189,8 +192,19 @@ export default{
                   this.recherchePrefixe = "";
                 }
                 this.nombreResultats = resultatsArray.length;
-                return resultatsArray;
+                return resultatsArray.slice(0, limit);
+            },
+            handleScroll(){
+              var currentScrollPosition = window.scrollY;
+              console.log("Scrolling down"+ currentScrollPosition);
+              if(currentScrollPosition >= document.documentElement.scrollHeight - document.documentElement.clientHeight){
+                this.limitProduit += 4
+              }else if(!currentScrollPosition){
+                this.limitProduit = 12
+              }
             }
+
+
         }
 }
 </script>

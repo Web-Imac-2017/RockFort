@@ -9,7 +9,7 @@
           <SearchBarArticleComponent></SearchBarArticleComponent>
         </div>
       	<div class="container">
-          <h2>{{nombreArticle}} articles pour {{stringRechercheArticle}}</h2>
+          <h2>{{nombreArticle}} articles {{recherchePrefixe}} {{stringRechercheArticle}}</h2>
           <hr />
       		<div v-for="article in rechercheArticles" class="row">
       			<router-link :to="{ name: 'story', params: { id: article.id }}">
@@ -38,12 +38,16 @@
       return {
         articles: [],
         nombreArticle: 0,
+        recherchePrefixe:"",
         stringRechercheArticle: "",
         themeArticle: "",
-        triArticle: ""
+        triArticle: "",
+        limit: 3
       }
     },
     created() {
+      window.addEventListener('scroll', this.handleScroll)
+
       Bus.$on('tri-article', triArticle => {
         this.triArticle = triArticle;
       }),
@@ -65,11 +69,12 @@
     },
     computed: {
       //SEARCH
-      rechercheArticles: function () {
+      rechercheArticles(limit) {
         var articlesArray = this.articles;
         var stringRechercheArticle = this.stringRechercheArticle;
         var themeArticle = this.themeArticle;
         var triArticle = this.triArticle;
+        var limit = this.limit
 
         var filtre = window.location.pathname.split("/");
                 console.log("0" + filtre[0])
@@ -92,7 +97,7 @@
             }
               return 0;
           });
-          return articlesArray;
+          return articlesArray.slice(0,limit);
         }
 
         stringRechercheArticle = stringRechercheArticle.trim().toLowerCase();
@@ -131,8 +136,27 @@
                     });
                 }
 
-        return articlesArray;
+                if(stringRechercheArticle) {
+                  this.recherchePrefixe = "pour votre recherche ";
+                }else{
+                  this.recherchePrefixe = "";
+                }
+
+        this.nombreArticle = articlesArray.length;
+        return articlesArray.slice(0, limit);
       }
-	  }
+	  },
+    methods:{
+      handleScroll(){
+        console.log(document.documentElement.scrollHeight - document.documentElement.clientHeight)
+        var currentScrollPosition = window.scrollY;
+            console.log("Scrolling down"+ currentScrollPosition);
+            if(currentScrollPosition >= document.documentElement.scrollHeight - document.documentElement.clientHeight){
+              this.limit += 3;
+            }else if(!currentScrollPosition){
+              this.limit = 3;
+            }
+      }
+    }
   }
 </script>

@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { Bus } from './bus.js' 
 import _ from 'lodash'
 import CartState from '../shoppingCartState'
 
@@ -41,6 +42,7 @@ export default {
   },
   methods: {
     addToCart() {
+      console.log(this.product)
       CartState.add(this.product)
     },
     inc() {
@@ -48,6 +50,9 @@ export default {
     },
     dec() {
       CartState.dec(this.product)
+    },
+    handleScroll(){
+      Bus.$emit('scroll-position', window.scrollY);
     }
   },
   computed: {
@@ -61,5 +66,8 @@ export default {
       }
     }
   },
+  destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
+  }
 }
 </script>
