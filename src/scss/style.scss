@@ -467,10 +467,10 @@ h1{
 #laStory{
   margin-top:140px;
   h2{
-      color:$black;
+    color:$black;
   }
   h3{font-size: 20px;}
-  .coupDeCoeur{    
+  .coupDeCoeur{
     margin:20px 0;
     img{width:100%;}
     span{color:$black;}
@@ -750,30 +750,39 @@ h1{
 
 /*footer*/
 footer{
-  background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
-  height:260px;
+  // background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
+  background-color: $grey_black;
   color: $white;
+  padding: 15px 0;
 
   .about a{
-    font-size: 24px;
+    font-size: 18px;
     color: $white;
   }
 
   ul > li {list-style-type: none}
 
   .social{
-    ul{padding-left:0;}
+    ul{
+      padding-left:0;
+      text-align: center;
+    }
     li {display:inline;}
   }
 
-  .newsletter p{
-    margin-top: 14px;
-    font-size: 24px;
+  .newsletter{
+    p{
+      font-size: 24px;
+      margin: 0;
+    }
+    input{
+      padding: 5px;
+    }
   }
 
   img{
-    margin:0 15px;
     height:50px;
+    margin:0 15px;
   }
 }
 
