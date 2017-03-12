@@ -2,7 +2,6 @@
   <header class="border-bot">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
-        <img src="" /> <!--Bandeau Orange à faire -->
         <div class="row">
           <ul class="nav-user left">
             <li>
@@ -11,8 +10,12 @@
           </ul>
           <ul class="nav-user right">
             <ShoppingCart></ShoppingCart>
-            <li><router-link to="/panier">Panier</router-link></li>
-            <li><router-link to="/connexion">Déjà inscrit ?</router-link></li>
+            <li v-on:click="connexionToggle" v-if="loggedIn">
+              <router-link to="">Se déconnecter</router-link>
+            </li>
+            <li v-on:click="connexionToggle" v-else>
+              <router-link to="">Se connecter</router-link>
+            </li>
             <li><router-link to="/inscription">Créer mon compte</router-link></li>
             <li>
               <form v-on:keydown.enter.prevent="goToRecherche()">
@@ -21,16 +24,28 @@
               </form>
             </li>
           </ul>
+          <div class="connexion" v-bind:class="{ connexionHidden: isActive }">
+            <div class="container">
+              <div class="col-md-offset-4 col-md-4 connexion-box">
+                <button class="close" v-on:click.prevent="connexionToggle">CLOSE</button>
+                <h2>Se connecter</h2>
+                <form  v-on:submit.prevent="onSubmit()">
+                    <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
+                    <input type="password" v-model="formUser.password" placeholder="mot de passe" />
+                    <button value="submit" :disabled="loggingIn" >CONNEXION</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
         <ul class="nav-content">
           <li><router-link to="/">Accueil</router-link> |</li>
           <li><router-link to="/store">Le Store</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles">Vinyles</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/platines">Platines</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets">Coffrets</router-link> |</li>
+          <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles/tout/date-desc">Vinyles</router-link> |</li>
+          <li @click="emitTypeFromHeader()"><router-link to="/store/platines/tout/date-desc">Platines</router-link> |</li>
+          <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link> |</li>
           <li><router-link to="/abonnement">Abonnement</router-link> |</li>
-          <li><router-link to="/offrir">Offrir</router-link> |</li>
-          <li><router-link to="/story/list">La Story</router-link></li>
+          <li><router-link to="/story/tout/date-desc">La Story</router-link></li>
         </ul>
       </div>
     </nav>
@@ -38,6 +53,7 @@
 </template>
 <script >
 import { Bus } from './bus.js';
+import jsSHA from './sha256.js';
 import ShoppingCart from './ShoppingCart.vue'
 
 export default{
@@ -46,25 +62,91 @@ export default{
   },
   data () {
     return{
-      rechercheString: ""
+      rechercheString: "",
+      isActive: true,
+
+      formUser: {
+          email: null,
+          password: null
+      },
+      alerts: [],
+      loggingIn: false
     }
   },
-  created() {
-    Bus.$on('recherche-string', rechercheString => {
-      this.rechercheString = rechercheString;
+  mounted () {
+    this.$http.get('/src/jsonTest.json').then((response) => {
+      console.log("success", response)
+      this.users = response.data
+    }, (response) => {
+      console.log("erreur", response)
     })
   },
+  created() {
+    Bus.$on('tri-par', triPar => {
+      this.triPar = triPar;
+    }),
+    Bus.$on('recherche-genre', filtreGenre => {
+      console.log("list Bus.$on('recherche-genre', filtreGenre => " + filtreGenre)
+      this.filtreGenre = filtreGenre;
+    }),
+    Bus.$on('recherche-string', rechercheString => {
+      this.rechercheString = rechercheString;
+    }),
+    Bus.$on('type-produit', typeProduit => {
+      this.typeProduit = typeProduit;
+      console.log("this.typeProduit" + this.typeProduit)
+    })
+  },
+  computed:{
+    loggedIn () {
+      return this.$root.authenticated
+    }
+  },
   methods: {
-    goToRecherche(){this.$router.push('/recherche')},
+    goToRecherche(){this.$router.push({ name: 'store', params: { type: 'recherche', genre: 'tout', sort: 'date-desc'  }})},
 
     emitRechercheHeader(){
       Bus.$emit('recherche-string', this.rechercheString)
+      Bus.$emit('type-produit', window.location.pathname.split("/").slice(2,3).pop())
     },
 
     emitTypeFromHeader(){
-      console.log("LOL" + window.location.pathname.split("/").pop())
-      Bus.$emit('type-produit', window.location.pathname.split("/").pop())
+      var type = window.location.pathname.split("/").slice(2,3).pop();
+      Bus.$emit('type-produit', type)
     },
+
+    connexionToggle() {
+      console.log(!this.isActive)
+      this.isActive = !this.isActive;
+      return this.isActive;
+    },
+
+    onSubmit () {
+      this.loggingIn = true
+      this.$http.post('http://demo8495022.mockable.io/', this.formUser).then((response) => {
+        localStorage.setItem('jwt-token', response.json()['token'])
+        this.getUserData()
+      }, (response) => {
+        this.alerts = []
+        if (response.status === 401) {
+          this.alerts.push({
+            type: 'danger',
+            message: 'Sorry, you provided invalid credentials'
+          })
+        }
+        this.loggingIn = false
+      })
+    },
+    getUserData () {
+      this.$http.get('/src/jsonTestUser.json').then((response) => {
+        console.log("lol2");
+        Bus.$emit('userLoggedIn', response.json()['data'])
+        console.log("lol3");
+        this.isActive = !this.isActive;
+      }, (response) => {
+        console.log(response)
+      })
+    }
   }
 }
 </script>

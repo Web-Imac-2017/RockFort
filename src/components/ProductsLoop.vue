@@ -2,7 +2,7 @@
   <div class="product">
     <div class="col-md-3">
       <div class="vinyleItem">
-        <router-link link to="/vinyle/resultat.nom"><img :src="product.image" /></router-link>
+        <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
       </div>
       <p class="vinylTitle">{{product.nom}}</p>
       <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { Bus } from './bus.js' 
 import _ from 'lodash'
 import CartState from '../shoppingCartState'
 
@@ -41,6 +42,7 @@ export default {
   },
   methods: {
     addToCart() {
+      console.log(this.product)
       CartState.add(this.product)
     },
     inc() {
@@ -48,6 +50,9 @@ export default {
     },
     dec() {
       CartState.dec(this.product)
+    },
+    handleScroll(){
+      Bus.$emit('scroll-position', window.scrollY);
     }
   },
   computed: {
@@ -61,5 +66,8 @@ export default {
       }
     }
   },
+  destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
+  }
 }
 </script>
