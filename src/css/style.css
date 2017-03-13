@@ -425,6 +425,22 @@ h1 {
   padding: 20px;
 }
 
+#productPage .ratingArea .commentForm input {
+  margin: 10px 0 10px 10px;
+}
+
+#productPage .ratingArea .commentForm textarea {
+  margin: 10px 0 20px 10px;
+}
+
+#productPage .ratingArea .commentForm button {
+  margin: 0 0 20px 10px;
+}
+
+#productPage .ratingArea .commentFormHidden {
+  display: none;
+}
+
 /* List page */
 #listProduct #lesDisques {
   background: url("../assets/imgs/list.jpg") bottom no-repeat fixed;

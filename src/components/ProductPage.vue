@@ -71,9 +71,18 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<div class="row">
-								<div class="col-md-3">
-									<p class="note">Donner mon avis</p>
+								<div class="col-md-3" v-on:click="commentFormToggle()">
+									<p v-if="isActive" class="note">Donner mon avis</p>
+									<p v-else class="note">Annuler</p>
 								</div>
+							</div>
+							<div class=" row commentForm" v-bind:class="{ commentFormHidden: isActive }">
+									<form>
+											<input class="col-md-2"  type="text" placeholer="Nom"/>
+											<input class="col-md-push-1 col-md-9" type="text" placeholer="Titre"/>
+											<textarea class="col-md-12" rows="6"></textarea>
+											<button>ENVOYER</button>
+									</form>
 							</div>
 							<div v-for="comment in selectComments(commentLimit)" class="comment">
 								<div class="row mb">
@@ -109,7 +118,8 @@ export default{
 		return{
 			products: [],
 			commentaires: [],
-			commentLimit:3
+			commentLimit:3,
+			isActive : true
 		}
 	},
 	mounted () {
@@ -160,6 +170,11 @@ export default{
         	})
         	return resultatsArray
   		},
+  		commentFormToggle() {
+	      console.log(!this.isActive)
+	      this.isActive = !this.isActive;
+	      return this.isActive;
+    	},
   		selectComments(limit){
   			var resultatsArray = this.commentaires;
   			var count = 0;
