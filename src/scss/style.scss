@@ -68,10 +68,16 @@ h1{
     padding:0 20px;
     display: inline;
   }
+  .navbar-collapse.collapse.in li{
+    display: none;
+  }
   ul {
     li {
       font-size: 18px;
       display:inline;
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
     }
     a {
       color : $black;
@@ -89,6 +95,7 @@ h1{
   .nav-content{
     margin:0 auto;
     text-align:center;
+    background-color: white;
   }
   img.searchIcon{
     position: relative;

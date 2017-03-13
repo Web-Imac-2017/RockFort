@@ -66,9 +66,19 @@ h1 {
   display: inline;
 }
 
+.navbar .navbar-collapse.collapse.in li {
+  display: none;
+}
+
 .navbar ul li {
   font-size: 18px;
   display: inline;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar ul li {
+    display: block;
+  }
 }
 
 .navbar ul a {
@@ -89,6 +99,7 @@ h1 {
 .navbar .nav-content {
   margin: 0 auto;
   text-align: center;
+  background-color: white;
 }
 
 .navbar img.searchIcon {
