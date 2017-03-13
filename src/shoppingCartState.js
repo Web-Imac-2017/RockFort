@@ -2,7 +2,10 @@ import ShoppingCart from './components/ShoppingCart.vue'
 
 export default {
   data: {
-    cart: [],
+    cart: [
+      {id:4,vinylTitle:"test",price: 5,img:"/src/assets/imgs/bowie.jpg",qty: 1},
+      {id:5,vinylTitle:"test2",price: 5,img:"/src/assets/imgs/bowie.jpg",qty: 1}
+    ]
   },
   watch: {
     nbItems: function() {

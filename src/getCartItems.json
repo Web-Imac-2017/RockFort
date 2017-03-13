@@ -1,0 +1,23 @@
+[
+  {
+    "id": 4,
+    "vinylTitle":"A Fragile Geography",
+    "price": 25,
+    "img":"/src/assets/imgs/bowie.jpg",
+    "qty": 1
+  },
+  {
+    "id": 5,
+    "vinylTitle":"Verdaillon",
+    "price": 15,
+    "img":"/src/assets/imgs/doors.jpg",
+    "qty": 1
+  },
+  {
+    "id": 6,
+    "vinylTitle":"Madvillainy",
+    "price": 10,
+    "img":"/src/assets/imgs/SgtPepper.jpg",
+    "qty": 3
+  }
+]

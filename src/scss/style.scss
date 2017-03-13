@@ -18,6 +18,14 @@ $blueLight: #99d0f3;
   font-family: "covesBold";
   src: url('../fonts/CovesBold.otf');
 }
+// MIXIN
+@mixin transition($duration) {
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -ms-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
 
 /*UTILES*/
 body{font-family: "covesLight";}
@@ -48,7 +56,7 @@ h1{
   font-size: 75px;
   letter-spacing: 10px;
   font-weight: 600;
-  padding-top: 145px;
+  padding-top: 131px;
   color: $white;
 }
 
@@ -56,19 +64,46 @@ h1{
 .navbar{
   background-color:$white;
   border-bottom:2px solid black;
-  .logo{padding:14px;}
   form{
     padding:0 20px;
     display: inline;
   }
+  .navbar-collapse.collapse.in li{
+    display: none;
+  }
+  .left{
+    width: 30%;
+  }
   ul {
     li {
-      font-size: 18px;
       display:inline;
+      @media screen and (max-width: 767px) {
+        display: block;
+      }
+      &.hidden-xs{
+        font-size: 12px;
+        @media screen and (min-width: 995px) {
+          font-size: 18px;
+        }
+      }
+      &.hidden-xs{
+        a{
+          padding: 0 10px;
+          font-size: 12px;
+          @media screen and (min-width: 995px) {
+            font-size: 18px;
+            padding: 0 20px;
+          }
+        }
+      }
     }
     a {
+      font-size: 20px;
       color : $black;
       padding: 0 20px;
+      @media screen and (min-width: 995px) {
+        padding: 0 20px;
+      }
     }
   }
   .nav-user.right a, .nav-user.right span, .nav-user.right input{
@@ -82,25 +117,62 @@ h1{
   .nav-content{
     margin:0 auto;
     text-align:center;
+    background-color: white;
+  }
+  a.search{
+    position: absolute;
   }
   img.searchIcon{
-    position: absolute;
+    position: relative;
     width: 19px;
-    top: 21px;
-    left: 1042px;
+    left: -50px;
+  }
+
+  .connexion{
+    background-color: rgba(0,0,0,0.25);
+    width: 100%;
+    min-height: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top: 300px;
+
+    .connexion-box{
+      height:300px;
+      background-color: $white;
+      form{padding:0;}
+      h2{
+        padding-top:50px;
+        text-align: center;
+      }
+      input{
+        margin:10px 0;
+        padding: 10px;
+        width:100%;
+      }
+      .close{float:right;}
+    }
+  }
+  .connexionHidden{
+    display:none;
+  }
+  .hidden-xl{
+    display: none;
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
   }
 }
 
 /*SUBMENU*/
 #subMenu{
-  margin-top: 145px;
-  min-height:$sectionheight;
-  padding:75px 0;
+  margin-top: 131px;
 
   div{
-    position: relative;
-    display: inline-block;
-    width: auto;
+    padding: 0;
+    img{
+      width: 100%;
+    }
 
     a{text-decoration: none;}
 
@@ -181,6 +253,7 @@ h1{
   .ost-right > h2,
   .ost-right > p {padding:0 14px;}
 
+  .ost-left > img{width:380px;}
   .ost-right > img{width:180px;}
 }
 
@@ -334,6 +407,12 @@ h1{
         padding: 20px;
       }
     }
+    .commentForm{
+      input{margin:10px 0 10px 10px;}
+      textarea{margin:10px 0 20px 10px;}
+      button{margin:0 0 20px 10px;}
+    }
+    .commentFormHidden{display:none}
   }
 }
 
@@ -368,11 +447,16 @@ h1{
     cursor: pointer;
     margin-bottom: 50px;
   }
+  button.inc, button.dec{
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .sortBar{
   background-color: $beige;
-  height: 100px;
+  padding-bottom: 30px;
   select, input, button{
     width: 100%;
     padding: 10px;
@@ -410,13 +494,21 @@ h1{
     background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
     background-size: cover;
   }
+  .articleContent{
+    padding-left: 30px;
+    .title{
+
+    }
+    .infos, .desc{
+      font-size: 18px
+    }
+  }
   a{
     color:$black;
     div{
       margin: 12px 0;
       .imageArticle{
-        height:250px;
-        overflow: hidden;
+        width: 100%;
       }
       h2{
         margin:10px 0;
@@ -430,9 +522,15 @@ h1{
 
 /*Story*/
 #laStory{
-  #laStoryHeader{
-    background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
-    background-size: cover;
+  margin-top:140px;
+  h2{
+    color:$black;
+  }
+  h3{font-size: 20px;}
+  .coupDeCoeur{
+    margin:20px 0;
+    img{width:100%;}
+    span{color:$black;}
   }
 
   .selection{
@@ -448,6 +546,106 @@ h1{
 
     img{
       width:260px;
+    }
+  }
+}
+
+/* Abonnement */
+#abonnement{
+  .banner{
+    margin-top: 130px;
+    min-height: 570px;
+    background-size: cover;
+    p{
+      margin: 0;
+    }
+    .slogan{
+      margin-top: 60px;
+      color: white;
+      background-color: rgba(0,0,0,0.2);
+      padding: 40px 40px;
+      h2{
+        font-size: 35px;
+        text-transform: uppercase;
+        margin: 0;
+      }
+    }
+    .callToAction{
+      text-align: center;
+      background: $beige;
+      padding: 20px;
+      margin-top: 45px;
+      p{
+        margin:0;
+        line-height: 45px;
+        font-size: 18px;
+      }
+      button{
+        border: none;
+        background-color: $blue;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        padding: 15px 25px;
+        margin-left: 50px;
+      }
+      button.offer{
+        font-size: 15px;
+        background-color: transparent;
+        color: $blue;
+        border: 1px solid $blue;
+      }
+    }
+  }
+  .description{
+    padding-top: 25px;
+    text-align: center;
+    h2{
+      border: 1px solid $blue;
+      padding: 10px;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: $blue;
+    }
+    img{
+      width: 75%;
+      @media screen and (max-width: 992px) {
+        width: 35%;
+      }
+    }
+  }
+  .boxes{
+    background-color: $beige;
+    padding: 50px 0;
+    .tabButton{
+      background-color: white;
+      padding: 25px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .boxContent{
+      background-color: white;
+      padding: 25px;
+      .boxChoice{
+        text-align: center;
+        border: 2px solid rgb(245, 245, 245);
+        padding: 15px;
+        cursor: pointer;
+        min-height: 200px;
+        @include transition(.3s);
+        &:hover{
+          border-color: $blue;
+        }
+        &.active{
+          border-color: $blue;
+        }
+      }
+      .info{
+        background-color: rgba(245, 245, 245, 0.7);
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 25px;
+      }
     }
   }
 }
@@ -510,49 +708,144 @@ h1{
 }
 
 /* Basket */
-#basket{
+#cartPage{
   h3{
-    padding-top: 145px;
+    padding-top: 131px;
     color: black;
     text-align: center;
   }
-  .optionAdress{
-    background: $beige;
+  h3.finalise{
+    margin: 50px 0;
+  }
+  .assurance{
+    font-size: 14px;
+    margin-bottom: 24px;
+    .tick{
+      width: 20px;
+    }
+  }
+  .deliveryAddress, .deliveryPayment, .deliveryMode, .purchase, .facturationAddress{
+    border-top: 1px solid $grey;
+    padding-top: 24px;
+    margin-top: 24px;
+    button.validate{
+      background-color: $blue;
+      border: none;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+  }
+  .optionDelivery{
+    background-color: $beige;
     width: 100%;
     padding: 25px;
     margin-bottom: 10px;
     span{
       margin-left: 15px;
     }
+    .edit{
+      cursor: pointer;
+      &:hover{
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+    &.clickable{
+      border: 2px solid transparent;
+      &:hover{
+        cursor: pointer;
+        border: 2px solid $blue;
+      }
+      &.active{
+        border: 2px solid $blue;
+      }
+    }
+  }
+  input{
+    padding: 10px;
+    width: 100%;
+    margin-top: 25px;
+  }
+  .validate{
+    background-color: $blue;
+    color: white;
+    @include transition(.1s);
+    &:hover{
+      color: white;
+      background-color: darken($blue, 10%);
+    }
+  }
+  .validateAndSave{
+    background-color: white;
+    color: $blue;
+    @include transition(.1s);
+    &:hover{
+      color: white;
+      background-color: $blue;
+    }
+  }
+  .validate, .validateAndSave{
+    margin-top: 25px;
+    width: 100%;
+    border: none;
+    border: 1px solid $blue;
+    text-align: center;
+    cursor: pointer;
+    padding: 15px 25px;
+  }
+  .basket{
+    background-color: $beige;
+    padding: 10px;
+  }
+  .item{
+    margin-bottom: 15px;
+    .content{
+      border: 1px solid $grey;
+      padding: 10px;
+      .title{
+        margin: 0;
+      }
+    }
   }
 }
 
 /*footer*/
 footer{
-  background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
-  height:260px;
+  // background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/
+  background-color: $grey_black;
   color: $white;
+  padding: 15px 0;
 
   .about a{
-    font-size: 24px;
+    font-size: 18px;
     color: $white;
   }
 
   ul > li {list-style-type: none}
 
   .social{
-    ul{padding-left:0;}
+    ul{
+      padding-left:0;
+      text-align: center;
+    }
     li {display:inline;}
   }
 
-  .newsletter p{
-    margin-top: 14px;
-    font-size: 24px;
+  .newsletter{
+    p{
+      font-size: 24px;
+      margin: 0;
+    }
+    input{
+      padding: 5px;
+    }
   }
 
   img{
-    margin:0 15px;
     height:50px;
+    margin:0 15px;
   }
 }
 
@@ -576,9 +869,9 @@ footer{
 
 /* ANIMATIONS */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.6s, transform 0.6s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 .fade-enter, .fade-leave-active{
-  opacity: 0.6;
+  opacity: 0.2;
   transform: translateY(20px);
 }

@@ -1,5 +1,5 @@
 <template>
-  <ul class="nav navbar-nav navbar-right cart">
+  <span class="cart">
     <li class="dropdown">
       <span class="dropdown-toggle" role="button" aria-expanded="false">
         <img src="/src/assets/imgs/cartIcon.png" style="width: 30px" alt="" class="itemImg">
@@ -12,13 +12,11 @@
           <Item v-for="item in items" :item="item"></Item>
           <li class="divider"></li>
           <li><a class="text-center" href="">Total : {{ total }}€</a></li>
-          <router-link link to="/panier">
-            <li class="text-center">View Cart</li>
-          </router-link>
+          <li><router-link to="/cartPage">Voir le panier</router-link></li>
         </div>
       </ul>
     </li>
-  </ul>
+  </span>
 </template>
 
 <script>
