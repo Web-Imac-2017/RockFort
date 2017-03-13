@@ -14,21 +14,22 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <ul class="nav-user right">
-            <span class="toHide"><ShoppingCart></ShoppingCart></span>
-            <li class='toHide' v-on:click="connexionToggle" v-if="loggedIn">
+          <ul class="nav-user">
+            <li class='hidden-xs' v-on:click="connexionToggle" v-if="loggedIn">
               <router-link to="">Se déconnecter</router-link>
             </li>
-            <li class='toHide' v-on:click="connexionToggle" v-else>
+            <li class='hidden-xs' v-on:click="connexionToggle" v-else>
               <router-link to="">Se connecter</router-link>
             </li>
-            <li class='toHide'><router-link to="/inscription">Créer mon compte</router-link></li>
+            <li class='hidden-xs'><router-link to="/inscription">Créer mon compte</router-link></li>
             <li>
               <form v-on:keydown.enter.prevent="goToRecherche()">
                 <input type="text" v-model="rechercheString" placeholder="The doors, ACDC, ..." v-on:keyup="emitRechercheHeader()" />
-                <a href="/"><img class="searchIcon" src="/src/assets/imgs/search.png"/></a>
+                <a class="search" href="/"><img class="searchIcon" src="/src/assets/imgs/search.png"/></a>
               </form>
             </li>
+            <span class="hidden-xs"><ShoppingCart></ShoppingCart></span>
+
           </ul>
           <div class="connexion" v-bind:class="{ connexionHidden: isActive }">
             <div class="container">
@@ -53,7 +54,7 @@
             <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link></li>
             <li><router-link to="/abonnement">Abonnement</router-link></li>
             <li><router-link to="/story/tout/date-desc">La Story</router-link></li>
-            <li><ShoppingCart></ShoppingCart></li>
+            <span class="hidden-md hidden-xl"><ShoppingCart></ShoppingCart></span>
           </ul>
         </div>
       </div>

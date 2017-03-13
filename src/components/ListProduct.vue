@@ -7,7 +7,9 @@
           <h1 v-else>{{typeProduit}}</h1>
         </div>
         <div class="row">
-          <SearchBarComponent></SearchBarComponent>
+          <div class="col-md-12 nopadding">
+            <SearchBarComponent></SearchBarComponent>
+          </div>
         </div>
       </div>
       <div class="container listContainer">
@@ -26,7 +28,7 @@
 </template>
 
 <script>
-import { Bus } from './bus.js' 
+import { Bus } from './bus.js'
 import SearchBarComponent from './SearchBar.vue'
 import Product from './ProductsLoop.vue'
 
@@ -112,7 +114,7 @@ export default{
                         }
                         return 0;
                     });
-                    return resultatsArray; 
+                    return resultatsArray;
                 }
 
                 rechercheString = rechercheString.trim().toLowerCase();
@@ -125,7 +127,7 @@ export default{
                       }
                     }
                 })
-                
+
                 //SORT
                 if(filtre[4] == "prix-asc") {
                     resultatsArray.sort(function(a,b){
@@ -184,7 +186,7 @@ export default{
                         return 0;
                     });
                 }
-                
+
                 if(window.location.pathname.split("/").slice(2,3).pop() == 'recherche') {
                   this.typeProduit = "produits";
                   this.recherchePrefixe = "pour votre recherche ";

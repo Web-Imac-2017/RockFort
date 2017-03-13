@@ -3,7 +3,7 @@
 		<div id="productPage" >
 			<div class="container">
 				<div class="row">
-					<div v-for="product in selectProduct(1, false)" class="col-md-8 col-md-offset-2">
+						<div v-for="product in selectProduct(1, false)" class="col-md-8 col-md-offset-2">
 						<div class="row">
 							<div class="col-md-6">
 								<img class="vinyleImg" :src="product.image" />

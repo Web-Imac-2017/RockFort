@@ -71,17 +71,39 @@ h1{
   .navbar-collapse.collapse.in li{
     display: none;
   }
+  .left{
+    width: 30%;
+  }
   ul {
     li {
-      font-size: 18px;
       display:inline;
       @media screen and (max-width: 767px) {
         display: block;
       }
+      &.hidden-xs{
+        font-size: 12px;
+        @media screen and (min-width: 995px) {
+          font-size: 18px;
+        }
+      }
+      &.hidden-xs{
+        a{
+          padding: 0 10px;
+          font-size: 12px;
+          @media screen and (min-width: 995px) {
+            font-size: 18px;
+            padding: 0 20px;
+          }
+        }
+      }
     }
     a {
+      font-size: 20px;
       color : $black;
       padding: 0 20px;
+      @media screen and (min-width: 995px) {
+        padding: 0 20px;
+      }
     }
   }
   .nav-user.right a, .nav-user.right span, .nav-user.right input{
@@ -96,6 +118,9 @@ h1{
     margin:0 auto;
     text-align:center;
     background-color: white;
+  }
+  a.search{
+    position: absolute;
   }
   img.searchIcon{
     position: relative;
@@ -130,6 +155,12 @@ h1{
   }
   .connexionHidden{
     display:none;
+  }
+  .hidden-xl{
+    display: none;
+    @media screen and (max-width: 767px) {
+      display: block;
+    }
   }
 }
 
@@ -416,11 +447,16 @@ h1{
     cursor: pointer;
     margin-bottom: 50px;
   }
+  button.inc, button.dec{
+    @media screen and (max-width: 767px) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .sortBar{
   background-color: $beige;
-  height: 100px;
+  padding-bottom: 30px;
   select, input, button{
     width: 100%;
     padding: 10px;
@@ -458,13 +494,21 @@ h1{
     background: url('../assets/imgs/lastory_header.jpg') bottom no-repeat fixed;
     background-size: cover;
   }
+  .articleContent{
+    padding-left: 30px;
+    .title{
+
+    }
+    .infos, .desc{
+      font-size: 18px
+    }
+  }
   a{
     color:$black;
     div{
       margin: 12px 0;
       .imageArticle{
-        height:250px;
-        overflow: hidden;
+        width: 100%;
       }
       h2{
         margin:10px 0;
@@ -562,6 +606,12 @@ h1{
       font-size: 20px;
       text-transform: uppercase;
       color: $blue;
+    }
+    img{
+      width: 75%;
+      @media screen and (max-width: 992px) {
+        width: 35%;
+      }
     }
   }
   .boxes{

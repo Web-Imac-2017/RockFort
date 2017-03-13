@@ -40,15 +40,15 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4">
-						<img src="/src/assets/imgs/boxVinyle.png" alt="" style="width: 75%">
+						<img src="/src/assets/imgs/boxVinyle.png" alt="">
 						<p>La sélection du mois</p>
 					</div>
 					<div class="col-md-4">
-						<img src="/src/assets/imgs/mailbox.png" alt="" style="width: 75%">
+						<img src="/src/assets/imgs/mailbox.png" alt="">
 						<p>Directement dans votre boîte au lettre<br>(ou dans celle d'un ami)</p>
 					</div>
 					<div class="col-md-4">
-						<img src="/src/assets/imgs/wowCartoon.png" alt="" style="width: 75%">
+						<img src="/src/assets/imgs/wowCartoon.png" alt="">
 						<p>Recevez une petite surprise en souscrivant pour 12 box :)</p>
 					</div>
 				</div>
@@ -57,19 +57,19 @@
 		<section class="boxes">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-xs-6">
 						<div class="tabButton" :style="styleFormyself()" @click="changeTab"><img src="/src/assets/imgs/box.png" alt="" style="width: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Je m'abonne</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-xs-6">
 						<div class="tabButton" :style="styleOffer()" @click="changeTab"><img src="/src/assets/imgs/gift.png" alt="" style="width: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;J'offre</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-xs-12">
 						<div class="boxContent">
 							<div class="forMyself" v-if="forMyself">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-xs-6">
 										<div class="boxChoice" @click="activate" :class="{ 'active': isActive }">
 											<h2>1 mois - 19€</h2>
 											<p>
@@ -77,7 +77,7 @@
 											</p>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="col-xs-6">
 										<div class="boxChoice" @click="activate" :class="{ 'active': isActive }">
 											<h2>12 mois - 150€</h2>
 											<p>
@@ -89,14 +89,14 @@
 							</div>
 							<div class="offer" v-if="offer">
 								<div class="row">
-									<div class="col-md-12">
+									<div class="col-xs-12">
 										<div class="info">
 											<h2>Tous les cadeaux sont emballés par nos soins. La facture sera envoyée sur votre adresse mail.</h2>
 										</div>
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-4">
+									<div class="col-xs-4">
 										<div class="boxChoice" @click="activate" :class="{ 'active': isActive }">
 											<h2>1 mois - 19€</h2>
 											<p>
@@ -104,7 +104,7 @@
 											</p>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-xs-4">
 										<div class="boxChoice" @click="activate" :class="{ 'active': isActive }">
 											<h2>3 mois - 55€</h2>
 											<p>
@@ -112,7 +112,7 @@
 											</p>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="col-xs-4">
 										<div class="boxChoice" @click="activate" :class="{ 'active': isActive }">
 											<h2>12 mois - 150€</h2>
 											<p>

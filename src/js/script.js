@@ -15,11 +15,9 @@ $(document).ready(function(){
 
   if (!$("#navbar").hasClass("in") && ($(window).width() < 751)) {
     $( ".navbar-collapse.collapse" ).addClass( "in" );
-    $(".nav-user.right .toHide").css("display", "none");
   }
   if ($("#navbar").hasClass("in") && ($(window).width() > 751)) {
     $( ".navbar-collapse.collapse" ).removeClass( "in" );
-    $(".nav-user.right .toHide").css("display", "block");
   }
   if (($(window).width() > 751))
     $(".nav-content .nav.navbar-nav.navbar-right.cart").css("display", "none");
@@ -33,12 +31,10 @@ $(document).ready(function(){
       $(".nav-content .nav.navbar-nav.navbar-right.cart").css("display", "block");
     if (!$("#navbar").hasClass("in") && ($(window).width() < 751)) {
       $( ".navbar-collapse.collapse" ).addClass( "in" );
-      $(".nav-user.right .toHide").css("display", "none");
-      }
+    }
     if ($("#navbar").hasClass("in") && ($(window).width() > 751)) {
       $( ".navbar-collapse.collapse" ).removeClass( "in" );
-      $(".nav-user.right .toHide").css("display", "inline");
-      }
+    }
     if (!$("#navbar").hasClass("in") && ($(window).width() > 751)) {
       $(".navbar ul li.cardToShow").css("display", "none");
     }

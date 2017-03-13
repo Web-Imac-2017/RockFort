@@ -70,8 +70,11 @@ h1 {
   display: none;
 }
 
+.navbar .left {
+  width: 30%;
+}
+
 .navbar ul li {
-  font-size: 18px;
   display: inline;
 }
 
@@ -81,9 +84,38 @@ h1 {
   }
 }
 
+.navbar ul li.hidden-xs {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 995px) {
+  .navbar ul li.hidden-xs {
+    font-size: 18px;
+  }
+}
+
+.navbar ul li.hidden-xs a {
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 995px) {
+  .navbar ul li.hidden-xs a {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+}
+
 .navbar ul a {
+  font-size: 20px;
   color: #000;
   padding: 0 20px;
+}
+
+@media screen and (min-width: 995px) {
+  .navbar ul a {
+    padding: 0 20px;
+  }
 }
 
 .navbar .nav-user.right a, .navbar .nav-user.right span, .navbar .nav-user.right input {
@@ -100,6 +132,10 @@ h1 {
   margin: 0 auto;
   text-align: center;
   background-color: white;
+}
+
+.navbar a.search {
+  position: absolute;
 }
 
 .navbar img.searchIcon {
@@ -144,6 +180,16 @@ h1 {
 
 .navbar .connexionHidden {
   display: none;
+}
+
+.navbar .hidden-xl {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar .hidden-xl {
+    display: block;
+  }
 }
 
 /*SUBMENU*/
@@ -489,9 +535,15 @@ h1 {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 767px) {
+  #listProduct button.inc, #listProduct button.dec {
+    margin-bottom: 0;
+  }
+}
+
 .sortBar {
   background-color: #f0f0f0;
-  height: 100px;
+  padding-bottom: 30px;
 }
 
 .sortBar select, .sortBar input, .sortBar button {
@@ -534,6 +586,14 @@ h1 {
   background-size: cover;
 }
 
+#storyList .articleContent {
+  padding-left: 30px;
+}
+
+#storyList .articleContent .infos, #storyList .articleContent .desc {
+  font-size: 18px;
+}
+
 #storyList a {
   color: #000;
 }
@@ -543,8 +603,7 @@ h1 {
 }
 
 #storyList a div .imageArticle {
-  height: 250px;
-  overflow: hidden;
+  width: 100%;
 }
 
 #storyList a div h2 {
@@ -667,6 +726,16 @@ h1 {
   font-size: 20px;
   text-transform: uppercase;
   color: #269be7;
+}
+
+#abonnement .description img {
+  width: 75%;
+}
+
+@media screen and (max-width: 992px) {
+  #abonnement .description img {
+    width: 35%;
+  }
 }
 
 #abonnement .boxes {
