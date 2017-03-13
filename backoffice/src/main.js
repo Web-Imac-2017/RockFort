@@ -20,7 +20,7 @@ const router = new VueRouter({
 		path:'/modifier',
 		component: require('./components/Modif.vue')
 	}, {
-		name: 'modifierAlbum',
+		name:'modifierAlbum',
 		path:'/modifierAlbum/:id',
 		component: require('./components/ModifAlbum.vue')
 	}, {
