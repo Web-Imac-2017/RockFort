@@ -25,12 +25,9 @@
 	                </select>
 	              </div>
 	              <div class="col-md-3">
-	                <form class="right">
+	                <form>
 	                  <input type="text" v-model="rechercheString" placeholder="rechercher un vinyle" @keyup="emitRechercheSearchBar()" />
 	                </form>
-	              </div>
-	              <div class="col-md-3">
-	                <button class="random">random</button>
 	              </div>
 	            </div>
 	          </div>
@@ -67,4 +64,3 @@
 		}
 	}
 </script>
-

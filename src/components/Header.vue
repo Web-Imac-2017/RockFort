@@ -8,21 +8,28 @@
               <a href="/"><img class="logo" src="/src/assets/imgs/logo.png" style="width:50%;"/></a>
             </li>
           </ul>
-          <ul class="nav-user right">
-            <ShoppingCart></ShoppingCart>
-            <li v-on:click="connexionToggle" v-if="loggedIn">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav-user">
+            <li class='hidden-xs' v-on:click="connexionToggle" v-if="loggedIn">
               <router-link to="">Se déconnecter</router-link>
             </li>
-            <li v-on:click="connexionToggle" v-else>
+            <li class='hidden-xs' v-on:click="connexionToggle" v-else>
               <router-link to="">Se connecter</router-link>
             </li>
-            <li><router-link to="/inscription">Créer mon compte</router-link></li>
+            <li class='hidden-xs'><router-link to="/inscription">Créer mon compte</router-link></li>
             <li>
               <form v-on:keydown.enter.prevent="goToRecherche()">
                 <input type="text" v-model="rechercheString" placeholder="The doors, ACDC, ..." v-on:keyup="emitRechercheHeader()" />
-                <a href="/"><img class="searchIcon" src="/src/assets/imgs/search.png"/></a>
+                <a class="search" href="/"><img class="searchIcon" src="/src/assets/imgs/search.png"/></a>
               </form>
             </li>
+            <span class="hidden-xs"><ShoppingCart></ShoppingCart></span>
+
           </ul>
           <div class="connexion" v-bind:class="{ connexionHidden: isActive }">
             <div class="container">
@@ -30,23 +37,26 @@
                 <button class="close" v-on:click.prevent="connexionToggle">CLOSE</button>
                 <h2>Se connecter</h2>
                 <form  v-on:submit.prevent="onSubmit()">
-                    <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
-                    <input type="password" v-model="formUser.password" placeholder="mot de passe" />
-                    <button value="submit" :disabled="loggingIn" >CONNEXION</button>
+                  <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
+                  <input type="password" v-model="formUser.password" placeholder="mot de passe" />
+                  <button value="submit" :disabled="loggingIn" >CONNEXION</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <ul class="nav-content">
-          <li><router-link to="/">Accueil</router-link> |</li>
-          <li><router-link to="/store">Le Store</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles/tout/date-desc">Vinyles</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/platines/tout/date-desc">Platines</router-link> |</li>
-          <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link> |</li>
-          <li><router-link to="/abonnement">Abonnement</router-link> |</li>
-          <li><router-link to="/story/tout/date-desc">La Story</router-link></li>
-        </ul>
+        <div id="navbar" class="navbar-collapse collapse nopadding">
+          <ul class="nav-content nopadding">
+            <li><router-link to="/">Accueil</router-link></li>
+            <li><router-link to="/store">Le Store</router-link></li>
+            <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles/tout/date-desc">Vinyles</router-link></li>
+            <li @click="emitTypeFromHeader()"><router-link to="/store/platines/tout/date-desc">Platines</router-link></li>
+            <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link></li>
+            <li><router-link to="/abonnement">Abonnement</router-link></li>
+            <li><router-link to="/story/tout/date-desc">La Story</router-link></li>
+            <span class="hidden-md hidden-xl"><ShoppingCart></ShoppingCart></span>
+          </ul>
+        </div>
       </div>
     </nav>
   </header>
@@ -66,8 +76,8 @@ export default{
       isActive: true,
 
       formUser: {
-          email: null,
-          password: null
+        email: null,
+        password: null
       },
       alerts: [],
       loggingIn: false
