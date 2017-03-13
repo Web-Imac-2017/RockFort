@@ -77,10 +77,10 @@
 								</div>
 							</div>
 							<div class=" row commentForm" v-bind:class="{ commentFormHidden: isActive }">
-									<form>
-											<input class="col-md-2"  type="text" placeholer="Nom"/>
-											<input class="col-md-push-1 col-md-9" type="text" placeholer="Titre"/>
-											<textarea class="col-md-12" rows="6"></textarea>
+									<form v-on:submit.prevent="submitCommentaire()">
+											<input class="col-md-2"  type="text" placeholder="Pseudo" v-model="auteur"/>
+											<input class="col-md-push-1 col-md-9" type="text" placeholder="Titre" v-model="titre"/>
+											<textarea class="col-md-12" rows="6" placeholder="Votre commentaire..." v-model="texte"></textarea>
 											<button>ENVOYER</button>
 									</form>
 							</div>
@@ -119,7 +119,11 @@ export default{
 			products: [],
 			commentaires: [],
 			commentLimit:3,
-			isActive : true
+			
+			isActive : true,
+			auteur: "",
+			titre: "",
+			texte:""
 		}
 	},
 	mounted () {
@@ -148,7 +152,6 @@ export default{
   			var count = 0;
 
   			if(update == true){
-  				console.log('lol')
           		this.$forceUpdate();
         	}
 
@@ -161,9 +164,7 @@ export default{
   			}
 
         	resultatsArray = resultatsArray.filter(function(item){
-        		console.log('looool')
 	          	if(item.id != window.location.pathname.split('/').pop() && item.genre.indexOf('coupdecoeur') !== -1 && count < limit) {
-	          		console.log('loodqqdool')
 	            	count++
 	            	return item
 	          	}
@@ -174,6 +175,9 @@ export default{
 	      console.log(!this.isActive)
 	      this.isActive = !this.isActive;
 	      return this.isActive;
+    	},
+    	submitCommentaire(){
+
     	},
   		selectComments(limit){
   			var resultatsArray = this.commentaires;
