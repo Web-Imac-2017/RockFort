@@ -5,21 +5,25 @@
         		<h1>La Story</h1>
       		</div>
       	</div>
-        <div class="row">
-          <SearchBarArticleComponent></SearchBarArticleComponent>
+        <div class="row nomargin">
+					<div class="col-md-12 nopadding">
+						<SearchBarArticleComponent></SearchBarArticleComponent>
+					</div>
         </div>
       	<div class="container">
           <h2>{{nombreArticle}} articles {{recherchePrefixe}} {{stringRechercheArticle}}</h2>
           <hr />
       		<div v-for="article in rechercheArticles" class="row">
       			<router-link :to="{ name: 'story', params: { id: article.id }}">
-              <div class="col-md-4">
+              <div class="col-sm-4 col-xs-12">
                 <img class="imageArticle" :src="article.imagecover" />
               </div>
-              <div class="col-md-8">
-                <h2>{{ article.titre }}</h2>
-                <p>{{ article.date.split('-').reverse().join('-') }} par {{ article.auteur }} dans {{article.theme}}</p>
-                <p>{{article.texte.substring(0,200)}}(...)</p>
+              <div class="col-sm-8 col-xs-12">
+								<div class="articleContent">
+									<h2 class="title">{{ article.titre }}</h2>
+									<p class="infos">{{ article.date.split('-').reverse().join('-') }} par {{ article.auteur }} dans {{article.theme}}</p>
+									<p class="desc">{{article.texte.substring(0,200)}}(...)</p>
+								</div>
               </div>
       			</router-link>
           </div>
@@ -27,7 +31,7 @@
 </template>
 
 <script>
-  import { Bus } from './bus.js' 
+  import { Bus } from './bus.js'
   import SearchBarArticleComponent from './SearchBarArticle.vue'
 
 	export default{
@@ -83,7 +87,7 @@
                 console.log("3" + filtre[3])
                 console.log("4" + filtre[4])
                 console.log("5" + filtre[5])
-        
+
         if(!stringRechercheArticle && !themeArticle && !triArticle){
           this.nombreArticle = articlesArray.length;
           articlesArray.sort(function(a,b){

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*PALETTE*/
 @font-face {
   font-family: "covesLight";
@@ -67,14 +66,56 @@ h1 {
   display: inline;
 }
 
+.navbar .navbar-collapse.collapse.in li {
+  display: none;
+}
+
+.navbar .left {
+  width: 30%;
+}
+
 .navbar ul li {
-  font-size: 18px;
   display: inline;
 }
 
+@media screen and (max-width: 767px) {
+  .navbar ul li {
+    display: block;
+  }
+}
+
+.navbar ul li.hidden-xs {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 995px) {
+  .navbar ul li.hidden-xs {
+    font-size: 18px;
+  }
+}
+
+.navbar ul li.hidden-xs a {
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 995px) {
+  .navbar ul li.hidden-xs a {
+    font-size: 18px;
+    padding: 0 20px;
+  }
+}
+
 .navbar ul a {
+  font-size: 20px;
   color: #000;
   padding: 0 20px;
+}
+
+@media screen and (min-width: 995px) {
+  .navbar ul a {
+    padding: 0 20px;
+  }
 }
 
 .navbar .nav-user.right a, .navbar .nav-user.right span, .navbar .nav-user.right input {
@@ -90,6 +131,11 @@ h1 {
 .navbar .nav-content {
   margin: 0 auto;
   text-align: center;
+  background-color: white;
+}
+
+.navbar a.search {
+  position: absolute;
 }
 
 .navbar img.searchIcon {
@@ -134,6 +180,16 @@ h1 {
 
 .navbar .connexionHidden {
   display: none;
+}
+
+.navbar .hidden-xl {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar .hidden-xl {
+    display: block;
+  }
 }
 
 /*SUBMENU*/
@@ -425,6 +481,22 @@ h1 {
   padding: 20px;
 }
 
+#productPage .ratingArea .commentForm input {
+  margin: 10px 0 10px 10px;
+}
+
+#productPage .ratingArea .commentForm textarea {
+  margin: 10px 0 20px 10px;
+}
+
+#productPage .ratingArea .commentForm button {
+  margin: 0 0 20px 10px;
+}
+
+#productPage .ratingArea .commentFormHidden {
+  display: none;
+}
+
 /* List page */
 #listProduct #lesDisques {
   background: url("../assets/imgs/list.jpg") bottom no-repeat fixed;
@@ -463,9 +535,15 @@ h1 {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 767px) {
+  #listProduct button.inc, #listProduct button.dec {
+    margin-bottom: 0;
+  }
+}
+
 .sortBar {
   background-color: #f0f0f0;
-  height: 100px;
+  padding-bottom: 30px;
 }
 
 .sortBar select, .sortBar input, .sortBar button {
@@ -508,6 +586,14 @@ h1 {
   background-size: cover;
 }
 
+#storyList .articleContent {
+  padding-left: 30px;
+}
+
+#storyList .articleContent .infos, #storyList .articleContent .desc {
+  font-size: 18px;
+}
+
 #storyList a {
   color: #000;
 }
@@ -517,8 +603,7 @@ h1 {
 }
 
 #storyList a div .imageArticle {
-  height: 250px;
-  overflow: hidden;
+  width: 100%;
 }
 
 #storyList a div h2 {
@@ -641,6 +726,16 @@ h1 {
   font-size: 20px;
   text-transform: uppercase;
   color: #269be7;
+}
+
+#abonnement .description img {
+  width: 75%;
+}
+
+@media screen and (max-width: 992px) {
+  #abonnement .description img {
+    width: 35%;
+  }
 }
 
 #abonnement .boxes {
@@ -887,14 +982,13 @@ h1 {
 
 /*footer*/
 footer {
-  background: url("../assets/imgs/footer_bkg.jpg") top no-repeat;
-  /*img à redimensionner sur photoshop*/
-  height: 260px;
+  background-color: #3f3f3f;
   color: #fff;
+  padding: 15px 0;
 }
 
 footer .about a {
-  font-size: 24px;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -904,6 +998,7 @@ footer ul > li {
 
 footer .social ul {
   padding-left: 0;
+  text-align: center;
 }
 
 footer .social li {
@@ -911,13 +1006,17 @@ footer .social li {
 }
 
 footer .newsletter p {
-  margin-top: 14px;
   font-size: 24px;
+  margin: 0;
+}
+
+footer .newsletter input {
+  padding: 5px;
 }
 
 footer img {
-  margin: 0 15px;
   height: 50px;
+  margin: 0 15px;
 }
 
 /* LOADER */
