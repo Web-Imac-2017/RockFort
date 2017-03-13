@@ -1,5 +1,5 @@
 <template>
-  <ul class="nav navbar-nav navbar-right cart">
+  <span class="cart">
     <li class="dropdown">
       <span class="dropdown-toggle" role="button" aria-expanded="false">
         <img src="/src/assets/imgs/cartIcon.png" style="width: 30px" alt="" class="itemImg">
@@ -16,7 +16,7 @@
         </div>
       </ul>
     </li>
-  </ul>
+  </span>
 </template>
 
 <script>
