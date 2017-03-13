@@ -900,6 +900,63 @@ h1 {
   margin: 0;
 }
 
+/*Page contact*/
+.contact #leContact {
+  background: url("../assets/imgs/leStore2.jpg") bottom no-repeat fixed;
+  background-size: cover;
+}
+
+.contact .contactForm {
+  border-top: 1px solid gainsboro;
+  padding-top: 24px;
+  margin-top: 24px;
+}
+
+.contact .contactForm button.validate {
+  background-color: #269be7;
+  border: none;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.contact .contactForm input {
+  padding: 10px;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.contact .contactForm textarea {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  resize: none;
+  margin-top: 25px;
+}
+
+.contact .contactForm .validate {
+  background-color: #269be7;
+  color: white;
+  margin-top: 25px;
+  width: 100%;
+  border: none;
+  border: 1px solid #269be7;
+  text-align: center;
+  cursor: pointer;
+  padding: 15px 25px;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.contact .contactForm .validate:hover {
+  color: white;
+  background-color: #1680c4;
+}
+
 /*footer*/
 footer {
   background-color: #3f3f3f;

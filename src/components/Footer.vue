@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="about col-md-4">
 					<ul>
-						<li><a href="#">Contact</a></li>
+						<li><a href="/contact">Contact</a></li>
 						<li><a href="#">L'équipe</a></li>
 						<li><a href="#">Mentions légales</a></li>
 					</ul>

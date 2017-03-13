@@ -58,6 +58,9 @@ const router = new VueRouter({
 		path:'/connexion',
 		component: require('./components/Connexion.vue')
 	}, {
+		path:'/contact',
+		component: require('./components/Contact.vue')
+	}, {
 		path:'*',
 		redirect: '/'
 	}],
