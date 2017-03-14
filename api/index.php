@@ -13,7 +13,7 @@ $routeur = new \App\Routeur\Routeur($_GET['url']);
 /**READ**/
 //$routeur->get('/api/', "Read#index");
 $routeur->get('products/:id', "Read#products_id"); //ou ->post
-$routeur->get('products/', "Read#products");
+$routeur->get('/products/', "Read#products");
 $routeur->get('vinyles/:id', "Read#vinyles_id"); //ou ->post
 $routeur->get('vinyles/', "Read#vinyles");
 $routeur->get('platines/:id', "Read#platines_id"); //ou ->post

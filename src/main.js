@@ -55,9 +55,6 @@ const router = new VueRouter({
 		path:'/inscription',
 		component: require('./components/Inscription.vue')
 	}, {
-		path:'/connexion',
-		component: require('./components/Connexion.vue')
-	}, {
 		path:'*',
 		redirect: '/'
 	}],

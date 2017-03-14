@@ -29,7 +29,6 @@
               </form>
             </li>
             <span class="hidden-xs"><ShoppingCart></ShoppingCart></span>
-
           </ul>
           <div class="connexion" v-bind:class="{ connexionHidden: isActive }">
             <div class="container">
@@ -63,7 +62,6 @@
 </template>
 <script >
 import { Bus } from './bus.js';
-import jsSHA from './sha256.js';
 import ShoppingCart from './ShoppingCart.vue'
 
 export default{
@@ -96,7 +94,6 @@ export default{
       this.triPar = triPar;
     }),
     Bus.$on('recherche-genre', filtreGenre => {
-      console.log("list Bus.$on('recherche-genre', filtreGenre => " + filtreGenre)
       this.filtreGenre = filtreGenre;
     }),
     Bus.$on('recherche-string', rechercheString => {
@@ -104,7 +101,6 @@ export default{
     }),
     Bus.$on('type-produit', typeProduit => {
       this.typeProduit = typeProduit;
-      console.log("this.typeProduit" + this.typeProduit)
     })
   },
   computed:{
@@ -147,6 +143,7 @@ export default{
         this.loggingIn = false
       })
     },
+    
     getUserData () {
       this.$http.get('/src/jsonTestUser.json').then((response) => {
         console.log("lol2");

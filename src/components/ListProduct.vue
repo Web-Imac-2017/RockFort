@@ -37,7 +37,6 @@ export default{
     SearchBarComponent,
     Product
   },
-
   data () {
     return {
       typeProduit: window.location.pathname.split("/").slice(2,3).pop(),
@@ -65,7 +64,6 @@ export default{
       this.triPar = triPar;
     }),
     Bus.$on('recherche-genre', filtreGenre => {
-      console.log("list Bus.$on('recherche-genre', filtreGenre => " + filtreGenre)
       this.filtreGenre = filtreGenre;
     }),
     Bus.$on('recherche-string', rechercheString => {
@@ -73,140 +71,130 @@ export default{
     }),
     Bus.$on('type-produit', typeProduit => {
       this.typeProduit = typeProduit;
-      console.log("this.typeProduit" + this.typeProduit)
     })
   },
   methods: {
-            //SEARCH
-            rechercheGeneral: function (limit) {
-                var resultatsArray = this.products
-                var rechercheString = this.rechercheString
-                var filtreGenre = this.filtreGenre
-                var typeProduit = this.typeProduit
-                var triPar = this.triPar
+    //SEARCH
+    rechercheGeneral: function (limit) {
+      var resultatsArray = this.products;
+      var rechercheString = this.rechercheString;
+      var filtreGenre = this.filtreGenre;
+      var typeProduit = this.typeProduit;
+      var triPar = this.triPar;
+      var filtre = window.location.pathname.split("/");
 
-                var filtre = window.location.pathname.split("/");
-                console.log("0" + filtre[0])
-                console.log("1" + filtre[1])
-                console.log("2" + filtre[2])
-                console.log("3" + filtre[3])
-                console.log("4" + filtre[4])
-                console.log("5" + filtre[5])
+      if(!rechercheString && !filtre[3] && !filtre[4]){
 
-                console.log("target " + window.location.pathname.split("/").slice(2,3))
+        resultatsArray = resultatsArray.filter(function(item){
+          if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
+            return item;
+          }
+        })
 
-                if(!rechercheString && !filtre[3] && !filtre[4]){
-                    resultatsArray = resultatsArray.filter(function(item){
-                      if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
-                        return item;
-                      }
-                    })
-                    //this.typeProduit = "produits";
-                    this.nombreResultats = resultatsArray.length;
-                    resultatsArray.sort(function(a,b){
-                        var myA = a.date;
-                        var myB = b.date;
-                        if(myA < myB) {
-                            return 1;
-                        }
-                        if(myA > myB) {
-                            return -1;
-                        }
-                        return 0;
-                    });
-                    return resultatsArray;
-                }
+        this.nombreResultats = resultatsArray.length;
+        
+        resultatsArray.sort(function(a,b){
+          var myA = a.date;
+          var myB = b.date;
+          if(myA < myB) {
+            return 1;
+          }
+          if(myA > myB) {
+            return -1;
+          }
+            return 0;
+        });
 
-                rechercheString = rechercheString.trim().toLowerCase();
-                resultatsArray = resultatsArray.filter(function(item){
-                    if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
-                      if(filtre[3] =='tout' || item.genre.toLowerCase().indexOf(filtre[3]) !== -1){
-                        if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
-                          return item;
-                        }
-                      }
-                    }
-                })
+        return resultatsArray;
+      }
 
-                //SORT
-                if(filtre[4] == "prix-asc") {
-                    resultatsArray.sort(function(a,b){
-                        return a.prix - b.prix;
-                    });
-                }else if(filtre[4]  == "prix-desc"){
-                    resultatsArray.sort(function(a,b){
-                        return b.prix - a.prix;
-                    });
-                }else if(filtre[4] == "date-asc"){
-                    resultatsArray.sort(function(a,b){
-                        var myA = a.date;
-                        var myB = b.date;
-                        if(myA > myB) {
-                            return 1;
-                        }
-                        if(myA < myB) {
-                            return -1;
-                        }
-                        return 0;
-                    });
-                }else if(filtre[4] == "date-desc"){
-                    resultatsArray.sort(function(a,b){
-                        var myA = a.date;
-                        var myB = b.date;
-                        if(myA < myB) {
-                            return 1;
-                        }
-                        if(myA > myB) {
-                            return -1;
-                        }
-                        return 0;
-                    });
-                }else if(filtre[4] == "alphabet-asc"){
-                    resultatsArray.sort(function (a, b){
-                        var myA = a.nom;
-                        var myB = b.nom;
-                        if(myA > myB) {
-                            return 1;
-                        }
-                        if(myA < myB) {
-                            return -1;
-                        }
-                        return 0;
-                    });
-                }else if(filtre[4] == "alphabet-desc"){
-                    resultatsArray.sort(function (a, b){
-                        var myA = a.nom;
-                        var myB = b.nom;
-                        if(myA < myB) {
-                            return 1;
-                        }
-                        if(myA > myB) {
-                            return -1;
-                        }
-                        return 0;
-                    });
-                }
-
-                if(window.location.pathname.split("/").slice(2,3).pop() == 'recherche') {
-                  this.typeProduit = "produits";
-                  this.recherchePrefixe = "pour votre recherche ";
-                }else {
-                  this.recherchePrefixe = "";
-                }
-                this.nombreResultats = resultatsArray.length;
-                return resultatsArray.slice(0, limit);
-            },
-            handleScroll(){
-              var currentScrollPosition = window.scrollY;
-              console.log("Scrolling down"+ currentScrollPosition);
-              if(currentScrollPosition >= document.documentElement.scrollHeight - document.documentElement.clientHeight){
-                this.limitProduit += 4
-              }else if(!currentScrollPosition){
-                this.limitProduit = 12
-              }
+      rechercheString = rechercheString.trim().toLowerCase();
+      resultatsArray = resultatsArray.filter(function(item){
+        if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
+          if(filtre[3] =='tout' || item.genre.toLowerCase().indexOf(filtre[3]) !== -1){
+            if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
+              return item;
             }
-
-
+          }
         }
+      })
+
+      //SORT
+      if(filtre[4] == "prix-asc") {
+        resultatsArray.sort(function(a,b){
+          return a.prix - b.prix;
+        });
+      }else if(filtre[4]  == "prix-desc"){
+        resultatsArray.sort(function(a,b){
+          return b.prix - a.prix;
+        });
+      }else if(filtre[4] == "date-asc"){
+        resultatsArray.sort(function(a,b){
+          var myA = a.date;
+          var myB = b.date;
+          if(myA > myB) {
+            return 1;
+          }
+          if(myA < myB) {
+            return -1;
+          }
+          return 0;
+        });
+      }else if(filtre[4] == "date-desc"){
+        resultatsArray.sort(function(a,b){
+          var myA = a.date;
+          var myB = b.date;
+          if(myA < myB) {
+            return 1;
+          }
+          if(myA > myB) {
+            return -1;
+          }
+          return 0;
+        });
+      }else if(filtre[4] == "alphabet-asc"){
+        resultatsArray.sort(function (a, b){
+          var myA = a.nom;
+          var myB = b.nom;
+          if(myA > myB) {
+            return 1;
+          }
+          if(myA < myB) {
+            return -1;
+          }
+          return 0;
+        });
+      }else if(filtre[4] == "alphabet-desc"){
+        resultatsArray.sort(function (a, b){
+          var myA = a.nom;
+          var myB = b.nom;
+          if(myA < myB) {
+            return 1;
+          }
+          if(myA > myB) {
+            return -1;
+          }
+            return 0;
+          });
+      }
+
+      if(window.location.pathname.split("/").slice(2,3).pop() == 'recherche') {
+        this.typeProduit = "produits";
+        this.recherchePrefixe = "pour votre recherche ";
+      }else {
+        this.recherchePrefixe = "";
+      }
+      
+      this.nombreResultats = resultatsArray.length;
+      return resultatsArray.slice(0, limit);
+    },
+    handleScroll(){
+      if(currentScrollPosition >= document.documentElement.scrollHeight - document.documentElement.clientHeight){
+        this.limitProduit += 4
+      }else if(!currentScrollPosition){
+        this.limitProduit = 12
+      }
+    }
+  }
 }
 </script>
