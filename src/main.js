@@ -61,6 +61,9 @@ const router = new VueRouter({
 		path:'/contact',
 		component: require('./components/Contact.vue')
 	}, {
+		path:'/lequipe',
+		component: require('./components/Equipe.vue')
+	}, {
 		path:'*',
 		redirect: '/'
 	}],

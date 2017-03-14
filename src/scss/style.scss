@@ -860,6 +860,37 @@ h1{
   }
 }
 
+/*Page l'équipe*/
+.equipe {
+  p{
+    text-align: center;
+  }
+  #lequipe{
+    background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  .profiles {
+    margin: 20px 0;
+    padding: 5px;
+    .profilecard {
+      display: block;
+      margin: 30px 0;
+      h3, h2 {
+        text-align: center;
+        margin: 0;
+      }
+      h2{
+        font-weight: 200;
+        font-style: italic;
+      }
+      img{
+        width: 100%;
+        border: 2px solid $blue;
+      }
+    }
+  }
+}
+
 /*footer*/
 footer{
   // background: url('../assets/imgs/footer_bkg.jpg') top no-repeat; /*img à redimensionner sur photoshop*/

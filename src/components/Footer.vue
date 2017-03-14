@@ -6,7 +6,7 @@
 					<div class="about">
 						<ul>
 							<li><a href="/contact">Contact</a></li>
-							<li><a href="#">L'équipe</a></li>
+							<li><a href="/lequipe">L'équipe</a></li>
 							<li><a href="#">Mentions légales</a></li>
 						</ul>
 					</div>
