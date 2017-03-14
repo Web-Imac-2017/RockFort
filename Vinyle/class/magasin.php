@@ -164,8 +164,30 @@
             $requete->execute( array( $type,$nom,$description,$image,$musique,$prix ) );
             $resultat = $requete->fetchColumn();
             
-            if($resultat <= 5){
-                echo "Attention il vous reste moins de 5 article de ce type";
+            if($resultat <= 10){
+                echo "Attention il vous reste moins de 10 article de ce type";
+                $headers  = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+                $headers .= 'FROM:alexane.lgrn@gmail.com';
+                $to = 'alexane.lgrn@gmail.com'; //Insérer adresse email ICI
+                $subject = 'Alerte : stock faible';
+                $message_content = '
+                  <table>
+                  <tr>
+                  <td>Le stock pour le produit suivant est faible:</td>
+                  </tr>
+                  <tr>
+                  <td>'. $type . ' : '.$nom.'</td>
+                  </tr>
+                  <tr>
+                  <td><b>Il en reste:</b></td>
+                  </tr>
+                  <tr>
+                  <td>'. $resultat .'</td>
+                  </tr>
+                  </table>
+                  ';
+                mail($to, $subject, $message_content, $headers);
             }            
             return $resultat;
         }
