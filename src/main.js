@@ -64,6 +64,9 @@ const router = new VueRouter({
 		path:'/lequipe',
 		component: require('./components/Equipe.vue')
 	}, {
+		path:'/mentionslegales',
+		component: require('./components/Mentions.vue')
+	}, {
 		path:'*',
 		redirect: '/'
 	}],

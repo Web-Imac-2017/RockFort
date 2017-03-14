@@ -814,7 +814,7 @@ h1{
 /*Page contact*/
 .contact {
   #leContact{
-    background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
+    background: url('../assets/imgs/contact_header.jpg') bottom no-repeat fixed;
     background-size: cover;
   }
   .contactForm{
@@ -866,7 +866,7 @@ h1{
     text-align: center;
   }
   #lequipe{
-    background: url('../assets/imgs/leStore2.jpg') bottom no-repeat fixed;
+    background: url('../assets/imgs/contact_header.jpg') bottom no-repeat fixed;
     background-size: cover;
   }
   .profiles {
@@ -888,6 +888,18 @@ h1{
         border: 2px solid $blue;
       }
     }
+  }
+}
+
+/*Page mentions légales*/
+.mentions {
+  #laMention{
+    background: url('../assets/imgs/contact_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  img{
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 
