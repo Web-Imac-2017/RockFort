@@ -138,7 +138,32 @@ h1{
     padding-top: 300px;
 
     .connexion-box{
-      height:300px;
+      height:400px;
+      background-color: $white;
+      form{padding:0;}
+      .top-title{padding-top:50px;}
+      h2{text-align: center;}
+      .register-link{margin:0 auto;}
+      input{
+        margin:10px 0;
+        padding: 10px;
+        width:100%;
+      }
+      .close{float:right;}
+    }
+  }
+
+  .register{
+    background-color: rgba(0,0,0,0.25);
+    width: 100%;
+    min-height: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top: 300px;
+
+    .register-box{
+      height:400px;
       background-color: $white;
       form{padding:0;}
       h2{
@@ -154,6 +179,9 @@ h1{
     }
   }
   .connexionHidden{
+    display:none;
+  }
+  .registerHidden{
     display:none;
   }
   .hidden-xl{

@@ -21,7 +21,9 @@
             <li class='hidden-xs' v-on:click="connexionToggle" v-else>
               <router-link to="">Se connecter</router-link>
             </li>
-            <li class='hidden-xs'><router-link to="/inscription">Créer mon compte</router-link></li>
+            <li class='hidden-xs' v-on:click="registerToggle">
+              <router-link to="">Créer mon compte</router-link>
+            </li>
             <li>
               <form v-on:keydown.enter.prevent="goToRecherche()">
                 <input type="text" v-model="rechercheString" placeholder="The doors, ACDC, ..." v-on:keyup="emitRechercheHeader()" />
@@ -30,15 +32,31 @@
             </li>
             <span class="hidden-xs"><ShoppingCart></ShoppingCart></span>
           </ul>
-          <div class="connexion" v-bind:class="{ connexionHidden: isActive }">
+          <div class="connexion" v-bind:class="{ connexionHidden: isActiveConnexion }">
             <div class="container">
               <div class="col-md-offset-4 col-md-4 connexion-box">
                 <button class="close" v-on:click.prevent="connexionToggle">CLOSE</button>
+                <h2 class="top-title">Pas de compte ?</h2>
+                <button class="register-link" v-on:click="registerToggle">Je m'inscris !</button>
                 <h2>Se connecter</h2>
                 <form  v-on:submit.prevent="onSubmit()">
                   <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
                   <input type="password" v-model="formUser.password" placeholder="mot de passe" />
                   <button value="submit" :disabled="loggingIn" >CONNEXION</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="register" v-bind:class="{ registerHidden: isActiveRegister }">
+            <div class="container">
+              <div class="col-md-offset-4 col-md-4 register-box">
+                <button class="close" v-on:click.prevent="registerToggle">CLOSE</button>
+                <h2>Inscription</h2>
+                <form  v-on:submit.prevent="onSubmit()">
+                  <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
+                  <input type="password" v-model="formUser.password" placeholder="mot de passe" />
+                  <input type="password" v-model="formUser.passwordconf" placeholder="mot de passe" />
+                  <button value="submit" :disabled="loggingIn" >Je m'inscris !</button>
                 </form>
               </div>
             </div>
@@ -71,7 +89,8 @@ export default{
   data () {
     return{
       rechercheString: "",
-      isActive: true,
+      isActiveConnexion: true,
+      isActiveRegister: true,
 
       formUser: {
         email: null,
@@ -122,9 +141,14 @@ export default{
     },
 
     connexionToggle() {
-      console.log(!this.isActive)
-      this.isActive = !this.isActive;
-      return this.isActive;
+      this.isActiveConnexion = !this.isActiveConnexion;
+      return this.isActiveConnexion;
+    },
+
+    registerToggle() {
+      this.isActiveConnexion = true;
+      this.isActiveRegister = !this.isActiveRegister;
+      return this.isActiveRegister;
     },
 
     onSubmit () {
@@ -143,7 +167,7 @@ export default{
         this.loggingIn = false
       })
     },
-    
+
     getUserData () {
       this.$http.get('/src/jsonTestUser.json').then((response) => {
         console.log("lol2");

@@ -155,7 +155,7 @@ h1 {
 }
 
 .navbar .connexion .connexion-box {
-  height: 300px;
+  height: 400px;
   background-color: #fff;
 }
 
@@ -163,9 +163,16 @@ h1 {
   padding: 0;
 }
 
-.navbar .connexion .connexion-box h2 {
+.navbar .connexion .connexion-box .top-title {
   padding-top: 50px;
+}
+
+.navbar .connexion .connexion-box h2 {
   text-align: center;
+}
+
+.navbar .connexion .connexion-box .register-link {
+  margin: 0 auto;
 }
 
 .navbar .connexion .connexion-box input {
@@ -178,7 +185,45 @@ h1 {
   float: right;
 }
 
+.navbar .register {
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 300px;
+}
+
+.navbar .register .register-box {
+  height: 400px;
+  background-color: #fff;
+}
+
+.navbar .register .register-box form {
+  padding: 0;
+}
+
+.navbar .register .register-box h2 {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.navbar .register .register-box input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+}
+
+.navbar .register .register-box .close {
+  float: right;
+}
+
 .navbar .connexionHidden {
+  display: none;
+}
+
+.navbar .registerHidden {
   display: none;
 }
 
