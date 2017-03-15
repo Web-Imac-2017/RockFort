@@ -67,6 +67,10 @@ h1 {
   display: inline;
 }
 
+.navbar form input {
+  padding: 5px;
+}
+
 .navbar .navbar-collapse.collapse.in li {
   display: none;
 }
@@ -195,7 +199,7 @@ h1 {
 
 /*SUBMENU*/
 #subMenu {
-  margin-top: 131px;
+  margin-top: 128px;
 }
 
 #subMenu div {
@@ -220,6 +224,32 @@ h1 {
   color: #fff;
   margin: 0;
   padding: 0;
+}
+
+#subMenu div.card {
+  height: 420px;
+}
+
+#subMenu div.card:hover .cardBg, #subMenu div .cardEvent:hover .cardBg {
+  visibility: visible;
+  opacity: 1;
+}
+
+#subMenu div.cardBg {
+  background: #0e86d6;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgba(14, 134, 214, 0.3) 0%, rgba(237, 232, 109, 0.3) 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(14, 134, 214, 0.3) 0%, rgba(237, 232, 109, 0.3) 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(14, 134, 214, 0.3) 0%, rgba(237, 232, 109, 0.3) 99%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e86d6', endColorstr='#ede86d',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */
+  filter: alpha(opacity=30);
+  height: 100%;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.2s ease;
 }
 
 /*CALL TO ACTION */
@@ -254,6 +284,25 @@ h1 {
 #callToAction .price {
   font-weight: 800;
   font-size: 30px;
+}
+
+#callToAction button {
+  border: 2px solid #fff;
+  background-color: #fff;
+  text-align: center;
+  color: #ffd901;
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding: 15px 25px;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#callToAction button:hover {
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
 }
 
 /*SELECTION*/
@@ -429,6 +478,7 @@ h1 {
 }
 
 #productPage .addToCart {
+  border: none;
   line-height: 50px;
   letter-spacing: 3px;
   cursor: pointer;
@@ -445,18 +495,37 @@ h1 {
   padding: 30px 0;
 }
 
-#productPage .ratingArea .note, #productPage .ratingArea .moreNote {
+#productPage .ratingArea .note, #productPage .ratingArea .moreNote, #productPage .ratingArea .validate {
   border: 1px solid #ffd901;
   padding: 10px;
   text-align: center;
   cursor: pointer;
   color: #000;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   margin-top: 0;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
 }
 
-#productPage .ratingArea .note:hover, #productPage .ratingArea .moreNote:hover {
+#productPage .ratingArea .note:hover, #productPage .ratingArea .moreNote:hover, #productPage .ratingArea .validate:hover {
   background-color: #ffd901;
+}
+
+#productPage .ratingArea .validate {
+  background-color: #ffd901;
+  padding: 20px !important;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#productPage .ratingArea .validate:hover {
+  box-shadow: -2px 2px rgba(0, 0, 0, 0.3);
 }
 
 #productPage .ratingArea .moreNote {
@@ -482,16 +551,10 @@ h1 {
   padding: 20px;
 }
 
-#productPage .ratingArea .commentForm input {
-  margin: 10px 0 10px 10px;
-}
-
-#productPage .ratingArea .commentForm textarea {
-  margin: 10px 0 20px 10px;
-}
-
-#productPage .ratingArea .commentForm button {
-  margin: 0 0 20px 10px;
+#productPage .ratingArea .commentForm input, #productPage .ratingArea .commentForm textarea, #productPage .ratingArea .commentForm button {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 #productPage .ratingArea .commentFormHidden {
@@ -664,7 +727,7 @@ h1 {
 
 /* Abonnement */
 #abonnement .banner {
-  margin-top: 130px;
+  margin-top: 128px;
   min-height: 570px;
   background-size: cover;
 }
@@ -714,6 +777,17 @@ h1 {
   background-color: transparent;
   color: #269be7;
   border: 1px solid #269be7;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#abonnement .banner .callToAction button.offer:hover {
+  background-color: #269be7;
+  color: #fff;
+  border: 1px solid #269be7;
 }
 
 #abonnement .description {
@@ -739,29 +813,31 @@ h1 {
   }
 }
 
-#abonnement .boxes {
+#abonnement #boxes {
   background-color: #f0f0f0;
   padding: 50px 0;
 }
 
-#abonnement .boxes .tabButton {
+#abonnement #boxes .tabButton {
   background-color: white;
   padding: 25px;
   text-align: center;
   cursor: pointer;
+  height: 110px;
 }
 
-#abonnement .boxes .boxContent {
+#abonnement #boxes .boxContent {
   background-color: white;
-  padding: 25px;
+  padding: 25px 25px 0 25px;
 }
 
-#abonnement .boxes .boxContent .boxChoice {
+#abonnement #boxes .boxContent .boxChoice {
   text-align: center;
   border: 2px solid whitesmoke;
   padding: 15px;
   cursor: pointer;
   min-height: 200px;
+  margin-bottom: 25px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -769,15 +845,15 @@ h1 {
   transition: 0.3s;
 }
 
-#abonnement .boxes .boxContent .boxChoice:hover {
+#abonnement #boxes .boxContent .boxChoice:hover {
   border-color: #269be7;
 }
 
-#abonnement .boxes .boxContent .boxChoice.active {
+#abonnement #boxes .boxContent .boxChoice.active {
   border-color: #269be7;
 }
 
-#abonnement .boxes .boxContent .info {
+#abonnement #boxes .boxContent .info {
   background-color: rgba(245, 245, 245, 0.7);
   padding: 10px;
   text-align: center;
