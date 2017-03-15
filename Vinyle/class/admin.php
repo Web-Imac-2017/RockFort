@@ -31,6 +31,7 @@
 
             /* Verifie si l'administrateur est deja dans la base de donnée*/
 
+
             if($resultat != NULL)
                 echo "Un administrateur avec les même données existe déjà !";
 

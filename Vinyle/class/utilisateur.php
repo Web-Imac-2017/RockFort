@@ -48,18 +48,31 @@
                     global $bdd;
                     $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE type = ? AND motDePasse = ? AND mail = ?");
                     $requete->execute(array($type, $mdp, $mail) );
-                    $resultat = $requete->fetchColumn();
+                    $resultat = $requete->fetch();
                     $_SESSION['id'] = $resultat;
+                    print_r($resultat);
+                    return $resultat;
                 }
 
                 public function deconnexion(  $type, $mdp, $mail){
                     global $bdd;
                     $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE type = ? AND motDePasse = ? AND mail = ?");
-                    $requete->execute(array($type, $mdp, $mail) );
+                    $requete->execute(array($type, sha1($mdp), $mail) );
                     $resultat = $requete->fetchColumn();
 
                     if($resultat == $_SESSION['id'])
                         unset($_SESSION['id']);
                 }
+
+                public function info(){
+                     global $bdd;
+                    $requete = $bdd->prepare("SELECT * FROM utilisateur WHERE id = ?");
+                    $requete->execute(array($_SESSION['id']));
+                    $resultat = $requete->fetchAll();
+                    print_r($resultat);
+                    return $resultat;
+                }
     }
+
+
 ?>

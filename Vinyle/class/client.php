@@ -137,7 +137,7 @@
 
     /*
     
-    $client = new Client("mdp","nom","prenom","maiiiiiil","adresse");
+    $client = new Client("mdp","nom","prenom","maiiiiiiloooo","adresse");
     $client->ajoutBdd();
 
 
@@ -153,5 +153,7 @@
     $client->ajoutProduitPanier(532);
     $client->acheter("ghjh");
     $client->mesAdresseLivraison();
+    */
+
     
     ?>
