@@ -68,7 +68,7 @@
 								</div>
 								<div class="row">
 									<div class="productList">
-										<div class="col-xs-6" v-for="product in coupDeCoeur('platines', 'coupdecoeur' , 5)">
+										<div class="col-xs-6 col-md-3" v-for="product in coupDeCoeur('platines', 'coupdecoeur' , 5)">
 											<div class="vinyleItem">
 												<router-link :to="{ name: 'product', params: { type:'platines' , id: product.id }}"><img :src="product.image" /></router-link>
 											</div>

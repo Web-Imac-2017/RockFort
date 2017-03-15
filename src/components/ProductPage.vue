@@ -30,75 +30,92 @@
 											Ajouter au panier
 										</button>
 									</div>
-									<div class="row">
-										<div class="col-md-8 col-md-offset-4">
-											<div class="deliveryInfos">Livraison sous 4 jours</div>
+								</div>
+								<div class="row">
+									<div class="col-md-8 col-md-offset-4">
+										<div class="deliveryInfos">Livraison sous 4 jours</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="musicPlayer">
+											Ecouter un extrait
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="musicPlayer">
-												Ecouter un extrait
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="desc">
-										{{product.description}}
-									</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="desc">
+									{{product.description}}
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<p class="more">Vous aimerez aussi</p>
-								</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<p class="more">Vous aimerez aussi</p>
 							</div>
-							<div class="row">
-								<div v-for="product in selectProduct(4, false)" class="col-md-3">
-									<div @click="selectProduct(1,true)" class="vinyleItem">
-										<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
-									</div>
+						</div>
+						<div class="row">
+							<div v-for="product in selectProduct(4, false)" class="col-md-3">
+								<div @click="selectProduct(1,true)" class="vinyleItem">
+									<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="ratingArea">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-8 col-md-offset-2">
-								<div class="row">
-									<div class="col-md-3" v-on:click="commentFormToggle()">
-										<p v-if="isActive" class="note">Donner mon avis</p>
-										<p v-else class="note">Annuler</p>
-									</div>
-								</div>
-								<div class=" row commentForm" v-bind:class="{ commentFormHidden: isActive }">
-									<form>
-										<input class="col-md-2"  type="text" placeholer="Nom"/>
-										<input class="col-md-push-1 col-md-9" type="text" placeholer="Titre"/>
-										<textarea class="col-md-12" rows="6"></textarea>
-										<button>ENVOYER</button>
+			</div>
+			<div class="ratingArea">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3" v-on:click="commentFormToggle()">
+							<p v-if="isActive" class="note">Donner mon avis</p>
+							<p v-else class="note">Annuler</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div v-bind:class="{ commentFormHidden: isActive }">
+								<div class="commentForm">
+									<form v-on:submit.prevent="submitCommentaire()">
+										<div class="row">
+											<div class="col-md-2">
+												<input type="text" placeholder="Pseudo" v-model="auteur"/>
+											</div>
+											<div class="col-md-push-1 col-md-9">
+												<input type="text" placeholder="Titre" v-model="titre"/>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<textarea rows="6" placeholder="Votre commentaire..." v-model="texte"></textarea>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-2">
+												<button class="validate">ENVOYER</button>
+											</div>
+										</div>
 									</form>
 								</div>
-								<div v-for="comment in selectComments(commentLimit)" class="comment">
-									<div class="row mb">
-										<div class="col-md-3">
-											<div class="commentInfo">
-												<p class="author">{{comment.auteur}}</p>
-												<p class="date">le {{comment.date}}</p>
-											</div>
-										</div>
-										<div class="col-md-9">
-											<div class="commentContent">
-												<p class="commentTitle">{{comment.titre}}</p>
-												<p class="commentDesc">{{comment.texte}}</p>
-											</div>
-										</div>
-									</div>
+							</div>
+						</div>
+					</div>
+
+					<div v-for="comment in selectComments(commentLimit)" class="comment">
+						<div class="row mb">
+							<div class="col-md-3">
+								<div class="commentInfo">
+									<p class="author">{{comment.auteur}}</p>
+									<p class="date">le {{comment.date}}</p>
+								</div>
+							</div>
+							<div class="col-md-9">
+								<div class="commentContent">
+									<p class="commentTitle">{{comment.titre}}</p>
+									<p class="commentDesc">{{comment.texte}}</p>
 								</div>
 							</div>
 						</div>
@@ -106,7 +123,11 @@
 				</div>
 			</div>
 		</div>
-	</transition>
+	</div>
+</div>
+</div>
+</div>
+</transition>
 </template>
 
 <script>
@@ -120,7 +141,11 @@ export default{
 			products: [],
 			commentaires: [],
 			commentLimit:3,
-			isActive : true
+
+			isActive : true,
+			auteur: "",
+			titre: "",
+			texte:""
 		}
 	},
 	mounted () {
@@ -149,7 +174,6 @@ export default{
 			var count = 0;
 
 			if(update == true){
-				console.log('lol')
 				this.$forceUpdate();
 			}
 
@@ -160,11 +184,8 @@ export default{
 				})
 				return resultatsArray;
 			}
-
 			resultatsArray = resultatsArray.filter(function(item){
-				console.log('looool')
 				if(item.id != window.location.pathname.split('/').pop() && item.genre.indexOf('coupdecoeur') !== -1 && count < limit) {
-					console.log('loodqqdool')
 					count++
 					return item
 				}
@@ -175,6 +196,9 @@ export default{
 			console.log(!this.isActive)
 			this.isActive = !this.isActive;
 			return this.isActive;
+		},
+		submitCommentaire(){
+
 		},
 		selectComments(limit){
 			var resultatsArray = this.commentaires;
