@@ -55,6 +55,21 @@ const router = new VueRouter({
 		path:'/inscription',
 		component: require('./components/Inscription.vue')
 	}, {
+<<<<<<< HEAD
+=======
+		path:'/connexion',
+		component: require('./components/Connexion.vue')
+	}, {
+		path:'/contact',
+		component: require('./components/Contact.vue')
+	}, {
+		path:'/lequipe',
+		component: require('./components/Equipe.vue')
+	}, {
+		path:'/mentionslegales',
+		component: require('./components/Mentions.vue')
+	}, {
+>>>>>>> 10d3e5723ed2a4054f373b73d672f38db46e7660
 		path:'*',
 		redirect: '/'
 	}],
