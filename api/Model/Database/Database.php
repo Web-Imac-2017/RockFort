@@ -2,6 +2,7 @@
 
 namespace App\Model\Database;
 
+use App\Config;
 use \PDO;
 
 class Database
@@ -22,9 +23,11 @@ class Database
     }
 
     public function getPDO()
-    { //ou en private
+    { 
+        $config = Config::getInstance(ROOT . '/config/config.php');
         if ($this->pdo === null) {
-            $pdo = $this->pdo = new PDO('mysql:dbname=vinylestore;host=localhost', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+            $pdo = $this->pdo = new PDO('mysql:dbname='.$config->get('db_name').';host='.$config->get
+                ('db_host'), $config->get('db_user'), $config->get('db_pass'), array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $this->pdo = $pdo;
         }
         return $this->pdo;
