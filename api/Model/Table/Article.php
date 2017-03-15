@@ -3,6 +3,7 @@
 namespace App\Model\Table;
 
 use App\Model\Table;
+use PDO;
 
 class Article extends Table {
 
@@ -74,20 +75,11 @@ class Article extends Table {
         $this->image = $image;
     }
 
-
-    public function test(){
-       $sql =  "SELECT * FROM $this->table WHERE id = 1";
-       $pdo = $this->getPDO();
-       $req = $pdo->query($sql);
-       $res = $req->fetch(\PDO::FETCH_NUM);
-       return $res;
-    }
-
     public function getArticles(){
         $sql =  "SELECT * FROM $this->table";
         $pdo = $this->getPDO();
         $req = $pdo->query($sql);
-        $res = $req->fetchAll(\PDO::FETCH_NUM);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 
@@ -95,7 +87,7 @@ class Article extends Table {
         $sql = "SELECT * FROM $this->table WHERE id = ?";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id]);
-        $article = $pdo->fetch();
+        $article = $pdo->fetch(PDO::FETCH_ASSOC);
         return $article;
     }
 

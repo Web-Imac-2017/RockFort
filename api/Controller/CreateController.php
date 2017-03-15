@@ -7,7 +7,8 @@ class CreateController extends AppController
 
     public function __construct()
     {
-
+        $this->loadModel("Utilisateur");
+        $this->loadModel("Commentaire");
     }
 
     public function commandes_add_idproduit_qty($id, $qty)
@@ -17,7 +18,12 @@ class CreateController extends AppController
 
     public function user_create()
     { //Créer un utilisateur
+        $this->Utilisateur->createClient();
+    }
 
+    public function addComment()
+    {
+        $this->Commentaire->addComment();
     }
 
 }

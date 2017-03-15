@@ -3,6 +3,7 @@
 namespace App\Model\Table;
 
 use App\Model\Table;
+use PDO;
 
 class Produit extends Table
 {
@@ -17,6 +18,8 @@ class Produit extends Table
     private $stock;
 
     protected $table = "produit";
+
+
 
     /**
      * @return mixed
@@ -143,70 +146,72 @@ class Produit extends Table
         $sql = "SELECT * FROM $this->table";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
-        $tousLesProduits = $pdo->fetchAll();
+        $tousLesProduits = $pdo->fetchAll(PDO::FETCH_ASSOC);
         return $tousLesProduits;
     }
 
     public function getById($id)
     {
-        $sql = "SELECT * FROM produit WHERE id = ?";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste FROM produit, artiste, produit_artiste WHERE id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id]);
-        $produit = $pdo->fetch();
+        $produit = $pdo->fetch(PDO::FETCH_ASSOC);
         return $produit;
     }
 
     public function getVinyles()
     {
-        $sql = "SELECT * FROM $this->table WHERE type = 'vinyle'";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'vinyle' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
-        $tousLesVinyles = $pdo->fetchAll();
+        $tousLesVinyles = $pdo->fetchAll(PDO::FETCH_ASSOC);
         return $tousLesVinyles;
     }
 
     public function getVinyleById($id)
     {
-        $sql = "SELECT * FROM $this->table WHERE type = 'vinyle' AND id = ?";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'vinyle' AND produit.id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id]);
-        $vinyle= $pdo->fetch();
+        $vinyle= $pdo->fetch(PDO::FETCH_ASSOC);
         return $vinyle;
     }
 
     public function getPlatines()
     {
-        $sql = "SELECT * FROM $this->table WHERE type = 'platine'";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 
+'platine' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
-        $tousLesPlatines = $pdo->fetchAll();
+        $tousLesPlatines = $pdo->fetchAll(PDO::FETCH_ASSOC);
         return $tousLesPlatines;
     }
 
     public function getPlatineById($id)
     {
-        $sql = "SELECT * FROM $this->table WHERE type = 'platine' AND id = ?";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'platine' AND produit.id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id]);
-        $platine = $pdo->fetch();
+        $platine = $pdo->fetch(PDO::FETCH_ASSOC);
         return $platine;
     }
 
  public function getCoffrets()
     {
-        $sql = "SELECT * FROM $this->table WHERE type = 'coffret'";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'coffret' AND 
+produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
-        $tousLesCoffrest = $pdo->fetchAll();
+        $tousLesCoffrest = $pdo->fetchAll(PDO::FETCH_ASSOC);
         return $tousLesCoffrest;
     }
 
     public function getCoffretById($id)
     {
-        $sql = "SELECT * FROM $this->table WHERE type = 'coffret' AND id = ?";
+        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'coffret' AND produit.id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id]);
-        $platine = $pdo->fetch();
+        $platine = $pdo->fetch(PDO::FETCH_ASSOC);
         return $platine;
     }
 
