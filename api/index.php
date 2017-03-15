@@ -1,17 +1,14 @@
 <?php
 define('ROOT', __DIR__);
-//define('WEB_ROOT', '/RockFort-Master_v2');
 require 'App.php';
 App::load();
 
 
-/****ROUTEUR, route les plus précises en premier (à comprendre celle ayant le plus de "/" ****/
 
 $routeur = new \App\Routeur\Routeur($_GET['url']);
 
 
 /**READ**/
-//$routeur->get('/api/', "Read#index");
 $routeur->get('products/:id', "Read#products_id"); //ou ->post
 $routeur->get('/products/', "Read#products");
 $routeur->get('vinyles/:id', "Read#vinyles_id"); //ou ->post
