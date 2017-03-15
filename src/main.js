@@ -33,8 +33,7 @@ const router = new VueRouter({
 		name:'product',
 		path:'/store/:type/:id',
 		component: require('./components/ProductPage.vue')
-	},
-	{
+	}, {
 		path:'/abonnement',
 		component: require('./components/Abonnement.vue')
 	}, {
@@ -52,14 +51,6 @@ const router = new VueRouter({
 		path:'/ProductPage',
 		component: require('./components/ProductPage.vue')
 	}, {
-		path:'/inscription',
-		component: require('./components/Inscription.vue')
-	}, {
-<<<<<<< HEAD
-=======
-		path:'/connexion',
-		component: require('./components/Connexion.vue')
-	}, {
 		path:'/contact',
 		component: require('./components/Contact.vue')
 	}, {
@@ -69,7 +60,6 @@ const router = new VueRouter({
 		path:'/mentionslegales',
 		component: require('./components/Mentions.vue')
 	}, {
->>>>>>> 10d3e5723ed2a4054f373b73d672f38db46e7660
 		path:'*',
 		redirect: '/'
 	}],
