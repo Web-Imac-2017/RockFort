@@ -127,19 +127,10 @@
 
     }
 
-    $client = new Client("mdp","ngjom","prensom","lijhljefiekjgkhkhjhjkghjrgam","la vie");
+    $client = new Client("mdp","ngjom","prensom","lijhljegkhhjjjkhjhjkghjrgam","la vie");
     $client->ajoutBdd();
-    $client->setAdresse("la mort");
-    $client->Panier();
-    $client->ajoutProduitPanier(274);
-    $client->ajoutProduitPanier(530);
-    $client->ajoutProduitPanier(275);
-    $client->acheter("chez moi");
-    $client->Panier();
-    $client->ajoutProduitPanier(531);
-    $client->ajoutProduitPanier(276);
-    $client->ajoutProduitPanier(532);
-    $client->acheter("ghjh");
-    $client->mesAdresseLivraison();
+    $client->connexion_client("mdp","lijhljegkhhjjjkhjhjkghjrgam");
+    echo $_SESSION['id'];
+    
     
     ?>
