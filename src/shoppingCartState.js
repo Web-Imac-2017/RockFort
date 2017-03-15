@@ -1,15 +1,17 @@
 import ShoppingCart from './components/ShoppingCart.vue'
+import CartDisplay from './components/CartDisplay.vue'
 
 export default {
   data: {
     cart: [
-      {id:4,vinylTitle:"test",price: 5,img:"/src/assets/imgs/bowie.jpg",qty: 1},
-      {id:5,vinylTitle:"test2",price: 5,img:"/src/assets/imgs/bowie.jpg",qty: 1}
+      {id:4,vinylTitle:"The microphones",price: 5,img:"/src/assets/imgs/bowie.jpg",qty: 1},
+      {id:5,vinylTitle:"The microphones",price: 5,img:"/src/assets/imgs/bowie.jpg",qty: 1}
     ]
   },
   watch: {
     nbItems: function() {
-      ShoppingCart.update()
+      ShoppingCart.update(),
+      CartDisplay.update()
     }
   },
   add(product){

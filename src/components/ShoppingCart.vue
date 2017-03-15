@@ -11,7 +11,7 @@
         <div class="cartContent" v-else>
           <Item v-for="item in items" :item="item"></Item>
           <li class="divider"></li>
-          <li><a class="text-center" href="">Total : {{ total }}€</a></li>
+          <li><span class="total" href="">Total : {{ total }}€</span></li>
           <li><router-link to="/cartPage">Voir le panier</router-link></li>
         </div>
       </ul>

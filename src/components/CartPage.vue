@@ -175,25 +175,7 @@
                   <h3>Mon panier</h3>
                 </div>
               </div>
-              <div class="item" v-for="item in items">
-                <div class="content">
-                  <div class="row">
-                    <div class="col-md-3"><img :src="item.img" alt="" style="width:100%" class="itemImg"></div>
-                    <div class="col-md-9">
-                      <div class="row">
-                        <div class="col-md-12"><p class="title">{{ item.vinylTitle }}</p></div>
-                      </div>
-                      <div class="row ">
-                        <div class="col-md-4">{{ item.qty }} x {{ item.price }}€</div>
-                        <div class="col-md-4">
-                          <button class="inc" @click="inc">+</button>
-                          <button class="dec" @click="dec">-</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CartDisplay></CartDisplay>
             </div>
           </div>
         </div>
@@ -205,8 +187,12 @@
 <script>
 import _ from 'lodash'
 import CartState from '../shoppingCartState'
+import CartDisplay from './CartDisplay.vue'
 
 export default {
+  components: {
+    CartDisplay
+  },
   data() {
     return {
       items: [],

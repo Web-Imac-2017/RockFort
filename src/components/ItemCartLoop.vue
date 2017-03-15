@@ -4,8 +4,8 @@
       <span class="item-left">
         <img :src="item.img" alt="" class="itemImg">
         <span class="item-info">
-          <span>{{ item.vinylTitle }}</span>
-          <span>{{ item.qty }} x {{ item.price }}€</span>
+          <span class="title">{{ item.vinylTitle }}</span>
+          <span class="qty">{{ item.qty }} x {{ item.price }}€</span>
         </span>
       </span>
       <span class="item-right">
