@@ -26,6 +26,21 @@ export default {
       })
     }
   },
+  addMultiple(product, quantity){
+    var occurence = _.find(this.data.cart, ['id', product.id])
+    if (typeof occurence != 'object') {
+      this.data.cart.push({
+        id: product.id,
+        vinylTitle: product.nom,
+        price: product.prix,
+        img: product.image,
+        qty: quantity
+      })
+    }else{
+      var index = _.indexOf(this.data.cart, occurence)
+      this.data.cart[index].qty = this.data.cart[index].qty + quantity
+    }
+  },
   inc(product){
     var occurence = _.find(this.data.cart, ['id', product.id])
     if (typeof occurence == 'object') {
