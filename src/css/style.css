@@ -361,6 +361,10 @@ h1 {
   color: #000;
 }
 
+#selection img {
+  width: 100%;
+}
+
 /*OST*/
 #originalSoundTrack {
   min-height: 500px;
@@ -387,11 +391,11 @@ h1 {
   padding: 0 14px;
 }
 
-#originalSoundTrack .ost-left > img {
+#originalSoundTrack .ost-left > a > img {
   width: 380px;
 }
 
-#originalSoundTrack .ost-right > img {
+#originalSoundTrack .ost-right > div > a > img {
   width: 180px;
 }
 
@@ -767,7 +771,7 @@ h1 {
 }
 
 #laStory .selection img {
-  width: 260px;
+  width: 50px;
 }
 
 /* Abonnement */

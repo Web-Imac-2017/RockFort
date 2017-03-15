@@ -15,13 +15,16 @@
         <div class="col-md-3">
           <select v-model="filtreGenre" @click="emitRechercheSearchBar()">
             <option value="tout">Genre : Tout</option>
-            <option value='rock'>Rock</option>
-            <option value="rap">Rap</option>
-            <option value="oldies">Oldies</option>
-            <option value="nouveautes">Nouveautés</option>
             <option value="bande-originale">Bande Originale</option>
-            <option value="electro">Electro</option>
             <option value="classique">Classique</option>
+            <option value="electro">Electro</option>
+            <option value="jazz">Jazz</option>
+            <option value="nouveautes">Nouveautés</option>
+            <option value="oldies">Oldies</option>
+            <option value="pop">Pop</option>
+            <option value="rap">Rap</option>
+            <option value='rock'>Rock</option>
+            <option value="variete">Variété</option>            
           </select>
         </div>
         <div class="col-md-3">

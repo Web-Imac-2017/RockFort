@@ -297,6 +297,8 @@ h1{
   a{
     color: $black;
   }
+
+  img{width:100%;}
 }
 
 /*OST*/
@@ -319,8 +321,8 @@ h1{
   .ost-right > h2,
   .ost-right > p {padding:0 14px;}
 
-  .ost-left > img{width:380px;}
-  .ost-right > img{width:180px;}
+  .ost-left > a > img{width:380px;}
+  .ost-right > div > a > img{width:180px;}
 }
 
 
@@ -623,7 +625,7 @@ h1{
     }
 
     img{
-      width:260px;
+      width:50px;
     }
   }
 }
