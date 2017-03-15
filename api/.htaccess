@@ -1,4 +1,16 @@
 RewriteEngine on
 
+Header add Access-Control-Allow-Origin http://localhost:8080
+Header add Access-Control-Allow-Credentials true
+Header add Access-Control-Allow-Headers "Authorization, Accept, Origin, X-Requested-With, Content-Type"
+Header add Access-Control-Allow-Methods "GET, POST"
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+#Pour rappel, ça c'est pour que ça marche en local
+#Il faudra peut-être modifier votre fichier httpd.conf, qui sous wamp est dans : C:\wamp64\bin\apache\apache2.4.23\conf
+#Il faut décommenté la ligne : LoadModule headers_module modules/mod_headers.so
+#Il faudra peut-être redémarrer wamp pour que ça marche
+#Et en local il faudra faire des appels ajax avec des url du type : 'http://localhost:80/nom-de-votre-dossier/api/le-truc-attendu'
+#Les noms des "trucs attendus" c'est les routes qui sont dans index.php, s'il faut je repréciserai
