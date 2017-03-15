@@ -24,7 +24,7 @@
 							<router-link to="/store/coffrets/tout/date-desc">
 								<div class="card" style="background: url('src/assets/imgs/muse.jpg') center no-repeat; background-size: cover;">
 									<div class="cardBg"></div>
-									<h2>Coffrets</h2>
+								    <h2>Coffrets</h2>
 								</div>
 							</router-link>
 						</div>
@@ -41,12 +41,13 @@
 							<h2>Sélection Oldies</h2>
 						</router-link>
 					</div>
-					<div class="col-md-4">
-						<img src="src/assets/imgs/coffretBeatles.jpg" />
-						<h2>Le coffret du mois</h2>
+					<div class="col-md-4" v-for="product in coffretDuMois()">
+						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
+							<img :src="product.image" />
+						  <h2>Le coffret du mois</h2>
+						</router-link>
 					</div>
 					<div class="col-md-4">
-
 						<router-link v-on:click.native="emitGenreFromHome('nouveautes')" to="/store/vinyles/nouveautes/date-desc">
 							<img src="src/assets/imgs/lalaland.jpg" />
 							<h2>Sélection Nouveautés</h2>
@@ -158,6 +159,31 @@ export default {
       else {
 			  return resultatsArray.slice(1,limit)
 			}
+		},
+
+		coffretDuMois() {
+			var resultatsArray = this.products;
+			var filtre = ["coffret","month"];
+
+			resultatsArray = resultatsArray.filter(function(item){
+				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1 && item.genre.toLowerCase().indexOf(filtre[1]) !== -1){
+					return item;
+				}
+			})
+
+			resultatsArray.sort(function(a,b){
+        var myA = a.date;
+        var myB = b.date;
+        if(myA < myB) {
+          return 1;
+        }
+        if(myA > myB) {
+          return -1;
+        }
+          return 0;
+      })
+
+     	return resultatsArray.slice(0,1)
 		}
 	}
 }

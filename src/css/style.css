@@ -361,6 +361,10 @@ h1 {
   color: #000;
 }
 
+#selection img {
+  width: 100%;
+}
+
 /*OST*/
 #originalSoundTrack {
   min-height: 500px;
@@ -767,7 +771,7 @@ h1 {
 }
 
 #laStory .selection img {
-  width: 260px;
+  width: 50px;
 }
 
 /* Abonnement */
