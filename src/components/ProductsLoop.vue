@@ -1,26 +1,35 @@
 <template>
   <div class="product">
-    <div class="col-md-3">
+    <div class="col-md-3 col-xs-6">
       <div class="vinyleItem">
-        <router-link link to="/vinyle/resultat.nom"><img :src="product.image" /></router-link>
+        <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
       </div>
-      <p class="vinylTitle">{{product.nom}}</p>
-      <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>
       <div class="row">
-        <div class="col-md-6" v-if="qtyInCart == 0">
+        <div class="col-md-12">
+          <p class="vinylTitle">{{product.nom}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-xs-8" v-if="qtyInCart == 0">
           <button class="addToCart" @click="addToCart">
             Ajouter au panier
           </button>
         </div>
+
         <div class="controls" v-else>
-          <div class="col-md-3">
+          <div class="col-md-3 col-xs-3">
             <button class="inc" @click="inc">+</button>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 col-xs-3">
             <button class="dec" @click="dec">-</button>
           </div>
         </div>
-        <div class="col-md-5 col-md-offset-1">
+        <div class="col-md-2 col-xs-2">
           <p class="price"><span v-if="qtyInCart != 0">{{qtyInCart }}x</span>{{ product.prix }}€</p>
         </div>
       </div>
@@ -29,6 +38,7 @@
 </template>
 
 <script>
+import { Bus } from './bus.js'
 import _ from 'lodash'
 import CartState from '../shoppingCartState'
 
@@ -41,6 +51,7 @@ export default {
   },
   methods: {
     addToCart() {
+      console.log(this.product)
       CartState.add(this.product)
     },
     inc() {
@@ -48,6 +59,9 @@ export default {
     },
     dec() {
       CartState.dec(this.product)
+    },
+    handleScroll(){
+      Bus.$emit('scroll-position', window.scrollY);
     }
   },
   computed: {
@@ -61,5 +75,8 @@ export default {
       }
     }
   },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 }
 </script>
