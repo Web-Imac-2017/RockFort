@@ -23,7 +23,7 @@
             $requete = $bdd->prepare("SELECT * FROM utilisateur WHERE  motDePasse = ? AND nom = ? AND prenom = ? AND mail = ? AND type = 'admin' ");
 
             $requete->execute( array( $this->getMdp(), $this->getNom(), $this->getPrenom(), $this->getMail() ) );
-            $resultat = $requete->fetch();
+            $resultat = $requete->fetchAll();
 
             if($resultat != NULL)
                 echo "Un administrateur avec les même données existe déjà !";
