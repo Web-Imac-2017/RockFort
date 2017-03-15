@@ -87,12 +87,18 @@
 			<router-link v-on:click.native="emitGenreFromHome('bande-originale')" to="/store/vinyles/bande-originale/date-desc">
 				<div class="container">
 					<div class="row">
-						<div class="ost-left col-md-4">
-							<img :src="product.image" v-for="product in imagesBandeOriginale(1)" />
+						<div class="ost-left col-md-4" v-for="product in imagesBandeOriginale(1)">
+						  <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
+							  <img :src="product.image" />
+							</router-link>
 						</div>
 						<div class="ost-right col-md-8">
 							<h2 class="nomargin">Les Bandes Originales</h2>
-							<img :src="product.image" v-for="product in imagesBandeOriginale(5)">
+							<div class="col-md-3" v-for="product in imagesBandeOriginale(5)">
+							  <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
+							    <img :src="product.image">
+							  </router-link>
+							</div>
 							<p>Retrouvez les plus beaux moments du cinéma sur vos platines !</p>
 						</div>
 					</div>

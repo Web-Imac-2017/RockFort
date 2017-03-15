@@ -387,11 +387,11 @@ h1 {
   padding: 0 14px;
 }
 
-#originalSoundTrack .ost-left > img {
+#originalSoundTrack .ost-left > a > img {
   width: 380px;
 }
 
-#originalSoundTrack .ost-right > img {
+#originalSoundTrack .ost-right > div > a > img {
   width: 180px;
 }
 
