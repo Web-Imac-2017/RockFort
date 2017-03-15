@@ -4,7 +4,8 @@ namespace App\Model\Table;
 
 use App\Model\Table;
 
-class Commentaire extends Table{
+class Commentaire extends Table
+{
 
     private $id;
     private $contenu;
@@ -72,6 +73,17 @@ class Commentaire extends Table{
     public function setIdProduit($id_produit)
     {
         $this->id_produit = $id_produit;
+    }
+
+
+    public function addComment()
+    {
+        $sql = "INSERT INTO commentaire(contenu, id_utilisateur, id_produit) VALUES(?, ?, ?)";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->bindValue(1, $_POST["commentaire"]);
+        $pdo->bindValue(2, $_SESSION["id"]);
+        $pdo->bindValue(3, $_POST["id_produit"]);
+        $pdo->execute();
     }
 
 }
