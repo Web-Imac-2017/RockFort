@@ -45,27 +45,27 @@
 									<h3>Victor</h3>
 									<h2>Développeur back-end</h2>
 									<div class="col-md-12"><img src="../assets/imgs/victor.jpg"></div>
-									<h2>Album préféré : Kick - INXS</h2>
+									<h2>Album préféré : All Hope Is Gone - Slipknot</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Alexane</h3>
 									<h2>Développeur back-end</h2>
 									<div class="col-md-12"><img src="../assets/imgs/alexane.jpg"></div>
-									<h2>Album préféré : Kick - INXS</h2>
+									<h2>Album préféré : Paramore - Paramore</h2>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-4 profilecard">
 									<h3>Mathieu</h3>
 									<h2>Développeur back-end</h2>
-									<!-- <div class="col-md-12"><img src="../assets/imgs/mathieu.jpg"></div> -->
+									<div class="col-md-12"><img src="../assets/imgs/mat.jpg"></div>
 									<h2>Album préféré : History - Michael Jackson</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Fazlullah</h3>
 									<h2>Développeur back-end</h2>
 									<div class="col-md-12"><img src="../assets/imgs/faz.jpg"></div>
-									<h2>Album préféré : Kick - INXS</h2>
+									<h2>Album préféré : Absolution - Muse</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Délio</h3>
