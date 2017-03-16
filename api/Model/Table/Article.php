@@ -76,18 +76,50 @@ class Article extends Table {
     }
 
     public function getArticles(){
-        $sql =  "SELECT * FROM $this->table";
-        $pdo = $this->getPDO();
-        $req = $pdo->query($sql);
-        $res = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $res;
+        $sql = "SELECT article.id, article.nom as titre, article.date, article.contenu as texte, article.image as imagecover, tag.nom as theme 
+FROM 
+article, 
+article_tag, 
+tag 
+WHERE article_tag.id_article = article.id AND article_tag.id_tag = tag.id";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute();
+        $tousLesArticles = $pdo->fetchAll(PDO::FETCH_ASSOC);
+
+        $articles = array();
+        foreach ($tousLesArticles as $a) {
+            $id = $a['id'];
+            if (!isset($articles[$id])) {
+                $articles[$id] = $a;
+                $articles[$id]['theme'] = array();
+            }
+            $articles[$id]['theme'][] = $a['theme'];
+        }
+        $articles = call_user_func("array_merge", $articles);
+
+        $theme = array();
+        for ($i = 0; $i < count($articles); $i++) {
+            $theme[$i] = implode(" ", $articles[$i]["theme"]);
+            $articles[$i]["theme"] = $theme[$i];
+        }
+        return $articles;
     }
 
     public function getArticleById($id){
-        $sql = "SELECT * FROM $this->table WHERE id = ?";
+        $sql = "SELECT article.id, article.nom as titre, article.date, article.contenu as texte, article.image as imagecover, tag.nom as theme  FROM article, article_tag, tag WHERE 
+article.id
+ = ? AND article_tag.id_article = ? AND article_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
-        $pdo->execute([$id]);
-        $article = $pdo->fetch(PDO::FETCH_ASSOC);
+        $pdo->execute([$id, $id]);
+
+        $article = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $theme = [];
+        foreach ($article as $a) {
+            $theme[] = $a["theme"];
+        }
+        $theme = implode(" ", $theme);
+        $article = call_user_func_array("array_merge", $article);
+        $article["theme"] = $theme;
         return $article;
     }
 
