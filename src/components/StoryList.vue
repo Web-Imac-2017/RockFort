@@ -16,13 +16,13 @@
       <div v-for="article in rechercheArticles" class="row">
         <router-link :to="{ name: 'story', params: { id: article.id }}">
           <div class="col-sm-4 col-xs-12">
-            <img class="imageArticle" :src="article.imagecover" />
+            <img class="imageArticle" :src="article.image" />
           </div>
           <div class="col-sm-8 col-xs-12">
             <div class="articleContent">
-              <h2 class="title">{{ article.titre }}</h2>
-              <p class="infos">{{ article.date.split('-').reverse().join('-') }} par {{ article.auteur }} dans {{article.theme}}</p>
-              <p class="desc">{{article.texte.substring(0,200)}}(...)</p>
+              <h2 class="title">{{ article.nom }}</h2>
+              <p class="infos"><!--{{ article.date.split('-').reverse().join('-') }} par {{ article.auteur }} dans {{article.theme}} --></p>
+              <p class="desc">{{article.contenu.substring(0,200)}}(...)</p>
             </div>
           </div>
         </router-link>
@@ -64,7 +64,7 @@ export default{
     })
   },
   mounted () {
-    this.$http.get('/src/jsonTestArticle.json').then((response) => {
+    this.$http.get('http://localhost:80/vinyleStore/RockFort/api/articles').then((response) => {
       console.log("success", response)
       this.articles = response.data
     }, (response) => {
@@ -105,7 +105,7 @@ export default{
           }
         }
       })
-			
+
       //SORT
       if(filtre[3] == "date-asc"){
         articlesArray.sort(function(a,b){

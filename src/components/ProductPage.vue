@@ -157,8 +157,9 @@ export default{
 		}
 	},
 	mounted () {
-		this.$http.get('/src/jsonTest.json').then((response) => {
+		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products/').then((response) => {
 			console.log("success", response)
+			console.log("test" + response.data)
 			this.products = response.data
 		}, (response) => {
 			console.log("erreur", response)

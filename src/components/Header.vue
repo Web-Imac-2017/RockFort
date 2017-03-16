@@ -102,7 +102,6 @@ export default{
   },
   mounted () {
     this.$http.get('/src/jsonTest.json').then((response) => {
-      console.log("success", response)
       this.users = response.data
     }, (response) => {
       console.log("erreur", response)
