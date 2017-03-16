@@ -22,9 +22,9 @@
 						</div>
 						<div class="col-md-4">
 							<router-link to="/store/coffrets/tout/date-desc">
-								<div class="card" style="background: url('src/assets/imgs/muse.jpg') center no-repeat; background-size: cover;">
+								<div class="card" style="background: url('src/assets/imgs/coffrets/muse.jpg') center no-repeat; background-size: cover;">
 									<div class="cardBg"></div>
-								    <h2>Coffrets</h2>
+									<h2>Coffrets</h2>
 								</div>
 							</router-link>
 						</div>
@@ -35,21 +35,21 @@
 		<section id="selection">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-4" v-for="product in selectionOldies()">
 						<router-link v-on:click.native="emitGenreFromHome('oldies')" to="/store/vinyles/oldies/date-desc">
-							<img src="src/assets/imgs/oasis.jpg" />
+							<img :src="product.image" />
 							<h2>Sélection Oldies</h2>
 						</router-link>
 					</div>
 					<div class="col-md-4" v-for="product in coffretDuMois()">
 						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
 							<img :src="product.image" />
-						  <h2>Le coffret du mois</h2>
+							<h2>Le coffret du mois</h2>
 						</router-link>
 					</div>
-					<div class="col-md-4">
-						<router-link v-on:click.native="emitGenreFromHome('nouveautes')" to="/store/vinyles/nouveautes/date-desc">
-							<img src="src/assets/imgs/lalaland.jpg" />
+					<div class="col-md-4" v-for="product in selectionNew()">
+						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
+							<img :src="product.image" />
 							<h2>Sélection Nouveautés</h2>
 						</router-link>
 					</div>
@@ -85,26 +85,32 @@
 			</div>
 		</section>
 		<section id="originalSoundTrack">
-			<router-link v-on:click.native="emitGenreFromHome('bande-originale')" to="/store/vinyles/bande-originale/date-desc">
-				<div class="container">
-					<div class="row">
-						<div class="ost-left col-md-4" v-for="product in imagesBandeOriginale(1)">
-						  <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
-							  <img :src="product.image" />
-							</router-link>
-						</div>
-						<div class="ost-right col-md-8">
-							<h2 class="nomargin">Les Bandes Originales</h2>
-							<div class="col-md-3" v-for="product in imagesBandeOriginale(5)">
-							  <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
-							    <img :src="product.image">
-							  </router-link>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4" v-for="product in imagesBandeOriginale(1)">
+						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
+							<img :src="product.image" />
+						</router-link>
+					</div>
+					<div class="ost-right col-md-8">
+						<div class="row">
+							<div class="col-md-12">
+								<h2 class="nomargin">Les Bandes Originales</h2>
 							</div>
-							<p>Retrouvez les plus beaux moments du cinéma sur vos platines !</p>
+							<div class="col-md-3" v-for="product in imagesBandeOriginale(5)">
+								<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
+									<img :src="product.image">
+								</router-link>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<p>Retrouvez les plus beaux moments du cinéma sur vos platines !</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</router-link>
+			</div>
 		</section>
 	</div>
 </template>
@@ -119,7 +125,7 @@ export default {
 		}
 	},
 	mounted () {
-		this.$http.get('/src/jsonTest.json').then((response) => {
+		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => {
 			console.log("success", response)
 			this.products = response.data
 		}, (response) => {
@@ -136,54 +142,102 @@ export default {
 			var filtre = "bande-originale";
 
 			resultatsArray = resultatsArray.filter(function(item){
-				if(item.genre.toLowerCase().indexOf(filtre) !== -1){
+				if(item.theme.toLowerCase().indexOf(filtre) !== -1){
 					return item;
 				}
 			})
 
 			resultatsArray.sort(function(a,b){
-        var myA = a.date;
-        var myB = b.date;
-        if(myA < myB) {
-          return 1;
-        }
-        if(myA > myB) {
-          return -1;
-        }
-          return 0;
-      })
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
 
-      if(limit == 1) {
-      	return resultatsArray.slice(0,1)
-      }
-      else {
-			  return resultatsArray.slice(1,limit)
+			if(limit == 1) {
+				return resultatsArray.slice(0,1)
+			}
+			else {
+				return resultatsArray.slice(1,limit)
 			}
 		},
 
 		coffretDuMois() {
 			var resultatsArray = this.products;
-			var filtre = ["coffret","month"];
+			var filtre = ["coffrets","month"];
 
 			resultatsArray = resultatsArray.filter(function(item){
-				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1 && item.genre.toLowerCase().indexOf(filtre[1]) !== -1){
+				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1 && item.theme.toLowerCase().indexOf(filtre[1]) !== -1){
 					return item;
 				}
 			})
 
 			resultatsArray.sort(function(a,b){
-        var myA = a.date;
-        var myB = b.date;
-        if(myA < myB) {
-          return 1;
-        }
-        if(myA > myB) {
-          return -1;
-        }
-          return 0;
-      })
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
 
-     	return resultatsArray.slice(0,1)
+			return resultatsArray.slice(0,1)
+		},
+		selectionOldies() {
+			var resultatsArray = this.products;
+			var filtre = ["oldies"];
+
+			resultatsArray = resultatsArray.filter(function(item){
+				if(item.theme.toLowerCase().indexOf(filtre[0]) !== -1){
+					return item;
+				}
+			})
+
+			resultatsArray.sort(function(a,b){
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
+
+			return resultatsArray.slice(0,1)
+		},
+		selectionNew() {
+			var resultatsArray = this.products;
+			var filtre = ["new"];
+
+			resultatsArray = resultatsArray.filter(function(item){
+				if(item.theme.toLowerCase().indexOf(filtre[0]) !== -1){
+					return item;
+				}
+			})
+
+			resultatsArray.sort(function(a,b){
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
+
+			return resultatsArray.slice(0,1)
 		}
 	}
 }

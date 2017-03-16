@@ -48,7 +48,6 @@ export default {
   },
   methods: {
     inc() {
-      alert(this.item)
       CartState.inc(this.item)
     },
     dec() {

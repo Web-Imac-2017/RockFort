@@ -136,7 +136,7 @@ export default{
 
     emitTypeFromHeader(){
       var type = window.location.pathname.split("/").slice(2,3).pop();
-      Bus.$emit('type-produit', type)
+      Bus.$emit('type-produit', type);
     },
 
     connexionToggle() {

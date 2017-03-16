@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <p class="bandName">{{ product.auteur }} - <!--{{ product.date.substring(0,4)--> }}  </p>
+          <p class="bandName">{{ product.auteur }} - {{ product.date.substring(0,4) }}  </p>
         </div>
       </div>
       <div class="row">

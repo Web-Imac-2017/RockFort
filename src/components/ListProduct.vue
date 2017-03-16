@@ -50,7 +50,7 @@ export default{
     }
   },
   mounted () {
-    this.$http.get("http://localhost:80/vinyleStore/RockFort/api/products").then((response) => {
+    this.$http.get("http://localhost:80/vinyleStore/RockFort/api/" + this.typeProduit).then((response) => {
       console.log("successRoute", response)
       this.products = response.data
     }, (response) => {
@@ -72,6 +72,16 @@ export default{
     Bus.$on('type-produit', typeProduit => {
       this.typeProduit = typeProduit;
     })
+  },
+  watch: {
+    typeProduit: function () {
+      this.$http.get("http://localhost:80/vinyleStore/RockFort/api/" + this.typeProduit).then((response) => {
+        console.log("successRoute", response)
+        this.products = response.data
+      }, (response) => {
+        console.log("erreur", response)
+      })
+    }
   },
   methods: {
     //SEARCH
@@ -102,7 +112,7 @@ export default{
           if(myA > myB) {
             return -1;
           }
-            return 0;
+          return 0;
         });
 
         return resultatsArray;
@@ -111,7 +121,7 @@ export default{
       rechercheString = rechercheString.trim().toLowerCase();
       resultatsArray = resultatsArray.filter(function(item){
         if(filtre[2] == "recherche" || item.type.toLowerCase().indexOf(filtre[2]) !== -1) {
-          if(filtre[3] =='tout' || item.genre.toLowerCase().indexOf(filtre[3]) !== -1){
+          if(filtre[3] =='tout' || item.theme.toLowerCase().indexOf(filtre[3]) !== -1){
             if(rechercheString == "" || item.nom.toLowerCase().indexOf(rechercheString) !== -1){
               return item;
             }
@@ -174,8 +184,8 @@ export default{
           if(myA > myB) {
             return -1;
           }
-            return 0;
-          });
+          return 0;
+        });
       }
 
       if(window.location.pathname.split("/").slice(2,3).pop() == 'recherche') {

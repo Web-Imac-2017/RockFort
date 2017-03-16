@@ -353,23 +353,26 @@ h1{
   min-height:$sectionheight;
   background-color:$grey;
   padding: 75px 0;
+  img{
+    width: 100%;
+  }
 
   a{color: $black;}
 
-  .ost-right > h2{
+  .ost-right h2{
     font-size: 36px;
     margin-bottom: 20px;
   }
-  .ost-right > p{
+  .ost-right p{
     font-size: 28px;
   }
 
-  .ost-right > img,
-  .ost-right > h2,
-  .ost-right > p {padding:0 14px;}
+  .ost-right img,
+  .ost-right h2,
+  .ost-right p {padding:0 14px;}
 
-  .ost-left > a > img{width:380px;}
-  .ost-right > div > a > img{width:180px;}
+  .ost-left a img{width:380px;}
+  .ost-right div a img{width:180px;}
 }
 
 

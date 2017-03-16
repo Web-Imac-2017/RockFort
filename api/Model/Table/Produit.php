@@ -143,9 +143,9 @@ class Produit extends Table
 
     public function getAll()
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, 
-tag 
-WHERE produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = 
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag,
+tag
+WHERE produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste =
 artiste.id AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
@@ -173,11 +173,11 @@ artiste.id AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.
     public function getById($id)
     {
         //Au pire changer BDD et mettre tag dans produit
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE
 produit.id
  = ?
- AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
-artiste.id 
+ AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste =
+artiste.id
 AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id, $id, $id]);
@@ -194,8 +194,8 @@ AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
 
     public function getVinyles()
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag 
-WHERE produit.type = 'vinyle' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag
+WHERE produit.type = 'vinyles' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id
  AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
@@ -222,11 +222,11 @@ WHERE produit.type = 'vinyle' AND produit_artiste.id_produit = produit.id AND pr
 
     public function getVinyleById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE
 produit.id
  = ?
- AND produit.type = 'vinyle' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
-artiste.id 
+ AND produit.type = 'vinyles' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste =
+artiste.id
 AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id, $id, $id]);
@@ -243,39 +243,21 @@ AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
 
     public function getPlatines()
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag 
-WHERE produit.type = 'platine' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id
- AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.id";
+        $sql = "SELECT produit.* FROM produit WHERE produit.type = 'platines'";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
         $tousLesPlatines = $pdo->fetchAll(PDO::FETCH_ASSOC);
 
-        $platines = array();
-        foreach ($tousLesPlatines as $p) {
-            $id = $p['id'];
-            if (!isset($platines[$id])) {
-                $platines[$id] = $p;
-                $platines[$id]['theme'] = array();
-            }
-            $platines[$id]['theme'][] = $p['theme'];
-        }
-        $platines = call_user_func("array_merge", $platines);
-
-        $theme = array();
-        for ($i = 0; $i < count($platines); $i++) {
-            $theme[$i] = implode(" ", $platines[$i]["theme"]);
-            $platines[$i]["theme"] = $theme[$i];
-        }
-        return $platines;
+        return $tousLesPlatines;
     }
 
     public function getPlatineById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE
 produit.id
  = ?
- AND produit.type = 'platine' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
-artiste.id 
+ AND produit.type = 'platines' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste =
+artiste.id
 AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id, $id, $id]);
@@ -292,8 +274,8 @@ AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
 
     public function getCoffrets()
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag WHERE produit.type = 'coffret' AND 
-produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id AND produit_tag.id_produit = 
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag WHERE produit.type = 'coffrets' AND
+produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id AND produit_tag.id_produit =
 produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
@@ -320,11 +302,11 @@ produit.id AND produit_tag.id_tag = tag.id";
 
     public function getCoffretById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE
 produit.id
  = ?
- AND produit.type = 'coffret' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
-artiste.id 
+ AND produit.type = 'coffrets' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste =
+artiste.id
 AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute([$id, $id, $id]);

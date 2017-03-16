@@ -159,7 +159,6 @@ export default{
 	mounted () {
 		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products/').then((response) => {
 			console.log("success", response)
-			console.log("test" + response.data)
 			this.products = response.data
 		}, (response) => {
 			console.log("erreur", response)
@@ -192,6 +191,7 @@ export default{
 		selectProduct(limit, update){
 			var resultatsArray = this.products;
 			var count = 0;
+			var filtre = ["coupdecoeur"];
 
 			if(update == true){
 				this.$forceUpdate();
@@ -205,7 +205,7 @@ export default{
 				return resultatsArray;
 			}
 			resultatsArray = resultatsArray.filter(function(item){
-				if(item.id != window.location.pathname.split('/').pop() && item.genre.indexOf('coupdecoeur') !== -1 && count < limit) {
+				if(item.id != window.location.pathname.split('/').pop() && item.theme.toLowerCase().indexOf(filtre[0]) !== -1 && count < limit) {
 					count++
 					return item
 				}
@@ -238,7 +238,6 @@ export default{
 		handleScroll() {
 			console.log(document.documentElement.scrollHeight - document.documentElement.clientHeight)
 			var currentScrollPosition = window.scrollY;
-			console.log("Scrolling down"+ currentScrollPosition);
 			if(currentScrollPosition >= document.documentElement.scrollHeight - document.documentElement.clientHeight){
 				this.commentLimit += 3
 			}

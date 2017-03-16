@@ -63,12 +63,12 @@
 								<div class="row">
 									<div class="col-xs-12">
 										<p>Pour écouter les meilleurs disques, il faut le meilleur matériel.</p>
-										<h3>Nos coups de coeur : </h3>
+										<h3>Nos dernières platines : </h3>
 									</div>
 								</div>
 								<div class="row">
 									<div class="productList">
-										<div class="col-xs-6 col-md-3" v-for="product in coupDeCoeur('platines', 'coupdecoeur' , 5)">
+										<div class="col-xs-6 col-md-3" v-for="product in coupDeCoeurPlatines('platines', 'coupdecoeur' , 5)">
 											<div class="vinyleItem">
 												<router-link :to="{ name: 'product', params: { type:'platines' , id: product.id }}"><img :src="product.image" /></router-link>
 											</div>
@@ -135,13 +135,20 @@
 export default {
 	data () {
 		return {
-			products: []
+			products: [],
+			platines: []
 		}
 	},
 	mounted () {
-		this.$http.get('/src/jsonTest.json').then((response) => {
+		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => {
 			console.log("success", response)
 			this.products = response.data
+		}, (response) => {
+			console.log("erreur", response)
+		}),
+		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/platines').then((response) => {
+			console.log("success", response)
+			this.platines = response.data
 		}, (response) => {
 			console.log("erreur", response)
 		})
@@ -152,26 +159,56 @@ export default {
 			var filtre = [type, genre]
 
 			resultatsArray = resultatsArray.filter(function(item){
-				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1 && item.genre.toLowerCase().indexOf(filtre[1]) !== -1){
+				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1 && item.theme.toLowerCase().indexOf(filtre[1]) !== -1){
 					return item;
 				}
 			})
 
+
 			resultatsArray.sort(function(a,b){
-        var myA = a.date;
-        var myB = b.date;
-        if(myA < myB) {
-          return 1;
-        }
-        if(myA > myB) {
-          return -1;
-        }
-          return 0;
-      })
-      if(limit == 1) {
-       	return resultatsArray.slice(0,1)
-      }
-      else{
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
+			if(limit == 1) {
+				return resultatsArray.slice(0,1)
+			}
+			else{
+				return resultatsArray.slice(1,limit)
+			}
+		},
+		coupDeCoeurPlatines(type, genre, limit) {
+			var resultatsArray = this.platines
+			var filtre = [type, genre]
+
+			resultatsArray = resultatsArray.filter(function(item){
+				if(item.type.toLowerCase().indexOf(filtre[0]) !== -1){
+					return item;
+				}
+			})
+
+
+			resultatsArray.sort(function(a,b){
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
+			if(limit == 1) {
+				return resultatsArray.slice(0,1)
+			}
+			else{
 				return resultatsArray.slice(1,limit)
 			}
 		}

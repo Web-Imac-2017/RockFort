@@ -431,30 +431,34 @@ h1 {
   padding: 75px 0;
 }
 
+#originalSoundTrack img {
+  width: 100%;
+}
+
 #originalSoundTrack a {
   color: #000;
 }
 
-#originalSoundTrack .ost-right > h2 {
+#originalSoundTrack .ost-right h2 {
   font-size: 36px;
   margin-bottom: 20px;
 }
 
-#originalSoundTrack .ost-right > p {
+#originalSoundTrack .ost-right p {
   font-size: 28px;
 }
 
-#originalSoundTrack .ost-right > img,
-#originalSoundTrack .ost-right > h2,
-#originalSoundTrack .ost-right > p {
+#originalSoundTrack .ost-right img,
+#originalSoundTrack .ost-right h2,
+#originalSoundTrack .ost-right p {
   padding: 0 14px;
 }
 
-#originalSoundTrack .ost-left > a > img {
+#originalSoundTrack .ost-left a img {
   width: 380px;
 }
 
-#originalSoundTrack .ost-right > div > a > img {
+#originalSoundTrack .ost-right div a img {
   width: 180px;
 }
 
