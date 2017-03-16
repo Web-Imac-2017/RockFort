@@ -5,9 +5,9 @@
 				<div class="col-xs-4">
 					<div class="about">
 						<ul>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">L'équipe</a></li>
-							<li><a href="#">Mentions légales</a></li>
+							<li><a href="/contact">Contact</a></li>
+							<li><a href="/lequipe">L'équipe</a></li>
+							<li><a href="/mentionslegales">Mentions légales</a></li>
 						</ul>
 					</div>
 				</div>

@@ -6,20 +6,26 @@
 					<div class="row">
 						<div class="col-md-4">
 							<router-link to="/store/vinyles/tout/date-desc">
-								<h2>Vinyles</h2>
-								<img src="src/assets/imgs/vinyles.jpg" />
+								<div class="card" style="background: url('src/assets/imgs/vinyles.jpg') center no-repeat; background-size: cover;">
+									<div class="cardBg"></div>
+									<h2>Vinyles</h2>
+								</div>
 							</router-link>
 						</div>
 						<div class="col-md-4">
 							<router-link to="/store/platines/tout/date-desc">
-								<h2>Platines</h2>
-								<img src="src/assets/imgs/platines.jpg" />
+								<div class="card" style="background: url('src/assets/imgs/platines.jpg') center no-repeat; background-size: cover;">
+									<div class="cardBg"></div>
+									<h2>Platines</h2>
+								</div>
 							</router-link>
 						</div>
 						<div class="col-md-4">
 							<router-link to="/store/coffrets/tout/date-desc">
-								<h2>Coffrets</h2>
-								<img src="src/assets/imgs/muse.jpg" />
+								<div class="card" style="background: url('src/assets/imgs/muse.jpg') center no-repeat; background-size: cover;">
+									<div class="cardBg"></div>
+									<h2>Coffrets</h2>
+								</div>
 							</router-link>
 						</div>
 					</div>
@@ -70,6 +76,9 @@
 						<p class="hook">
 							Les nouveautés comme les grands classiques dans votre boîte aux lettres.
 						</p>
+						<router-link to="/abonnement">
+							<button>Je m'abonne</button>
+						</router-link>
 					</div>
 				</div>
 			</div>
@@ -114,7 +123,7 @@ export default {
 		emitGenreFromHome(value){
 			Bus.$emit('recherche-genre', value);
 		},
-		
+
 		imagesBandeOriginale(limit) {
 			var resultatsArray = this.products;
 			var filtre = "bande-originale";
@@ -126,21 +135,21 @@ export default {
 			})
 
 			resultatsArray.sort(function(a,b){
-                        var myA = a.date;
-                        var myB = b.date;
-                        if(myA < myB) {
-                            return 1;
-                        }
-                        if(myA > myB) {
-                            return -1;
-                        }
-                        return 0;
-            })
+				var myA = a.date;
+				var myB = b.date;
+				if(myA < myB) {
+					return 1;
+				}
+				if(myA > myB) {
+					return -1;
+				}
+				return 0;
+			})
 
-            if(limit == 1) {
-            	return resultatsArray.slice(0,1)
-            }
-        	else{
+			if(limit == 1) {
+				return resultatsArray.slice(0,1)
+			}
+			else{
 				return resultatsArray.slice(1,limit)
 			}
 		}

@@ -67,6 +67,9 @@ h1{
   form{
     padding:0 20px;
     display: inline;
+    input{
+      padding: 5px;
+    }
   }
   .navbar-collapse.collapse.in li{
     display: none;
@@ -166,7 +169,7 @@ h1{
 
 /*SUBMENU*/
 #subMenu{
-  margin-top: 131px;
+  margin-top: 128px;
 
   div{
     padding: 0;
@@ -188,6 +191,26 @@ h1{
 
       margin: 0;
       padding: 0;
+    }
+    &.card{
+      height: 420px;
+    }
+    &.card:hover .cardBg, .cardEvent:hover .cardBg{
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &.cardBg{
+      background: rgb(14,134,214); /* Old browsers */
+      background: -moz-linear-gradient(-45deg, rgba(14,134,214,0.3) 0%, rgba(237,232,109,0.3) 99%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(-45deg, rgba(14,134,214,0.3) 0%,rgba(237,232,109,0.3) 99%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(135deg, rgba(14,134,214,0.3) 0%,rgba(237,232,109,0.3) 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e86d6', endColorstr='#ede86d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      filter: alpha(opacity=30);
+
+      height: 100%;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.2s ease;
     }
   }
 }
@@ -223,6 +246,19 @@ h1{
     font-weight: 800;
     font-size: 30px;
   }
+  button{
+    border: 2px solid $white;
+    background-color: $white;
+    text-align: center;
+    color: $yellow;
+    margin-bottom: 20px;
+    cursor: pointer;
+    padding: 15px 25px;
+    @include transition(.2s);
+    &:hover{
+      box-shadow: -5px 5px rgba(0,0,0,0.3);
+    }
+  }
 }
 
 /*SELECTION*/
@@ -230,7 +266,9 @@ h1{
   min-height:$sectionheight;
   padding:50px 0;
   text-align: center;
-  a{color:$black;}
+  a{
+    color: $black;
+  }
 }
 
 /*OST*/
@@ -367,6 +405,7 @@ h1{
     cursor: pointer;
   }
   .addToCart{
+    border: none;
     line-height: 50px;
     letter-spacing: 3px;
     cursor: pointer;
@@ -379,17 +418,26 @@ h1{
   .ratingArea{
     background-color: $beige;
     padding: 30px 0;
-    .note, .moreNote{
+    .note, .moreNote, .validate{
       border: 1px solid $yellow;
       padding: 10px;
       text-align: center;
       cursor: pointer;
       color: $black;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       margin-top: 0;
+      @include transition(.2s);
+      &:hover{
+        background-color: $yellow;
+      }
     }
-    .note:hover, .moreNote:hover{
+    .validate{
       background-color: $yellow;
+      padding: 20px !important;
+      @include transition(.2s);
+      &:hover{
+        box-shadow: -2px 2px rgba(0,0,0,0.3);
+      }
     }
     .moreNote{margin: 0;}
     .comment{
@@ -408,9 +456,11 @@ h1{
       }
     }
     .commentForm{
-      input{margin:10px 0 10px 10px;}
-      textarea{margin:10px 0 20px 10px;}
-      button{margin:0 0 20px 10px;}
+      input, textarea, button{
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
     }
     .commentFormHidden{display:none}
   }
@@ -553,7 +603,7 @@ h1{
 /* Abonnement */
 #abonnement{
   .banner{
-    margin-top: 130px;
+    margin-top: 128px;
     min-height: 570px;
     background-size: cover;
     p{
@@ -594,6 +644,12 @@ h1{
         background-color: transparent;
         color: $blue;
         border: 1px solid $blue;
+        @include transition(.2s);
+        &:hover{
+          background-color: $blue;
+          color: $white;
+          border: 1px solid $blue;
+        }
       }
     }
   }
@@ -614,7 +670,7 @@ h1{
       }
     }
   }
-  .boxes{
+  #boxes{
     background-color: $beige;
     padding: 50px 0;
     .tabButton{
@@ -622,16 +678,18 @@ h1{
       padding: 25px;
       text-align: center;
       cursor: pointer;
+      height: 110px;
     }
     .boxContent{
       background-color: white;
-      padding: 25px;
+      padding: 25px 25px 0 25px;
       .boxChoice{
         text-align: center;
         border: 2px solid rgb(245, 245, 245);
         padding: 15px;
         cursor: pointer;
         min-height: 200px;
+        margin-bottom: 25px;
         @include transition(.3s);
         &:hover{
           border-color: $blue;
@@ -808,6 +866,98 @@ h1{
         margin: 0;
       }
     }
+  }
+}
+
+/*Page contact*/
+.contact {
+  #leContact{
+    background: url('../assets/imgs/contact_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  .contactForm{
+    border-top: 1px solid $grey;
+    padding-top: 24px;
+    margin-top: 24px;
+    button.validate{
+      background-color: $blue;
+      border: none;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    input{
+      padding: 10px;
+      width: 100%;
+      margin-top: 25px;
+    }
+    textarea {
+      padding: 10px;
+      width: 100%;
+      height: auto;
+      resize: none;
+      margin-top: 25px;
+    }
+    .validate{
+      background-color: $blue;
+      color: white;
+      margin-top: 25px;
+      width: 100%;
+      border: none;
+      border: 1px solid $blue;
+      text-align: center;
+      cursor: pointer;
+      padding: 15px 25px;
+      @include transition(.1s);
+      &:hover{
+        color: white;
+        background-color: darken($blue, 10%);
+      }
+    }
+  }
+}
+
+/*Page l'équipe*/
+.equipe {
+  p{
+    text-align: center;
+  }
+  #lequipe{
+    background: url('../assets/imgs/contact_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  .profiles {
+    margin: 20px 0;
+    padding: 5px;
+    .profilecard {
+      display: block;
+      margin: 30px 0;
+      h3, h2 {
+        text-align: center;
+        margin: 0;
+      }
+      h2{
+        font-weight: 200;
+        font-style: italic;
+      }
+      img{
+        width: 100%;
+        border: 2px solid $blue;
+      }
+    }
+  }
+}
+
+/*Page mentions légales*/
+.mentions {
+  #laMention{
+    background: url('../assets/imgs/contact_header.jpg') bottom no-repeat fixed;
+    background-size: cover;
+  }
+  img{
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 

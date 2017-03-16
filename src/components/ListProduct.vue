@@ -51,8 +51,8 @@ export default{
     }
   },
   mounted () {
-    this.$http.get('/src/jsonTest.json').then((response) => {
-      console.log("success", response)
+    this.$http.get('/api/index.php?vinyles').then((response) => {
+      console.log("successRoute", response)
       this.products = response.data
     }, (response) => {
       console.log("erreur", response)
