@@ -28,6 +28,7 @@ class Commande extends Table{
     /**
      * @return mixed
      */
+
     public function getNumero()
     {
         return $this->numero;
@@ -67,6 +68,11 @@ class Commande extends Table{
 
 
     /**SETTERS**/
+
+     public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @param mixed $numero
@@ -110,9 +116,56 @@ class Commande extends Table{
 
     public function getAllCommandesByUserId($user_id)
     {
-        $sql = "SELECT * FROM $this->table WHERE "; //ou du LEFT JOIN
+        $sql = "SELECT * FROM ( (commande INNER JOIN commande_utilisateur ON commande.id = commande_utilisateur.id_utilisateur) INNER JOIN commande_produit ON commande.id = commande_produit.id_commande ) WHERE commande_utilisateur.id_utilisateur = ?"; 
 
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute();
+        $tousLesCommandes = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        return $tousLesCommandes;
     }
 
+    public function creerCommande($id_client){
+        $sql = "INSERT INTO commande VALUES ('',?,NOW(),'','')";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute($id_client);
+
+        $sql"SELECT MAX(id) FROM commande";
+        $requete->execute( array( ) );
+        $id = $requete->fetchColumn();
+        $this->setIdUtilisateur($id);
+    }
+
+    public function ajoutProduit($id_produit, $id_client){
+
+        $sql = "SELECT stock FROM produit WHERE id = ?";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute($id_client);
+        $stock = $pdo->fetchColnum(PDO::FETCH_ASSOC);
+
+        if($stock < 1){
+            return ;
+        }
+
+        $sql = "INSERT INTO commande_produit VALUES ('',?,?)";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute($this->getId(),$id_produit);
+
+        $sql = "INSERT INTO commande_utilisateur VALUES ('',?,?)";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute($this->getId(),$id_client);
+
+        $sql = "SELECT prix FROM produit WHERE id = ?";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute( array( $id_produit) );
+        $prix = $pdo ->fetchColumn();
+
+        $requete = $bdd->prepare("SELECT ttc FROM commande WHERE id = ?");
+        $requete->execute( array( $this->getId() ) );
+        $ttc = $requete->fetchColumn();
+
+        $requete = $bdd->prepare("UPDATE commande SET ttc = ? + ? WHERE id = ?");
+        $requete->execute( array( $prix, $ttc, $this->getId() ) );
+
+    }
 
 }
