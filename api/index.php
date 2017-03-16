@@ -25,6 +25,7 @@ $routeur->get('users/:id/commandes', "Read#users_id_commandes"); //ou ->post
 /**Create**/
 $routeur->get('commandes/', "Create#commandes_add_idproduct_qty");//ou ->post
 $routeur->post('users/create', "Create#user_create");//ou ->post
+$routeur->post('users/addComment', "Create#addComment");
 
 /**Update**/
 $routeur->post('users/:id/update/delivery_address', "Update#user_id_delivery_address_update");//ou ->post

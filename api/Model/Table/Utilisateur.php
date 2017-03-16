@@ -210,7 +210,7 @@ class Utilisateur extends Table
         $sql = "INSERT INTO utilisateur(type, identifiant, motDePasse, nom, prenom, adresse, ville, region, pays) VALUES(?, ?, ?, ?, 
 ?, ?, ?, ?, ?)";
         $pdo = $this->getPDO()->prepare($sql);
-        $pdo->bindValue(1, 0);
+        $pdo->bindValue(1, 'client');
         $pdo->bindValue(2, $_POST['identifiant']);
         $pdo->bindValue(3, sha1($_POST['motDePasse']));
         $pdo->bindValue(4, $_POST['nom']);
@@ -220,7 +220,6 @@ class Utilisateur extends Table
         $pdo->bindValue(8, $_POST['region']);
         $pdo->bindValue(9, $_POST['pays']);
         $pdo->execute();
-        header('Location: '. WEB_ROOT);
     }
 
 
