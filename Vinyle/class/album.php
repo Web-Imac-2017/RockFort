@@ -13,7 +13,7 @@
     }
 
     
-
+    /*
     $nom = "This time around";
 	$image = "image";
 	$musique = "musique";
@@ -26,6 +26,6 @@
 
 	$vinyle = new Album($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
 	$vinyle->ajoutBddAlbum();
-
+*/
 
 ?>

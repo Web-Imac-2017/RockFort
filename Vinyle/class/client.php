@@ -49,6 +49,7 @@
             $requete->execute(array($adresse,$this->getId()));
         }
 
+        /* Selection des adresses d'un utilisateur en fonction de la table adresse et commande_utilisateur*/
         public function mesAdresseLivraison(){
             global $bdd;
 
@@ -60,7 +61,7 @@
 
         }
 
-               
+        
         public function connexion_client($mdp, $mail){
             $this->connexion( "client", $mdp, $mail);
         }
@@ -69,17 +70,19 @@
             $this->deconnexion( "client", $mdp, $mail);
         }
 
+         /*  Ajout d'un client dans la base de donnée*/
          public function ajoutBdd(){
             global $bdd;
-
+            /*  Selection de l'id d'un client en fonction son mail et de son type 'client' dans la table utilisateur */ 
             $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE mail = ? AND type = 'client' ");
 
             $requete->execute( array( $this->getMail() ) );
             $resultat = $requete->fetchColumn();
-
+             /* Verifie si le client est deja dans la base de donnée*/
             if($resultat != NULL)
                 echo "Un utilisateur avec la meme adresse mail existe déjà existe deja !";
-            
+
+            /* Insere dans la table utilisateur les données du client */
             else{
                 $requete = $bdd->prepare("INSERT INTO utilisateur VALUES ('','client',?,?,?,?,?)");
             $requete->execute( array($this->getMdp(),$this->getNom(),$this->getPrenom(),$this->getMail(), $this->getAdresse() ) );
@@ -106,7 +109,7 @@
         public function retirerProduitPanier($id_produit){
             $this->getPanier()->retirer_produit($id_produit);
         }
-
+        /* Selection des commandes en fonction de leurs id dans la table commande_utilisateur et commande*/
         public function lesCommandes(){
             global $bdd;
             $requete = $bdd->prepare("SELECT id_commande FROM ( commande_utilisateur INNER JOIN commande ON commande.id =  id_commande) WHERE id_utilisateur = ? ");
@@ -126,11 +129,12 @@
 
 
     }
+    /*
 
     $client = new Client("mdp","ngjom","prensom","lijhljegkhhjjjkhjhjkghjrgam","la vie");
     $client->ajoutBdd();
     $client->connexion_client("mdp","lijhljegkhhjjjkhjhjkghjrgam");
     echo $_SESSION['id'];
-    
+    */
     
     ?>

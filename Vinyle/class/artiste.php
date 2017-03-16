@@ -61,11 +61,11 @@
     }
 
 }
-
+    /*
     $artiste = new Artiste("Michael Jackson", "Artiste de varieté le plus courroner de tous les temps", "image");
     $artiste->ajoutBdd();
     echo $artiste->getId();
-
+    */
 
 
 ?> 

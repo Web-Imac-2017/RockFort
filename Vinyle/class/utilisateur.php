@@ -44,6 +44,7 @@
                     $this->id = $id;
                 }
 
+                /* Affecte l'id de l'utilisateur a la session */
                 public function connexion(  $type, $mdp, $mail){
                     global $bdd;
                     $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE type = ? AND motDePasse = ? AND mail = ?");
@@ -54,6 +55,7 @@
                     return $resultat;
                 }
 
+                /* Détruit la session */
                 public function deconnexion(  $type, $mdp, $mail){
                     global $bdd;
                     $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE type = ? AND motDePasse = ? AND mail = ?");
@@ -64,6 +66,7 @@
                         unset($_SESSION['id']);
                 }
 
+                /* Retourne les données de l'utilisateur en fonction de son id */
                 public function info(){
                      global $bdd;
                     $requete = $bdd->prepare("SELECT * FROM utilisateur WHERE id = ?");

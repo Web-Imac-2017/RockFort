@@ -16,7 +16,7 @@
    
     }
     
-
+    /*
     $nom = "This time around";
 	$image = "image";
 	$musique = "musique";
@@ -29,4 +29,5 @@
 
 	$vinyle = new Platine($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
 	//$vinyle->ajoutBddPlatine();
+    */
 ?>

@@ -21,13 +21,7 @@ class superAdmin{
             $admin = new Admin($identifiant,$mdp,$nom,$prenom,$mail);
             $admin->ajoutBdd();
         }
-        
-        function suppressionAdmin($id, $admin_list){
-            
-        }
+
     }
-
-
-    
-    
+      
 ?>

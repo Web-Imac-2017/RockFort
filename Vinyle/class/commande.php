@@ -20,7 +20,6 @@
          * Avec le constructeur en privé il nous est impossible d'instancier une variable directement
          * C'est pourquoi on créer une methode static (ici getInstance) pour vérifier si une instance de la classe existe déjà et la créer si besoin.
          * ****Rappel: static permet d'appeler un attribut ou même une fonction sans créer d'instance de la classe, on peut donc avoir accès à instance et à getInstance() sans instancier notre classe
-         * **** (DAB!) 
          */
         
         private static $instance;
@@ -86,6 +85,7 @@
             $requete->execute( array( $id_produit) );
             $achete = $prix = $requete->fetchColumn();
 
+            /* Verifie si le produit a deja été acheté, =1 si oui, =0 sinon */
             if ($achete == 0) {
                 
                 $requete = $bdd->prepare("INSERT INTO commande_produit VALUES ('',?,?)");
@@ -111,19 +111,18 @@
             else{
                 echo "Produit déjà acheté";
             }
-
-        	
-
-
-
-	        }
+ 
+ 	        }
       
         
         public function retirer_produit($id_produit){
             global $bdd;
+
+            /* Supprime le produit d'après son id */
         	$requete = $bdd->prepare("DELETE FROM commande_produit WHERE id_produit = ?");
 	        $requete->execute( array( $id_produit) );
 
+            /* Sélectionne, puis soustrait le prix du produit au prix de la commande */
 	        $requete = $bdd->prepare("SELECT prix FROM produit WHERE id = ?");
 	        $requete->execute( array( $id_produit) );
 	        $prix = $requete->fetchColumn();
@@ -136,9 +135,11 @@
 	        $requete->execute( array($ttc,  $prix, $this->getInstance()->getId() ) );
         }
         
-
+        /* Valide la transaction de la commande */
         public function valide_commande($adresse){
         	global $bdd;
+
+            /* Change le statut de la commande en "validé" (=1) */
         	$requete = $bdd->prepare("UPDATE commande SET valide = '1' WHERE id = ?");
 	        $requete->execute( array( $this->getInstance()->getId()) );
 
@@ -153,17 +154,21 @@
             $requete->execute( array( $this->getInstance()->getId(), $adresse) );
         }
 
-
+        /* Permet a l'utilisateur de noter le produit qu'il a acheté */
         public function note($id_utilisateur,$id_produit, $note){
             global $bdd;
+
+            /* Selectionne l'id du produit dans la jointure des tables commande_produit et commande */
             $requete = $bdd->prepare("SELECT id_produit FROM ( commande_produit INNER JOIN  commande ON id_commande = commande.id) WHERE id_produit = ? AND valide = '1' ");
             $requete->execute( array( $id_produit ) );
             $produit = $requete->fetchColumn();
 
+            /* Vérifie si l'utilisateur a acheté le produit */
             if ($produit == null) {
                 echo "Vous n'avez pas acheté ce produit vous ne pouvez pas le noter";
             }
 
+            /* Vérifie si l'utilisateur a déjà noté le produit */
             else{
                 $requete = $bdd->prepare("SELECT id FROM note WHERE id_produit = ? AND id_utilisateur = ?");
 
@@ -174,6 +179,7 @@
                     echo "Vous avez déjà noté le produit";
                 }
 
+                /* affecte une note dans la table note */
                 else{
                     $requete = $bdd->prepare("INSERT INTO note VALUES ('',?,?,?)");
                     $requete->execute( array($note,$id_produit,$id_utilisateur) );
@@ -184,7 +190,7 @@
 
 
 
-
+        /* Permet a l'utilisateur de commenter le produit qu'il a acheté */
         public function commentaire($id_utilisateur,$id_produit, $commentaire){
             global $bdd;
             $requete = $bdd->prepare("SELECT id_produit FROM ( commande_produit INNER JOIN  commande ON id_commande = commande.id) WHERE id_produit = ? AND valide = '1' ");
@@ -218,12 +224,13 @@
 
     } 
 
-
+    /*
     $commande = Commande::getInstance();
     $commande->ajoutBdd(89);
     $commande->ajoutProduit(137);
     /*$commande->ajoutProduit(83);
     $commande->ajoutProduit(87);*/
+    /*
     $commande->valide_commande("fggh");
    /* $commande->commentaire(89,79,"MJ toujours au top!");
     $commande->commentaire(89,83,"MJ king of pop");
