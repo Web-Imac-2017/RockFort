@@ -159,12 +159,18 @@ class Commande extends Table{
         $pdo->execute( array( $id_produit) );
         $prix = $pdo ->fetchColumn();
 
-        $requete = $bdd->prepare("SELECT ttc FROM commande WHERE id = ?");
-        $requete->execute( array( $this->getId() ) );
-        $ttc = $requete->fetchColumn();
+        $sql"SELECT ttc FROM commande WHERE id = ?";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute( array( $this->getId() ) );
+        $ttc = $pdo->fetchColumn();
 
-        $requete = $bdd->prepare("UPDATE commande SET ttc = ? + ? WHERE id = ?");
-        $requete->execute( array( $prix, $ttc, $this->getId() ) );
+        $sql = "UPDATE commande SET ttc = ? + ? WHERE id = ?";
+        $pdo = $this->getPDO()->prepare($sql);
+        $pdo->execute( array( $prix, $ttc, $this->getId() ) );
+
+    }
+
+    public function valide(){
 
     }
 
