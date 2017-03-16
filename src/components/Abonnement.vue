@@ -70,19 +70,25 @@
 							<div class="forMyself" v-if="forMyself">
 								<div class="row">
 									<div class="col-xs-12 col-md-6">
-										<div class="boxChoice" @click="box1On()" v-bind:class="{ 'active': box1 }">
+										<div class="boxChoice">
 											<h2>1 mois - 19€</h2>
 											<p>
 												1 box découverte
 											</p>
+											<button class="addToCart" @click="addToCart('Abonnement 1 mois')">
+												Ajouter au panier
+											</button>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-6">
-										<div class="boxChoice" @click="box2On()" v-bind:class="{ 'active': box2 }">
+										<div class="boxChoice">
 											<h2>12 mois - 150€</h2>
 											<p>
 												1 box découverte par mois + une affiche surprise
 											</p>
+											<button class="addToCart" @click="addToCart('Abonnement 12 mois')">
+												Ajouter au panier
+											</button>
 										</div>
 									</div>
 								</div>
@@ -97,27 +103,36 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-md-4">
-										<div class="boxChoice" @click="box3On()" v-bind:class="{ 'active': box3 }">
+										<div class="boxChoice">
 											<h2>1 mois - 19€</h2>
 											<p>
 												1 box
 											</p>
+											<button class="addToCart" @click="addToCart('Vous offrez 1 mois d\'abonnement')">
+												Ajouter au panier
+											</button>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-4">
-										<div class="boxChoice" @click="box4On()" v-bind:class="{ 'active': box4 }">
+										<div class="boxChoice">
 											<h2>3 mois - 55€</h2>
 											<p>
 												3 box
 											</p>
+											<button class="addToCart" @click="addToCart('Vous offrez 3 mois d\'abonnement')">
+												Ajouter au panier
+											</button>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-4">
-										<div class="boxChoice" @click="box5On()" v-bind:class="{ 'active': box5 }">
+										<div class="boxChoice">
 											<h2>12 mois - 150€</h2>
 											<p>
 												12 box + une affiche surprise
 											</p>
+											<button class="addToCart" @click="addToCart('Vous offrez 1 an d\'abonnement')">
+												Ajouter au panier
+											</button>
 										</div>
 									</div>
 								</div>
@@ -131,19 +146,19 @@
 </template>
 
 <script>
+import CartState from '../shoppingCartState'
+
 export default{
 	data() {
 		return {
 			forMyself: true,
-			offer: false,
-			box1: false,
-			box2: false,
-			box3: false,
-			box4: false,
-			box5: false
+			offer: false
 		}
 	},
 	methods: {
+		addToCart (box){
+			CartState.addBox(box)
+		},
 		myselfTab () {
 			this.forMyself = true,
 			this.offer = false
@@ -167,41 +182,6 @@ export default{
 			return{background : 'white'}
 			else
 			return {background:'rgb(245, 245, 245)'}
-		},
-		box1On () {
-			this.box1 = true,
-			this.box2 = false,
-			this.box3 = false,
-			this.box4 = false,
-			this.box5 = false
-		},
-		box2On () {
-			this.box1 = false,
-			this.box2 = true,
-			this.box3 = false,
-			this.box4 = false,
-			this.box5 = false
-		},
-		box3On () {
-			this.box1 = false,
-			this.box2 = false,
-			this.box3 = true,
-			this.box4 = false,
-			this.box5 = false
-		},
-		box4On () {
-			this.box1 = false,
-			this.box2 = false,
-			this.box3 = false,
-			this.box4 = true,
-			this.box5 = false
-		},
-		box5On () {
-			this.box1 = false,
-			this.box2 = false,
-			this.box3 = false,
-			this.box4 = false,
-			this.box5 = true
 		}
 	}
 }

@@ -50,7 +50,7 @@ export default{
     }
   },
   mounted () {
-    this.$http.get('/api/index.php?vinyles').then((response) => {
+    this.$http.get('/src/jsonTest.json').then((response) => {
       console.log("successRoute", response)
       this.products = response.data
     }, (response) => {
@@ -92,7 +92,7 @@ export default{
         })
 
         this.nombreResultats = resultatsArray.length;
-        
+
         resultatsArray.sort(function(a,b){
           var myA = a.date;
           var myB = b.date;
@@ -184,7 +184,7 @@ export default{
       }else {
         this.recherchePrefixe = "";
       }
-      
+
       this.nombreResultats = resultatsArray.length;
       return resultatsArray.slice(0, limit);
     },

@@ -23,7 +23,21 @@
 								</div>
 								<div class="row">
 									<div class="col-md-4">
-										<QuantitySelector></QuantitySelector>
+										<div class="quantitySelector">
+									    <div class="col-md-6">
+									      <div class="row">
+									        <div class="incrButton" @click="inc()"><img src="/src/assets/imgs/incr.png" width="35%" alt=""></div>
+									      </div>
+									      <div class="row">
+									        <div class="decrButton" @click="dec()"><img src="/src/assets/imgs/decr.png" width="35%" alt=""></div>
+									      </div>
+									    </div>
+									    <div class="col-md-6">
+									      <div class="quantity">
+									        {{ quantity }}
+									      </div>
+									    </div>
+									  </div>
 									</div>
 									<div class="col-md-8">
 										<button class="addToCart" @click="addToCart">
@@ -128,10 +142,8 @@
 
 <script>
 import CartState from '../shoppingCartState'
-import QuantitySelector from '../QuantitySelector.vue'
 
 export default{
-	components : { QuantitySelector },
 	data () {
 		return{
 			products: [],
@@ -140,7 +152,8 @@ export default{
 			isActive : true,
 			auteur: "",
 			titre: "",
-			texte:""
+			texte:"",
+			quantity: 1
 		}
 	},
 	mounted () {
@@ -161,8 +174,18 @@ export default{
 		window.addEventListener('scroll', this.handleScroll)
 	},
 	methods:{
+		inc () {
+			this.quantity++
+		},
+
+		dec () {
+			if (this.quantity > 1){
+				this.quantity--
+			}
+		},
+
 		addToCart() {
-			CartState.add(this.products[parseInt(window.location.pathname.split('/').pop())-1])
+			CartState.addMultiple(this.products[parseInt(window.location.pathname.split('/').pop())-1], this.quantity)
 		},
 
 		selectProduct(limit, update){

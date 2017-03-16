@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     addToCart() {
-      console.log(this.product)
       CartState.add(this.product)
     },
     inc() {
