@@ -50,7 +50,7 @@ export default{
     }
   },
   mounted () {
-    this.$http.get('/src/jsonTest.json').then((response) => {
+    this.$http.get("http://localhost:80/vinyleStore/RockFort/api/products").then((response) => {
       console.log("successRoute", response)
       this.products = response.data
     }, (response) => {
@@ -189,6 +189,7 @@ export default{
       return resultatsArray.slice(0, limit);
     },
     handleScroll(){
+      var currentScrollPosition = window.scrollY;
       if(currentScrollPosition >= document.documentElement.scrollHeight - document.documentElement.clientHeight){
         this.limitProduit += 4
       }else if(!currentScrollPosition){
