@@ -20,7 +20,6 @@ class Produit extends Table
     protected $table = "produit";
 
 
-
     /**
      * @return mixed
      */
@@ -141,78 +140,203 @@ class Produit extends Table
         $this->stock = $stock;
     }
 
+
     public function getAll()
     {
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, 
+tag 
+WHERE produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = 
+artiste.id AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
         $tousLesProduits = $pdo->fetchAll(PDO::FETCH_ASSOC);
-        return $tousLesProduits;
+
+        $products = array();
+        foreach ($tousLesProduits as $p) {
+            $id = $p['id'];
+            if (!isset($products[$id])) {
+                $products[$id] = $p;
+                $products[$id]['theme'] = array();
+            }
+            $products[$id]['theme'][] = $p['theme'];
+        }
+        $products = call_user_func("array_merge", $products);
+
+        $theme = array();
+        for ($i = 0; $i < count($products); $i++) {
+            $theme[$i] = implode(" ", $products[$i]["theme"]);
+            $products[$i]["theme"] = $theme[$i];
+        }
+        return $products;
     }
 
     public function getById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste FROM produit, artiste, produit_artiste WHERE id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        //Au pire changer BDD et mettre tag dans produit
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+produit.id
+ = ?
+ AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
+artiste.id 
+AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
-        $pdo->execute([$id]);
-        $produit = $pdo->fetch(PDO::FETCH_ASSOC);
-        return $produit;
+        $pdo->execute([$id, $id, $id]);
+        $produit = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $theme = [];
+        foreach ($produit as $p) {
+            $theme[] = $p["theme"];
+        }
+        $theme = implode(" ", $theme);
+        $product = call_user_func_array("array_merge", $produit);
+        $product["theme"] = $theme;
+        return $product;
     }
 
     public function getVinyles()
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'vinyle' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag 
+WHERE produit.type = 'vinyle' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id
+ AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
         $tousLesVinyles = $pdo->fetchAll(PDO::FETCH_ASSOC);
-        return $tousLesVinyles;
+
+        $vyniles = array();
+        foreach ($tousLesVinyles as $p) {
+            $id = $p['id'];
+            if (!isset($vyniles[$id])) {
+                $vyniles[$id] = $p;
+                $vyniles[$id]['theme'] = array();
+            }
+            $vyniles[$id]['theme'][] = $p['theme'];
+        }
+        $vyniles = call_user_func("array_merge", $vyniles);
+
+        $theme = array();
+        for ($i = 0; $i < count($vyniles); $i++) {
+            $theme[$i] = implode(" ", $vyniles[$i]["theme"]);
+            $vyniles[$i]["theme"] = $theme[$i];
+        }
+        return $vyniles;
     }
 
     public function getVinyleById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'vinyle' AND produit.id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+produit.id
+ = ?
+ AND produit.type = 'vinyle' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
+artiste.id 
+AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
-        $pdo->execute([$id]);
-        $vinyle= $pdo->fetch(PDO::FETCH_ASSOC);
-        return $vinyle;
+        $pdo->execute([$id, $id, $id]);
+        $vinyle = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $theme = [];
+        foreach ($vinyle as $v) {
+            $theme[] = $v["theme"];
+        }
+        $theme = implode(" ", $theme);
+        $product = call_user_func_array("array_merge", $vinyle);
+        $product["theme"] = $theme;
+        return $product;
     }
 
     public function getPlatines()
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 
-'platine' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag 
+WHERE produit.type = 'platine' AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id
+ AND produit_tag.id_produit = produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
         $tousLesPlatines = $pdo->fetchAll(PDO::FETCH_ASSOC);
-        return $tousLesPlatines;
+
+        $platines = array();
+        foreach ($tousLesPlatines as $p) {
+            $id = $p['id'];
+            if (!isset($platines[$id])) {
+                $platines[$id] = $p;
+                $platines[$id]['theme'] = array();
+            }
+            $platines[$id]['theme'][] = $p['theme'];
+        }
+        $platines = call_user_func("array_merge", $platines);
+
+        $theme = array();
+        for ($i = 0; $i < count($platines); $i++) {
+            $theme[$i] = implode(" ", $platines[$i]["theme"]);
+            $platines[$i]["theme"] = $theme[$i];
+        }
+        return $platines;
     }
 
     public function getPlatineById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'platine' AND produit.id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+produit.id
+ = ?
+ AND produit.type = 'platine' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
+artiste.id 
+AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
-        $pdo->execute([$id]);
-        $platine = $pdo->fetch(PDO::FETCH_ASSOC);
-        return $platine;
+        $pdo->execute([$id, $id, $id]);
+        $produit = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $theme = [];
+        foreach ($produit as $p) {
+            $theme[] = $p["theme"];
+        }
+        $theme = implode(" ", $theme);
+        $product = call_user_func_array("array_merge", $produit);
+        $product["theme"] = $theme;
+        return $product;
     }
 
- public function getCoffrets()
+    public function getCoffrets()
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'coffret' AND 
-produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, artiste, produit_artiste, tag, produit_tag WHERE produit.type = 'coffret' AND 
+produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id AND produit_tag.id_produit = 
+produit.id AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
         $pdo->execute();
         $tousLesCoffrest = $pdo->fetchAll(PDO::FETCH_ASSOC);
-        return $tousLesCoffrest;
+
+        $coffrets = array();
+        foreach ($tousLesCoffrest as $c) {
+            $id = $c['id'];
+            if (!isset($coffrets[$id])) {
+                $coffrets[$id] = $c;
+                $coffrets[$id]['theme'] = array();
+            }
+            $coffrets[$id]['theme'][] = $c['theme'];
+        }
+        $coffrets = call_user_func("array_merge", $coffrets);
+
+        $theme = array();
+        for ($i = 0; $i < count($coffrets); $i++) {
+            $theme[$i] = implode(" ", $coffrets[$i]["theme"]);
+            $coffrets[$i]["theme"] = $theme[$i];
+        }
+        return $coffrets;
     }
 
     public function getCoffretById($id)
     {
-        $sql = "SELECT produit.*, artiste.nom as artiste FROM produit, artiste, produit_artiste WHERE produit.type = 'coffret' AND produit.id = ? AND produit_artiste.id_produit = produit.id AND produit_artiste.id_artiste = artiste.id";
+        $sql = "SELECT produit.*, artiste.nom as auteur, tag.nom as theme FROM produit, produit_artiste, artiste, produit_tag, tag WHERE 
+produit.id
+ = ?
+ AND produit.type = 'coffret' AND produit_artiste.id_produit = ? AND produit_artiste.id_artiste = 
+artiste.id 
+AND produit_tag.id_produit = ? AND produit_tag.id_tag = tag.id";
         $pdo = $this->getPDO()->prepare($sql);
-        $pdo->execute([$id]);
-        $platine = $pdo->fetch(PDO::FETCH_ASSOC);
-        return $platine;
+        $pdo->execute([$id, $id, $id]);
+        $produit = $pdo->fetchAll(PDO::FETCH_ASSOC);
+        $theme = [];
+        foreach ($produit as $p) {
+            $theme[] = $p["theme"];
+        }
+        $theme = implode(" ", $theme);
+        $product = call_user_func_array("array_merge", $produit);
+        $product["theme"] = $theme;
+        return $product;
     }
 
 }
