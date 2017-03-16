@@ -12,8 +12,9 @@
         }
     }
 
-/*
 
+    
+    /*
     $nom = "This time around";
 	$image = "image";
 	$musique = "musique";

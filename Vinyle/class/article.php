@@ -43,6 +43,7 @@
 
         /* met à jour le texte de l'article */
 
+
         public function setText($text){
         	global $bdd;
 
@@ -53,7 +54,6 @@
         }
 
         /* met à jour les images de l'article*/
-
         public function setImage($image){
             global $bdd;
 
@@ -130,5 +130,3 @@
     //echo $article->getId();
     $article->setImage("East Coast vs West Coast");
     */
-
-    

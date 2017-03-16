@@ -21,6 +21,7 @@
          * C'est pourquoi on créer une methode static (ici getInstance) pour vérifier si une instance de la classe existe déjà et la créer si besoin.
          * ****Rappel: static permet d'appeler un attribut ou même une fonction sans créer d'instance de la classe, on peut donc avoir accès à instance et à getInstance() sans instancier notre classe
 
+
          */
         
         private static $instance;
@@ -115,6 +116,7 @@
             }
 
 	   }
+
       
         
         public function retirer_produit($id_produit){
@@ -138,9 +140,11 @@
 	        $requete->execute( array($ttc,  $prix, $this->getInstance()->getId() ) );
         }
         
-
+        /* Valide la transaction de la commande */
         public function valide_commande($adresse){
         	global $bdd;
+
+            /* Change le statut de la commande en "validé" (=1) */
         	$requete = $bdd->prepare("UPDATE commande SET valide = '1' WHERE id = ?");
 	        $requete->execute( array( $this->getInstance()->getId()) );
 
@@ -190,6 +194,9 @@
         }
 
 
+
+
+        /* Permet a l'utilisateur de commenter le produit qu'il a acheté */
         public function commentaire($id_utilisateur,$id_produit, $commentaire){
             global $bdd;
             $requete = $bdd->prepare("SELECT id_produit FROM ( commande_produit INNER JOIN  commande ON id_commande = commande.id) WHERE id_produit = ? AND valide = '1' ");
@@ -220,13 +227,17 @@
     
 
     /*
-
+    $commande = Commande::getInstance();
+>>>>>>> Fonctionalite ancienne version
     $commande->ajoutBdd(89);
     $commande->ajoutProduit(137);
     /*$commande->ajoutProduit(83);
     $commande->ajoutProduit(87);*/
     
-    /*$commande->valide_commande("fggh");
+   
+    /*
+    $commande->valide_commande("fggh");
+>>>>>>> Fonctionalite ancienne version
    /* $commande->commentaire(89,79,"MJ toujours au top!");
     $commande->commentaire(89,83,"MJ king of pop");
     $commande->commentaire(89,56,"MJ n'est pas mort");

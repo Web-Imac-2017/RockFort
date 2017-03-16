@@ -51,6 +51,7 @@
 
         /* Selection des adresses d'un utilisateur en fonction de la table adresse et commande_utilisateur*/
 
+
         public function mesAdresseLivraison(){
             global $bdd;
 
@@ -61,9 +62,8 @@
             print_r($resultat);
 
         }
-
-
-               
+    
+        
         public function connexion_client($mdp, $mail){
             $this->connexion( "client", $mdp, $mail);
         }
@@ -72,10 +72,10 @@
             $this->deconnexion( "client", $mdp, $mail);
         }
 
-        
+
          public function ajoutBdd(){
             global $bdd;
-
+            /*  Selection de l'id d'un client en fonction son mail et de son type 'client' dans la table utilisateur */ 
             $requete = $bdd->prepare("SELECT id FROM utilisateur WHERE mail = ? AND type = 'client' ");
 
             $requete->execute( array( $this->getMail() ) );
@@ -154,6 +154,5 @@
     $client->acheter("ghjh");
     $client->mesAdresseLivraison();
     */
-
     
     ?>

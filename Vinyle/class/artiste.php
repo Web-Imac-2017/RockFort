@@ -72,5 +72,6 @@
     $artiste->ajoutBdd();
     echo $artiste->getId();
     */
+
 ?> 
 
