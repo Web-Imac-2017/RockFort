@@ -13,20 +13,10 @@ class ReadController extends AppController {
         $this->loadModel("Utilisateur");
     }
 
-    public function index(){
-        $content = "Je suis la homepage";
-        $dab = [1, 2, 3];
-        $id = 12;
-        $test = $this->Article->test();
-        echo json_encode($test);
-//        $this->render("App.View.pages.index", compact('content', 'dab', 'id', 'test'));
-//        $this->render("pages.index", compact('content', 'dab', 'id', 'test'));
-    }
-
     public function products(){
         //Récupérer tous les produits + artistes
         $products = $this->Produit->getAll();
-        echo json_encode($products); 
+        echo json_encode($products);
     }
 
     public function products_id($id){
@@ -86,15 +76,3 @@ class ReadController extends AppController {
     }
 
 }
-
-/* $errors = false;
-        if (!empty($_POST)) {
-            $auth = new DBAuth(App::getInstance()->getDb());
-            if ($auth->login($_POST['username'], $_POST['password'])) {
-                header('Location: index.php?p=admin.test.index');
-            } else {
-                $errors = true;
-            }
-        }
-        $this->render('users.login', compact('errors'));
-*/
