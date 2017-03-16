@@ -64,7 +64,7 @@ export default{
     })
   },
   mounted () {
-    this.$http.get('http://localhost:80/vinyleStore/RockFort/api/articles').then((response) => {
+    this.$http.get('http://localhost:80/vinylestore/api/articles').then((response) => {
       console.log("success", response)
       this.articles = response.data
     }, (response) => {

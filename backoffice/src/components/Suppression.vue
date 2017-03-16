@@ -34,7 +34,7 @@
 
             <div id="success-platine" class="addform" style="display:none;" >
              
-              <div v-if="platine.type == 'platines'" v-for="platine in products" class="col-md-6 select-item">
+              <div v-if="platine.type == 'platines'" v-for="platine in platines" class="col-md-6 select-item">
                 <button type="button" class="btn btn-default" onclick="window.location.href='/'">
                   <div class="col-md-5 img-container"><img :src="platine.image"></div>
                   <div class="col-md-7">
@@ -58,7 +58,7 @@
 
             <div id="success-article" class="addform" style="display:none;">
 
-               <div v-if="article.type == 'articles'" v-for="article in products" class="col-md-6 select-item">
+               <div v-if="article.type == 'articles'" v-for="article in articles" class="col-md-6 select-item">
                 <button type="button" class="btn btn-default" onclick="window.location.href='/'">
                   <div class="col-md-5 img-container"><img :src="article.image"></div>
                   <div class="col-md-7">
@@ -84,17 +84,33 @@
       NavComponent
     },
 
-    data() {
+     data() {
       return {
-        products: []
+        products: [],
+        platines: [],
+        articles: []
       }
     },
 
     mounted () {
-      this.$http.get('/src/test.json').then((response) => 
+      this.$http.get('http://localhost:80/vinylestore/api/products').then((response) => 
       {
         console.log("success", response.data)
         this.products = response.data
+      }, (response) => {
+        console.log("erreur", response)
+      })
+      this.$http.get('http://localhost:80/vinylestore/api/platines').then((response) => 
+      {
+        console.log("success", response.data)
+        this.platines = response.data
+      }, (response) => {
+        console.log("erreur", response)
+      })
+      this.$http.get('http://localhost:80/vinylestore/api/articles').then((response) => 
+      {
+        console.log("success", response.data)
+        this.articles = response.data
       }, (response) => {
         console.log("erreur", response)
       })

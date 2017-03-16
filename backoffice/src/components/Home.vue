@@ -4,7 +4,7 @@
     <div>
 
       <div class="body col-md-10 col-md-offset-2">
-        <h1 id="welcome">Bienvenue, Qaurantain !</h1>
+        <h1 id="welcome">Bienvenue !</h1>
 
         <h2 class="midtitle">État des stocks :</h2>
 
@@ -38,7 +38,7 @@
 
         <div id="stock-platines" class="addform" style="display:none;" >
 
-          <div v-if="platine.type == 'platines'" v-for="platine in products" class="col-md-4">
+          <div v-if="platine.type == 'platines'" v-for="platine in platines" class="col-md-4">
             <button type="button" class="btn btn-default" v-bind:class="colorChanger(platine.stock)">
               <div class="col-md-5 img-container"><img :src="platine.image"></div>
               <div class="col-md-7">
@@ -80,14 +80,23 @@
 
     data() {
       return {
-        products: []
+        products: [],
+        platines: []
       }
     },
 
     mounted () {
-      this.$http.get('/src/test.json').then((response) => 
+      this.$http.get('http://localhost:80/vinylestore/api/products').then((response) => 
       {
+        console.log("success", response)
         this.products = response.data
+      }, (response) => {
+        console.log("erreur", response)
+      })
+      this.$http.get('http://localhost:80/vinylestore/api/platines').then((response) => 
+      {
+        console.log("success", response)
+        this.platines = response.data
       }, (response) => {
         console.log("erreur", response)
       })

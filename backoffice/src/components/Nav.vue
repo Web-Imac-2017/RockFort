@@ -1,7 +1,7 @@
 <template>
 	<div class="menu col-md-2">
 
-      <router-link to="/accueil"><img class="logo" src="../assets/imgs/logo.png"></router-link>
+      <router-link to="/accueil"><img class="logo" src="src/assets/imgs/logo.png"></router-link>
 
       <h3 class="navtitle">Contenu</h3>
       <div class="sidebar-nav">
