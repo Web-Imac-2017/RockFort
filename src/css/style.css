@@ -729,6 +729,10 @@ h1 {
   margin: 0;
 }
 
+#listProduct p.vinylTitle {
+  font-size: 20px;
+}
+
 #listProduct p.vinylTitle, #listProduct p.price {
   font-family: "covesBold";
 }

@@ -40,8 +40,8 @@
                 <button class="formLoginButton" v-on:click="registerToggle">Je m'inscris !</button>
                 <h2>Se connecter</h2>
                 <form  v-on:submit.prevent="onSubmit()">
-                  <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
-                  <input type="password" v-model="formUser.password" placeholder="mot de passe" />
+                  <input type="text" v-model="email" placeholder="adresse e-mail" />
+                  <input type="password" v-model="password" placeholder="mot de passe" />
                   <button class="formLoginButton" value="submit" :disabled="loggingIn" >Je me connecte</button>
                 </form>
               </div>
@@ -53,10 +53,10 @@
                 <button class="closeformLoginButton" v-on:click.prevent="registerToggle">X</button>
                 <h2>Inscription</h2>
                 <form  v-on:submit.prevent="onSubmit()">
-                  <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
-                  <input type="password" v-model="formUser.password" placeholder="mot de passe" />
-                  <input type="password" v-model="formUser.passwordconf" placeholder="mot de passe" />
-                  <button class="formLoginButton" value="submit" :disabled="loggingIn" >Je m'inscris !</button>
+                  <input type="text" v-model="email" placeholder="adresse e-mail" />
+                  <input type="password" v-model="password" placeholder="mot de passe" />
+                  <input type="password" v-model="passwordconf" placeholder="Confirmer mot de passe" />
+                  <button class="formLoginButton" value="submit" :disabled="loggingIn">Je m'inscris !</button>
                 </form>
               </div>
             </div>
@@ -84,6 +84,7 @@
 <script >
 import { Bus } from './bus.js';
 import ShoppingCart from './ShoppingCart.vue'
+import jsSHA from './sha256.js'
 
 export default{
   components: {
@@ -95,10 +96,10 @@ export default{
       isActiveConnexion: true,
       isActiveRegister: true,
 
-      formUser: {
-        email: null,
-        password: null
-      },
+      email: null,
+      password: null,
+      passwordconf: null,
+
       alerts: [],
       loggingIn: false
     }
@@ -127,6 +128,15 @@ export default{
   computed:{
     loggedIn () {
       return this.$root.authenticated
+    },
+    isValid: function() {
+      return (this.email.indexOf(' ') < 0) && (this.password.indexOf(' ') < 0);
+    },
+    isComplete: function() {
+      return (this.email != '') && (this.password != '');
+    },
+    isSimilar: function() {
+      return this.password === this.passwordconf;
     }
   },
   methods: {
@@ -152,33 +162,21 @@ export default{
       this.isActiveRegister = !this.isActiveRegister;
       return this.isActiveRegister;
     },
-
-    onSubmit () {
-      this.loggingIn = true
-      this.$http.post('http://demo8495022.mockable.io/', this.formUser).then((response) => {
-        localStorage.setItem('jwt-token', response.json()['token'])
-        this.getUserData()
-      }, (response) => {
-        this.alerts = []
-        if (response.status === 401) {
-          this.alerts.push({
-            type: 'danger',
-            message: 'Sorry, you provided invalid credentials'
-          })
-        }
-        this.loggingIn = false
-      })
-    },
-
-    getUserData () {
-      this.$http.get('/src/jsonTestUser.json').then((response) => {
-        console.log("lol2");
-        Bus.$emit('userLoggedIn', response.json()['data'])
-        console.log("lol3");
-        this.isActive = !this.isActive;
-      }, (response) => {
-        console.log(response)
-      })
+    onSubmit() {
+        console.log("lol");
+        if(!this.isValid || !this.isComplete || !this.isSimilar) return;
+        var shaObj = new jsSHA('SHA-256', 'TEXT');
+        this.$http.post(ROUTE, {
+          email: this.email,
+          passwordHash: shaObj.getHash('HEX')
+        }).then(function(res) {
+          if(res.status == 200 && res.data.success) {
+            console.log('Added.');
+            isActiveRegister = true
+          } else {
+            console.log('Error.');
+          }
+        });
     }
   }
 }
