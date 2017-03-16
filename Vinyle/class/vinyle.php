@@ -15,9 +15,7 @@
         }
     }
     
-   
-
-
+    /*
     $nom = "This time around";
     $image = "image";
     $musique = "musique";
@@ -30,4 +28,5 @@
 
     $vinyle = new Vinyle($nom,$image,$musique,$prix,$tag,$artiste,$description,"pop");
     $vinyle->ajoutBddVinyle();
+    */
 ?>

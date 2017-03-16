@@ -25,6 +25,7 @@
             $this->stock = array();
         }
 
+        /* crée une intance de magasin si inexistante   */
         public static function getInstance($superAdmin){
             if (self::$instance == null){
                 self::$instance = new Magasin($superAdmin);
@@ -156,7 +157,7 @@
 
         }
 
-
+        /* Verifie le stock des produits et envoie un mail a l'admin s'il est inférieur a 10 */
         public function stock($type,$nom,$description,$image,$musique,$prix){
             global $bdd;
 
@@ -205,6 +206,7 @@
 
     }
 
+    /*
     $superAdmin = new superAdmin("Miles","Miles","Morales","Milkjjes","maiiiljh");
     
     $admin = new Admin("Walter","Peter","Payrker","Peter","maiggl");
@@ -226,7 +228,7 @@
 
     $magasin->selectGenre("pop");
     //$magasin->allProduit();
-
+    */
 
 ?>
         

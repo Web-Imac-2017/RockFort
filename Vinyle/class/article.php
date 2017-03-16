@@ -31,6 +31,7 @@
             return $this->tag;
         }
 
+        /* met à jour le nom de l'article */
         public function setNom($nom){
         	global $bdd;
 
@@ -42,7 +43,7 @@
 
         }
 
-
+        /* met à jour le texte de l'article */
         public function setText($text){
         	global $bdd;
 
@@ -52,6 +53,7 @@
             $this->text = $text;
         }
 
+        /* met à jour les images de l'article*/
         public function setImage($image){
             global $bdd;
 
@@ -62,7 +64,7 @@
 
         }
 
-
+        /* Ajout d'un article dans la bdd*/
         public function ajoutBdd(){
         	global $bdd;
 
@@ -70,15 +72,16 @@
 
             $requete->execute( array( $this->getNom(), $this->getText(), $this->getImage() ) );
             $resultat = $requete->fetch();
-
+            /* verifie si l'article est deja present dans la bdd*/ 
             if($resultat != NULL)
                 echo "Article déjà présent";
 
             else{
-
+                /* Insere dans la table article les données de l'article */
                 $requete = $bdd->prepare("INSERT INTO article VALUES ('',?,?,?)");
                 $requete->execute( array( $this->getNom(), $this->getText(), $this->getImage() ) );
-
+                
+                /*selectionne le dernier id de la table */ 
                 $requete = $bdd->prepare("SELECT MAX(id) FROM article");
                 $requete->execute( array() );
                 $this->setId($requete->fetchColumn());
@@ -113,7 +116,7 @@
    
     }
 
-
+    /*
     $nom = "Death Row vs Bad Boy" ;
     $text = "Tupac et Biggie";
     $image = "imagic";
@@ -122,5 +125,5 @@
     $article->ajoutBdd();
     //echo $article->getId();
     $article->setImage("East Coast vs West Coast");
-
+    */
     
