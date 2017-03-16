@@ -56,6 +56,65 @@ h1 {
   color: #fff;
 }
 
+/* ALL */
+.quantitySelector, .addToCart {
+  background-color: #269be7;
+  text-align: center;
+  color: white;
+  height: 50px;
+  border: none;
+  line-height: 50px;
+  cursor: pointer;
+  margin: 10px 0 50px 0;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.quantitySelector:hover, .addToCart:hover {
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.inc, .dec {
+  background-color: #54b0ec;
+  text-align: center;
+  color: white;
+  font-size: 1.3em;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 40px;
+  margin: 10px 10px 50px 0;
+}
+
+.inc:hover, .dec:hover {
+  background-color: #269be7;
+}
+
+.del {
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  font-size: 1.3em;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 40px;
+  margin: 10px 10px 50px 0;
+}
+
+.del img {
+  width: 20px;
+}
+
+.del:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
 /*NAV*/
 .navbar {
   background-color: #fff;
@@ -114,12 +173,12 @@ h1 {
 .navbar ul a, .navbar ul .total {
   font-size: 20px;
   color: #000;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 @media screen and (min-width: 995px) {
   .navbar ul a, .navbar ul .total {
-    padding: 0 20px;
+    padding: 0 10px;
   }
 }
 
@@ -272,7 +331,7 @@ h1 {
 }
 
 #subMenu div.card {
-  height: 420px;
+  height: 65vh;
 }
 
 #subMenu div.card:hover .cardBg, #subMenu div .cardEvent:hover .cardBg {
@@ -513,13 +572,6 @@ h1 {
   font-size: 2em;
 }
 
-#productPage .quantitySelector, #productPage .addToCart {
-  background-color: #269be7;
-  text-align: center;
-  color: white;
-  height: 50px;
-}
-
 #productPage .quantity {
   line-height: 50px;
   font-size: 1.3em;
@@ -527,13 +579,6 @@ h1 {
 
 #productPage .incrButton, #productPage .decrButton {
   line-height: 25px;
-  cursor: pointer;
-}
-
-#productPage .addToCart {
-  border: none;
-  line-height: 50px;
-  letter-spacing: 3px;
   cursor: pointer;
 }
 
@@ -638,24 +683,6 @@ h1 {
 
 #listProduct p.bandName {
   font-size: 14px;
-}
-
-#listProduct button.inc, #listProduct button.dec, #listProduct button.addToCart {
-  width: 100%;
-  border: none;
-  background-color: #269be7;
-  text-align: center;
-  color: white;
-  height: 35px;
-  line-height: 35px;
-  cursor: pointer;
-  margin-bottom: 50px;
-}
-
-@media screen and (max-width: 767px) {
-  #listProduct button.inc, #listProduct button.dec {
-    margin-bottom: 0;
-  }
 }
 
 .sortBar {
@@ -823,10 +850,10 @@ h1 {
   cursor: pointer;
   padding: 15px 25px;
   margin-left: 50px;
+  font-size: 18px;
 }
 
 #abonnement .banner .callToAction button.offer {
-  font-size: 15px;
   background-color: transparent;
   color: #269be7;
   border: 1px solid #269be7;
@@ -906,6 +933,13 @@ h1 {
   border-color: #269be7;
 }
 
+#abonnement #boxes .boxContent .boxChoice button {
+  font-size: 18px;
+  padding: 5px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
 #abonnement #boxes .boxContent .info {
   background-color: rgba(245, 245, 245, 0.7);
   padding: 10px;
@@ -918,6 +952,11 @@ h1 {
   font-size: 13px;
 }
 
+.cart .item .inc, .cart .item .dec, .cart .item .del {
+  height: 100%;
+  margin: 0;
+}
+
 .cart img.itemImg {
   width: 100%;
 }
@@ -927,7 +966,7 @@ h1 {
 }
 
 .cart ul.dropdown-cart {
-  min-width: 250px;
+  min-width: 310px;
 }
 
 .cart ul.dropdown-cart li .item {
@@ -972,10 +1011,6 @@ h1 {
 
 .cart ul.dropdown-cart li .item-right {
   float: right;
-}
-
-.cart ul.dropdown-cart li .item-right button {
-  margin-top: 14px;
 }
 
 /* Basket */
@@ -1113,18 +1148,6 @@ h1 {
 
 #cartPage .basket .itemCard {
   margin-bottom: 25px;
-}
-
-#cartPage .basket .itemCard .inc, #cartPage .basket .itemCard .dec {
-  background-color: #269be7;
-  text-align: center;
-  color: white;
-  font-size: 1.3em;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  width: 40px;
-  margin: 10px 10px 0 0;
 }
 
 #cartPage .basket .itemCard .title, #cartPage .basket .itemCard .qty {

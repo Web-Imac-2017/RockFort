@@ -4,13 +4,14 @@
       <span class="item-left">
         <img :src="item.img" alt="" class="itemImg">
         <span class="item-info">
-          <span class="title">{{ item.vinylTitle }}</span>
+          <span class="title">{{ item.productTitle }}</span>
           <span class="qty">{{ item.qty }} x {{ item.price }}€</span>
         </span>
       </span>
       <span class="item-right">
         <button class="inc" @click="inc">+</button>
         <button class="dec" @click="dec">-</button>
+        <button class="del" @click="del"><img src="/src/assets/imgs/delete.png" alt=""></button>
       </span>
     </span>
   </li>
@@ -36,6 +37,9 @@ export default {
     },
     dec() {
       CartState.dec(this.item)
+    },
+    del() {
+      CartState.del(this.item)
     }
   }
 }
