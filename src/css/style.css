@@ -219,7 +219,7 @@ h1 {
 }
 
 .navbar .connexion .connexion-box {
-  height: 400px;
+  height: 420px;
   background-color: #fff;
 }
 
@@ -228,7 +228,7 @@ h1 {
 }
 
 .navbar .connexion .connexion-box .top-title {
-  padding-top: 50px;
+  padding-top: 25px;
 }
 
 .navbar .connexion .connexion-box h2 {
@@ -245,8 +245,14 @@ h1 {
   width: 100%;
 }
 
-.navbar .connexion .connexion-box .close {
-  float: right;
+@media screen and (max-width: 768px) {
+  .navbar .connexion {
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: #fff;
+    padding-top: 0px;
+  }
 }
 
 .navbar .register {
@@ -269,7 +275,7 @@ h1 {
 }
 
 .navbar .register .register-box h2 {
-  padding-top: 50px;
+  padding-top: 25px;
   text-align: center;
 }
 
@@ -279,8 +285,14 @@ h1 {
   width: 100%;
 }
 
-.navbar .register .register-box .close {
-  float: right;
+@media screen and (max-width: 768px) {
+  .navbar .register {
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    background-color: #fff;
+    padding-top: 0px;
+  }
 }
 
 .navbar .connexionHidden {
@@ -299,6 +311,46 @@ h1 {
   .navbar .hidden-xl {
     display: block;
   }
+}
+
+.formLoginButton {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #269be7;
+  background-color: #269be7;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 15px 25px;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.formLoginButton:hover {
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.closeformLoginButton {
+  position: absolute;
+  right: 0px;
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  margin-bottom: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.closeformLoginButton:hover {
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
 }
 
 /*SUBMENU*/
@@ -675,6 +727,10 @@ h1 {
 
 #listProduct p {
   margin: 0;
+}
+
+#listProduct p.vinylTitle {
+  font-size: 20px;
 }
 
 #listProduct p.vinylTitle, #listProduct p.price {

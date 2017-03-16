@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <div class="col-md-3 col-xs-6">
+    <div class="col-md-4 col-sm-6 col-xs-6">
       <div class="vinyleItem">
         <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
       </div>

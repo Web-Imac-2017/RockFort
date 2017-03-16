@@ -35,14 +35,14 @@
           <div class="connexion" v-bind:class="{ connexionHidden: isActiveConnexion }">
             <div class="container">
               <div class="col-md-offset-4 col-md-4 connexion-box">
-                <button class="close" v-on:click.prevent="connexionToggle">CLOSE</button>
+                <button class="closeformLoginButton" v-on:click.prevent="connexionToggle">X</button>
                 <h2 class="top-title">Pas de compte ?</h2>
-                <button class="register-link" v-on:click="registerToggle">Je m'inscris !</button>
+                <button class="formLoginButton" v-on:click="registerToggle">Je m'inscris !</button>
                 <h2>Se connecter</h2>
                 <form  v-on:submit.prevent="onSubmit()">
-                  <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
-                  <input type="password" v-model="formUser.password" placeholder="mot de passe" />
-                  <button value="submit" :disabled="loggingIn" >CONNEXION</button>
+                  <input type="text" v-model="email" placeholder="adresse e-mail" />
+                  <input type="password" v-model="password" placeholder="mot de passe" />
+                  <button class="formLoginButton" value="submit" :disabled="loggingIn" >Je me connecte</button>
                 </form>
               </div>
             </div>
@@ -50,13 +50,13 @@
           <div class="register" v-bind:class="{ registerHidden: isActiveRegister }">
             <div class="container">
               <div class="col-md-offset-4 col-md-4 register-box">
-                <button class="close" v-on:click.prevent="registerToggle">CLOSE</button>
+                <button class="closeformLoginButton" v-on:click.prevent="registerToggle">X</button>
                 <h2>Inscription</h2>
                 <form  v-on:submit.prevent="onSubmit()">
-                  <input type="text" v-model="formUser.email" placeholder="adresse e-mail" />
-                  <input type="password" v-model="formUser.password" placeholder="mot de passe" />
-                  <input type="password" v-model="formUser.passwordconf" placeholder="mot de passe" />
-                  <button value="submit" :disabled="loggingIn" >Je m'inscris !</button>
+                  <input type="text" v-model="email" placeholder="adresse e-mail" />
+                  <input type="password" v-model="password" placeholder="mot de passe" />
+                  <input type="password" v-model="passwordconf" placeholder="Confirmer mot de passe" />
+                  <button class="formLoginButton" value="submit" :disabled="loggingIn">Je m'inscris !</button>
                 </form>
               </div>
             </div>
@@ -71,7 +71,10 @@
             <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link></li>
             <li><router-link to="/abonnement">Abonnement</router-link></li>
             <li><router-link to="/story/tout/date-desc">La Story</router-link></li>
-            <span class="hidden-md hidden-xl"><ShoppingCart></ShoppingCart></span>
+            <li class='hidden-md hidden-xl' v-on:click="connexionToggle" v-if="loggedIn"><router-link to="">Se déconnecter</router-link></li>
+            <li class='hidden-md hidden-xl' v-on:click="connexionToggle" v-else><router-link to="">Se connecter</router-link></li>
+            <li class='hidden-md hidden-xl' v-on:click="registerToggle"><router-link to="">Créer mon compte</router-link></li>
+            <li><span class="hidden-md hidden-xl"><ShoppingCart></ShoppingCart></span></li>
           </ul>
         </div>
       </div>
@@ -81,6 +84,7 @@
 <script >
 import { Bus } from './bus.js';
 import ShoppingCart from './ShoppingCart.vue'
+import jsSHA from './sha256.js'
 
 export default{
   components: {
@@ -92,10 +96,10 @@ export default{
       isActiveConnexion: true,
       isActiveRegister: true,
 
-      formUser: {
-        email: null,
-        password: null
-      },
+      email: null,
+      password: null,
+      passwordconf: null,
+
       alerts: [],
       loggingIn: false
     }
@@ -124,6 +128,15 @@ export default{
   computed:{
     loggedIn () {
       return this.$root.authenticated
+    },
+    isValid: function() {
+      return (this.email.indexOf(' ') < 0) && (this.password.indexOf(' ') < 0);
+    },
+    isComplete: function() {
+      return (this.email != '') && (this.password != '');
+    },
+    isSimilar: function() {
+      return this.password === this.passwordconf;
     }
   },
   methods: {
@@ -149,33 +162,21 @@ export default{
       this.isActiveRegister = !this.isActiveRegister;
       return this.isActiveRegister;
     },
-
-    onSubmit () {
-      this.loggingIn = true
-      this.$http.post('http://demo8495022.mockable.io/', this.formUser).then((response) => {
-        localStorage.setItem('jwt-token', response.json()['token'])
-        this.getUserData()
-      }, (response) => {
-        this.alerts = []
-        if (response.status === 401) {
-          this.alerts.push({
-            type: 'danger',
-            message: 'Sorry, you provided invalid credentials'
-          })
-        }
-        this.loggingIn = false
-      })
-    },
-
-    getUserData () {
-      this.$http.get('/src/jsonTestUser.json').then((response) => {
-        console.log("lol2");
-        Bus.$emit('userLoggedIn', response.json()['data'])
-        console.log("lol3");
-        this.isActive = !this.isActive;
-      }, (response) => {
-        console.log(response)
-      })
+    onSubmit() {
+        console.log("lol");
+        if(!this.isValid || !this.isComplete || !this.isSimilar) return;
+        var shaObj = new jsSHA('SHA-256', 'TEXT');
+        this.$http.post(ROUTE, {
+          email: this.email,
+          passwordHash: shaObj.getHash('HEX')
+        }).then(function(res) {
+          if(res.status == 200 && res.data.success) {
+            console.log('Added.');
+            isActiveRegister = true
+          } else {
+            console.log('Error.');
+          }
+        });
     }
   }
 }

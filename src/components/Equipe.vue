@@ -18,19 +18,19 @@
 								<div class="col-md-4 profilecard">
 									<h3>Pauline</h3>
 									<h2>Chef de projet</h2>
-									<div class="col-md-12"><img src="../assets/imgs/pauline.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/pauline.jpg"></div>
 									<h2>Album préféré : Kick - INXS</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Corentin</h3>
 									<h2>Développeur front-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/corentin.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/corentin.jpg"></div>
 									<h2>Album préféré : For Now I Am Winter - Olafur Arnalds</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Henri</h3>
 									<h2>Développeur front-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/henri.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/henri.jpg"></div>
 									<h2>Album préféré : Body Riddle - Clark</h2>
 								</div>
 							</div>
@@ -38,19 +38,19 @@
 								<div class="col-md-4 profilecard">
 									<h3>Arthur</h3>
 									<h2>Graphiste</h2>
-									<div class="col-md-12"><img src="../assets/imgs/arthur.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/arthur.jpg"></div>
 									<h2>Album préféré : Rubber Soul - The Beatles</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Victor</h3>
 									<h2>Développeur back-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/victor.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/victor.jpg"></div>
 									<h2>Album préféré : All Hope Is Gone - Slipknot</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Alexane</h3>
 									<h2>Développeur back-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/alexane.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/alexane.jpg"></div>
 									<h2>Album préféré : Paramore - Paramore</h2>
 								</div>
 							</div>
@@ -58,19 +58,19 @@
 								<div class="col-md-4 profilecard">
 									<h3>Mathieu</h3>
 									<h2>Développeur back-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/mat.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/mat.jpg"></div>
 									<h2>Album préféré : History - Michael Jackson</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Fazlullah</h3>
 									<h2>Développeur back-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/faz.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/faz.jpg"></div>
 									<h2>Album préféré : Absolution - Muse</h2>
 								</div>
 								<div class="col-md-4 profilecard">
 									<h3>Délio</h3>
 									<h2>Développeur back-end</h2>
-									<div class="col-md-12"><img src="../assets/imgs/delio.jpg"></div>
+									<div class="col-md-12"><img src="/../assets/imgs/delio.jpg"></div>
 									<h2>Album préféré : Recovery - Eminem</h2>
 								</div>
 							</div>

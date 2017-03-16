@@ -146,6 +146,7 @@ import CartState from '../shoppingCartState'
 export default{
 	data () {
 		return{
+			shownProduct: [],
 			products: [],
 			commentaires: [],
 			commentLimit:3,
@@ -160,6 +161,12 @@ export default{
 		this.$http.get('http://localhost:80/vinylestore/api/products/').then((response) => {
 			console.log("success", response)
 			this.products = response.data
+		}, (response) => {
+			console.log("erreur", response)
+		})
+		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products/'+window.location.pathname.split('/').pop()).then((response) => {
+			console.log("success", response)
+			this.shownProduct = response.data
 		}, (response) => {
 			console.log("erreur", response)
 		})
@@ -185,7 +192,7 @@ export default{
 		},
 
 		addToCart() {
-			CartState.addMultiple(this.products[parseInt(window.location.pathname.split('/').pop())-1], this.quantity)
+			CartState.addMultiple(this.shownProduct, this.quantity)
 		},
 
 		selectProduct(limit, update){
