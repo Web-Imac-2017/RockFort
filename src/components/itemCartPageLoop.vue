@@ -2,7 +2,7 @@
   <div class="itemCard">
     <div class="row">
       <div class="col-md-5">
-        <img :src="item.img" alt="" class="itemImg">
+        <img :src="/vinyle/+item.img" alt="" class="itemImg">
       </div>
       <div class="col-md-7">
         <div class="row">

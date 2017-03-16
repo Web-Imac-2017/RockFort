@@ -8,10 +8,10 @@ Vue.use(VueRouter)
 const router = new VueRouter({
 	mode: 'history',
 	routes: [{
-		path:'/vinyle',
+		path:'/vinyle/',
 		component: require('./components/Home.vue')
 	}, {
-		path:'/store',
+		path:'/store/',
 		component: require('./components/Store.vue')
 	}, {
 		path:'/recherche',

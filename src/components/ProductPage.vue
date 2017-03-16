@@ -6,7 +6,7 @@
 					<div v-for="product in selectProduct(1, false)" class="col-md-8 col-md-offset-2">
 						<div class="row">
 							<div class="col-md-6">
-								<img class="vinyleImg" :src="product.image" />
+								<img class="vinyleImg" :src="/vinyle/+product.image" />
 							</div>
 							<div class="col-md-6">
 								<h1 class="vinyleTitle">{{product.nom}}</h1>
@@ -26,10 +26,10 @@
 										<div class="quantitySelector">
 									    <div class="col-md-6">
 									      <div class="row">
-									        <div class="incrButton" @click="inc()"><img src="/src/assets/imgs/incr.png" width="35%" alt=""></div>
+									        <div class="incrButton" @click="inc()"><img src="/vinyle/src/assets/imgs/incr.png" width="35%" alt=""></div>
 									      </div>
 									      <div class="row">
-									        <div class="decrButton" @click="dec()"><img src="/src/assets/imgs/decr.png" width="35%" alt=""></div>
+									        <div class="decrButton" @click="dec()"><img src="/vinyle/src/assets/imgs/decr.png" width="35%" alt=""></div>
 									      </div>
 									    </div>
 									    <div class="col-md-6">
@@ -62,7 +62,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="desc">
-									{{product.description}}
+									{{product.id}}
 								</div>
 							</div>
 						</div>
@@ -74,7 +74,7 @@
 						<div class="row">
 							<div v-for="product in selectProduct(4, false)" class="col-md-3">
 								<div @click="selectProduct(1,true)" class="vinyleItem">
-									<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
+									<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="/vinyle/+product.image" /></router-link>
 								</div>
 							</div>
 						</div>
@@ -157,13 +157,13 @@ export default{
 		}
 	},
 	mounted () {
-		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products/').then((response) => {
+		this.$http.get('http://corentindechomet.fr/vinyle/api/products').then((response) => {
 			console.log("success", response)
 			this.products = response.data
 		}, (response) => {
 			console.log("erreur", response)
 		})
-		this.$http.get('/src/jsonTestCommentaire.json').then((response) => {
+		this.$http.get('/vinyle/src/jsonTestCommentaire.json').then((response) => {
 			console.log("success", response)
 			this.commentaires = response.data
 		}, (response) => {

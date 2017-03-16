@@ -24,6 +24,7 @@ export default {
     }
   },
   addMultiple(product, quantity){
+    console.log(product.id);
     var occurence = _.find(this.data.cart, ['id', product.id])
     if (typeof occurence != 'object') {
       this.data.cart.push({

@@ -27,11 +27,11 @@
           <div class="social">
             <ul>
               <li>
-                <img src="/src/assets/imgs/facebook.png" /></a></li>
+                <img src="/vinyle/src/assets/imgs/facebook.png" /></a></li>
                 <li>
-                  <img src="/src/assets/imgs/instagram.png" /></a></li>
+                  <img src="/vinyle/src/assets/imgs/instagram.png" /></a></li>
                   <li>
-                    <img src="/src/assets/imgs/twitter.png" /></a></li>
+                    <img src="/vinyle/src/assets/imgs/twitter.png" /></a></li>
                   </ul>
                 </div>
               </div>

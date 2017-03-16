@@ -24,7 +24,7 @@
 									<div class="productList">
 										<div class="col-sm-3 col-xs-6" v-for="product in coupDeCoeur('vinyles','coupdecoeur', 5)">
 											<div class="vinyleItem">
-												<router-link :to="{ name: 'product', params: { type:'vinyles' , id: product.id }}"><img :src="product.image" /></router-link>
+												<router-link :to="{ name: 'product', params: { type:'vinyles' , id: product.id }}"><img :src="/vinyle/+product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -35,7 +35,7 @@
 									<div class="row">
 										<div class="col-xs-12">
 											<div v-for="product in coupDeCoeur('vinyles','coupdecoeur', 1)" class="vinyleItem">
-												<router-link :to="{ name: 'product', params: { type:'vinyles' , id: product.id }}"><img  :src="product.image" /></router-link>
+												<router-link :to="{ name: 'product', params: { type:'vinyles' , id: product.id }}"><img  :src="/vinyle/+product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -70,7 +70,7 @@
 									<div class="productList">
 										<div class="col-xs-6 col-md-3" v-for="product in coupDeCoeurPlatines('platines', 'coupdecoeur' , 5)">
 											<div class="vinyleItem">
-												<router-link :to="{ name: 'product', params: { type:'platines' , id: product.id }}"><img :src="product.image" /></router-link>
+												<router-link :to="{ name: 'product', params: { type:'platines' , id: product.id }}"><img :src="/vinyle/+product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -99,7 +99,7 @@
 									<div class="productList">
 										<div class="col-sm-3 col-xs-6" v-for="product in coupDeCoeur('coffrets','month', 5)">
 											<div class="vinyleItem">
-												<router-link :to="{ name: 'product', params: { type:'coffrets' , id: product.id }}"><img :src="product.image" /></router-link>
+												<router-link :to="{ name: 'product', params: { type:'coffrets' , id: product.id }}"><img :src="/vinyle/+product.image" /></router-link>
 											</div>
 										</div>
 									</div>
@@ -111,7 +111,7 @@
 										<div class="col-xs-12">
 											<div v-for="product in coupDeCoeur('coffrets','month', 1)" class="vinyleItem">
 												<router-link :to="{ name: 'product', params: { type:'coffrets' , id: product.id }}">
-													<img :src="product.image" />
+													<img :src="/vinyle/+product.image" />
 												</router-link>
 											</div>
 										</div>
@@ -140,13 +140,13 @@ export default {
 		}
 	},
 	mounted () {
-		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => {
+		this.$http.get('http://corentindechomet.fr/vinyle/api/products').then((response) => {
 			console.log("success", response)
 			this.products = response.data
 		}, (response) => {
 			console.log("erreur", response)
 		}),
-		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/platines').then((response) => {
+		this.$http.get('http://corentindechomet.fr/vinyle/api/platines').then((response) => {
 			console.log("success", response)
 			this.platines = response.data
 		}, (response) => {

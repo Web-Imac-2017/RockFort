@@ -6,7 +6,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<router-link to="/store/vinyles/tout/date-desc">
-								<div class="card" style="background: url('src/assets/imgs/vinyles.jpg') center no-repeat; background-size: cover;">
+								<div class="card" style="background: url('/vinyle/src/assets/imgs/vinyles.jpg') center no-repeat; background-size: cover;">
 									<div class="cardBg"></div>
 									<h2>Vinyles</h2>
 								</div>
@@ -14,7 +14,7 @@
 						</div>
 						<div class="col-md-4">
 							<router-link to="/store/platines/tout/date-desc">
-								<div class="card" style="background: url('src/assets/imgs/platines.jpg') center no-repeat; background-size: cover;">
+								<div class="card" style="background: url('/vinyle/src/assets/imgs/platines.jpg') center no-repeat; background-size: cover;">
 									<div class="cardBg"></div>
 									<h2>Platines</h2>
 								</div>
@@ -22,7 +22,7 @@
 						</div>
 						<div class="col-md-4">
 							<router-link to="/store/coffrets/tout/date-desc">
-								<div class="card" style="background: url('src/assets/imgs/coffrets/muse.jpg') center no-repeat; background-size: cover;">
+								<div class="card" style="background: url('/vinyle/src/assets/imgs/coffrets/muse.jpg') center no-repeat; background-size: cover;">
 									<div class="cardBg"></div>
 									<h2>Coffrets</h2>
 								</div>
@@ -37,19 +37,19 @@
 				<div class="row">
 					<div class="col-md-4" v-for="product in selectionOldies()">
 						<router-link v-on:click.native="emitGenreFromHome('oldies')" to="/store/vinyles/oldies/date-desc">
-							<img :src="/product.image" />
+							<img :src="product.image" />
 							<h2>Sélection Oldies</h2>
 						</router-link>
 					</div>
 					<div class="col-md-4" v-for="product in coffretDuMois()">
 						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
-							<img :src="/product.image" />
+							<img :src="product.image" />
 							<h2>Le coffret du mois</h2>
 						</router-link>
 					</div>
 					<div class="col-md-4" v-for="product in selectionNew()">
 						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
-							<img :src="/product.image" />
+							<img :src="product.image" />
 							<h2>Sélection Nouveautés</h2>
 						</router-link>
 					</div>

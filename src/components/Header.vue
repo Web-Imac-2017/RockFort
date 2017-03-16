@@ -64,8 +64,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse nopadding">
           <ul class="nav-content nopadding">
-            <li><router-link to="/">Accueil</router-link></li>
-            <li><router-link to="/store">Le Store</router-link></li>
+            <li><router-link to="/vinyle/">Accueil</router-link></li>
+            <li><router-link to="/store/">Le Store</router-link></li>
             <li @click="emitTypeFromHeader()"><router-link to="/store/vinyles/tout/date-desc">Vinyles</router-link></li>
             <li @click="emitTypeFromHeader()"><router-link to="/store/platines/tout/date-desc">Platines</router-link></li>
             <li @click="emitTypeFromHeader()"><router-link to="/store/coffrets/tout/date-desc">Coffrets</router-link></li>

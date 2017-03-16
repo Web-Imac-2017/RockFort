@@ -2,7 +2,7 @@
   <div class="product">
     <div class="col-md-3 col-xs-6">
       <div class="vinyleItem">
-        <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="product.image" /></router-link>
+        <router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}"><img :src="/vinyle/+product.image" /></router-link>
       </div>
       <div class="row">
         <div class="col-md-12">

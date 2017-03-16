@@ -1,6 +1,6 @@
 <template>
 	<div id="abonnement">
-		<section class="banner" style="background-image: url('/src/assets/imgs/abonnement.jpg')">
+		<section class="banner" style="background-image: url('/vinyle/src/assets/imgs/abonnement.jpg')">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
@@ -40,15 +40,15 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4">
-						<img src="/src/assets/imgs/boxVinyle.png" alt="">
+						<img src="/vinyle/src/assets/imgs/boxVinyle.png" alt="">
 						<p>La sélection du mois</p>
 					</div>
 					<div class="col-md-4">
-						<img src="/src/assets/imgs/mailbox.png" alt="">
+						<img src="/vinyle/src/assets/imgs/mailbox.png" alt="">
 						<p>Directement dans votre boîte au lettre<br>(ou dans celle d'un ami)</p>
 					</div>
 					<div class="col-md-4">
-						<img src="/src/assets/imgs/wowCartoon.png" alt="">
+						<img src="/vinyle/src/assets/imgs/wowCartoon.png" alt="">
 						<p>Recevez une petite surprise en souscrivant pour 12 box :)</p>
 					</div>
 				</div>
@@ -58,10 +58,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-6">
-						<div class="tabButton" :style="styleFormyself()" @click="changeTab()"><img src="/src/assets/imgs/box.png" alt="" style="width: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Je m'abonne</div>
+						<div class="tabButton" :style="styleFormyself()" @click="changeTab()"><img src="/vinyle/src/assets/imgs/box.png" alt="" style="width: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Je m'abonne</div>
 					</div>
 					<div class="col-xs-6">
-						<div class="tabButton" :style="styleOffer()" @click="changeTab()"><img src="/src/assets/imgs/gift.png" alt="" style="width: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;J'offre</div>
+						<div class="tabButton" :style="styleOffer()" @click="changeTab()"><img src="/vinyle/src/assets/imgs/gift.png" alt="" style="width: 40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;J'offre</div>
 					</div>
 				</div>
 				<div class="row">

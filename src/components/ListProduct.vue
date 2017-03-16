@@ -50,7 +50,7 @@ export default{
     }
   },
   mounted () {
-    this.$http.get("http://localhost:80/vinyleStore/RockFort/api/" + this.typeProduit).then((response) => {
+    this.$http.get("http://corentindechomet.fr/vinyle/api/" + this.typeProduit).then((response) => {
       console.log("successRoute", response)
       this.products = response.data
     }, (response) => {
@@ -75,7 +75,7 @@ export default{
   },
   watch: {
     typeProduit: function () {
-      this.$http.get("http://localhost:80/vinyleStore/RockFort/api/" + this.typeProduit).then((response) => {
+      this.$http.get("http://corentindechomet.fr/vinyle/api/" + this.typeProduit).then((response) => {
         console.log("successRoute", response)
         this.products = response.data
       }, (response) => {
