@@ -5,7 +5,7 @@
         <div class="row">
           <ul class="nav-user left">
             <li>
-              <a href="/"><img class="logo" src="/src/assets/imgs/logo.png" style="width:50%;"/></a>
+              <a href="/"><img class="logo" src="src/assets/imgs/logo.png" style="width:50%;"/></a>
             </li>
           </ul>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -27,7 +27,7 @@
             <li>
               <form v-on:keydown.enter.prevent="goToRecherche()">
                 <input type="text" v-model="rechercheString" placeholder="The doors, ACDC, ..." v-on:keyup="emitRechercheHeader()" />
-                <a class="search" href="/"><img class="searchIcon" src="/src/assets/imgs/search.png"/></a>
+                <a class="search" href="/"><img class="searchIcon" src="src/assets/imgs/search.png"/></a>
               </form>
             </li>
             <span class="hidden-xs"><ShoppingCart></ShoppingCart></span>
