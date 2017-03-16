@@ -37,19 +37,19 @@
 				<div class="row">
 					<div class="col-md-4" v-for="product in selectionOldies()">
 						<router-link v-on:click.native="emitGenreFromHome('oldies')" to="/store/vinyles/oldies/date-desc">
-							<img :src="product.image" />
+							<img :src="/product.image" />
 							<h2>Sélection Oldies</h2>
 						</router-link>
 					</div>
 					<div class="col-md-4" v-for="product in coffretDuMois()">
 						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
-							<img :src="product.image" />
+							<img :src="/product.image" />
 							<h2>Le coffret du mois</h2>
 						</router-link>
 					</div>
 					<div class="col-md-4" v-for="product in selectionNew()">
 						<router-link :to="{ name: 'product', params: { type:product.type , id: product.id }}">
-							<img :src="product.image" />
+							<img :src="/product.image" />
 							<h2>Sélection Nouveautés</h2>
 						</router-link>
 					</div>
@@ -125,8 +125,8 @@ export default {
 		}
 	},
 	mounted () {
-		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => {
-			console.log("success", response)
+		this.$http.get('http://corentindechomet.fr/vinyle/api/products').then((response) => {
+			console.log("successRoute", response)
 			this.products = response.data
 		}, (response) => {
 			console.log("erreur", response)

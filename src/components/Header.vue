@@ -5,7 +5,7 @@
         <div class="row">
           <ul class="nav-user left">
             <li>
-              <a href="/"><img class="logo" src="src/assets/imgs/logo.png" style="width:50%;"/></a>
+              <a href="/vinyle"><img class="logo" src="src/assets/imgs/logo.png" style="width:50%;"/></a>
             </li>
           </ul>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -101,7 +101,7 @@ export default{
     }
   },
   mounted () {
-    this.$http.get('/src/jsonTest.json').then((response) => {
+    this.$http.get('src/jsonTest.json').then((response) => {
       this.users = response.data
     }, (response) => {
       console.log("erreur", response)
@@ -168,7 +168,7 @@ export default{
     },
 
     getUserData () {
-      this.$http.get('/src/jsonTestUser.json').then((response) => {
+      this.$http.get('src/jsonTestUser.json').then((response) => {
         console.log("lol2");
         Bus.$emit('userLoggedIn', response.json()['data'])
         console.log("lol3");

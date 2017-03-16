@@ -65,7 +65,7 @@
         </div>
 
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -85,7 +85,7 @@
     },
 
     mounted () {
-      this.$http.get('/src/test.json').then((response) => 
+      this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => 
       {
         this.products = response.data
       }, (response) => {

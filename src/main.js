@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
 	mode: 'history',
 	routes: [{
-		path:'/',
+		path:'/vinyle',
 		component: require('./components/Home.vue')
 	}, {
 		path:'/store',
@@ -61,7 +61,7 @@ const router = new VueRouter({
 		component: require('./components/Mentions.vue')
 	}, {
 		path:'*',
-		redirect: '/'
+		redirect: '/vinyle'
 	}],
 	scrollBehavior (to, from, savedPosition) {
 		return { x: 0, y: 0 }
