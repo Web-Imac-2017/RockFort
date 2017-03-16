@@ -164,7 +164,7 @@ export default{
 		}, (response) => {
 			console.log("erreur", response)
 		})
-		this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products/'+window.location.pathname.split('/').pop()).then((response) => {
+		this.$http.get('http://localhost:80/vinylestore/api/products/'+window.location.pathname.split('/').pop()).then((response) => {
 			console.log("success", response)
 			this.shownProduct = response.data
 		}, (response) => {
