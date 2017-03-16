@@ -86,14 +86,14 @@
     },
 
     mounted () {
-      this.$http.get('http://localhost:80/vinylestore/api/products').then((response) => 
+      this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => 
       {
         console.log("success", response)
         this.products = response.data
       }, (response) => {
         console.log("erreur", response)
       })
-      this.$http.get('http://localhost:80/vinylestore/api/platines').then((response) => 
+      this.$http.get('http://localhost:80/vinyleStore/RockFort/api/platines').then((response) => 
       {
         console.log("success", response)
         this.platines = response.data

@@ -71,8 +71,8 @@
 					<div class="border" >
 						<p class="price">
 							Le secret de la bonne humeur :<br />
-							3 vinyles / mois <br />
-							40€ <br />
+							2 vinyles / mois <br />
+							20€ <br />
 						</p>
 						<p class="hook">
 							Les nouveautés comme les grands classiques dans votre boîte aux lettres.

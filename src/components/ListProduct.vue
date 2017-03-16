@@ -19,7 +19,7 @@
           <product v-for="product in rechercheGeneral(limitProduit)" :product="product"></product>
         </div>
         <div v-if="nombreResultats == 0" class="noresult col-md-offset-3 col-md-6">
-          <h2>Désolé ! nous avons trouvé aucun résultat pour votre recherche !</h2>
+          <h2>Désolé ! Nous n'avons trouvé aucun résultat pour votre recherche !</h2>
           <img src="https://media.giphy.com/media/ZJwrPJzxYjNks/giphy.gif" />
         </div>
       </div>

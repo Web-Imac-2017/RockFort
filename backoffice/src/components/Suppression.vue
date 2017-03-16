@@ -93,21 +93,21 @@
     },
 
     mounted () {
-      this.$http.get('http://localhost:80/vinylestore/api/products').then((response) => 
+      this.$http.get('http://localhost:80/vinyleStore/RockFort/api/products').then((response) => 
       {
         console.log("success", response.data)
         this.products = response.data
       }, (response) => {
         console.log("erreur", response)
       })
-      this.$http.get('http://localhost:80/vinylestore/api/platines').then((response) => 
+      this.$http.get('http://localhost:80/vinyleStore/RockFort/api/platines').then((response) => 
       {
         console.log("success", response.data)
         this.platines = response.data
       }, (response) => {
         console.log("erreur", response)
       })
-      this.$http.get('http://localhost:80/vinylestore/api/articles').then((response) => 
+      this.$http.get('http://localhost:80/vinyleStore/RockFort/api/articles').then((response) => 
       {
         console.log("success", response.data)
         this.articles = response.data
