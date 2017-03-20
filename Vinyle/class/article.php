@@ -41,9 +41,8 @@
             $this->nom = $nom;
         }
 
+
         /* met à jour le texte de l'article */
-
-
         public function setText($text){
         	global $bdd;
 
@@ -75,7 +74,6 @@
             $resultat = $requete->fetch();
 
             /* verifie si l'article est deja present dans la bdd*/ 
-
             if($resultat != NULL)
                 echo "Article déjà présent";
 
@@ -130,3 +128,4 @@
     //echo $article->getId();
     $article->setImage("East Coast vs West Coast");
     */
+

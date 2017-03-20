@@ -11,6 +11,10 @@ class superAdmin{
         
         function __construct($mdp,$nom,$prenom,$mail){
             $this->admin = new Admin($mdp,$nom,$prenom,$mail);
+         private static $instance;
+        
+        function __construct($identifiant,$mdp,$nom,$prenom,$mail){
+            $this->admin = new Admin($identifiant,$mdp,$nom,$prenom,$mail);
             $this->getAdmin()->ajoutBdd();
         }
 
@@ -20,10 +24,10 @@ class superAdmin{
         
         function ajoutAdmin($mdp,$nom,$prenom,$mail){
             $admin = new Admin($mdp,$nom,$prenom,$mail);
+        function ajoutAdmin($identifiant,$mdp,$nom,$prenom,$mail){
+            $admin = new Admin($identifiant,$mdp,$nom,$prenom,$mail);
             $admin->ajoutBdd();
         }
 
     }
-      
-      
 ?>

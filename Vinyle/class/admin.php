@@ -10,11 +10,10 @@
 
         public function __construct($mdp,$nom,$prenom,$mail){
             Utilisateur::__construct($mdp,$nom,$prenom,$mail);
-
         }
 
 
-        /*  Ajout d'un amdinistrateur dans la base de donnée*/
+
         public function getArticle(){
             return $this->article;
         }
@@ -31,7 +30,6 @@
             $resultat = $requete->fetchAll();
 
             /* Verifie si l'administrateur est deja dans la base de donnée*/
-
             if($resultat != NULL)
                 echo "Un administrateur avec les même données existe déjà !";
 
@@ -175,6 +173,7 @@
             $requete->execute( array( $nom_article ) );
         }
 
+         /* ouvre une session avec les données de l'administrateur*/ 
         public function connexion_admin($mdp, $mail){
             $this->connexion( "admin", $mdp, $mail);
         }
@@ -305,6 +304,7 @@
 
     $admin = new Admin("mdp","fffnom","gbprenom","uhmkkkkhail");
     $admin->ajoutBdd()
+ 
 
 ?>
 

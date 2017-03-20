@@ -2,7 +2,7 @@
     include_once '../connexion/connexion.php';
 
     class Artiste{
-        
+
         private $id;
         private $nom;
         private $description;
@@ -72,6 +72,5 @@
     $artiste->ajoutBdd();
     echo $artiste->getId();
     */
-
 ?> 
 

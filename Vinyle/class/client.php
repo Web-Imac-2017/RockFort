@@ -18,8 +18,9 @@
         public function __construct($mdp,$nom,$prenom,$mail,$adresse){
             Utilisateur::__construct($mdp,$nom,$prenom,$mail);
             $this->adresse = $adresse;
-
         }
+
+
 
         public function getAdresse(){
                     return $this->adresse;
@@ -59,10 +60,8 @@
 
             $requete->execute( array( $this->getId() ) );
             $resultat = $requete->fetchColumn();
-            print_r($resultat);
 
         }
-    
         
         public function connexion_client($mdp, $mail){
             $this->connexion( "client", $mdp, $mail);
@@ -73,6 +72,7 @@
         }
 
 
+         /*  Ajout d'un client dans la base de donnée*/
          public function ajoutBdd(){
             global $bdd;
             /*  Selection de l'id d'un client en fonction son mail et de son type 'client' dans la table utilisateur */ 
@@ -156,3 +156,4 @@
     */
     
     ?>
+

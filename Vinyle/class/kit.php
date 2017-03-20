@@ -12,7 +12,6 @@
         }
     }
 
-
     
     /*
     $nom = "This time around";
@@ -28,6 +27,5 @@
 	$vinyle = new Kit($nom,$image,$musique,$prix,$tag,$artiste,$description, "pop");
 	$vinyle->ajoutBddKit();
     */
-
 
 ?>

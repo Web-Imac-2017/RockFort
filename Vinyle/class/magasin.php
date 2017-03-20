@@ -34,40 +34,41 @@
         }
 
         public function getSuperAdmin(){
-            return $this->superAdmin;
+
+        	return $this->superAdmin;
         }
 
         public function getUtilisateur(){
-            return $this->utilisateur;
+        	return $this->utilisateur;
         }
 
         public function getStock(){
-            return $this->stock;
+        	return $this->stock;
         }
 
         public function getMoney(){
-            return $this->money;
+        	return $this->money;
         }
 
         public function ajoutClient($client){
-
             $client->ajoutBdd();
         }
 
-        public function ajoutProduit($admin,$produit){
-            
-            if($produit->getType() == "Vinyle")
-                $produit->ajoutBddVinyle();
 
-            if($produit->getType() == "Kit")
-                $produit->ajoutBddKit();
 
-            if($produit->getType() == "Album")
-                $produit->ajoutBddAlbum();
+        public function ajoutProduit($produit){
+        	
+        	if($produit->getType() == "Vinyle")
+        		$produit->ajoutBddVinyle();
 
-            if($produit->getType() == "Platine")
-                $produit->ajoutBddPlatine();
+        	if($produit->getType() == "Kit")
+        		$produit->ajoutBddKit();
 
+			if($produit->getType() == "Album")
+        		$produit->ajoutBddAlbum();
+
+        	if($produit->getType() == "Platine")
+        		$produit->ajoutBddPlatine();
 
         }
 
